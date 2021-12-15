@@ -1,6 +1,11 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="eng" data-theme="light">
 	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="styles.css">
 		<script>
 			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,46 +15,55 @@
 		</script>
 		<!-- End Google Tag Manager JS Script -->
 	</head>
-	<body>
+	<body class="body">
 		<noscript>
 			<!-- Begin Google Tag Manager (If JS unavailable) -->
 			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P66ZPQN" height="0" width="0" style="display: none; visibility: hidden">
 			</iframe>
 			<!-- End Google Tag Manager (If JS unavailable) -->
 		</noscript>
-		<header>
-			Jan Michael Wallace
-		</header>
-		<nav>
-			<button>Menu <i><span></span><span></span><span></span><span></span></i></button>
+		<nav class="nav">
+			<button class="btn-menu">Menu <i><span></span><span></span><span></span><span></span></i></button>
 		</nav>
-		<main>
-			<article class="landing intro">
+		<main class="main">
+			<div class="elipses" aria-hidden="true"></div>
+			<article class="article landing intro">
+				<header class="header">
+					<h1 class="h1">Jan Michael Wallace</h1>
+				</header>
 				<section class="section one">
-					<figure><img src="1.png" alt="Jan Michael leaning against a wall, folding arms, and smiling."></figure>
-					<h2>Leading along the way.</h2>
-					<p>I’m a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I’ve worked with organizations large and small.</p>
+					<figure class="image-container"><img src="1.png" alt="Jan Michael leaning against a wall, folding arms, and smiling."></figure>
+					<div class="content-block">
+						<h2 class="h2">Leading along the way.</h2>
+						<p class="p">I’m a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I’ve worked with organizations large and small.</p>
+					</div>
 				</section>
 				<section class="section two">
-					<figure><img src="2.png" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop."></figure>
-					<h2>Making the dream work.</h2>
-					<p>I'm currently leading a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
-					<p>Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
+					<figure class="image-container"><img src="2.png" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop."></figure>
+					<div class="content-block">
+						<h2 class="h2">Making the dream work.</h2>
+						<p class="p">I'm currently leading a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
+						<p class="p">Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
+					</div>
 				</section>
 				<section class="section three">
-					<figure><img src="3.png" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation."></figure>
-					<h2>Leaning into the hustle.</h2>
-					<p>I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
-					<p>I come to the office to play hard, get things done, and have a little fun while doing it!</p>
+					<figure class="image-container"><img src="3.png" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation."></figure>
+					<div class="content-block">
+						<h2 class="h2">Leaning into the hustle.</h2>
+						<p class="p">I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
+						<p class="p">I come to the office to play hard, get things done, and have a little fun while doing it!</p>
+					</div>
 				</section>
 				<section class="section four">
-					<figure><img src="" alt=""></figure>
-					<h2>Say hello.</h2>
-					<p>I’m always on the prowl for a new challenge. If you think you’ve got the cure, you can reach me via email at <a href="mailto:hello@janmichael.io">hello@janmichael.io</a>.</p>
+					<div class="content-block">
+						<h2 class="h2">Say hello.</h2>
+						<p class="p">I’m always on the prowl for a new challenge. If you think you’ve got the cure, you can reach me via email at <a href="mailto:hello@janmichael.io">hello@janmichael.io</a>.</p>
+					</div>
 				</section>
 			</article>
 		</main>
 		<footer>
+			<div class="elipses" aria-hidden="true"></div>
 			<section class="links">
 				<ul class="list">
 					<li class="item">
