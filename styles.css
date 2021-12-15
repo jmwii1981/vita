@@ -83,9 +83,59 @@
   width: auto;
 }
 
-.btn-menu {
+.grp {
+  display: flex;
+  gap: 16px;
+}
+.grp.vertical {
+  flex-direction: row;
+}
+.grp.horizontal {
+  flex-direction: column;
+}
+
+.btn {
   appearance: none;
   background-color: #2C2E44;
+  border: 0;
+  border-radius: 50px;
+  text-decoration: none;
+}
+.btn.secondary {
+  background-color: #4F505E;
+}
+.btn:hover, .btn:active {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #393B4F;
+}
+.btn.secondary:hover {
+  background-color: #666773;
+}
+.btn:active, .btn.secondary:active {
+  background-color: #1A1F1F;
+}
+.btn.primary, .btn.secondary {
+  color: #F0F2F2;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  padding: 12px 44px;
+}
+.btn.menu {
+  border-radius: 100%;
+  height: 42px;
+  position: absolute;
+  top: 35px;
+  right: 25px;
+  width: 42px;
+  z-index: 3;
+}
+.btn.menu .label {
+  visibility: hidden;
 }
 
 .article {
@@ -123,6 +173,9 @@
   display: flex;
   flex-direction: column;
 }
+.section .grp {
+  margin-top: 32px;
+}
 .section.one .content-block, .section.two .content-block, .section.three .content-block {
   max-width: 456px;
   width: 50%;
@@ -137,7 +190,6 @@
   flex-direction: row-reverse;
 }
 .section.four {
-  background-color: #F3F6F7;
   justify-content: center;
 }
 .section.four .content-block {
