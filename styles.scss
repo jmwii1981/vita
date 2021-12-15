@@ -75,6 +75,7 @@
 	flex-direction: column;
 	font-family: "Inter", sans-serif;
 	position: relative;
+	width: 100%;
 }
 
 .h2, .p {
@@ -282,16 +283,18 @@
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	max-width: 1000px;
+	overflow: hidden;
 	position: relative;
 	width: 100%;
 }
 
 //article
 .article {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	display: flex;
+	max-width: 1000px;
 	position: relative;
 	gap: 174px;
 	width: 100%;
@@ -300,6 +303,7 @@
 .section {
 	align-items: flex-end;
 	display: flex;
+	gap: 88px;
 	justify-content: space-between;
 
 	.image-container {
