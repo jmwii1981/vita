@@ -1,43 +1,94 @@
-//** COLOR TOKENS **//
+//** TOKENS
+// Additional reading and tools
+// TECH DOC -> https://sass-lang.com/documentation/modules/color#blue
+// TECH DOC -> https://stackoverflow.com/questions/10929458/sass-converting-hex-to-rgba-for-background-opacity
+// READ https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676
+// READ https://uxdesign.cc/defining-colors-in-your-design-system-828148e6210a
+// TOOL https://lyft-colorbox.herokuapp.com/ <- instructions on usage in the immediately above article
+////** COLOR PALETTE (category layer)
+//////** BASE COLORS (value layer; hue HEX values)
+		 // $white
+		 $white: #FFFFFF;
+		 $ghost-white: #F9FAFA;
+		 $cultured: #F3F6F7;
+		 $anti-flash-white: #F0F2F2;
+		 $platinum: #E8E8E8;
+		 $dim-gray: #666773;
+		 $davys-gray: #4F505E;
+		 $dark-charchoal: #303135;
+		 $dark-jungle-green: #1A1F1F;
+		 $arsenic: #393B4F;
+		 $gunmetal: #2C2E44;
+		 $desire: #E13B53;
+		 $vivid-tangelo: #E77B17;
+		 $sunglow: #FFC42E;
+		 $viridian-green: #1496A1;
+		 $cyan-blue-azure: #3275BC;
+		 $grape: #7F32BC;
+//////** LIGHT (extended value layer; i.e. a combination of saturation and brightness HEX values)
+	// nothing added ...
+		 // $white-100
+//////** OPACITY (extended value layer)
+		// Handle with SCSS mix-in
+		@mixin background-color($color, $opacity: 1) {
+			background-color: $color; /* The Fallback */
+			background-color: rgba($color, $opacity);
+		}
+		@mixin border-color($color, $opacity: 1) {
+			border-color: $color; /* The Fallback */
+			border-color: rgba($color, $opacity);
+		}
+		@mixin color($color, $opacity: 1) {
+			color: $color; /* The Fallback */
+			color: rgba($color, $opacity);
+		}
+		// EXAMPLE USAGE:
+		// element {
+		//	@include color(#333, 0.5);
+		// }
 
-//** ... by name **//
-	$white: #FFFFFF; // white-100
-	$ghost-white: #F9FAFA; // white-200
-
-	$cultured: #F3F6F7; // light-gray-100
-	$anti-flash-white: #F0F2F2; // light-gray-200
-
-	$platinum: #E8E8E8; // light-gray-300
-
-	$dim-gray: #666773; // dark-gray-100
-	$davys-gray: #4F505E; // dark-gray-200
-
-	$arsenic: #393B4F; // slate-100
-	$gunmetal: #2C2E44; // slate-200
-
-	$dark-charchoal: #303135; // black-100
-	$dark-jungle-green: #1A1F1F; // black-200
-
-	$desire: #E13B53; // red-100
-	$vivid-tangelo: #E77B17; // orange-100
-	$sunglow: #FFC42E; // yellow-100
-	$viridian-green: #1496A1; // green-100
-	$cyan-blue-azure: #3275BC; // blue-100
-	$grap: #7F32BC; // violet-100
-
-//** ... by usage **//
+////** FONT (category layer; aka type, typography, text)
+	// nothing added ...
+////** SPACE (category layer; aka units, dimension, spacing)
+	// nothing added ...
+////** SIZE (category layer; aka sizing)
+	// nothing added ...
+////** ELEVATION (category layer; aka z-index, layer, layering)
+	// nothing added ...
+////** BREAKPOINTS (category layer; aka media-query, responsive)
+	// nothing added ...
+////** SHADOW (category layer; aka depth)
+	// nothing added ...
+////** TOUCH (category layer)
+	// nothing added ...
+////** TIME (category layer; aka animation, duration)
+	// nothing added ...
 
 	// backgrounds
-	$elipses-background: $cultured;
-	$footer-background: $dark-charchoal;
-	$logo-background: $dark-charchoal;
-	$upper-half-background: $ghost-white;
-	$lower-half-background: $cultured;
+		$elipses-background: $cultured;
+		$footer-background: $dark-charchoal;
+		$logo-background: $dark-charchoal;
+		$upper-half-background: $ghost-white;
+		$lower-half-background: $cultured;
 
 	// text
-	$dark-copy-text: $dark-charchoal;
-	$light-copy-text: $platinum;
-	$light-interactive: $cultured;
+		$dark-copy-text: $dark-charchoal;
+		$light-copy-text: $platinum;
+
+	//links
+	// -- link rest
+		$dark-interactive-rest: $gunmetal;
+		$medium-interactive-rest: $davys-gray;
+		$light-interactive-rest: $cultured;
+	// -- link hover
+		$dark-interactive-hover: $arsenic;
+		$medium-interactive-hover: $dim-gray;
+		$light-interactive-hover: $white;
+	// -- link press
+		$dark-interactive-press: $dark-jungle-green;
+		$medium-interactive-press: $dark-jungle-green;
+		$light-interactive-press: $platinum;
+	// --link visited
 
 	// buttons
 	// -- label rest
@@ -59,7 +110,7 @@
 	$yellow: $sunglow;
 	$green: $viridian-green;
 	$blue: $cyan-blue-azure;
-	$violet: $grap;
+	$violet: $grape;
 
 
 //** STYLES **//
@@ -74,6 +125,7 @@
 	display: flex;
 	flex-direction: column;
 	font-family: "Inter", sans-serif;
+	font-size: 8px;
 	position: relative;
 	width: 100%;
 }
@@ -82,25 +134,25 @@
 	color: $dark-copy-text;
 	align-self: stretch;
 	flex-grow: 0;
-	margin: 16px 0px;
 }
 
 .h2 {
-	font-size: 72px;
+	font-size: 9em;
 	font-weight: 600;
-	line-height: 68.4px;
-	letter-spacing: -0.04em;
+	line-height: 0.88em;
+	letter-spacing: -0.055em;
+	margin: 0.23em 0em; // 16px 0px
 
 	&.large {
-		font-size: 113px;
+		font-size: 14em;
 	}
 }
 
 .p {
-	font-size: 20px;
-	font-weight: normal;
-	line-height: 140%;
-	letter-spacing: 0.004em;
+	font-size: 3em;
+	font-weight: 400;
+	line-height: 1.34em;
+	margin: 0.67em 0em; // 16px 0px
 
 	&:last-child {
 		margin-bottom: 0;
@@ -108,19 +160,65 @@
 }
 
 .a {
-	color: $dark-copy-text;
+	border-width: 0em;
 	font-weight: 500;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:link,
+	&:visited {
+		border-style: dashed;
+		border-bottom-width: 0.0625em;
+	}
+	&:hover,
+	&:focus {
+		border-style: solid;
+	}
+
+	&.light {
+		color: $light-copy-text;
+
+		&:link,
+		&:visited {
+			color: $light-interactive-rest;
+		}
+		&:hover,
+		&:focus {
+			color: $light-interactive-hover;
+		}
+		&:active {
+			color: $light-interactive-press;
+		}
+	}
+	&.dark {
+		color: $dark-copy-text;
+
+		&:link,
+		&:visited {
+			color: $medium-interactive-rest;
+		}
+		&:hover,
+		&:focus {
+			color: $medium-interactive-hover;
+		}
+		&:active {
+			color: $medium-interactive-press;
+		}
+	}
 }
 
 .elipses {
 	background-color: $elipses-background;
 	border-radius: 100%;
 	display: flex;
-	height: 131px;
+	height: 16em;
 	position: absolute;
 		top: 0%;
 		left: 50%;
-	min-width: calc(100% + 320px);
+	min-width: calc(100% + 40em);
 	transform: translate(-50%, -50%);
 	z-index: 2;
 }
@@ -128,22 +226,22 @@
 .header {
 	align-items: center;
 	background-color: $dark-copy-text;
-	border-radius: 16px;
+	border-radius: 2em;
 	display: flex;
 	flex-direction: row;
-	height: 148px;
+	height: 18em;
 	justify-content: center;
 	overflow: hidden;
 	position: absolute;
-		top: 24px;
-		left: 25px;
-	width: 148px;
+		top: 3em;
+		left: 3em;
+	width: 18em;
 	z-index: 3;
 
 	.h1 {
 		color: rgba(0,0,0,0%);
 		height: 100%;
-		font-size: 1px;
+		font-size: 0.125em;
 		overflow: hidden;
 		position: absolute;
 			top: 0%;
@@ -155,25 +253,25 @@
 		align-items: flex-end;
 		display: flex;
 		flex-direction: row;
-		gap: 9px;
+		gap: 1em;
 		justify-content: center;
 
 		span {
-			background-color: $light-interactive;
-			border-radius: 50px;
+			background-color: $upper-half-background;
+			border-radius: 6em;
 			display: block;
-			height: 101px;
-			width: 18px;
+			height: 12em;
+			width: 2em;
 		}
 		span:nth-child(1) {
-			height: 48px;
+			height: 6em;
 		}
 	}
 }
 
 .grp {
 	display: flex;
-	gap: 16px;
+	gap: 2em;
 
 	&.vertical {
 		flex-direction: row;
@@ -183,12 +281,23 @@
 	}
 }
 
+.inner-container {
+	display: block;
+	position: relative;
+}
+
 .btn {
 	// default
 	appearance: none;
 	background-color: $primary-btn-bg-rest;
 	border: 0;
-	border-radius: 50px;
+	border-radius: 6em;
+	color: $label-rest;
+	font-weight: 600;
+	font-size: 2em;
+	line-height: 2em;
+	letter-spacing: 0.01em;
+	position: relative;
 	text-decoration: none;
 
 	// default, primary and secondary treatments
@@ -196,14 +305,18 @@
 		background-color: $secondary-btn-bg-rest;
 	}
 
+	&:focus {
+		outline: none;
+	}
+
 	&:hover, &:active {
 		color: $label-interaction;
 		cursor: pointer;
 	}
-	&:hover {
+	&:hover, &:focus {
 		background-color: $primary-btn-bg-hover;
 	}
-	&.secondary:hover {
+	&.secondary:hover, &.secondary:focus {
 		background-color: $secondary-btn-bg-hover;
 	}
 	&:active, &.secondary:active {
@@ -211,13 +324,39 @@
 	}
 
 	&.primary, &.secondary {
-		color: $label-rest;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 150%;
-		letter-spacing: 0.01em;
-		padding: 12px 44px;
-		position: relative;
+		padding: 0.5em 3em;
+	}
+
+	.hover-border {
+		@include border-color($primary-btn-bg-hover, 0);
+		border-radius: 4.5em;
+		border-style: solid;
+		border-width: 0.125em;
+		display: block;
+		height: calc(100% + 0.5em);
+		pointer-events: none;
+		position: absolute;
+			top: -0.25em;
+			left: -0.25em;
+		width: calc(100% + 0.5em);
+	}
+
+	&:focus .hover-border,
+	&:hover .hover-border {
+		@include border-color($primary-btn-bg-hover, 1);
+	}
+
+	&:active .hover-border {
+		@include border-color($primary-btn-bg-hover, 0);
+	}
+
+	&.secondary:focus .hover-border,
+	&.secondary:hover .hover-border {
+		@include border-color($secondary-btn-bg-hover, 1);
+	}
+
+	&.secondary:active .hover-border {
+		@include border-color($secondary-btn-bg-hover, 0);
 	}
 
 	// takes specific treatments
@@ -225,13 +364,23 @@
 		align-items: center;
 		border-radius: 100%;
 		display: flex;
-		height: 42px;
+		height: 3em;
 		justify-content: center;
+		margin: 0em;
+		padding: 0em;
 		position: absolute;
-			top: 35px;
-			right: 25px;
-		width: 42px;
+			top: 2em;
+			right: 1.5em;
+		width: 3em;
 		z-index: 3;
+
+		.inner-container {
+			align-items: center;
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			width: 100%;
+		}
 
 		.label {
 			display: none;
@@ -239,39 +388,45 @@
 
 		.icon {
 			display: block;
-			height: 16px;
+			height: 1em;
 			position: relative;
-			width: 16px;
+			width: 1em;
 
 			span {
 				background-color: $label-rest;
-				border-radius: 50px;
+				border-radius: 3.125em;
 				display: block;
-				height: 2px;
+				height: 0.125em;
 				position: absolute;
 					top: 0;
 					left: 0;
-				width: 10px;
+				width: 0.625em;
 			}
 		}
 
 		.chevron {
 
 			span:nth-child(1) {
+				opacity: 1;
 				transform: translate(0%, 400%) rotate(45deg);
 			}
 			span:nth-child(2) {
+				opacity: 1;
 				transform: translate(60%, 400%) rotate(-45deg);
 			}
 			span:nth-child(3) {
 				opacity: 0;
+				transform: translate(0%, 400%) rotate(45deg);
 			}
 			span:nth-child(4) {
 				opacity: 0;
+				transform: translate(60%, 400%) rotate(-45deg);
 			}
 		}
 
-		.close-x {}
+		.close-x {
+			// nothing yet.
+		}
 	}
 }
 
@@ -294,27 +449,31 @@
 	display: flex;
 	flex-direction: column;
 	display: flex;
-	max-width: 1000px;
+	max-width: 125em;
 	position: relative;
-	gap: 174px;
+	gap: 22em;
 	width: 100%;
 }
 
 .section {
 	align-items: flex-end;
 	display: flex;
-	gap: 88px;
+	gap: 8em;
 	justify-content: space-between;
 
+	&:last-child {
+		padding-bottom: 19em;
+	}
+
 	.image-container {
-		border-radius: 8px;
+		border-radius: 1em;
 		display: block;
-		height: 610px;
+		height: 76em;
 		margin: 0;
 		overflow: hidden;
 		padding: 0;
-		max-width: 456px;
-		width: 50%;
+		max-width: 57em;
+		width: 100%;
 	}
 
 	img {
@@ -330,12 +489,12 @@
 	}
 
 	.grp {
-		margin-top: 32px;
+		margin-top: 4em;
 	}
 
 	&.one, &.two, &.three {
 		.content-block {
-			max-width: 456px;
+			max-width: 57em;
 			width: 50%;
 		}
 	}
@@ -343,29 +502,27 @@
 		flex-direction: row-reverse;
 	}
 	&.one {
-		margin-top: 100px;
+		margin-top: 12em;
 	}
 	&.two {
 		flex-direction: row;
 	}
 	&.four {
 		justify-content: center;
+		padding-top: 6em;
 
 		.content-block {
-			max-width: 863px;
+			max-width: 108em;
 			width: 100%;
 
 			.p {
-				font-size: 28px;
-				font-weight: 300;
+				font-size: 4em;
+				font-weight: 400;
+				letter-spacing: -0.025em;
+				line-height: 1.25em;
 			}
 			.a {
-				font-weight: 400;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
+				font-weight: 500;
 			}
 		}
 	}
@@ -376,33 +533,23 @@ footer {
 	background-color: $footer-background;
 	display: flex;
 	flex-direction: column;
-	gap: 31px;
+	gap: 4em;
 	justify-content: center;
 	overflow: hidden;
-	padding: 125px 64px 50px;
+	padding: 16em 8em 6em;
 	position: relative;
 	width: 100%;
 
 	.p {
 		color: $light-copy-text;
-		font-size: 20px;
-		font-weight: 300;
-		line-height: 140%;
-		letter-spacing: 0.004em;
+		font-size: 2em;
+		font-weight: 400;
+		line-height: 2em;
+		letter-spacing: 0.04em;
 		margin: 0 auto;
 
 		&:last-child {
 			margin-bottom: 0;
-		}
-	}
-
-	.a {
-		color: $light-interactive;
-		font-weight: 500;
-		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
 		}
 	}
 
@@ -413,7 +560,7 @@ footer {
 	.list {
 		display: flex;
 		flex-direction: row;
-		gap: 32px;
+		gap: 4em;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -426,18 +573,26 @@ footer {
 		.icon-link {
 			display: block;
 			text-decoration: none;
+
+			&:focus {
+				outline: none;
+				border-color: $white;
+				border-radius: 0.5em;
+				border-style: solid;
+				border-width: 0.125em;
+			}
 		}
 	}
 
 	.dots {
 		display: flex;
 		flex-direction: row;
-		gap: 16px;
+		gap: 2em;
 
 		.dot {
 			border-radius: 100%;
-			height: 8px;
-			width: 8px;
+			height: 1em;
+			width: 1em;
 		}
 		.red {
 			background-color: $red;
