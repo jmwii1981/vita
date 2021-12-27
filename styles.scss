@@ -162,12 +162,15 @@
 }
 
 .a {
-	border-width: 0em;
-	font-weight: 500;
+	color: inherit;
 	position: relative;
 	text-decoration: none;
 
-	.hover-border {
+	&:focus {
+		outline: none;
+	}
+
+	.focus-border {
 		border-radius: 0.25em;
 		border-style: solid;
 		border-width: 0.0835em;
@@ -180,75 +183,57 @@
 		width: calc(100% + 0.25em);
 	}
 
-	&:focus {
-		outline: none;
-	}
-
-	&:link,
-	&:visited {
-		border-style: dashed;
-		border-bottom-width: 0.0625em;
-	}
-	&:hover,
-	&:focus {
-		border-style: solid;
-	}
-
 	&.light {
-		color: $light-copy-text;
-
-		.hover-border {
-			@include border-color($light-interactive-rest, 0);
-		}
-
 		&:link,
-		&:visited {
+		&:link:visited {
 			@include color($light-interactive-rest, 1);
+			text-decoration: underline;
 		}
-		&:link .hover-border,
-		&:visited .hover-border{
+		.focus-border {
 			@include border-color($light-interactive-rest, 0);
 		}
-		&:hover,
-		&:focus {
+		&:link .focus-border,
+		&:link:visited .focus-border {
+			@include border-color($light-interactive-rest, 0);
+		}
+		&:link:hover,
+		&:link:focus {
 			@include color($light-interactive-hover, 1);
 		}
-		&:focus .hover-border {
+		&:link:focus .focus-border {
 			@include border-color($light-interactive-hover, 1);
 		}
-		&:active {
+		&:link:active {
 			@include color($light-interactive-press, 1);
 		}
-		&:active .hover-border {
+		&:link:active .focus-border {
 			@include border-color($light-interactive-press, 1);
 		}
 	}
 	&.dark {
-		color: $dark-copy-text;
-
-		.hover-border {
-			@include border-color($medium-interactive-rest, 0);
-		}
-
 		&:link,
-		&:visited {
+		&:link:visited {
 			@include color($medium-interactive-rest, 1);
+			text-decoration: underline;
 		}
-		&:link .hover-border,
-		&:visited .hover-border{
+		.focus-border {
 			@include border-color($medium-interactive-rest, 0);
 		}
-		&:hover,
-		&:focus {
+		&:link .focus-border,
+		&:link:visited .focus-border {
+			@include border-color($medium-interactive-rest, 0);
+		}
+		&:link:hover,
+		&:link:focus {
 			@include color($medium-interactive-hover, 1);
 		}
-		&:focus .hover-border {
+		&:link:focus .focus-border {
 			@include border-color($medium-interactive-hover, 1);
 		}
-		&:active {
+		&:link:active {
 			@include color($medium-interactive-press, 1);
 		}
-		&:active .hover-border {
+		&:link:active .focus-border {
 			@include border-color($medium-interactive-press, 1);
 		}
 	}
@@ -346,7 +331,7 @@
 	position: relative;
 	text-decoration: none;
 
-	.hover-border {
+	.focus-border {
 		border-radius: 4.5em;
 		border-style: solid;
 		border-width: 0.125em;
@@ -373,7 +358,7 @@
 	}
 	&,
 	&.primary {
-		.hover-border {
+		.focus-border {
 			@include border-color($primary-btn-bg-hover, 0);
 		}
 		&:link,
@@ -381,15 +366,15 @@
 			@include background-color($primary-btn-bg-rest, 1);
 			@include color($label-rest, 1);
 		}
-		&:link .hover-border,
-		&:link:visited .hover-border{
+		&:link .focus-border,
+		&:link:visited .focus-border{
 			@include border-color($primary-btn-bg-rest, 0);
 		}
 		&:link:hover,
 		&:link:focus {
 			@include background-color($primary-btn-bg-hover, 1);
 		}
-		&:link:focus .hover-border {
+		&:link:focus .focus-border {
 			@include border-color($primary-btn-bg-hover, 1);
 		}
 		&:link:active,
@@ -397,14 +382,14 @@
 			@include color($label-interaction, 1);
 			@include background-color($button-press, 1);
 		}
-		&:link:active .hover-border,
-		&:link:active:focus .hover-border {
+		&:link:active .focus-border,
+		&:link:active:focus .focus-border {
 			@include border-color($button-press, 1);
 		}
 	}
 
 	&.secondary {
-		.hover-border {
+		.focus-border {
 			@include border-color($secondary-btn-bg-hover, 0);
 		}
 		&:link,
@@ -412,15 +397,15 @@
 			@include background-color($secondary-btn-bg-rest, 1);
 			color: $label-rest;
 		}
-		&:link .hover-border,
-		&:link:visited .hover-border{
+		&:link .focus-border,
+		&:link:visited .focus-border{
 			@include border-color($secondary-btn-bg-rest, 0);
 		}
 		&:link:hover,
 		&:link:focus {
 			@include background-color($secondary-btn-bg-hover, 1);
 		}
-		&:link:focus .hover-border {
+		&:link:focus .focus-border {
 			@include border-color($secondary-btn-bg-hover, 1);
 		}
 		&:link:active,
@@ -428,8 +413,8 @@
 			@include color($label-interaction, 1);
 			@include background-color($button-press, 1);
 		}
-		&:link:active .hover-border,
-		&:link:active:focus .hover-border {
+		&:link:active .focus-border,
+		&:link:active:focus .focus-border {
 			@include border-color($button-press, 1);
 		}
 	}
@@ -597,7 +582,7 @@
 				letter-spacing: -0.025em;
 				line-height: 1.25em;
 			}
-			.a {
+			.a:link {
 				font-weight: 500;
 			}
 		}
@@ -629,6 +614,10 @@ footer {
 		}
 	}
 
+	.a:link {
+		font-weight: 500;
+	}
+
 	.elipses {
 		background-color: $white;
 	}
@@ -656,7 +645,7 @@ footer {
 			text-decoration: none;
 			width: 6em;
 
-			.hover-border {
+			.focus-border {
 				@include border-color($secondary-btn-bg-rest, 0);
 				border-radius: 9em;
 				border-style: solid;
@@ -677,7 +666,7 @@ footer {
 			&:visited {
 				@include background-color($secondary-btn-bg-hover, 0);
 			}
-			&:visited .hover-border {
+			&:visited .focus-border {
 				@include border-color($secondary-btn-bg-hover, 0);
 			}
 			&:hover {
@@ -686,13 +675,13 @@ footer {
 			&:focus {
 				@include background-color($secondary-btn-bg-hover, 0.25);
 			}
-			&:focus .hover-border {
+			&:focus .focus-border {
 				@include border-color($secondary-btn-bg-hover, 0.25);
 			}
 			&:active {
 				@include background-color($secondary-btn-bg-hover, 0.5);
 			}
-			&:active .hover-border {
+			&:active .focus-border {
 				@include border-color($secondary-btn-bg-hover, 0.5);
 			}
 		}
