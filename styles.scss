@@ -115,614 +115,616 @@
 	$violet: $grape;
 
 
-//** STYLES **//
 
+//** STYLES WHICH APPLY TO ALL SCREENS **//
 * {
 	box-sizing: border-box;
 }
 
-.body {
-	align-items: center;
-	background-color: $white;
-	display: flex;
-	flex-direction: column;
-	font-family: "Inter", sans-serif;
-	font-size: 8px;
-	position: relative;
-	width: 100%;
-}
-
-.h2, .p {
-	color: $dark-copy-text;
-	align-self: stretch;
-	flex-grow: 0;
-}
-
-.h2 {
-	font-size: 9em;
-	font-weight: 600;
-	line-height: 0.88em;
-	letter-spacing: -0.055em;
-	margin: 0.23em 0em; // 16px 0px
-
-	&.large {
-		font-size: 14em;
-	}
-}
-
-.p {
-	font-size: 2em;
-	font-weight: 500;
-	line-height: 1.34em;
-	margin: 0.67em 0em; // 16px 0px
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.a {
-	color: inherit;
-	position: relative;
-	text-decoration: none;
-
-	&:focus {
-		outline: none;
-	}
-
-	.focus-border {
-		border-radius: 0.25em;
-		border-style: solid;
-		border-width: 0.0835em;
-		display: block;
-		height: calc(100% + 0.25em);
-		pointer-events: none;
-		position: absolute;
-			top: -0.125em;
-			left: -0.125em;
-		width: calc(100% + 0.25em);
-	}
-
-	&.light {
-		&:link,
-		&:link:visited {
-			@include color($light-interactive-rest, 1);
-			text-decoration: underline;
-		}
-		.focus-border {
-			@include border-color($light-interactive-rest, 0);
-		}
-		&:link .focus-border,
-		&:link:visited .focus-border {
-			@include border-color($light-interactive-rest, 0);
-		}
-		&:link:hover,
-		&:link:focus {
-			@include color($light-interactive-hover, 1);
-		}
-		&:link:focus .focus-border {
-			@include border-color($light-interactive-hover, 1);
-		}
-		&:link:active {
-			@include color($light-interactive-press, 1);
-		}
-		&:link:active .focus-border {
-			@include border-color($light-interactive-press, 1);
-		}
-	}
-	&.dark {
-		&:link,
-		&:link:visited {
-			@include color($medium-interactive-rest, 1);
-			text-decoration: underline;
-		}
-		.focus-border {
-			@include border-color($medium-interactive-rest, 0);
-		}
-		&:link .focus-border,
-		&:link:visited .focus-border {
-			@include border-color($medium-interactive-rest, 0);
-		}
-		&:link:hover,
-		&:link:focus {
-			@include color($medium-interactive-hover, 1);
-		}
-		&:link:focus .focus-border {
-			@include border-color($medium-interactive-hover, 1);
-		}
-		&:link:active {
-			@include color($medium-interactive-press, 1);
-		}
-		&:link:active .focus-border {
-			@include border-color($medium-interactive-press, 1);
-		}
-	}
-}
-
-.elipses {
-	background-color: $elipses-background;
-	border-radius: 100%;
-	display: flex;
-	height: 16em;
-	position: absolute;
-		top: 0%;
-		left: 50%;
-	min-width: calc(100% + 40em);
-	transform: translate(-50%, -50%);
-	z-index: 2;
-}
-
-.header {
-	align-items: center;
-	background-color: $logo-background;
-	border-radius: 2em;
-	display: flex;
-	flex-direction: row;
-	height: 18em;
-	justify-content: center;
-	overflow: hidden;
-	position: absolute;
-		top: 3em;
-		left: 3em;
-	width: 18em;
-	z-index: 3;
-
-	.h1 {
-		color: rgba(0,0,0,0%);
-		height: 100%;
-		font-size: 0.125em;
-		overflow: hidden;
-		position: absolute;
-			top: 0%;
-			left: 0%;
-		width: 100%;
-	}
-
-	.logo-mark {
-		align-items: flex-end;
-		display: flex;
-		flex-direction: row;
-		gap: 1.15em;
-		justify-content: center;
-
-		span {
-			background-color: $upper-half-background;
-			border-radius: 6em;
-			display: block;
-			height: 11em;
-			width: 2em;
-		}
-		span:nth-child(1) {
-			height: 4.75em;
-		}
-	}
-}
-
-.grp {
-	display: flex;
-	gap: 2em;
-
-	&.vertical {
-		flex-direction: row;
-	}
-	&.horizontal {
-		flex-direction: column;
-	}
-}
-
-.inner-container {
-	display: block;
-	position: relative;
-}
-
-.btn {
-	// default
-	appearance: none;
-	background-color: $btn-bg-disabled;
-	border: 0;
-	border-radius: 6em;
-	color: $dark-copy-text;
-	cursor: default;
-	font-weight: 600;
-	font-size: 2em;
-	line-height: 2em;
-	letter-spacing: 0.01em;
-	padding: 0.5em 3em;
-	position: relative;
-	text-decoration: none;
-
-	.focus-border {
-		border-radius: 4.5em;
-		border-style: solid;
-		border-width: 0.125em;
-		display: block;
-		height: calc(100% + 0.5em);
-		pointer-events: none;
-		position: absolute;
-			top: -0.25em;
-			left: -0.25em;
-		width: calc(100% + 0.5em);
-	}
-
-	// default, primary and secondary interaction treatments
-	&:focus {
-		outline: none;
-	}
-	&:link:hover{
-		cursor: pointer;
-	}
-	&:link:hover,
-	&:link:focus,
-	&:link:active {
-		color: $label-interaction;
-	}
-	&,
-	&.primary {
-		.focus-border {
-			@include border-color($primary-btn-bg-hover, 0);
-		}
-		&:link,
-		&:link:visited {
-			@include background-color($primary-btn-bg-rest, 1);
-			@include color($label-rest, 1);
-		}
-		&:link .focus-border,
-		&:link:visited .focus-border{
-			@include border-color($primary-btn-bg-rest, 0);
-		}
-		&:link:hover,
-		&:link:focus {
-			@include background-color($primary-btn-bg-hover, 1);
-		}
-		&:link:focus .focus-border {
-			@include border-color($primary-btn-bg-hover, 1);
-		}
-		&:link:active,
-		&:link:active:focus {
-			@include color($label-interaction, 1);
-			@include background-color($button-press, 1);
-		}
-		&:link:active .focus-border,
-		&:link:active:focus .focus-border {
-			@include border-color($button-press, 1);
-		}
-	}
-
-	&.secondary {
-		.focus-border {
-			@include border-color($secondary-btn-bg-hover, 0);
-		}
-		&:link,
-		&:link:visited {
-			@include background-color($secondary-btn-bg-rest, 1);
-			color: $label-rest;
-		}
-		&:link .focus-border,
-		&:link:visited .focus-border{
-			@include border-color($secondary-btn-bg-rest, 0);
-		}
-		&:link:hover,
-		&:link:focus {
-			@include background-color($secondary-btn-bg-hover, 1);
-		}
-		&:link:focus .focus-border {
-			@include border-color($secondary-btn-bg-hover, 1);
-		}
-		&:link:active,
-		&:link:active:focus {
-			@include color($label-interaction, 1);
-			@include background-color($button-press, 1);
-		}
-		&:link:active .focus-border,
-		&:link:active:focus .focus-border {
-			@include border-color($button-press, 1);
-		}
-	}
-
-	// takes specific treatments
-	&.menu {
+//** LARGEST SCREEN OF 1251px AND UP **//
+@media only screen and (min-width: 1251px)  {
+	.body {
 		align-items: center;
-		@include background-color($primary-btn-bg-rest);
-		border-radius: 100%;
-		display: flex;
-		height: 3em;
-		justify-content: center;
-		margin: 0em;
-		padding: 0em;
-		position: absolute;
-			top: 2em;
-			right: 1.5em;
-		width: 3em;
-		z-index: 3;
-
-		.inner-container {
-			align-items: center;
-			display: flex;
-			height: 100%;
-			justify-content: center;
-			width: 100%;
-		}
-
-		.label {
-			display: none;
-		}
-
-		.icon {
-			display: block;
-			height: 1em;
-			position: relative;
-			width: 1em;
-
-			span {
-				@include background-color($label-rest, 1);
-				border-radius: 3.125em;
-				display: block;
-				height: 0.125em;
-				position: absolute;
-					top: 0;
-					left: 0;
-				width: 0.625em;
-			}
-		}
-
-		.chevron {
-
-			span:nth-child(1) {
-				opacity: 1;
-				transform: translate(0%, 400%) rotate(45deg);
-			}
-			span:nth-child(2) {
-				opacity: 1;
-				transform: translate(60%, 400%) rotate(-45deg);
-			}
-			span:nth-child(3) {
-				opacity: 0;
-				transform: translate(0%, 400%) rotate(45deg);
-			}
-			span:nth-child(4) {
-				opacity: 0;
-				transform: translate(60%, 400%) rotate(-45deg);
-			}
-		}
-
-		.close-x {
-			// nothing yet.
-		}
-	}
-}
-
-.nav {
-	display: none;
-}
-
-.main {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-}
-
-//article
-.article {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	display: flex;
-	max-width: 125em;
-	position: relative;
-	gap: 22em;
-	width: 100%;
-}
-
-.section {
-	align-items: flex-end;
-	display: flex;
-	gap: 8em;
-	justify-content: space-between;
-
-	&:last-child {
-		padding-bottom: 19em;
-	}
-
-	.image-container {
-		border-radius: 1em;
-		display: block;
-		height: 76em;
-		margin: 0;
-		overflow: hidden;
-		padding: 0;
-		max-width: 57em;
-		width: 100%;
-	}
-
-	img {
-		display: block;
-		height: auto;
-		width: 100%;
-	}
-
-	.content-block {
-		align-self: flex-end;
+		background-color: $white;
 		display: flex;
 		flex-direction: column;
+		font-family: "Inter", sans-serif;
+		font-size: 8px;
+		position: relative;
+		width: 100%;
 	}
 
-	.grp {
-		margin-top: 4em;
+	.h2, .p {
+		color: $dark-copy-text;
+		align-self: stretch;
+		flex-grow: 0;
 	}
 
-	&.one, &.two, &.three {
-		.content-block {
-			max-width: 57em;
-			width: 50%;
+	.h2 {
+		font-size: 9em;
+		font-weight: 600;
+		line-height: 0.88em;
+		letter-spacing: -0.055em;
+		margin: 0.23em 0em; // 16px 0px
+
+		&.large {
+			font-size: 14em;
 		}
 	}
-	&.one, &.three {
-		flex-direction: row-reverse;
-	}
-	&.one {
-		margin-top: 12em;
-	}
-	&.two {
-		flex-direction: row;
-	}
-	&.four {
-		justify-content: center;
-		padding-top: 6em;
-
-		.content-block {
-			max-width: 108em;
-			width: 100%;
-
-			.p {
-				font-size: 3em;
-				font-weight: 400;
-				letter-spacing: -0.025em;
-				line-height: 1.25em;
-			}
-			.a:link {
-				font-weight: 500;
-			}
-		}
-	}
-}
-
-footer {
-	align-items: center;
-	background-color: $footer-background;
-	display: flex;
-	flex-direction: column;
-	gap: 4em;
-	justify-content: center;
-	overflow: hidden;
-	padding: 16em 8em 6em;
-	position: relative;
-	width: 100%;
 
 	.p {
-		color: $light-copy-text;
 		font-size: 2em;
-		font-weight: 400;
-		line-height: 2em;
-		letter-spacing: 0.04em;
-		margin: 0 auto;
+		font-weight: 500;
+		line-height: 1.34em;
+		margin: 0.67em 0em; // 16px 0px
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 	}
 
-	.a:link {
-		font-weight: 500;
+	.a {
+		color: inherit;
+		position: relative;
+		text-decoration: none;
+
+		&:focus {
+			outline: none;
+		}
+
+		.focus-border {
+			border-radius: 0.25em;
+			border-style: solid;
+			border-width: 0.0835em;
+			display: block;
+			height: calc(100% + 0.25em);
+			pointer-events: none;
+			position: absolute;
+				top: -0.125em;
+				left: -0.125em;
+			width: calc(100% + 0.25em);
+		}
+
+		&.light {
+			&:link,
+			&:link:visited {
+				@include color($light-interactive-rest, 1);
+				text-decoration: underline;
+			}
+			.focus-border {
+				@include border-color($light-interactive-rest, 0);
+			}
+			&:link .focus-border,
+			&:link:visited .focus-border {
+				@include border-color($light-interactive-rest, 0);
+			}
+			&:link:hover,
+			&:link:focus {
+				@include color($light-interactive-hover, 1);
+			}
+			&:link:focus .focus-border {
+				@include border-color($light-interactive-hover, 1);
+			}
+			&:link:active {
+				@include color($light-interactive-press, 1);
+			}
+			&:link:active .focus-border {
+				@include border-color($light-interactive-press, 1);
+			}
+		}
+		&.dark {
+			&:link,
+			&:link:visited {
+				@include color($medium-interactive-rest, 1);
+				text-decoration: underline;
+			}
+			.focus-border {
+				@include border-color($medium-interactive-rest, 0);
+			}
+			&:link .focus-border,
+			&:link:visited .focus-border {
+				@include border-color($medium-interactive-rest, 0);
+			}
+			&:link:hover,
+			&:link:focus {
+				@include color($medium-interactive-hover, 1);
+			}
+			&:link:focus .focus-border {
+				@include border-color($medium-interactive-hover, 1);
+			}
+			&:link:active {
+				@include color($medium-interactive-press, 1);
+			}
+			&:link:active .focus-border {
+				@include border-color($medium-interactive-press, 1);
+			}
+		}
 	}
 
 	.elipses {
-		background-color: $white;
+		background-color: $elipses-background;
+		border-radius: 100%;
+		display: flex;
+		height: 16em;
+		position: absolute;
+			top: 0%;
+			left: 50%;
+		min-width: calc(100% + 40em);
+		transform: translate(-50%, -50%);
+		z-index: 2;
 	}
 
-	.list {
+	.header {
+		align-items: center;
+		background-color: $logo-background;
+		border-radius: 2em;
 		display: flex;
 		flex-direction: row;
-		gap: 4em;
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
+		height: 18em;
+		justify-content: center;
+		overflow: hidden;
+		position: absolute;
+			top: 3em;
+			left: 3em;
+		width: 18em;
+		z-index: 3;
 
-		.item {
-			margin: 0;
-			padding: 0;
+		.h1 {
+			color: rgba(0,0,0,0%);
+			height: 100%;
+			font-size: 0.125em;
+			overflow: hidden;
+			position: absolute;
+				top: 0%;
+				left: 0%;
+			width: 100%;
 		}
 
-		.icon-link {
-			align-items: center;
-			border-radius: 9em;
+		.logo-mark {
+			align-items: flex-end;
 			display: flex;
-			height: 6em;
+			flex-direction: row;
+			gap: 1.15em;
 			justify-content: center;
-			position: relative;
-			text-decoration: none;
-			width: 6em;
 
-			.focus-border {
-				@include border-color($secondary-btn-bg-rest, 0);
-				border-radius: 9em;
-				border-style: solid;
-				border-width: 0.25em;
+			span {
+				background-color: $upper-half-background;
+				border-radius: 6em;
 				display: block;
-				height: calc(100% + 1.25em);
-				pointer-events: none;
-				position: absolute;
-					top: -0.625em;
-					left: -0.625em;
-				width: calc(100% + 1.25em);
+				height: 11em;
+				width: 2em;
 			}
-
-			&:focus {
-				outline: none;
-			}
-
-			&:visited {
-				@include background-color($secondary-btn-bg-hover, 0);
-			}
-			&:visited .focus-border {
-				@include border-color($secondary-btn-bg-hover, 0);
-			}
-			&:hover {
-				@include background-color($secondary-btn-bg-hover, 0.25);
-			}
-			&:focus {
-				@include background-color($secondary-btn-bg-hover, 0.25);
-			}
-			&:focus .focus-border {
-				@include border-color($secondary-btn-bg-hover, 0.25);
-			}
-			&:active {
-				@include background-color($secondary-btn-bg-hover, 0.5);
-			}
-			&:active .focus-border {
-				@include border-color($secondary-btn-bg-hover, 0.5);
+			span:nth-child(1) {
+				height: 4.75em;
 			}
 		}
 	}
 
-	.dots {
+	.grp {
 		display: flex;
-		flex-direction: row;
 		gap: 2em;
 
-		.dot {
-			border-radius: 100%;
-			height: 1em;
-			width: 1em;
+		&.vertical {
+			flex-direction: row;
 		}
-		.red {
-			background-color: $red;
+		&.horizontal {
+			flex-direction: column;
 		}
-		.orange {
-			background-color: $orange;
-		}
-		.yellow {
-			background-color: $yellow;
-		}
-		.green {
-			background-color: $green;
-		}
-		.blue {
-			background-color: $blue;
-		}
-		.violet {
-			background-color: $violet;
-		}
-
 	}
 
-	.obligatory {
+	.inner-container {
+		display: block;
+		position: relative;
+	}
+
+	.btn {
+		// default
+		appearance: none;
+		background-color: $btn-bg-disabled;
+		border: 0;
+		border-radius: 6em;
+		color: $dark-copy-text;
+		cursor: default;
+		font-weight: 600;
+		font-size: 2em;
+		line-height: 2em;
+		letter-spacing: 0.01em;
+		padding: 0.5em 3em;
+		position: relative;
+		text-decoration: none;
+
+		.focus-border {
+			border-radius: 4.5em;
+			border-style: solid;
+			border-width: 0.125em;
+			display: block;
+			height: calc(100% + 0.5em);
+			pointer-events: none;
+			position: absolute;
+				top: -0.25em;
+				left: -0.25em;
+			width: calc(100% + 0.5em);
+		}
+
+		// default, primary and secondary interaction treatments
+		&:focus {
+			outline: none;
+		}
+		&:link:hover{
+			cursor: pointer;
+		}
+		&:link:hover,
+		&:link:focus,
+		&:link:active {
+			color: $label-interaction;
+		}
+		&,
+		&.primary {
+			.focus-border {
+				@include border-color($primary-btn-bg-hover, 0);
+			}
+			&:link,
+			&:link:visited {
+				@include background-color($primary-btn-bg-rest, 1);
+				@include color($label-rest, 1);
+			}
+			&:link .focus-border,
+			&:link:visited .focus-border{
+				@include border-color($primary-btn-bg-rest, 0);
+			}
+			&:link:hover,
+			&:link:focus {
+				@include background-color($primary-btn-bg-hover, 1);
+			}
+			&:link:focus .focus-border {
+				@include border-color($primary-btn-bg-hover, 1);
+			}
+			&:link:active,
+			&:link:active:focus {
+				@include color($label-interaction, 1);
+				@include background-color($button-press, 1);
+			}
+			&:link:active .focus-border,
+			&:link:active:focus .focus-border {
+				@include border-color($button-press, 1);
+			}
+		}
+
+		&.secondary {
+			.focus-border {
+				@include border-color($secondary-btn-bg-hover, 0);
+			}
+			&:link,
+			&:link:visited {
+				@include background-color($secondary-btn-bg-rest, 1);
+				color: $label-rest;
+			}
+			&:link .focus-border,
+			&:link:visited .focus-border{
+				@include border-color($secondary-btn-bg-rest, 0);
+			}
+			&:link:hover,
+			&:link:focus {
+				@include background-color($secondary-btn-bg-hover, 1);
+			}
+			&:link:focus .focus-border {
+				@include border-color($secondary-btn-bg-hover, 1);
+			}
+			&:link:active,
+			&:link:active:focus {
+				@include color($label-interaction, 1);
+				@include background-color($button-press, 1);
+			}
+			&:link:active .focus-border,
+			&:link:active:focus .focus-border {
+				@include border-color($button-press, 1);
+			}
+		}
+
+		// takes specific treatments
+		&.menu {
+			align-items: center;
+			@include background-color($primary-btn-bg-rest);
+			border-radius: 100%;
+			display: flex;
+			height: 3em;
+			justify-content: center;
+			margin: 0em;
+			padding: 0em;
+			position: absolute;
+				top: 2em;
+				right: 1.5em;
+			width: 3em;
+			z-index: 3;
+
+			.inner-container {
+				align-items: center;
+				display: flex;
+				height: 100%;
+				justify-content: center;
+				width: 100%;
+			}
+
+			.label {
+				display: none;
+			}
+
+			.icon {
+				display: block;
+				height: 1em;
+				position: relative;
+				width: 1em;
+
+				span {
+					@include background-color($label-rest, 1);
+					border-radius: 3.125em;
+					display: block;
+					height: 0.125em;
+					position: absolute;
+						top: 0;
+						left: 0;
+					width: 0.625em;
+				}
+			}
+
+			.chevron {
+
+				span:nth-child(1) {
+					opacity: 1;
+					transform: translate(0%, 400%) rotate(45deg);
+				}
+				span:nth-child(2) {
+					opacity: 1;
+					transform: translate(60%, 400%) rotate(-45deg);
+				}
+				span:nth-child(3) {
+					opacity: 0;
+					transform: translate(0%, 400%) rotate(45deg);
+				}
+				span:nth-child(4) {
+					opacity: 0;
+					transform: translate(60%, 400%) rotate(-45deg);
+				}
+			}
+
+			.close-x {
+				// nothing yet.
+			}
+		}
+	}
+
+	.nav {
+		display: none;
+	}
+
+	.main {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
 	}
 
+	//article
+	.article {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		display: flex;
+		max-width: 125em;
+		position: relative;
+		gap: 22em;
+		width: 100%;
+	}
+
+	.section {
+		align-items: flex-end;
+		display: flex;
+		gap: 8em;
+		justify-content: space-between;
+
+		&:last-child {
+			padding-bottom: 19em;
+		}
+
+		.image-container {
+			border-radius: 1em;
+			display: block;
+			height: 76em;
+			margin: 0;
+			overflow: hidden;
+			padding: 0;
+			max-width: 57em;
+			width: 100%;
+		}
+
+		img {
+			display: block;
+			height: auto;
+			width: 100%;
+		}
+
+		.content-block {
+			align-self: flex-end;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.grp {
+			margin-top: 4em;
+		}
+
+		&.one, &.two, &.three {
+			.content-block {
+				max-width: 57em;
+				width: 50%;
+			}
+		}
+		&.one, &.three {
+			flex-direction: row-reverse;
+		}
+		&.one {
+			margin-top: 12em;
+		}
+		&.two {
+			flex-direction: row;
+		}
+		&.four {
+			justify-content: center;
+			padding-top: 6em;
+
+			.content-block {
+				max-width: 108em;
+				width: 100%;
+
+				.p {
+					font-size: 3em;
+					font-weight: 400;
+					letter-spacing: -0.025em;
+					line-height: 1.25em;
+				}
+				.a:link {
+					font-weight: 500;
+				}
+			}
+		}
+	}
+
+	footer {
+		align-items: center;
+		background-color: $footer-background;
+		display: flex;
+		flex-direction: column;
+		gap: 4em;
+		justify-content: center;
+		overflow: hidden;
+		padding: 16em 8em 6em;
+		position: relative;
+		width: 100%;
+
+		.p {
+			color: $light-copy-text;
+			font-size: 2em;
+			font-weight: 400;
+			line-height: 2em;
+			letter-spacing: 0.04em;
+			margin: 0 auto;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.a:link {
+			font-weight: 500;
+		}
+
+		.elipses {
+			background-color: $white;
+		}
+
+		.list {
+			display: flex;
+			flex-direction: row;
+			gap: 4em;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+
+			.item {
+				margin: 0;
+				padding: 0;
+			}
+
+			.icon-link {
+				align-items: center;
+				border-radius: 9em;
+				display: flex;
+				height: 6em;
+				justify-content: center;
+				position: relative;
+				text-decoration: none;
+				width: 6em;
+
+				.focus-border {
+					@include border-color($secondary-btn-bg-rest, 0);
+					border-radius: 9em;
+					border-style: solid;
+					border-width: 0.25em;
+					display: block;
+					height: calc(100% + 1.25em);
+					pointer-events: none;
+					position: absolute;
+						top: -0.625em;
+						left: -0.625em;
+					width: calc(100% + 1.25em);
+				}
+
+				&:focus {
+					outline: none;
+				}
+
+				&:visited {
+					@include background-color($secondary-btn-bg-hover, 0);
+				}
+				&:visited .focus-border {
+					@include border-color($secondary-btn-bg-hover, 0);
+				}
+				&:hover {
+					@include background-color($secondary-btn-bg-hover, 0.25);
+				}
+				&:focus {
+					@include background-color($secondary-btn-bg-hover, 0.25);
+				}
+				&:focus .focus-border {
+					@include border-color($secondary-btn-bg-hover, 0.25);
+				}
+				&:active {
+					@include background-color($secondary-btn-bg-hover, 0.5);
+				}
+				&:active .focus-border {
+					@include border-color($secondary-btn-bg-hover, 0.5);
+				}
+			}
+		}
+
+		.dots {
+			display: flex;
+			flex-direction: row;
+			gap: 2em;
+
+			.dot {
+				border-radius: 100%;
+				height: 1em;
+				width: 1em;
+			}
+			.red {
+				background-color: $red;
+			}
+			.orange {
+				background-color: $orange;
+			}
+			.yellow {
+				background-color: $yellow;
+			}
+			.green {
+				background-color: $green;
+			}
+			.blue {
+				background-color: $blue;
+			}
+			.violet {
+				background-color: $violet;
+			}
+
+		}
+
+		.obligatory {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
 }
