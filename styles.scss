@@ -120,18 +120,21 @@
 * {
 	box-sizing: border-box;
 }
+html, .body {
+	font-family: "Inter", sans-serif;
+	font-size: 8px;
+	position: relative;
+	width: 100%;
+}
+
 
 //** LARGEST SCREEN OF 1251px AND UP **//
-@media only screen and (min-width: 1251px)  {
+// @media only screen and (min-width: 152em)  {
 	.body {
 		align-items: center;
 		background-color: $white;
 		display: flex;
 		flex-direction: column;
-		font-family: "Inter", sans-serif;
-		font-size: 8px;
-		position: relative;
-		width: 100%;
 	}
 
 	.h2, .p {
@@ -186,57 +189,53 @@
 		}
 
 		&.light {
-			&:link,
-			&:link:visited {
+			&,
+			&:visited {
 				@include color($light-interactive-rest, 1);
 				text-decoration: underline;
 			}
-			.focus-border {
+			& .focus-border,
+			&:visited .focus-border {
 				@include border-color($light-interactive-rest, 0);
 			}
-			&:link .focus-border,
-			&:link:visited .focus-border {
-				@include border-color($light-interactive-rest, 0);
-			}
-			&:link:hover,
-			&:link:focus {
+			&:hover,
+			&:focus {
 				@include color($light-interactive-hover, 1);
 			}
-			&:link:focus .focus-border {
+			&:hover .focus-border,
+			&:focus .focus-border {
 				@include border-color($light-interactive-hover, 1);
 			}
-			&:link:active {
+			&:active {
 				@include color($light-interactive-press, 1);
 			}
-			&:link:active .focus-border {
-				@include border-color($light-interactive-press, 1);
+			&:active .focus-border {
+				@include border-color($light-interactive-press, 0);
 			}
 		}
 		&.dark {
-			&:link,
-			&:link:visited {
+			&,
+			&:visited {
 				@include color($medium-interactive-rest, 1);
 				text-decoration: underline;
 			}
-			.focus-border {
+			& .focus-border,
+			&:visited .focus-border {
 				@include border-color($medium-interactive-rest, 0);
 			}
-			&:link .focus-border,
-			&:link:visited .focus-border {
-				@include border-color($medium-interactive-rest, 0);
-			}
-			&:link:hover,
-			&:link:focus {
+			&:hover,
+			&:focus {
 				@include color($medium-interactive-hover, 1);
 			}
-			&:link:focus .focus-border {
+			&:hover .focus-border,
+			&:focus .focus-border {
 				@include border-color($medium-interactive-hover, 1);
 			}
-			&:link:active {
+			&:active {
 				@include color($medium-interactive-press, 1);
 			}
-			&:link:active .focus-border {
-				@include border-color($medium-interactive-press, 1);
+			&:active .focus-border {
+				@include border-color($medium-interactive-press, 0);
 			}
 		}
 	}
@@ -320,10 +319,10 @@
 	.btn {
 		// default
 		appearance: none;
-		background-color: $btn-bg-disabled;
+		@include background-color($btn-bg-disabled, 1);
 		border: 0;
 		border-radius: 6em;
-		color: $dark-copy-text;
+		@include color($dark-copy-text, 1);
 		cursor: default;
 		font-weight: 600;
 		font-size: 2em;
@@ -358,35 +357,36 @@
 		&:link:active {
 			color: $label-interaction;
 		}
-		&,
+
 		&.primary {
 			.focus-border {
 				@include border-color($primary-btn-bg-hover, 0);
 			}
-			&:link,
-			&:link:visited {
+			&,
+			&:visited {
 				@include background-color($primary-btn-bg-rest, 1);
 				@include color($label-rest, 1);
 			}
-			&:link .focus-border,
-			&:link:visited .focus-border{
+			& .focus-border,
+			&:visited .focus-border{
 				@include border-color($primary-btn-bg-rest, 0);
 			}
-			&:link:hover,
-			&:link:focus {
+			&:hover,
+			&:focus {
 				@include background-color($primary-btn-bg-hover, 1);
 			}
-			&:link:focus .focus-border {
+			&:hover .focus-border,
+			&:focus .focus-border {
 				@include border-color($primary-btn-bg-hover, 1);
 			}
-			&:link:active,
-			&:link:active:focus {
+			&:active,
+			&:active:focus {
 				@include color($label-interaction, 1);
 				@include background-color($button-press, 1);
 			}
-			&:link:active .focus-border,
-			&:link:active:focus .focus-border {
-				@include border-color($button-press, 1);
+			&:active .focus-border,
+			&:active:focus .focus-border {
+				@include border-color($button-press, 0);
 			}
 		}
 
@@ -394,30 +394,31 @@
 			.focus-border {
 				@include border-color($secondary-btn-bg-hover, 0);
 			}
-			&:link,
-			&:link:visited {
+			&,
+			&:visited {
 				@include background-color($secondary-btn-bg-rest, 1);
 				color: $label-rest;
 			}
-			&:link .focus-border,
-			&:link:visited .focus-border{
+			& .focus-border,
+			&:visited .focus-border{
 				@include border-color($secondary-btn-bg-rest, 0);
 			}
-			&:link:hover,
-			&:link:focus {
+			&:hover,
+			&:focus {
 				@include background-color($secondary-btn-bg-hover, 1);
 			}
-			&:link:focus .focus-border {
+			&:hover .focus-border,
+			&:focus .focus-border {
 				@include border-color($secondary-btn-bg-hover, 1);
 			}
-			&:link:active,
-			&:link:active:focus {
+			&:active,
+			&:active:focus {
 				@include color($label-interaction, 1);
 				@include background-color($button-press, 1);
 			}
-			&:link:active .focus-border,
-			&:link:active:focus .focus-border {
-				@include border-color($button-press, 1);
+			&:active .focus-border,
+			&:active:focus .focus-border {
+				@include border-color($button-press, 0);
 			}
 		}
 
@@ -660,31 +661,29 @@
 						left: -0.625em;
 					width: calc(100% + 1.25em);
 				}
-
 				&:focus {
 					outline: none;
 				}
-
+				&,
 				&:visited {
 					@include background-color($secondary-btn-bg-hover, 0);
 				}
 				&:visited .focus-border {
 					@include border-color($secondary-btn-bg-hover, 0);
 				}
-				&:hover {
-					@include background-color($secondary-btn-bg-hover, 0.25);
-				}
+				&:hover,
 				&:focus {
 					@include background-color($secondary-btn-bg-hover, 0.25);
 				}
+				&:hover .focus-border,
 				&:focus .focus-border {
 					@include border-color($secondary-btn-bg-hover, 0.25);
 				}
 				&:active {
-					@include background-color($secondary-btn-bg-hover, 0.5);
+					@include background-color($secondary-btn-bg-hover, 0.25);
 				}
 				&:active .focus-border {
-					@include border-color($secondary-btn-bg-hover, 0.5);
+					@include border-color($secondary-btn-bg-hover, 0);
 				}
 			}
 		}
@@ -727,4 +726,4 @@
 			justify-content: center;
 		}
 	}
-}
+// }
