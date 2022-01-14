@@ -425,71 +425,83 @@ html, .body {
 		// takes specific treatments
 		&.menu {
 			align-items: center;
-			@include background-color($primary-btn-bg-rest);
+			@include background-color($primary-btn-bg-rest, 0);
 			border-radius: 100%;
 			display: flex;
-			height: 3em;
+			flex-direction: column;
+			height: 5em;
 			justify-content: center;
 			margin: 0em;
 			padding: 0em;
 			position: absolute;
 				top: 2em;
 				right: 1.5em;
-			width: 3em;
+			width: 5em;
 			z-index: 3;
+
+			& .focus-border {
+				@include border-color($secondary-btn-bg-rest, 0);
+			}
 
 			.inner-container {
 				align-items: center;
 				display: flex;
+				flex-direction: column;
 				height: 100%;
+				gap: 0.25em;
 				justify-content: center;
 				width: 100%;
 			}
 
-			.label {
-				display: none;
-			}
-
 			.icon {
 				display: block;
-				height: 1em;
+				height: 2em;
+				line-height: 0;
 				position: relative;
-				width: 1em;
+				width: 2em;
 
 				span {
-					@include background-color($label-rest, 1);
+					@include background-color($primary-btn-bg-rest, 1);
 					border-radius: 3.125em;
 					display: block;
-					height: 0.125em;
+					height: 0.275em;
 					position: absolute;
 						top: 0;
 						left: 0;
-					width: 0.625em;
+					width: 2em;
 				}
 			}
 
-			.chevron {
+			.hamburger {
 
 				span:nth-child(1) {
 					opacity: 1;
-					transform: translate(0%, 400%) rotate(45deg);
+					transform: translate(0%, 0%) rotate(0deg);
 				}
 				span:nth-child(2) {
 					opacity: 1;
-					transform: translate(60%, 400%) rotate(-45deg);
+					transform: translate(0%, 250%) rotate(0deg);
 				}
 				span:nth-child(3) {
-					opacity: 0;
-					transform: translate(0%, 400%) rotate(45deg);
-				}
-				span:nth-child(4) {
-					opacity: 0;
-					transform: translate(60%, 400%) rotate(-45deg);
+					opacity: 1;
+					transform: translate(0%, 500%) rotate(0deg);
 				}
 			}
 
 			.close-x {
 				// nothing yet.
+			}
+
+			.label {
+				@include color($primary-btn-bg-rest, 1);
+				display: block;
+				font-size: 0.75em;
+				font-weight: 600;
+				letter-spacing: .05em;
+				line-height: 1;
+				margin: 0 auto;
+				text-align: center;
+				width: 4em;
 			}
 		}
 	}
