@@ -336,10 +336,26 @@ html, .body {
   width: 5em;
   z-index: 3;
 }
+.btn.menu:hover {
+  cursor: pointer;
+}
 .btn.menu .focus-border {
-  border-color: #4F505E;
+  border-color: #2C2E44;
   /* The Fallback */
-  border-color: rgba(79, 80, 94, 0);
+  border-color: rgba(44, 46, 68, 0);
+  position: absolute;
+  top: -0.9em;
+  left: -0.75;
+}
+.btn.menu:hover .focus-border, .btn.menu:focus .focus-border {
+  border-color: #393B4F;
+  /* The Fallback */
+  border-color: #393b4f;
+}
+.btn.menu:active .focus-border {
+  border-color: #1A1F1F;
+  /* The Fallback */
+  border-color: rgba(26, 31, 31, 0);
 }
 .btn.menu .inner-container {
   align-items: center;
@@ -349,6 +365,29 @@ html, .body {
   gap: 0.25em;
   justify-content: center;
   width: 100%;
+}
+.btn.menu .bg-elipses {
+  background-color: #2C2E44;
+  /* The Fallback */
+  background-color: rgba(44, 46, 68, 0);
+  border-radius: 100%;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: calc(50% - 0.65em);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.btn.menu:hover .bg-elipses, .btn.menu:focus .bg-elipses {
+  background-color: #393B4F;
+  /* The Fallback */
+  background-color: #393b4f;
+}
+.btn.menu:active .bg-elipses {
+  background-color: #1A1F1F;
+  /* The Fallback */
+  background-color: #1a1f1f;
 }
 .btn.menu .icon {
   display: block;
@@ -381,6 +420,11 @@ html, .body {
   opacity: 1;
   transform: translate(0%, 500%) rotate(0deg);
 }
+.btn.menu:hover .icon span, .btn.menu:focus .icon span, .btn.menu:active .icon span {
+  background-color: #FFFFFF;
+  /* The Fallback */
+  background-color: white;
+}
 .btn.menu .label {
   color: #2C2E44;
   /* The Fallback */
@@ -393,6 +437,9 @@ html, .body {
   margin: 0 auto;
   text-align: center;
   width: 4em;
+}
+.btn.menu:hover .label, .btn.menu:focus .label {
+  opacity: 0;
 }
 
 .nav {
