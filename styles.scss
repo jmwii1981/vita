@@ -127,716 +127,793 @@ html, .body {
 	width: 100%;
 }
 
+.body {
+	align-items: center;
+	background-color: $ghost-white;
+	display: flex;
+	flex-direction: column;
+}
 
-//** LARGEST SCREEN OF 1251px AND UP **//
-// @media only screen and (min-width: 152em)  {
-	.body {
-		align-items: center;
-		background-color: $white;
+.h2, .p {
+	color: $dark-copy-text;
+	align-self: stretch;
+	flex-grow: 0;
+}
+
+.h2 {
+	font-size: 9em;
+	font-weight: 600;
+	line-height: 0.88em;
+	letter-spacing: -0.055em;
+	margin: 0.23em 0em; // 16px 0px
+
+	&.large {
+		font-size: 14em;
+	}
+}
+
+.p {
+	font-size: 2em;
+	font-weight: 500;
+	line-height: 1.34em;
+	margin: 0.67em 0em; // 16px 0px
+
+	&.large {
+		font-size: 3em;
+		font-weight: 400;
+		letter-spacing: -0.025em;
+		line-height: 1.25em;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.a {
+	color: inherit;
+	position: relative;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	.focus-border {
+		border-radius: 0.25em;
+		border-style: solid;
+		border-width: 0.0835em;
+		display: block;
+		height: calc(100% + 0.25em);
+		pointer-events: none;
+		position: absolute;
+			top: -0.125em;
+			left: -0.125em;
+		width: calc(100% + 0.25em);
+	}
+
+	&.light {
+		&,
+		&:visited {
+			@include color($light-interactive-rest, 1);
+			text-decoration: underline;
+		}
+		& .focus-border,
+		&:visited .focus-border {
+			@include border-color($light-interactive-rest, 0);
+		}
+		&:hover,
+		&:focus {
+			@include color($light-interactive-hover, 1);
+		}
+		&:hover .focus-border,
+		&:focus .focus-border {
+			@include border-color($light-interactive-hover, 1);
+		}
+		&:active {
+			@include color($light-interactive-press, 1);
+		}
+		&:active .focus-border {
+			@include border-color($light-interactive-press, 0);
+		}
+	}
+	&.dark {
+		&,
+		&:visited {
+			@include color($medium-interactive-rest, 1);
+			text-decoration: underline;
+		}
+		& .focus-border,
+		&:visited .focus-border {
+			@include border-color($medium-interactive-rest, 0);
+		}
+		&:hover,
+		&:focus {
+			@include color($medium-interactive-hover, 1);
+		}
+		&:hover .focus-border,
+		&:focus .focus-border {
+			@include border-color($medium-interactive-hover, 1);
+		}
+		&:active {
+			@include color($medium-interactive-press, 1);
+		}
+		&:active .focus-border {
+			@include border-color($medium-interactive-press, 0);
+		}
+	}
+}
+
+.elipses {
+	background-color: $elipses-background;
+	border-radius: 100%;
+	display: flex;
+	height: 16em;
+	position: absolute;
+		top: 0%;
+		left: 50%;
+	min-width: calc(100% + 40em);
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.logo-container {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	height: 6em;
+	justify-content: left;
+	overflow: hidden;
+	position: absolute;
+		top: 4em;
+		left: 8em;
+	width: 6.8em;
+	z-index: 3;
+
+	.h1 {
+		color: rgba(0,0,0,0%);
+		height: 100%;
+		font-size: 0.125em;
+		overflow: hidden;
+		position: absolute;
+			top: 0%;
+			left: 0%;
+		width: 100%;
+	}
+
+	.logo-mark {
+		align-items: flex-end;
 		display: flex;
+		flex-direction: row;
+		gap: 0.55em;
+		justify-content: center;
+
+		span {
+			background-color: $upper-half-background;
+			border-radius: 6em;
+			display: block;
+			height: 5.75em;
+			width: 1em;
+		}
+		span:nth-child(1) {
+			height: 2.5em;
+		}
+	}
+}
+
+.grp {
+	display: flex;
+	gap: 2em;
+
+	&.vertical {
+		flex-direction: row;
+	}
+	&.horizontal {
 		flex-direction: column;
 	}
+}
 
-	.h2, .p {
-		color: $dark-copy-text;
-		align-self: stretch;
-		flex-grow: 0;
+.inner-container {
+	display: block;
+	position: relative;
+}
+
+.btn {
+	// default
+	appearance: none;
+	@include background-color($btn-bg-disabled, 1);
+	border: 0;
+	border-radius: 6em;
+	@include color($dark-copy-text, 1);
+	cursor: default;
+	font-weight: 600;
+	font-size: 2em;
+	line-height: 2em;
+	letter-spacing: 0.01em;
+	padding: 0.5em 3em;
+	position: relative;
+	text-decoration: none;
+
+	.focus-border {
+		border-radius: 4.5em;
+		border-style: solid;
+		border-width: 0.125em;
+		display: block;
+		height: calc(100% + 0.5em);
+		pointer-events: none;
+		position: absolute;
+			top: -0.25em;
+			left: -0.25em;
+		width: calc(100% + 0.5em);
 	}
 
-	.h2 {
-		font-size: 9em;
-		font-weight: 600;
-		line-height: 0.88em;
-		letter-spacing: -0.055em;
-		margin: 0.23em 0em; // 16px 0px
+	// default, primary and secondary interaction treatments
+	&:focus {
+		outline: none;
+	}
+	&:link:hover{
+		cursor: pointer;
+	}
+	&:link:hover,
+	&:link:focus,
+	&:link:active {
+		color: $label-interaction;
+	}
 
-		&.large {
-			font-size: 14em;
+	&.primary {
+		.focus-border {
+			@include border-color($primary-btn-bg-hover, 0);
+		}
+		&,
+		&:visited {
+			@include background-color($primary-btn-bg-rest, 1);
+			@include color($label-rest, 1);
+		}
+		& .focus-border,
+		&:visited .focus-border{
+			@include border-color($primary-btn-bg-rest, 0);
+		}
+		&:hover,
+		&:focus {
+			@include background-color($primary-btn-bg-hover, 1);
+		}
+		&:hover .focus-border,
+		&:focus .focus-border {
+			@include border-color($primary-btn-bg-hover, 1);
+		}
+		&:active,
+		&:active:focus {
+			@include color($label-interaction, 1);
+			@include background-color($button-press, 1);
+		}
+		&:active .focus-border,
+		&:active:focus .focus-border {
+			@include border-color($button-press, 0);
 		}
 	}
 
+	&.secondary {
+		.focus-border {
+			@include border-color($secondary-btn-bg-hover, 0);
+		}
+		&,
+		&:visited {
+			@include background-color($secondary-btn-bg-rest, 1);
+			color: $label-rest;
+		}
+		& .focus-border,
+		&:visited .focus-border{
+			@include border-color($secondary-btn-bg-rest, 0);
+		}
+		&:hover,
+		&:focus {
+			@include background-color($secondary-btn-bg-hover, 1);
+		}
+		&:hover .focus-border,
+		&:focus .focus-border {
+			@include border-color($secondary-btn-bg-hover, 1);
+		}
+		&:active,
+		&:active:focus {
+			@include color($label-interaction, 1);
+			@include background-color($button-press, 1);
+		}
+		&:active .focus-border,
+		&:active:focus .focus-border {
+			@include border-color($button-press, 0);
+		}
+	}
+
+	// takes specific treatments
+	&.menu {
+		align-items: center;
+		@include background-color($primary-btn-bg-rest, 0);
+		border-radius: 100%;
+		display: flex;
+		flex-direction: column;
+		height: 5em;
+		justify-content: center;
+		margin: 0em;
+		padding: 0em;
+		position: absolute;
+			top: 1.5em;
+			right: 2.5em;
+		width: 5em;
+		z-index: 3;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		& .focus-border {
+			@include border-color($primary-btn-bg-rest, 0);
+			position: absolute;
+				top: -0.9em;
+				left: -0.75;
+		}
+
+		&:hover .focus-border,
+		&:focus .focus-border {
+			@include border-color($primary-btn-bg-hover, 1);
+		}
+
+		&:active .focus-border {
+			@include border-color($button-press, 0);
+		}
+
+		.inner-container {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			gap: 0.25em;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.bg-elipses {
+			@include background-color($primary-btn-bg-rest, 0);
+			border-radius: 100%;
+			display: flex;
+			height: 100%;
+			position: absolute;
+				top: calc(50% - 0.65em);
+				left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+		}
+
+		&:hover .bg-elipses,
+		&:focus .bg-elipses {
+			@include background-color($primary-btn-bg-hover, 1);
+		}
+
+		&:active .bg-elipses {
+			@include background-color($button-press, 1);
+		}
+
+		.icon {
+			display: block;
+			height: 2em;
+			line-height: 0;
+			position: relative;
+			width: 2em;
+
+			span {
+				@include background-color($primary-btn-bg-rest, 1);
+				border-radius: 3.125em;
+				display: block;
+				height: 0.275em;
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: 2em;
+			}
+		}
+
+		.hamburger {
+
+			span:nth-child(1) {
+				opacity: 1;
+				transform: translate(0%, 0%) rotate(0deg);
+			}
+
+			span:nth-child(2) {
+				opacity: 1;
+				transform: translate(0%, 250%) rotate(0deg);
+			}
+
+			span:nth-child(3) {
+				opacity: 1;
+				transform: translate(0%, 500%) rotate(0deg);
+			}
+		}
+
+		&:hover .icon span,
+		&:focus .icon span,
+		&:active .icon span {
+			@include background-color($label-interaction, 1);
+		}
+
+
+		.close-x {
+			// nothing yet.
+		}
+
+		.label {
+			@include color($primary-btn-bg-rest, 1);
+			display: block;
+			font-size: 0.75em;
+			font-weight: 600;
+			letter-spacing: .05em;
+			line-height: 1;
+			margin: 0 auto;
+			text-align: center;
+			width: 4em;
+		}
+		&:hover .label,
+		&:focus .label {
+			opacity: 0;
+		}
+	}
+}
+
+.nav {
+	display: none;
+}
+
+.header,
+.main,
+.footer {
+	align-items: center;
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+
+.header,
+.article {
+	width: 100%;
+}
+
+.header {
+	flex-direction: row;
+	height: 14em;
+	position: absolute;
+		top: 0;
+		left: 50%;
+	transform: translate(-50%, 0%);
+	z-index: 1;
+}
+
+.main {
+	flex-direction: column;
+}
+
+.article {
+	align-items: center;
+	background-color: $ghost-white;
+	display: flex;
+	flex-direction: column;
+	display: flex;
+	position: relative;
+}
+
+.section {
+	align-items: flex-end;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+
+	&:last-child {
+		padding-bottom: 19em;
+	}
+
+	.image-container {
+		display: block;
+		height: 90em;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		width: 50%;
+	}
+
+	img {
+		display: block;
+		height: 100%;
+		object-fit: cover; /* or object-fit: contain; */
+		width: 100%;
+	}
+
+	.content-block {
+		align-self: center;
+		display: flex;
+		flex-direction: column;
+		padding-top: 14em;
+		padding-bottom: 2em;
+	}
+
+	.grp {
+		margin-top: 4em;
+	}
+}
+.section.one,
+.section.two,
+.section.three {
+	height: 90em;
+
+	.content-block {
+		width: 50%;
+	}
+}
+.section.one,
+.section.three {
+	flex-direction: row-reverse;
+}
+.section.two {
+	flex-direction: row;
+}
+.section.four {
+	justify-content: center;
+	padding-top: 6em;
+
+	.content-block {
+		width: 100%;
+
+		.a:link {
+			font-weight: 500;
+		}
+	}
+}
+
+.section.one .content-block {
+	padding-left: 5em;
+}
+.section.two .content-block {
+	padding-right: 5em;
+}
+.section.three .content-block {
+	padding-left: 5em;
+}
+.section.four .content-block {
+	padding-left: 0em;
+	padding-right: 0em;
+}
+
+.section.one .image-container:after,
+.section.two .image-container:after,
+.section.three .image-container:after {
+	content: '';
+	display: block;
+	height: 30px;
+	width: 100%;
+}
+.section.one .image-container:after {
+	background: linear-gradient(to right top, $ghost-white 50%, transparent 50%);
+	position: absolute;
+		bottom: 0;
+		right: 0;
+}
+.section.two .image-container:after {
+	background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);
+	position: absolute;
+		top: 0;
+		left: 0;
+}
+.section.two .image-container {
+	border-bottom-right-radius: 15vw;
+}
+.section.three .image-container:after {
+	background: linear-gradient(to right top, $ghost-white 50%, transparent 50%);
+	position: absolute;
+		bottom: 0;
+		right: 0;
+}
+.section.three .image-container {
+	border-top-left-radius: 15vw;
+}
+
+
+.footer {
+	align-items: center;
+	background-color: $footer-background;
+	display: flex;
+	flex-direction: column;
+	gap: 4em;
+	justify-content: center;
+	overflow: hidden;
+	padding: 16em 8em 6em;
+	position: relative;
+	width: 100%;
+
 	.p {
+		color: $light-copy-text;
 		font-size: 2em;
-		font-weight: 500;
-		line-height: 1.34em;
-		margin: 0.67em 0em; // 16px 0px
+		font-weight: 400;
+		line-height: 2em;
+		letter-spacing: 0.04em;
+		margin: 0 auto;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 	}
 
-	.a {
-		color: inherit;
-		position: relative;
-		text-decoration: none;
-
-		&:focus {
-			outline: none;
-		}
-
-		.focus-border {
-			border-radius: 0.25em;
-			border-style: solid;
-			border-width: 0.0835em;
-			display: block;
-			height: calc(100% + 0.25em);
-			pointer-events: none;
-			position: absolute;
-				top: -0.125em;
-				left: -0.125em;
-			width: calc(100% + 0.25em);
-		}
-
-		&.light {
-			&,
-			&:visited {
-				@include color($light-interactive-rest, 1);
-				text-decoration: underline;
-			}
-			& .focus-border,
-			&:visited .focus-border {
-				@include border-color($light-interactive-rest, 0);
-			}
-			&:hover,
-			&:focus {
-				@include color($light-interactive-hover, 1);
-			}
-			&:hover .focus-border,
-			&:focus .focus-border {
-				@include border-color($light-interactive-hover, 1);
-			}
-			&:active {
-				@include color($light-interactive-press, 1);
-			}
-			&:active .focus-border {
-				@include border-color($light-interactive-press, 0);
-			}
-		}
-		&.dark {
-			&,
-			&:visited {
-				@include color($medium-interactive-rest, 1);
-				text-decoration: underline;
-			}
-			& .focus-border,
-			&:visited .focus-border {
-				@include border-color($medium-interactive-rest, 0);
-			}
-			&:hover,
-			&:focus {
-				@include color($medium-interactive-hover, 1);
-			}
-			&:hover .focus-border,
-			&:focus .focus-border {
-				@include border-color($medium-interactive-hover, 1);
-			}
-			&:active {
-				@include color($medium-interactive-press, 1);
-			}
-			&:active .focus-border {
-				@include border-color($medium-interactive-press, 0);
-			}
-		}
+	.a:link {
+		font-weight: 500;
 	}
 
 	.elipses {
-		background-color: $elipses-background;
-		border-radius: 100%;
-		display: flex;
-		height: 16em;
-		position: absolute;
-			top: 0%;
-			left: 50%;
-		min-width: calc(100% + 40em);
-		transform: translate(-50%, -50%);
-		z-index: 2;
+		background-color: $ghost-white;
 	}
 
-	.logo-container {
-		align-items: flex-start;
+	.list {
 		display: flex;
 		flex-direction: row;
-		height: 6em;
-		justify-content: left;
-		overflow: hidden;
-		position: absolute;
-			top: 4em;
-			left: 8em;
-		width: 6.8em;
-		z-index: 3;
+		gap: 4em;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
 
-		.h1 {
-			color: rgba(0,0,0,0%);
-			height: 100%;
-			font-size: 0.125em;
-			overflow: hidden;
-			position: absolute;
-				top: 0%;
-				left: 0%;
-			width: 100%;
+		.item {
+			margin: 0;
+			padding: 0;
 		}
 
-		.logo-mark {
-			align-items: flex-end;
+		.icon-link {
+			align-items: center;
+			border-radius: 9em;
 			display: flex;
-			flex-direction: row;
-			gap: 0.55em;
+			height: 6em;
 			justify-content: center;
+			position: relative;
+			text-decoration: none;
+			width: 6em;
 
-			span {
-				background-color: $upper-half-background;
-				border-radius: 6em;
-				display: block;
-				height: 5.75em;
-				width: 1em;
-			}
-			span:nth-child(1) {
-				height: 2.5em;
-			}
-		}
-	}
-
-	.grp {
-		display: flex;
-		gap: 2em;
-
-		&.vertical {
-			flex-direction: row;
-		}
-		&.horizontal {
-			flex-direction: column;
-		}
-	}
-
-	.inner-container {
-		display: block;
-		position: relative;
-	}
-
-	.btn {
-		// default
-		appearance: none;
-		@include background-color($btn-bg-disabled, 1);
-		border: 0;
-		border-radius: 6em;
-		@include color($dark-copy-text, 1);
-		cursor: default;
-		font-weight: 600;
-		font-size: 2em;
-		line-height: 2em;
-		letter-spacing: 0.01em;
-		padding: 0.5em 3em;
-		position: relative;
-		text-decoration: none;
-
-		.focus-border {
-			border-radius: 4.5em;
-			border-style: solid;
-			border-width: 0.125em;
-			display: block;
-			height: calc(100% + 0.5em);
-			pointer-events: none;
-			position: absolute;
-				top: -0.25em;
-				left: -0.25em;
-			width: calc(100% + 0.5em);
-		}
-
-		// default, primary and secondary interaction treatments
-		&:focus {
-			outline: none;
-		}
-		&:link:hover{
-			cursor: pointer;
-		}
-		&:link:hover,
-		&:link:focus,
-		&:link:active {
-			color: $label-interaction;
-		}
-
-		&.primary {
 			.focus-border {
-				@include border-color($primary-btn-bg-hover, 0);
+				@include border-color($secondary-btn-bg-rest, 0);
+				border-radius: 9em;
+				border-style: solid;
+				border-width: 0.25em;
+				display: block;
+				height: calc(100% + 1.25em);
+				pointer-events: none;
+				position: absolute;
+					top: -0.625em;
+					left: -0.625em;
+				width: calc(100% + 1.25em);
+			}
+			&:focus {
+				outline: none;
 			}
 			&,
 			&:visited {
-				@include background-color($primary-btn-bg-rest, 1);
-				@include color($label-rest, 1);
+				@include background-color($secondary-btn-bg-hover, 0);
 			}
-			& .focus-border,
-			&:visited .focus-border{
-				@include border-color($primary-btn-bg-rest, 0);
-			}
-			&:hover,
-			&:focus {
-				@include background-color($primary-btn-bg-hover, 1);
-			}
-			&:hover .focus-border,
-			&:focus .focus-border {
-				@include border-color($primary-btn-bg-hover, 1);
-			}
-			&:active,
-			&:active:focus {
-				@include color($label-interaction, 1);
-				@include background-color($button-press, 1);
-			}
-			&:active .focus-border,
-			&:active:focus .focus-border {
-				@include border-color($button-press, 0);
-			}
-		}
-
-		&.secondary {
-			.focus-border {
+			&:visited .focus-border {
 				@include border-color($secondary-btn-bg-hover, 0);
 			}
-			&,
-			&:visited {
-				@include background-color($secondary-btn-bg-rest, 1);
-				color: $label-rest;
-			}
-			& .focus-border,
-			&:visited .focus-border{
-				@include border-color($secondary-btn-bg-rest, 0);
-			}
 			&:hover,
 			&:focus {
-				@include background-color($secondary-btn-bg-hover, 1);
+				@include background-color($secondary-btn-bg-hover, 0.25);
 			}
 			&:hover .focus-border,
 			&:focus .focus-border {
-				@include border-color($secondary-btn-bg-hover, 1);
+				@include border-color($secondary-btn-bg-hover, 0.25);
 			}
-			&:active,
-			&:active:focus {
-				@include color($label-interaction, 1);
-				@include background-color($button-press, 1);
+			&:active {
+				@include background-color($secondary-btn-bg-hover, 0.25);
 			}
-			&:active .focus-border,
-			&:active:focus .focus-border {
-				@include border-color($button-press, 0);
-			}
-		}
-
-		// takes specific treatments
-		&.menu {
-			align-items: center;
-			@include background-color($primary-btn-bg-rest, 0);
-			border-radius: 100%;
-			display: flex;
-			flex-direction: column;
-			height: 5em;
-			justify-content: center;
-			margin: 0em;
-			padding: 0em;
-			position: absolute;
-				top: 1.5em;
-				right: 2.5em;
-			width: 5em;
-			z-index: 3;
-
-			&:hover {
-				cursor: pointer;
-			}
-
-			& .focus-border {
-				@include border-color($primary-btn-bg-rest, 0);
-				position: absolute;
-					top: -0.9em;
-					left: -0.75;
-			}
-
-			&:hover .focus-border,
-			&:focus .focus-border {
-				@include border-color($primary-btn-bg-hover, 1);
-			}
-
 			&:active .focus-border {
-				@include border-color($button-press, 0);
-			}
-
-			.inner-container {
-				align-items: center;
-				display: flex;
-				flex-direction: column;
-				height: 100%;
-				gap: 0.25em;
-				justify-content: center;
-				width: 100%;
-			}
-
-			.bg-elipses {
-				@include background-color($primary-btn-bg-rest, 0);
-				border-radius: 100%;
-				display: flex;
-				height: 100%;
-				position: absolute;
-					top: calc(50% - 0.65em);
-					left: 50%;
-				transform: translate(-50%, -50%);
-				width: 100%;
-			}
-
-			&:hover .bg-elipses,
-			&:focus .bg-elipses {
-				@include background-color($primary-btn-bg-hover, 1);
-			}
-
-			&:active .bg-elipses {
-				@include background-color($button-press, 1);
-			}
-
-			.icon {
-				display: block;
-				height: 2em;
-				line-height: 0;
-				position: relative;
-				width: 2em;
-
-				span {
-					@include background-color($primary-btn-bg-rest, 1);
-					border-radius: 3.125em;
-					display: block;
-					height: 0.275em;
-					position: absolute;
-						top: 0;
-						left: 0;
-					width: 2em;
-				}
-			}
-
-			.hamburger {
-
-				span:nth-child(1) {
-					opacity: 1;
-					transform: translate(0%, 0%) rotate(0deg);
-				}
-
-				span:nth-child(2) {
-					opacity: 1;
-					transform: translate(0%, 250%) rotate(0deg);
-				}
-
-				span:nth-child(3) {
-					opacity: 1;
-					transform: translate(0%, 500%) rotate(0deg);
-				}
-			}
-
-			&:hover .icon span,
-			&:focus .icon span,
-			&:active .icon span {
-				@include background-color($label-interaction, 1);
-			}
-
-
-			.close-x {
-				// nothing yet.
-			}
-
-			.label {
-				@include color($primary-btn-bg-rest, 1);
-				display: block;
-				font-size: 0.75em;
-				font-weight: 600;
-				letter-spacing: .05em;
-				line-height: 1;
-				margin: 0 auto;
-				text-align: center;
-				width: 4em;
-			}
-			&:hover .label,
-			&:focus .label {
-				opacity: 0;
+				@include border-color($secondary-btn-bg-hover, 0);
 			}
 		}
 	}
 
-	.nav {
-		display: none;
-	}
-
-	.header,
-	.main {
-		align-items: center;
+	.dots {
 		display: flex;
-		position: relative;
-		width: 100%;
-	}
-
-	.header {
 		flex-direction: row;
-		height: 14em;
-		max-width: 125em;
-		position: absolute;
-			top: 0;
-			left: 50%;
-		transform: translate(-50%, 0%);
-		z-index: 1;
+		gap: 2em;
+
+		.dot {
+			border-radius: 100%;
+			height: 1em;
+			width: 1em;
+		}
+		.red {
+			background-color: $red;
+		}
+		.orange {
+			background-color: $orange;
+		}
+		.yellow {
+			background-color: $yellow;
+		}
+		.green {
+			background-color: $green;
+		}
+		.blue {
+			background-color: $blue;
+		}
+		.violet {
+			background-color: $violet;
+		}
+
 	}
 
-	.main {
-		flex-direction: column;
-	}
-
-	//article
-	.article {
+	.obligatory {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		display: flex;
-		max-width: 125em;
-		position: relative;
-		width: 100%;
-	}
-
-	.section {
-		align-items: flex-end;
-		display: flex;
-		justify-content: space-between;
-
-		&:last-child {
-			padding-bottom: 19em;
-		}
-
-		.image-container {
-			display: block;
-			height: 76em;
-			margin: 0;
-			overflow: hidden;
-			padding: 0;
-			position: relative;
-			max-width: 57em;
-			width: 100%;
-		}
-
-		img {
-			display: block;
-			height: auto;
-			width: 100%;
-		}
-
-		.content-block {
-			align-self: flex-end;
-			display: flex;
-			flex-direction: column;
-			padding: 0em 0em 5em;
-		}
-
-		.grp {
-			margin-top: 4em;
-		}
-
-		&.one, &.two, &.three {
-			.content-block {
-				max-width: 57em;
-				width: 50%;
-			}
-		}
-		&.one, &.three {
-			flex-direction: row-reverse;
-		}
-		&.two {
-			flex-direction: row;
-		}
-		&.four {
-			justify-content: center;
-			padding-top: 6em;
-
-			.content-block {
-				max-width: 108em;
-				width: 100%;
-
-				.p {
-					font-size: 3em;
-					font-weight: 400;
-					letter-spacing: -0.025em;
-					line-height: 1.25em;
-				}
-				.a:link {
-					font-weight: 500;
-				}
-			}
-		}
-
-		&.one .content-block {
-			padding-left: 5em;
-		}
-		&.two .content-block {
-			padding-right: 5em;
-		}
-		&.three .content-block {
-			padding-left: 5em;
-		}
-
-		&.one .image-container:after,
-		&.two .image-container:after,
-		&.three .image-container:after {
-			content: '';
-			display: block;
-			height: 30px;
-			width: 100%;
-		}
-		&.one .image-container:after {
-			background: linear-gradient(to right top, #fff 49.5%, transparent 50%);
-			position: absolute;
-				bottom: 0;
-				right: 0;
-		}
-		&.two .image-container:after {
-			background: linear-gradient(to left bottom, #fff 49.5%, transparent 50%);
-			position: absolute;
-				top: 0;
-				left: 0;
-		}
-		&.two .image-container {
-			border-bottom-right-radius: 60%;
-		}
-		&.three .image-container:after {
-			background: linear-gradient(to right top, #fff 49.5%, transparent 50%);
-			position: absolute;
-				bottom: 0;
-				right: 0;
-		}
-		&.three .image-container {
-			border-top-left-radius: 60%;
-		}
-	}
-
-	footer {
-		align-items: center;
-		background-color: $footer-background;
-		display: flex;
-		flex-direction: column;
-		gap: 4em;
 		justify-content: center;
-		overflow: hidden;
-		padding: 16em 8em 6em;
-		position: relative;
-		width: 100%;
-
-		.p {
-			color: $light-copy-text;
-			font-size: 2em;
-			font-weight: 400;
-			line-height: 2em;
-			letter-spacing: 0.04em;
-			margin: 0 auto;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		.a:link {
-			font-weight: 500;
-		}
-
-		.elipses {
-			background-color: $white;
-		}
-
-		.list {
-			display: flex;
-			flex-direction: row;
-			gap: 4em;
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-
-			.item {
-				margin: 0;
-				padding: 0;
-			}
-
-			.icon-link {
-				align-items: center;
-				border-radius: 9em;
-				display: flex;
-				height: 6em;
-				justify-content: center;
-				position: relative;
-				text-decoration: none;
-				width: 6em;
-
-				.focus-border {
-					@include border-color($secondary-btn-bg-rest, 0);
-					border-radius: 9em;
-					border-style: solid;
-					border-width: 0.25em;
-					display: block;
-					height: calc(100% + 1.25em);
-					pointer-events: none;
-					position: absolute;
-						top: -0.625em;
-						left: -0.625em;
-					width: calc(100% + 1.25em);
-				}
-				&:focus {
-					outline: none;
-				}
-				&,
-				&:visited {
-					@include background-color($secondary-btn-bg-hover, 0);
-				}
-				&:visited .focus-border {
-					@include border-color($secondary-btn-bg-hover, 0);
-				}
-				&:hover,
-				&:focus {
-					@include background-color($secondary-btn-bg-hover, 0.25);
-				}
-				&:hover .focus-border,
-				&:focus .focus-border {
-					@include border-color($secondary-btn-bg-hover, 0.25);
-				}
-				&:active {
-					@include background-color($secondary-btn-bg-hover, 0.25);
-				}
-				&:active .focus-border {
-					@include border-color($secondary-btn-bg-hover, 0);
-				}
-			}
-		}
-
-		.dots {
-			display: flex;
-			flex-direction: row;
-			gap: 2em;
-
-			.dot {
-				border-radius: 100%;
-				height: 1em;
-				width: 1em;
-			}
-			.red {
-				background-color: $red;
-			}
-			.orange {
-				background-color: $orange;
-			}
-			.yellow {
-				background-color: $yellow;
-			}
-			.green {
-				background-color: $green;
-			}
-			.blue {
-				background-color: $blue;
-			}
-			.violet {
-				background-color: $violet;
-			}
-
-		}
-
-		.obligatory {
-			align-items: center;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
 	}
-// }
+}
+
+@media screen and (min-width: 989px) {
+	.header,
+	.article {
+		max-width: 135em; // width cut-off is at this query
+	}
+	.section.one .content-block .p,
+	.section.two .content-block .p,
+	.section.three .content-block .p {
+		width: 27.4em;
+	}
+	.section.one .content-block .h2,
+	.section.two .content-block .h2,
+	.section.three .content-block .h2 {
+		width: 6.1em;
+	}
+	.section.one .grp,
+	.section.two .grp,
+	.section.three .grp {
+		width: 54em;
+	}
+	.section.one .content-block,
+	.section.three .content-block {
+		padding-right: 2em;
+	}
+	.section.two .content-block {
+		padding-left: 2em;
+	}
+	.section.four .content-block {
+		padding-left: 8em;
+		padding-right: 8em;
+	}
+	.section.two .content-block .h2,
+	.section.two .content-block .p,
+	.section.two .grp {
+		margin-left: auto;
+	}
+	.section.two .image-container {
+		border-bottom-right-radius: 20em;
+	}
+	.section.three .image-container {
+		border-top-left-radius: 20em;
+	}
+}
+
+// EXPERIMENTAL DECORATIONS
+.decorative {
+	background-color: $cultured;
+	display:block;
+	height: 90em;
+	pointer-events: none;
+	position: absolute;
+		top: 0;
+		right: 0;
+	width: 50%;
+	z-index: -1;
+
+	&:after {
+		background: linear-gradient(to left bottom, $cultured 50%, transparent 50%);
+		content: '';
+		display: block;
+		height: 2.75vw;
+		position: absolute;
+			top: 90em;
+			right: 0;
+		width: 100%;
+	}
+}
