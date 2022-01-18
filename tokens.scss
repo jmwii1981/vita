@@ -1,0 +1,119 @@
+//***********************************************************//
+//**                      DESIGN TOKENS                    **//
+//***********************************************************//
+
+	// Additional reading and tools
+	// TECH DOC -> https://sass-lang.com/documentation/modules/color#blue
+	// TECH DOC -> https://stackoverflow.com/questions/10929458/sass-converting-hex-to-rgba-for-background-opacity
+	// READ https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676
+	// READ https://uxdesign.cc/defining-colors-in-your-design-system-828148e6210a
+	// TOOL https://lyft-colorbox.herokuapp.com/ <- instructions on usage in the immediately above article
+
+////** COLOR PALETTE (category layer)
+//////** BASE COLORS (value layer; hue HEX values)
+		 // $white
+		 $white: #FFFFFF;
+		 $ghost-white: #F9FAFA;
+		 $cultured: #F3F6F7;
+		 $anti-flash-white: #F0F2F2;
+		 $platinum: #E8E8E8;
+		 $dim-gray: #666773;
+		 $davys-gray: #4F505E;
+		 $dark-charchoal: #303135;
+		 $dark-jungle-green: #1A1F1F;
+		 $arsenic: #393B4F;
+		 $gunmetal: #2C2E44;
+		 $desire: #E13B53;
+		 $vivid-tangelo: #E77B17;
+		 $sunglow: #FFC42E;
+		 $viridian-green: #1496A1;
+		 $cyan-blue-azure: #3275BC;
+		 $grape: #7F32BC;
+//////** LIGHT (extended value layer; i.e. a combination of saturation and brightness HEX values)
+	// nothing added ...
+		 // $white-100
+//////** OPACITY (extended value layer)
+		// Handle with SCSS mix-in
+		@mixin background-color($color, $opacity: 1) {
+			background-color: $color; /* The Fallback */
+			background-color: rgba($color, $opacity);
+		}
+		@mixin border-color($color, $opacity: 1) {
+			border-color: $color; /* The Fallback */
+			border-color: rgba($color, $opacity);
+		}
+		@mixin color($color, $opacity: 1) {
+			color: $color; /* The Fallback */
+			color: rgba($color, $opacity);
+		}
+		// EXAMPLE USAGE:
+		// element {
+		//	@include color(#333, 0.5);
+		// }
+
+////** FONT (category layer; aka type, typography, text)
+	// nothing added ...
+////** SPACE (category layer; aka units, dimension, spacing)
+	// nothing added ...
+////** SIZE (category layer; aka sizing)
+	// nothing added ...
+////** ELEVATION (category layer; aka z-index, layer, layering)
+	// nothing added ...
+////** BREAKPOINTS (category layer; aka media-query, responsive)
+	// nothing added ...
+////** SHADOW (category layer; aka depth)
+	// nothing added ...
+////** TOUCH (category layer)
+	// nothing added ...
+////** TIME (category layer; aka animation, duration)
+	// nothing added ...
+
+	// backgrounds
+		$elipses-background: $cultured;
+		$footer-background: $dark-charchoal;
+		$logo-background: $dark-charchoal;
+		$upper-half-background: $ghost-white;
+		$lower-half-background: $cultured;
+
+	// text
+		$dark-copy-text: $dark-charchoal;
+		$light-copy-text: $platinum;
+
+	//links
+	// -- link rest
+		$dark-interactive-rest: $gunmetal;
+		$medium-interactive-rest: $davys-gray;
+		$light-interactive-rest: $cultured;
+	// -- link hover
+		$dark-interactive-hover: $arsenic;
+		$medium-interactive-hover: $dim-gray;
+		$light-interactive-hover: $white;
+	// -- link press
+		$dark-interactive-press: $dark-jungle-green;
+		$medium-interactive-press: $dark-jungle-green;
+		$light-interactive-press: $platinum;
+	// --link visited
+
+	// buttons
+	// -- label rest
+		$label-rest: $anti-flash-white;
+	// -- label hover/press
+		$label-interaction: $white;
+	// -- bg disabled
+		$btn-bg-disabled: $platinum;
+	// -- bg rest
+		$primary-btn-bg-rest: $gunmetal;
+		$secondary-btn-bg-rest: $davys-gray;
+	// -- bg hover
+		$primary-btn-bg-hover: $arsenic;
+		$secondary-btn-bg-hover: $dim-gray;
+	// -- bg press
+		$button-press: $dark-jungle-green;
+
+	// rainbow dots
+	$red: $desire;
+	$orange: $vivid-tangelo;
+	$yellow: $sunglow;
+	$green: $viridian-green;
+	$blue: $cyan-blue-azure;
+	$violet: $grape;
