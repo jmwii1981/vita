@@ -474,13 +474,13 @@
 	box-sizing: border-box;
 }
 .html {
-	background-color: $dark-charchoal;
+	@include background-color($dark-charchoal, 1);
 	overflow-x: hidden;
 	z-index: 0;
 }
 .body {
 	align-items: center;
-	background-color: $ghost-white;
+	@include background-color($ghost-white, 1);
 	flex-direction: column;
 	overflow-x: hidden;
 	z-index: 1;
@@ -537,7 +537,7 @@
 
 // header logo lines
 .header__logo__line {
-	background-color: $upper-half-background;
+	@include background-color($upper-half-background, 1);
 	border-radius: 6em;
 	display: block;
 	height: 9.5em;
@@ -563,7 +563,7 @@
 
 // header nav
 .header__nav {
-	background-color: $dark-charchoal;
+	@include background-color($dark-charchoal, 1);
 	display: none;
 	height: 3.75em;
 }
@@ -629,10 +629,10 @@
 
 // landing-section block mods -- colors
 .landing-section--ghost-white {
-	background-color: $ghost-white;
+	@include background-color($ghost-white, 1);
 }
 .landing-section--cultured {
-	background-color: $cultured;
+	@include background-color($cultured, 1);
 }
 
 
@@ -640,7 +640,7 @@
 .landing-section--slant {
 
 	&:before {
-		background-color: $ghost-white;
+		@include background-color($ghost-white, 1);
 		content: '';
 		height: 3.75em;
 		pointer-events: none;
@@ -762,7 +762,7 @@
 // footer block
 .footer {
 	align-items: center;
-	background-color: $footer-background;
+	@include background-color($footer-background, 1);
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
@@ -903,28 +903,28 @@
 
 // footer section dot block decoration mods -- colors
 .footer__section__dot--red {
-	background-color: $red;
+	@include background-color($red, 1);
 }
 .footer__section__dot--orange {
-	background-color: $orange;
+	@include background-color($orange, 1);
 }
 .footer__section__dot--yellow {
-	background-color: $yellow;
+	@include background-color($yellow, 1);
 }
 .footer__section__dot--green {
-	background-color: $green;
+	@include background-color($green, 1);
 }
 .footer__section__dot--blue {
-	background-color: $blue;
+	@include background-color($blue, 1);
 }
 .footer__section__dot--violet {
-	background-color: $violet;
+	@include background-color($violet, 1);
 }
 
 
 // footer block decorative elipses
 .footer__elipses {
-	background-color: $elipses-background;
+	@include background-color($elipses-background, 1);
 	border-radius: 100%;
 	display: flex;
 	height: 16em;
@@ -1011,14 +1011,14 @@ $breakpoint-tablet-to-desktop: 989px;
 
 	// landing block decorations -- rectangles (colors)
 	.landing__rectangle--anti-flash-white {
-		background-color: $anti-flash-white;
+		@include background-color($anti-flash-white, 1);
 
 		&:after {
 			background: linear-gradient(to left bottom, $anti-flash-white 50%, transparent 50%);
 		}
 	}
 	.landing__rectangle--cultured {
-		background-color: $cultured;
+		@include background-color($cultured, 1);
 
 		&:after {
 			background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);

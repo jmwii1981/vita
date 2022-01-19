@@ -46,6 +46,13 @@
 			color: $color; /* The Fallback */
 			color: rgba($color, $opacity);
 		}
+		@mixin triangle($position1 ,$position2, $color) {
+			background: (to $position1 $position2, $color 50%, transparent 50%);;
+		}
+
+
+
+
 		// EXAMPLE USAGE:
 		// element {
 		//	@include color(#333, 0.5);

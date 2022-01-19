@@ -451,6 +451,8 @@
 
 .html {
   background-color: #303135;
+  /* The Fallback */
+  background-color: #303135;
   overflow-x: hidden;
   z-index: 0;
 }
@@ -458,6 +460,8 @@
 .body {
   align-items: center;
   background-color: #F9FAFA;
+  /* The Fallback */
+  background-color: #f9fafa;
   flex-direction: column;
   overflow-x: hidden;
   z-index: 1;
@@ -508,6 +512,8 @@
 
 .header__logo__line {
   background-color: #F9FAFA;
+  /* The Fallback */
+  background-color: #f9fafa;
   border-radius: 6em;
   display: block;
   height: 9.5em;
@@ -530,6 +536,8 @@
 }
 
 .header__nav {
+  background-color: #303135;
+  /* The Fallback */
   background-color: #303135;
   display: none;
   height: 3.75em;
@@ -589,14 +597,20 @@
 
 .landing-section--ghost-white {
   background-color: #F9FAFA;
+  /* The Fallback */
+  background-color: #f9fafa;
 }
 
 .landing-section--cultured {
   background-color: #F3F6F7;
+  /* The Fallback */
+  background-color: #f3f6f7;
 }
 
 .landing-section--slant:before {
   background-color: #F9FAFA;
+  /* The Fallback */
+  background-color: #f9fafa;
   content: "";
   height: 3.75em;
   pointer-events: none;
@@ -705,6 +719,8 @@
 
 .footer {
   align-items: center;
+  background-color: #303135;
+  /* The Fallback */
   background-color: #303135;
   flex-direction: column;
   justify-content: center;
@@ -837,30 +853,44 @@
 
 .footer__section__dot--red {
   background-color: #E13B53;
+  /* The Fallback */
+  background-color: #e13b53;
 }
 
 .footer__section__dot--orange {
   background-color: #E77B17;
+  /* The Fallback */
+  background-color: #e77b17;
 }
 
 .footer__section__dot--yellow {
   background-color: #FFC42E;
+  /* The Fallback */
+  background-color: #ffc42e;
 }
 
 .footer__section__dot--green {
   background-color: #1496A1;
+  /* The Fallback */
+  background-color: #1496a1;
 }
 
 .footer__section__dot--blue {
   background-color: #3275BC;
+  /* The Fallback */
+  background-color: #3275bc;
 }
 
 .footer__section__dot--violet {
   background-color: #7F32BC;
+  /* The Fallback */
+  background-color: #7f32bc;
 }
 
 .footer__elipses {
   background-color: #F3F6F7;
+  /* The Fallback */
+  background-color: #f3f6f7;
   border-radius: 100%;
   display: flex;
   height: 16em;
@@ -928,6 +958,8 @@
 
   .landing__rectangle--anti-flash-white {
     background-color: #F0F2F2;
+    /* The Fallback */
+    background-color: #f0f2f2;
   }
   .landing__rectangle--anti-flash-white:after {
     background: linear-gradient(to left bottom, #F0F2F2 50%, transparent 50%);
@@ -935,6 +967,8 @@
 
   .landing__rectangle--cultured {
     background-color: #F3F6F7;
+    /* The Fallback */
+    background-color: #f3f6f7;
   }
   .landing__rectangle--cultured:after {
     background: linear-gradient(to left bottom, #F9FAFA 50%, transparent 50%);
