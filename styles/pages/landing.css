@@ -415,6 +415,7 @@
 
 .html,
 .body {
+  font-display: swap;
   font-family: "Inter", sans-serif;
   font-size: 8px;
 }
