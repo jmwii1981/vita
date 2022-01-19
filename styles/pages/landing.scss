@@ -1,0 +1,1069 @@
+@import "../tokens/tokens";
+
+// COMMIT NOTES: changes theme color in iOS Safari; continues to consolidate and organize code via BEM;
+
+
+
+//**-----TYPOGRAPHY-----**//
+
+
+// titles
+.h2 {
+	align-self: stretch;
+	color: $dark-copy-text;
+	flex-grow: 0;
+	font-size: 9em;
+	font-weight: 600;
+	line-height: 0.88em;
+	letter-spacing: -0.055em;
+	margin: 0.23em 0em;
+}
+
+
+// title mods -- size
+.h2--large {
+	font-size: 14em;
+}
+
+
+// body copy
+.p {
+	flex-grow: 0;
+	margin: 0.67em 0em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+// body copy mods -- widths
+.p--contained {
+	align-self: auto;
+}
+.p--full {
+	align-self: stretch;
+}
+
+
+// body copy mods -- text size
+.p--large-text {
+	font-size: 3em;
+	font-weight: 400;
+	letter-spacing: -0.025em;
+}
+.p--medium-text {
+	font-size: 2em;
+	font-weight: 500;
+	letter-spacing: -0.01%;
+}
+.p--small-text {
+	font-size: 1em;
+	font-weight: 500;
+	letter-spacing: -0.01%;
+}
+
+
+// body copy mods -- mode coloring
+.p--light-mode {
+	color: $dark-copy-text;
+}
+.p--dark-mode {
+	color: $light-copy-text;
+}
+
+
+// body copy mods -- line-height
+.p--line-height-large { // .p
+	line-height: 1.34em;
+}
+.p--line-hight-medium {
+	line-height: 1.25em;
+}
+.p--line-hight-small {
+	line-height: 1em;
+}
+
+
+
+
+
+//**-----INTERACTIVE-ELEMENTS-----**//
+
+
+// links (text only)
+.link {
+	appearance: none;
+	color: inherit;
+	cursor: default;
+	display: inline-flex;
+	font-weight: 500;
+	padding: 0em;
+	position: relative;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
+// link (text only) focus border
+.link__focus-border {
+	border-style: solid;
+	border-radius: 0.5rem;
+	border-width: 0.125em;
+	display: block;
+	height: calc(100% + 1rem);
+	pointer-events: none;
+	position: absolute;
+		top: -0.5rem;
+		left: -0.5rem;
+	width: calc(100% + 1rem);
+}
+
+
+// link (text only) mods -- mode coloring
+.link--dark-mode {
+	&,
+	&:visited {
+		@include color($light-interactive-rest, 1);
+		text-decoration: underline;
+	}
+	& .link__focus-border,
+	&:visited .link__focus-border {
+		@include border-color($light-interactive-rest, 0);
+	}
+	&:hover,
+	&:focus {
+		@include color($light-interactive-hover, 1);
+		text-decoration: none;
+	}
+	&:hover .link__focus-border,
+	&:focus .link__focus-border {
+		@include border-color($light-interactive-hover, 0.75);
+	}
+	&:active {
+		@include color($light-interactive-press, 1);
+	}
+	&:active .link__focus-border {
+		@include border-color($light-interactive-press, 0);
+	}
+}
+.link--light-mode {
+	&,
+	&:visited {
+		@include color($medium-interactive-rest, 1);
+		text-decoration: underline;
+	}
+	& .link__focus-border,
+	&:visited .focus-border {
+		@include border-color($medium-interactive-rest, 0);
+	}
+	&:hover,
+	&:focus {
+		@include color($medium-interactive-hover, 1);
+		text-decoration: none;
+	}
+	&:hover .link__focus-border,
+	&:focus .link__focus-border {
+		@include border-color($medium-interactive-hover, 0.75);
+	}
+	&:active {
+		@include color($medium-interactive-press, 1);
+	}
+	&:active .link__focus-border {
+		@include border-color($medium-interactive-press, 0);
+	}
+}
+
+
+// button
+.btn {
+	appearance: none;
+	align-items: center;
+	@include background-color($btn-bg-disabled, 1);
+	border: 0;
+	border-radius: 6em;
+	@include color($dark-copy-text, 1);
+	cursor: default;
+	display: flex;
+	font-weight: 600;
+	font-size: 2em;
+	justify-content: center;
+	line-height: 2em;
+	letter-spacing: 0.01em;
+	padding: 0.5em 3em;
+	position: relative;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $label-interaction;
+	}
+	.btn__label {
+		display: inline-flex;
+		white-space: nowrap;
+	}
+	.btn__focus-border {
+		border-style: solid;
+		border-radius: 4.5em;
+		border-width: 0.125em;
+		display: block;
+		height: calc(100% + 0.5em);
+		pointer-events: none;
+		position: absolute;
+			top: -0.25em;
+			left: -0.25em;
+		width: calc(100% + 0.5em);
+	}
+}
+
+
+// button mods -- primary and secondary
+.btn--primary {
+	&,
+	&:visited {
+		@include background-color($primary-btn-bg-rest, 1);
+	}
+	& .btn__focus-border,
+	&:visited .btn__focus-border {
+		@include border-color($primary-btn-bg-rest, 0);
+	}
+	&:hover,
+	&:focus {
+		@include background-color($primary-btn-bg-hover, 1);
+	}
+	&:hover .btn__focus-border,
+	&:focus .btn__focus-border {
+		@include border-color($primary-btn-bg-hover, 1);
+	}
+}
+.btn--secondary {
+	&,
+	&:visited {
+		@include background-color($secondary-btn-bg-rest, 1);
+	}
+	& .btn__focus-border,
+	&:visited .btn__focus-border {
+		@include border-color($secondary-btn-bg-rest, 0);
+	}
+	&:hover,
+	&:focus {
+		@include background-color($secondary-btn-bg-hover, 1);
+	}
+	&:hover .btn__focus-border,
+	&:focus .btn__focus-border {
+		@include border-color($secondary-btn-bg-hover, 1);
+	}
+}
+.btn--primary,
+.btn--secondary {
+	&,
+	&:visited {
+		@include color($label-rest, 1);
+	}
+	&:active,
+	&:active:focus {
+		@include color($label-interaction, 1);
+		@include background-color($button-press, 1);
+	}
+	&:active .btn__focus-border,
+	&:active:focus .btn__focus-border {
+		@include border-color($button-press, 0);
+	}
+}
+
+
+// header nav button
+.header__nav-btn {
+	align-items: center;
+	appearance: none;
+	@include background-color($primary-btn-bg-rest, 0);
+	border: 0;
+	border-radius: 100%;
+	// display: flex;
+	display: none;
+	flex-direction: column;
+	height: 5em;
+	justify-content: center;
+	margin: 0em;
+	padding: 0em;
+	position: absolute;
+		top: 1.5em;
+		right: 2.5em;
+	width: 5em;
+	z-index: 3;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	.header__nav-btn__inner {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
+		height: 100%;
+		justify-content: center;
+		pointer-events: none;
+		width: 100%;
+	}
+
+	.header__nav-btn__focus-border {
+		@include border-color($primary-btn-bg-rest, 0);
+		border-radius: 12.5em;
+		border-style: solid;
+		border-width: 0.25em;
+		display: block;
+		height: calc(100% + 0.75em);
+		pointer-events: none;
+		position: absolute;
+			top: calc(50% - 0.65em);
+			left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% + 0.75em);
+	}
+	&:hover .header__nav-btn__focus-border,
+	&:focus .header__nav-btn__focus-border {
+		@include border-color($primary-btn-bg-hover, 1);
+	}
+	&:active .header__nav-btn__focus-border {
+		@include border-color($button-press, 0);
+	}
+
+	.header__nav-btn__elipses {
+		@include background-color($primary-btn-bg-rest, 0);
+		border-radius: 100%;
+		display: flex;
+		height: 100%;
+		position: absolute;
+			top: calc(50% - 0.65em);
+			left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+	}
+	&:hover .header__nav-btn__elipses,
+	&:focus .header__nav-btn__elipses {
+		@include background-color($primary-btn-bg-hover, 1);
+	}
+	&:active .header__nav-btn__elipses {
+		@include background-color($button-press, 1);
+	}
+
+	.header__nav-btn__icon {
+		display: block;
+		height: 2em;
+		line-height: 0;
+		position: relative;
+		width: 2em;
+
+		.header__nav-btn__icon__line {
+			@include background-color($primary-btn-bg-rest, 1);
+			border-radius: 3.125em;
+			display: block;
+			height: 0.275em;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 2em;
+		}
+	}
+
+	.header__nav-btn__icon--hamburger {
+
+		.header__nav-btn__icon__line:nth-child(1) {
+			opacity: 1;
+			transform: translate(0%, 0%) rotate(0deg);
+		}
+
+		.header__nav-btn__icon__line:nth-child(2) {
+			opacity: 1;
+			transform: translate(0%, 250%) rotate(0deg);
+		}
+
+		.header__nav-btn__icon__line:nth-child(3) {
+			opacity: 1;
+			transform: translate(0%, 500%) rotate(0deg);
+		}
+	}
+
+	&:hover .header__nav-btn__icon__line,
+	&:focus .header__nav-btn__icon__line,
+	&:active .header__nav-btn__icon__line {
+		@include background-color($label-interaction, 1);
+	}
+
+
+	.header__nav-btn__icon--close {
+		// nothing yet.
+	}
+
+	.header__nav-btn__label {
+		@include color($primary-btn-bg-rest, 1);
+		display: block;
+		font-size: 0.75em;
+		font-weight: 600;
+		letter-spacing: .05em;
+		line-height: 1;
+		margin: 0 auto;
+		text-align: center;
+		width: 4em;
+	}
+	&:hover .header__nav-btn__label,
+	&:focus .header__nav-btn__label {
+		opacity: 0;
+	}
+}
+
+
+
+
+
+//**-----BLOCKS-----**//
+
+/////////////////////////
+// CONSOLIDATED LAYOUT BLOCKS -- TO BE ORGANIZED AND SEPARATED
+.html,
+.body {
+	font-family: "Inter", sans-serif;
+	font-size: 8px;
+}
+
+.html,
+.body,
+.header__nav,
+.landing,
+.landing__inner,
+.footer {
+	position: relative;
+}
+
+.html,
+.body,
+.header,
+.landing,
+.landing__inner,
+.footer {
+	display: flex;
+	width: 100%;
+}
+
+.header,
+.landing,
+.footer {
+	align-items: center;
+}
+/////////////////////////
+
+
+
+// parent/root blocks
+* {
+	box-sizing: border-box;
+}
+.html {
+	background-color: $dark-charchoal;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.body {
+	align-items: center;
+	background-color: $ghost-white;
+	flex-direction: column;
+	overflow-x: hidden;
+	z-index: 1;
+}
+
+
+// header block
+.header {
+	display: flex;
+	flex-direction: column;
+	height: 14em;
+	position: absolute;
+		top: 0;
+		left: 50%;
+	transform: translate(-50%, 0%);
+	width: 100%;
+	z-index: 2;
+}
+.header__inner,
+.header__menu-btn__inner,
+.header__nav__inner {
+	align-items: center;
+	height: 100%;
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+
+
+// header logo block
+.header__logo {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	height: 6em;
+	justify-content: left;
+	overflow: hidden;
+	position: absolute;
+		top: 4em;
+		left: 8em;
+	width: 6.8em;
+	z-index: 3;
+}
+
+
+// header logo mark block
+.header__logo__mark {
+	align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	gap: 0.55em;
+	justify-content: center;
+}
+
+
+// header logo lines
+.header__logo__line {
+	background-color: $upper-half-background;
+	border-radius: 6em;
+	display: block;
+	height: 5.75em;
+	width: 1em;
+}
+.header__logo__line:nth-child(1) {
+	height: 2.5em;
+}
+
+
+// header logo title block
+.header__logo__title {
+	color: rgba(0,0,0,0%);
+	height: 100%;
+	font-size: 0.125em;
+	overflow: hidden;
+	position: absolute;
+		top: 0%;
+		left: 0%;
+	width: 100%;
+}
+
+
+// header nav
+.header__nav {
+	background-color: $dark-charchoal;
+	display: none;
+	height: 3.75em;
+}
+.header__nav__menu,
+.header__nav__menu__item {
+	display: none;
+	height: 0em;
+	margin: 0em;
+	overflow: hidden;
+	padding: 0em;
+	width: 0em;
+}
+
+
+// landing block
+.landing {
+	flex-direction: column;
+}
+.landing__inner {
+	align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+
+// landing block mods -- rectangle decorations (not shown on mobile)
+.landing__rectangle {
+	display: none;
+}
+
+
+// landing-section block
+.landing-section {
+	align-items: flex-end;
+	display: flex;
+	justify-content: flex-start;
+	position: relative;
+	width: 100%;
+}
+
+
+// landing-section block mods -- heights
+.landing-section--tall {
+	height: 90em;
+}
+.landing-section--short {
+	height: 47em;
+}
+
+
+// landing-section block mods -- halfed layout
+.landing-section--halves {
+	flex-direction: row;
+}
+.landing-section--halves-reversed {
+	flex-direction: row-reverse;
+}
+
+
+// landing-section block mods -- colors
+.landing-section--ghost-white {
+	background-color: $ghost-white;
+}
+.landing-section--cultured {
+	background-color: $cultured;
+}
+
+
+// landing-section block mods -- slant decorations
+.landing-section--slant {
+
+	&:before {
+		background-color: $ghost-white;
+		content: '';
+		height: 3.75em;
+		pointer-events: none;
+		position: absolute;
+			top: 0;
+			right: 0;
+		width: 50%;
+		z-index: 1;
+	}
+	&:after {
+		background: linear-gradient(to right top, $cultured 50%, transparent 50%);
+		content: '';
+		height: 3.75em;
+		pointer-events: none;
+		position: absolute;
+			top: 0;
+			right: 0;
+		width: 50%;
+		z-index: 2;
+	}
+}
+
+
+// landing-section content block
+.landing-section-content {
+	align-self: center;
+	display: flex;
+	padding: 14em 5em 2em;
+	width: 100%;
+}
+
+
+// landing-section content block mods -- width
+.landing-section-content--halved {
+	width: 50%;
+}
+.landing-section-content--full {
+	width: 100%;
+}
+
+
+// landing-section content inner block
+.landing-section-content__inner {
+	align-items: flex-start;
+	align-self: center;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+}
+
+
+// landing section image container block
+.landing-section-image-container {
+	display: block;
+	height: 90em;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 50%;
+}
+
+
+// landing section image container block mods -- triangle decorations
+.landing-section-image-container-triangle:after {
+	content: '';
+	display: block;
+	height: 3.75em;
+	position: absolute;
+	width: 100%;
+}
+.landing-section-image-container--triangle--top--right--ghost-white:after {
+	background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);
+		top: 0;
+		left: 0;
+}
+.landing-section-image-container--triangle--bottom--right--ghost-white:after {
+	background: linear-gradient(to right top, $ghost-white 50%, transparent 50%);
+		bottom: 0;
+		left: 0;
+}
+.landing-section-image-container--triangle--bottom--right--cultured:after {
+	background: linear-gradient(to right top, $cultured 50%, transparent 50%);
+		bottom: 0;
+		left: 0;
+}
+
+
+// landing section image container block mods -- curve decorations
+.landing-section-image-container--curved--bottom--right {
+	border-bottom-right-radius: 15vw;
+}
+.landing-section-image-container--curved--top--left {
+	border-top-left-radius: 15vw;
+}
+
+
+// landing section image
+.landing-section-image {
+	display: block;
+	height: 100%;
+	object-fit: cover; /* or object-fit: contain; */
+	width: 100%;
+}
+
+
+// landing section button group
+.landing-section-content__btn-grp {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	margin-top: 4em;
+	width: 100%;
+}
+
+
+// footer block
+.footer {
+	align-items: center;
+	background-color: $footer-background;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	padding: 16em 8em 12em;
+}
+
+
+// footer block inner
+.footer__inner {
+	align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+
+// footer section block
+.footer-section {
+	align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+
+// footer section block inner
+.footer-section__inner {
+	align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+
+// footer section block mods -- menu (social)
+.footer-section__inner--menu {
+	flex-direction: row;
+	gap: 4em;
+	list-style-type: none;
+	padding: 0;
+}
+
+
+// footer section block mods -- dots
+.footer-section__inner--dots {
+	display: flex;
+	flex-direction: row;
+	gap: 2em;
+	list-style: none;
+}
+
+
+// footer section block mods -- disclaimers
+.footer-section__inner--disclaimers {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+}
+
+
+// footer menu item
+.footer__menu__item {
+	margin: 0;
+	padding: 0;
+}
+
+
+// footer menu item link (social icons)
+.footer__menu__item__link {
+	align-items: center;
+	border-radius: 9em;
+	display: flex;
+	height: 6em;
+	justify-content: center;
+	position: relative;
+	text-decoration: none;
+	width: 6em;
+
+	.footer__menu__item__link__focus-border {
+		@include border-color($secondary-btn-bg-rest, 0);
+		border-radius: 9em;
+		border-style: solid;
+		border-width: 0.25em;
+		display: block;
+		height: calc(100% + 1.25em);
+		pointer-events: none;
+		position: absolute;
+			top: -0.625em;
+			left: -0.625em;
+		width: calc(100% + 1.25em);
+	}
+	&:focus {
+		outline: none;
+	}
+	&,
+	&:visited {
+		@include background-color($secondary-btn-bg-hover, 0);
+	}
+	&:visited .footer__menu__item__link__focus-border {
+		@include border-color($secondary-btn-bg-hover, 0);
+	}
+	&:hover,
+	&:focus {
+		@include background-color($secondary-btn-bg-hover, 0.25);
+	}
+	&:hover .footer__menu__item__link__focus-border,
+	&:focus .footer__menu__item__link__focus-border {
+		@include border-color($secondary-btn-bg-hover, 0.25);
+	}
+	&:active {
+		@include background-color($secondary-btn-bg-hover, 0.25);
+	}
+	&:active .footer__menu__item__link__focus-border {
+		@include border-color($secondary-btn-bg-hover, 0);
+	}
+}
+
+
+// footer section dot block decorations
+.footer__section__dot {
+	border-radius: 100%;
+	height: 1em;
+	width: 1em;
+}
+
+
+// footer section dot block decoration mods -- colors
+.footer__section__dot--red {
+	background-color: $red;
+}
+.footer__section__dot--orange {
+	background-color: $orange;
+}
+.footer__section__dot--yellow {
+	background-color: $yellow;
+}
+.footer__section__dot--green {
+	background-color: $green;
+}
+.footer__section__dot--blue {
+	background-color: $blue;
+}
+.footer__section__dot--violet {
+	background-color: $violet;
+}
+
+
+// footer block decorative elipses
+.footer__elipses {
+	background-color: $elipses-background;
+	border-radius: 100%;
+	display: flex;
+	height: 16em;
+	position: absolute;
+		top: 0%;
+		left: 50%;
+	min-width: calc(100% + 40em);
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+
+
+
+
+// ---------------- MEDIA QUERIES -------------- //
+
+$breakpoint-tablet-to-desktop: 989px;
+
+@media (min-width: $breakpoint-tablet-to-desktop) {
+
+
+	// header inner block
+	.header__inner {
+		max-width: 135em;
+	}
+
+
+	// landing inner container
+	.landing__inner {
+		max-width: 135em; // width cut-off is at this query
+	}
+
+
+	// landing section button groups
+	.landing-section-content__btn-grp {
+		flex-direction: row;
+		width: auto;
+	}
+
+
+	// landing section image container block decorations -- curves
+	.landing-section-image-container--curved--bottom--right {
+		border-bottom-right-radius: 20em;
+	}
+	.landing-section-image-container--curved--top--left {
+		border-top-left-radius: 20em;
+	}
+
+
+	// landing block decorations -- rectangles
+	.landing__rectangle {
+		display: block;
+		pointer-events: none;
+		position: absolute;
+		width: 50%;
+		z-index: -1;
+
+		&:after {
+			content: '';
+			display: block;
+			height: 2.75vw;
+			position: absolute;
+				right: 0;
+			width: 100%;
+		}
+	}
+
+
+	// landing block decorations -- rectangles (positioning)
+	.landing__rectangle--left {
+		left: 0;
+	}
+	.landing__rectangle--right {
+		right: 0;
+	}
+	.landing__rectangle--top {
+		top: 0;
+	}
+	.landing__rectangle--bottom {
+		bottom: 0;
+	}
+
+
+	// landing block decorations -- rectangles (colors)
+	.landing__rectangle--anti-flash-white {
+		background-color: $anti-flash-white;
+
+		&:after {
+			background: linear-gradient(to left bottom, $anti-flash-white 50%, transparent 50%);
+		}
+	}
+	.landing__rectangle--cultured {
+		background-color: $cultured;
+
+		&:after {
+			background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);
+		}
+	}
+
+
+	// landing block decorations -- rectangles (specfic dimensions)
+	.landing__rectangle-top-left-height {
+		height: calc(90em - 2.75vw);
+
+		&:after {
+			top: calc(90em - 2.75vw);
+		}
+	}
+	.landing__rectangle-top-right--height {
+		height: 90em;
+
+		&:after {
+			top: 90em;
+		}
+	}
+	.landing__rectangle-bottom-left-height {
+		height: calc(47em + 2.75vw);
+
+		&:after {
+			bottom: 47em;
+		}
+	}
+	.landing__rectangle-bottom-right--height {
+		height: 43.25em;
+
+		&:after {
+			bottom: calc(46.875em - 2.75vw);
+		}
+	}
+
+
+	// footer inner block
+	.footer__inner {
+		max-width: 135em
+	}
+}
+
+@media (hover: hover) {
+	// add styles here for input devices
+	// that can "hover" interactive elements
+}
