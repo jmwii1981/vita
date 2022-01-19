@@ -5,8 +5,9 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="normalize.css">
-		<link rel="stylesheet" href="landing.css">
+		<link rel="stylesheet" href="styles/resets/normalize.css">
+		<link rel="stylesheet" href="styles/pages/landing.css">
+		<meta name="theme-color" content="#303135">
 		<script>
 			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -52,19 +53,13 @@
 					<div class="header__nav__inner">
 						<ul class="header__nav__menu">
 							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Yours Truly</a>
+								<a class="header__nav__menu__item__link">About</a>
 							</li>
 							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Product Shtuff</a>
+								<a class="header__nav__menu__item__link">Work</a>
 							</li>
 							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Writing</a>
-							</li>
-							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Talks</a>
-							</li>
-							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Hobbiest</a>
+								<a class="header__nav__menu__item__link">Non-Work</a>
 							</li>
 						</ul>
 					</div>
@@ -74,10 +69,10 @@
 		<main class="landing">
 			<article class="landing__inner">
 				<section class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved landing-section-content--padding-left">
+					<div class="landing-section-content landing-section-content--halved">
 						<div class="landing-section-content__inner">
 							<h2 class="h2 landing-section-content__title">Leading along the way.</h2>
-							<p class="p p--full p--light-mode">I'm a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I've worked with organizations large and small.</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">I'm a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I've worked with organizations large and small.</p>
 							<div class="landing-section-content__btn-grp">
 								<a class="btn btn--primary" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
 									<span class="btn__label">
@@ -97,19 +92,27 @@
 						</div>
 					</div>
 					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container--triangle--bottom--right--ghost-white">
-						<img class="landing-section-image" src="1.png" alt="Jan Michael leaning against a wall, folding arms, and smiling.">
+						<img class="landing-section-image" src="images/png/1.png" alt="Jan Michael leaning against a wall, folding arms, and smiling.">
 					</figure>
 				</section>
 				<section class="landing-section landing-section--tall landing-section--halves landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved landing-section-content--padding-right">
+					<div class="landing-section-content landing-section-content--halved">
 						<div class="landing-section-content__inner">
 							<h2 class="h2 landing-section-content__title">Making the dream work.</h2>
-							<p class="p p--full p--light-mode">Currently, I lead a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
-							<p class="p p--full p--light-mode">Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">Currently, I lead a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">View some of the work.</p>
 							<div class="landing-section-content__btn-grp">
 								<a class="btn btn--primary" href="https://dribbble.com/jmwii1981" target="_blank">
 									<span class="btn__label">
-										See work
+										View samples
+									</span>
+									<span class="btn__focus-border" aria-hidden="true">
+									</span>
+								</a>
+								<a class="btn btn--secondary">
+									<span class="btn__label">
+										Request more
 									</span>
 									<span class="btn__focus-border" aria-hidden="true">
 									</span>
@@ -118,15 +121,15 @@
 						</div>
 					</div>
 					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container--triangle--top--right--ghost-white landing-section-image-container--curved--bottom--right">
-						<img class="landing-section-image" src="2.png" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop.">
+						<img class="landing-section-image" src="images/png/2.png" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop.">
 					</figure>
 				</section>
 				<section class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved landing-section-content--padding-left">
+					<div class="landing-section-content landing-section-content--halved">
 						<div class="landing-section-content__inner">
 							<h2 class="h2 landing-section-content__title">Leaning into the hustle.</h2>
-							<p class="p p--full p--light-mode">I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
-							<p class="p p--full p--light-mode">I come to the office to play hard, get things done, and have a little fun while doing it!</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
+							<p class="p p--full p--light-mode p--line-height-large p--medium-text">I come to the office to play hard, get things done, and have a little fun while doing it!</p>
 							<div class="landing-section-content__btn-grp">
 								<a class="btn btn--primary" href="https://medium.com/@jmwii1981" target="_blank">
 									<span class="btn__label">
@@ -139,14 +142,14 @@
 						</div>
 					</div>
 					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container--triangle--bottom--right--cultured landing-section-image-container--curved--top--left">
-						<img class="landing-section-image" src="3.png" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation.">
+						<img class="landing-section-image" src="images/png/3.png" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation.">
 					</figure>
 				</section>
 				<section class="landing-section landing-section--short landing-section--slant landing-section--cultured">
-					<div class="landing-section-content landing-section-content--full landing-section-content--padding-left-right">
+					<div class="landing-section-content landing-section-content--full">
 						<div class="landing-section-content__inner">
 							<h2 class="h2 h2--large landing-section-content__title landing-section-content__title--large">Say hello.</h2>
-							<p class="p p--full p--light-mode p--large">I'm always on the prowl for a new challenge. If you think you've got the cure, hit me up at <a class="link link--light-mode" href="mailto:hello@janmichael.io">hello@janmichael.io<span class="link__focus-border"></span></a> anytime!</p>
+							<p class="p p--full p--light-mode p--large-text p--line-hight-medium">I'm always on the prowl for a new challenge. If you think you've got the cure, hit me up at <a class="link link--light-mode" href="mailto:hello@janmichael.io">hello@janmichael.io<span class="link__focus-border"></span></a> anytime!</p>
 						</div>
 					</div>
 				</section>
@@ -167,37 +170,37 @@
 					<ul class="footer-section__inner footer-section__inner--menu">
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
-								<img class="footer__menu__item__link__image" src="linked-in.svg" alt="Visit Jan Michael's Linked In profile and resumé." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/linked-in.svg" alt="Visit Jan Michael's Linked In profile and resumé." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://medium.com/@jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="medium.svg" alt="Visit Jan Michael's Medium profile and blog." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/medium.svg" alt="Visit Jan Michael's Medium profile and blog." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://dribbble.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="dribbble.svg" alt="Visit Jan Michael's Dribble profile and portfolio." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/dribbble.svg" alt="Visit Jan Michael's Dribble profile and portfolio." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://www.instagram.com/jmwii1981/" target="_blank">
-								<img class="footer__menu__item__link__image" src="instagram.svg" alt="Visit Jan Michael's Instagram profile and feed." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/instagram.svg" alt="Visit Jan Michael's Instagram profile and feed." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://twitter.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="twitter.svg" alt="Visit Jan Michael's Twitter profile and feed." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/twitter.svg" alt="Visit Jan Michael's Twitter profile and feed." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
 						<li class="footer__menu__item">
 							<a class="footer__menu__item__link" href="https://github.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="github.svg" alt="Visit Jan Michael's Github profile and repository." height="50" width="50" />
+								<img class="footer__menu__item__link__image" src="icons/svg/github.svg" alt="Visit Jan Michael's Github profile and repository." height="50" width="50" />
 								<span class="footer__menu__item__link__focus-border"></span>
 							</a>
 						</li>
@@ -221,9 +224,9 @@
 				</section>
 				<section class="footer-section">
 					<ul class="footer-section__inner footer-section__inner--disclaimers">
-						<li><p class="p p--contained p--dark-mode">Photography by <a class="link link--dark-mode" href="https://www.nunnphoto.com/thelatest/" target="_blank">Mary Helen Nunn<span class="link__focus-border"></span></a></p></li>
-						<li><p class="p p--contained p--dark-mode">Website by <a class="link link--dark-mode" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">Jan Michael Wallace II<span class="link__focus-border"></span></a></p></li>
-						<li><p class="p p--contained p--dark-mode">Hosting by <a class="link link--dark-mode" href="https://pages.github.com" target="_blank">Github Pages<span class="link__focus-border"></span></a></p></li>
+						<li><p class="p p--contained p--dark-mode p--medium-text p--line-hight-small">Photography by <a class="link link--dark-mode" href="https://www.nunnphoto.com/thelatest/" target="_blank">Mary Helen Nunn<span class="link__focus-border"></span></a></p></li>
+						<li><p class="p p--contained p--dark-mode p--medium-text p--line-hight-small">Website by <a class="link link--dark-mode" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">Jan Michael Wallace II<span class="link__focus-border"></span></a></p></li>
+						<li><p class="p p--contained p--dark-mode p--medium-text p--line-hight-small">Hosting by <a class="link link--dark-mode" href="https://pages.github.com" target="_blank">Github Pages<span class="link__focus-border"></span></a></p></li>
 					</ul>
 				</section>
 			</div>
