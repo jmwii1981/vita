@@ -9,6 +9,15 @@
 	// READ https://uxdesign.cc/defining-colors-in-your-design-system-828148e6210a
 	// TOOL https://lyft-colorbox.herokuapp.com/ <- instructions on usage in the immediately above article
 
+
+////** BREAK POINTS
+	$breakpoint-iphone-8-10-11-pro-and-13-mini: 375px;
+	$breakpoint-iphone-13-pro-max: 414px;
+	$breakpoint-ipad-mini: 768px;
+	$breakpoint-reg-to-pro-tablet-and-small-desktop: 989px;
+	$breakpoint-desktop-plus: 1040px;
+
+
 ////** COLOR PALETTE (category layer)
 //////** BASE COLORS (value layer; hue HEX values)
 		 // $white
@@ -47,7 +56,7 @@
 			color: rgba($color, $opacity);
 		}
 		@mixin triangle($position1 ,$position2, $color) {
-			background: (to $position1 $position2, $color 50%, transparent 50%);;
+			background: linear-gradient(to $position1 $position2, $color 50%, transparent 50%);;
 		}
 
 

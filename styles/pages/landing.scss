@@ -1,10 +1,26 @@
+@import "../../fonts/fonts";
+@import "../resets/normalize";
 @import "../tokens/tokens";
 
-// COMMIT NOTES: changes theme color in iOS Safari; continues to consolidate and organize code via BEM;
-
-
-
 //**-----TYPOGRAPHY-----**//
+
+// selection color(s)
+img::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+a::selection {
+	@include background-color($gunmetal, 0.25);
+}
+.p--dark-mode::selection,
+.link--dark-mode::selection,
+.btn__label::selection {
+	@include background-color($white, 0.25);
+}
 
 
 // titles
@@ -12,17 +28,17 @@
 	align-self: stretch;
 	color: $dark-copy-text;
 	flex-grow: 0;
-	font-size: 9em;
+	font-size: 13em;
 	font-weight: 600;
 	line-height: 0.88em;
-	letter-spacing: -0.055em;
+	letter-spacing: -0.04em;
 	margin: 0.23em 0em;
 }
 
 
 // title mods -- size
 .h2--large {
-	font-size: 14em;
+	font-size: 19em;
 }
 
 
@@ -47,20 +63,20 @@
 
 
 // body copy mods -- text size
-.p--large-text {
-	font-size: 3em;
-	font-weight: 400;
-	letter-spacing: -0.025em;
+.p--small-text {
+	font-size: 4em;
+	font-weight: 300;
+	letter-spacing: -0.01%;
 }
 .p--medium-text {
-	font-size: 2em;
+	font-size: 5em;
 	font-weight: 500;
 	letter-spacing: -0.01%;
 }
-.p--small-text {
-	font-size: 1em;
+.p--large-text {
+	font-size: 6em;
 	font-weight: 500;
-	letter-spacing: -0.01%;
+	letter-spacing: -0.025em;
 }
 
 
@@ -97,7 +113,7 @@
 	color: inherit;
 	cursor: default;
 	display: inline-flex;
-	font-weight: 500;
+	font-weight: 500; // play with this in desktop
 	padding: 0em;
 	position: relative;
 	text-decoration: none;
@@ -131,7 +147,6 @@
 	&,
 	&:visited {
 		@include color($light-interactive-rest, 1);
-		text-decoration: underline;
 	}
 	& .link__focus-border,
 	&:visited .link__focus-border {
@@ -157,7 +172,6 @@
 	&,
 	&:visited {
 		@include color($medium-interactive-rest, 1);
-		text-decoration: underline;
 	}
 	& .link__focus-border,
 	&:visited .focus-border {
@@ -192,7 +206,7 @@
 	cursor: default;
 	display: flex;
 	font-weight: 600;
-	font-size: 2em;
+	font-size: 4em;
 	justify-content: center;
 	line-height: 2em;
 	letter-spacing: 0.01em;
@@ -432,63 +446,37 @@
 
 //**-----BLOCKS-----**//
 
-/////////////////////////
-// CONSOLIDATED LAYOUT BLOCKS -- TO BE ORGANIZED AND SEPARATED
-.html,
-.body {
-	font-display: swap;
-	font-family: "Inter", sans-serif;
-	font-size: 8px;
-}
-
-.html,
-.body,
-.header__nav,
-.landing,
-.landing__inner,
-.footer {
-	position: relative;
-}
-
-.html,
-.body,
-.header,
-.landing,
-.landing__inner,
-.footer {
-	display: flex;
-	width: 100%;
-}
-
-.header,
-.landing,
-.footer {
-	align-items: center;
-}
-/////////////////////////
-
-
 
 // parent/root blocks
 * {
 	box-sizing: border-box;
 }
 .html {
+	display: flex;
 	@include background-color($dark-charchoal, 1);
+	font-family: "Inter", sans-serif;
+	font-size: 100%;
 	overflow-x: hidden;
+	position: relative;
+	width: 100%;
 	z-index: 0;
 }
+
 .body {
 	align-items: center;
 	@include background-color($ghost-white, 1);
+	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
+	position: relative;
+	width: 100%;
 	z-index: 1;
 }
 
 
 // header block
 .header {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	height: 14em;
@@ -566,6 +554,7 @@
 	@include background-color($dark-charchoal, 1);
 	display: none;
 	height: 3.75em;
+	position: relative;
 }
 .header__nav__menu,
 .header__nav__menu__item {
@@ -580,7 +569,11 @@
 
 // landing block
 .landing {
+	align-items: center;
+	display: flex;
 	flex-direction: column;
+	position: relative;
+	width: 100%;
 }
 .landing__inner {
 	align-items: center;
@@ -611,19 +604,19 @@
 
 // landing-section block mods -- heights
 .landing-section--tall {
-	height: 90em;
+	height: auto;
 }
 .landing-section--short {
-	height: 47em;
+	height: auto;
 }
 
 
 // landing-section block mods -- halfed layout
 .landing-section--halves {
-	flex-direction: row;
+	flex-direction: column-reverse;
 }
 .landing-section--halves-reversed {
-	flex-direction: row-reverse;
+	flex-direction: column-reverse;
 }
 
 
@@ -651,7 +644,7 @@
 		z-index: 1;
 	}
 	&:after {
-		background: linear-gradient(to right top, $cultured 50%, transparent 50%);
+		@include triangle(right, top, $cultured);
 		content: '';
 		height: 3.75em;
 		pointer-events: none;
@@ -668,14 +661,14 @@
 .landing-section-content {
 	align-self: center;
 	display: flex;
-	padding: 14em 5em 2em;
+	padding: 10em 2em 10em;
 	width: 100%;
 }
 
 
 // landing-section content block mods -- width
 .landing-section-content--halved {
-	width: 50%;
+	width: 100%;
 }
 .landing-section-content--full {
 	width: 100%;
@@ -697,12 +690,12 @@
 // landing section image container block
 .landing-section-image-container {
 	display: block;
-	height: 90em;
+	height: 141em;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
-	width: 50%;
+	width: 100%;
 }
 
 
@@ -715,17 +708,17 @@
 	width: 100%;
 }
 .landing-section-image-container--triangle--top--right--ghost-white:after {
-	background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);
+	@include triangle(left, bottom, $ghost-white);
 		top: 0;
 		left: 0;
 }
 .landing-section-image-container--triangle--bottom--right--ghost-white:after {
-	background: linear-gradient(to right top, $ghost-white 50%, transparent 50%);
+	@include triangle(right, top, $ghost-white);
 		bottom: 0;
 		left: 0;
 }
 .landing-section-image-container--triangle--bottom--right--cultured:after {
-	background: linear-gradient(to right top, $cultured 50%, transparent 50%);
+	@include triangle(right, top, $cultured);
 		bottom: 0;
 		left: 0;
 }
@@ -763,10 +756,28 @@
 .footer {
 	align-items: center;
 	@include background-color($footer-background, 1);
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
-	padding: 16em 8em 12em;
+	padding: 22em 2em 35em;
+	position: relative;
+	width: 100%;
+}
+
+
+// footer block decorative elipses
+.footer__elipses {
+	@include background-color($elipses-background, 1);
+	border-radius: 100%;
+	display: flex;
+	height: 16em;
+	position: absolute;
+		top: 0%;
+		left: 50%;
+	min-width: calc(100% + 40em);
+	transform: translate(-50%, -50%);
+	z-index: 2;
 }
 
 
@@ -776,6 +787,7 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	gap: 4em 0em;
 	justify-content: center;
 	position: relative;
 	width: 100%;
@@ -800,8 +812,10 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	justify-content: center;
 	position: relative;
+	padding: 0em;
 	width: 100%;
 }
 
@@ -809,7 +823,7 @@
 // footer section block mods -- menu (social)
 .footer-section__inner--menu {
 	flex-direction: row;
-	gap: 4em;
+	gap: 1em;
 	list-style-type: none;
 	padding: 0;
 }
@@ -819,8 +833,37 @@
 .footer-section__inner--dots {
 	display: flex;
 	flex-direction: row;
-	gap: 2em;
+	gap: 0em 4em;
 	list-style: none;
+}
+
+
+// footer section dot block decorations
+.footer__section__dot {
+	border-radius: 100%;
+	height: 2em;
+	width: 2em;
+}
+
+
+// footer section dot block decoration mods -- colors
+.footer__section__dot--red {
+	@include background-color($red, 1);
+}
+.footer__section__dot--orange {
+	@include background-color($orange, 1);
+}
+.footer__section__dot--yellow {
+	@include background-color($yellow, 1);
+}
+.footer__section__dot--green {
+	@include background-color($green, 1);
+}
+.footer__section__dot--blue {
+	@include background-color($blue, 1);
+}
+.footer__section__dot--violet {
+	@include background-color($violet, 1);
 }
 
 
@@ -847,14 +890,14 @@
 	align-items: center;
 	border-radius: 9em;
 	display: flex;
-	height: 6em;
+	height: 12em;
 	justify-content: center;
 	position: relative;
 	text-decoration: none;
-	width: 6em;
+	width: 12em;
 
 	.footer__menu__item__link__focus-border {
-		@include border-color($secondary-btn-bg-rest, 0);
+		@include border-color($ghost-white, 0);
 		border-radius: 9em;
 		border-style: solid;
 		border-width: 0.25em;
@@ -874,7 +917,7 @@
 		@include background-color($secondary-btn-bg-hover, 0);
 	}
 	&:visited .footer__menu__item__link__focus-border {
-		@include border-color($secondary-btn-bg-hover, 0);
+		@include border-color($ghost-white, 0);
 	}
 	&:hover,
 	&:focus {
@@ -882,84 +925,177 @@
 	}
 	&:hover .footer__menu__item__link__focus-border,
 	&:focus .footer__menu__item__link__focus-border {
-		@include border-color($secondary-btn-bg-hover, 0.25);
+		@include border-color($ghost-white, 0.75);
 	}
 	&:active {
 		@include background-color($secondary-btn-bg-hover, 0.25);
 	}
 	&:active .footer__menu__item__link__focus-border {
-		@include border-color($secondary-btn-bg-hover, 0);
+		@include border-color($ghost-white, 0);
 	}
 }
 
 
-// footer section dot block decorations
-.footer__section__dot {
-	border-radius: 100%;
-	height: 1em;
-	width: 1em;
+// footer menu item link image/icon (social icons)
+.footer__menu__item__link__image {
+	height: 12em;
+	width: 12em;
 }
 
 
-// footer section dot block decoration mods -- colors
-.footer__section__dot--red {
-	@include background-color($red, 1);
+/// mobile only nav
+.nav__mobile {
+	@include background-color($dark-charchoal, 1);
+	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
+	flex-direction: column;
+	height: 20em; // temporary?
+	padding: 2em 8em;
+	position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	width: 100%;
+	z-index: 3;
 }
-.footer__section__dot--orange {
-	@include background-color($orange, 1);
-}
-.footer__section__dot--yellow {
-	@include background-color($yellow, 1);
-}
-.footer__section__dot--green {
-	@include background-color($green, 1);
-}
-.footer__section__dot--blue {
-	@include background-color($blue, 1);
-}
-.footer__section__dot--violet {
-	@include background-color($violet, 1);
-}
-
-
-// footer block decorative elipses
-.footer__elipses {
-	@include background-color($elipses-background, 1);
-	border-radius: 100%;
+.nav__mobile__inner {
 	display: flex;
-	height: 16em;
-	position: absolute;
-		top: 0%;
-		left: 50%;
-	min-width: calc(100% + 40em);
-	transform: translate(-50%, -50%);
-	z-index: 2;
+	height: 100%;
+	flex-direction: column;
+	width: 100%;
+}
+.nav__mobile__menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style: none;
+	padding: 0em;
+}
+.nav__mobile__menu__item {
+	align-items: center;
+ 	display: flex;
+	flex-direction: column;
+	height: 14em;
+	justify-content: center;
+	width: 16em;
+}
+.nav__mobile__menu__item__btn {
+	align-items: center;
+	appearance: none;
+	border: 0em;
+	@include background-color($dark-charchoal, 0);
+	display: flex;
+	flex-direction: column;
+	height: 14em;
+	gap: 1.5em 0em;
+	justify-content: center;
+	width: 16em;
+}
+.nav__mobile__menu__item__btn__image {
+	height: 8em;
+	width: 8em;
+}
+.nav__mobile__menu__item__btn__label {
+	display: flex;
+	font-size: 3em;
+	@include color($ghost-white, 1);
+}
+.nav__mobile__menu__item__btn__focus-border {
+	display: none; // temp
 }
 
 
 
+@media (min-width: $breakpoint-iphone-8-10-11-pro-and-13-mini) {
+
+}
 
 
-// ---------------- MEDIA QUERIES -------------- //
+@media (min-width: $breakpoint-iphone-13-pro-max) {
 
-$breakpoint-tablet-to-desktop: 989px;
-
-@media (min-width: $breakpoint-tablet-to-desktop) {
+}
 
 
-	// header inner block
-	.header__inner {
-		max-width: 135em;
+@media (min-width: $breakpoint-ipad-mini) {
+
+}
+
+
+@media (min-width: $breakpoint-reg-to-pro-tablet-and-small-desktop) {
+
+	// main root styles
+	.html {
+		font-size: 50%;
 	}
 
 
-	// landing inner container
-	.landing__inner {
-		max-width: 135em; // width cut-off is at this query
+	// title styles
+	.h2 {
+		font-size: 9em;
+		letter-spacing: -0.055em;
 	}
 
 
-	// landing section button groups
+	// title styles mods -- text size
+	.h2--large {
+		font-size: 14em;
+	}
+
+
+	// p styles mods text size
+	.p--small-text {
+		font-size: 2em;
+		font-weight: 500;
+	}
+	.p--medium-text {
+		font-size: 2em;
+	}
+	.p--large-text {
+		font-size: 3em;
+		font-weight: 400;
+	}
+
+
+	// button
+	.btn {
+		font-size: 2em;
+	}
+
+
+	// landing section mod - height
+	.landing-section--tall {
+		height: 90em;
+	}
+	.landing-section--short {
+		height: 47em;
+	}
+
+	// landing section mod - layout halves?
+	.landing-section--halves {
+		flex-direction: row;
+	}
+	.landing-section--halves-reversed {
+		flex-direction: row-reverse;
+	}
+
+
+	// landing section image container block
+	.landing-section-image-container {
+		height: 90em;
+		width: 50%;
+	}
+
+
+	// landing section content block
+	.landing-section-content {
+		padding: 14em 5em 2em;
+	}
+
+	.landing-section-content--halved {
+		width: 50%;
+	}
+
+
+	// landing section content button groups
 	.landing-section-content__btn-grp {
 		flex-direction: row;
 		width: auto;
@@ -1014,14 +1150,14 @@ $breakpoint-tablet-to-desktop: 989px;
 		@include background-color($anti-flash-white, 1);
 
 		&:after {
-			background: linear-gradient(to left bottom, $anti-flash-white 50%, transparent 50%);
+			@include triangle(left, bottom, $anti-flash-white);
 		}
 	}
 	.landing__rectangle--cultured {
 		@include background-color($cultured, 1);
 
 		&:after {
-			background: linear-gradient(to left bottom, $ghost-white 50%, transparent 50%);
+			@include triangle(left, bottom, $ghost-white);
 		}
 	}
 
@@ -1055,11 +1191,77 @@ $breakpoint-tablet-to-desktop: 989px;
 			bottom: calc(46.875em - 2.75vw);
 		}
 	}
+	.footer {
+		padding: 16em 8em 12em;
+	}
 
+
+	.footer__inner {
+		gap: 0em;
+	}
+
+
+	.footer-section__inner--menu {
+		gap: 4em;
+	}
+
+
+	.footer-section__inner--dots {
+		gap: 2em;
+	}
+
+
+	.footer__section__dot {
+		height: 1em;
+		width: 1em;
+	}
+
+
+	.footer__menu__item__link {
+		height: 6em;
+		width: 6em;
+	}
+
+
+	.footer__menu__item__link__image {
+		height: 6em;
+		width: 6em;
+	}
+
+}
+
+
+// touch devices only or devices with bad pointing input mechanisms
+@media (pointer:coarse) {
+	.nav__mobile {
+		display: flex;
+	}
+}
+
+@media (pointer: fine) {
+	.nav__mobile {
+		display: none;
+	}
+}
+
+// used for container block "max widths"
+@media (min-width: $breakpoint-desktop-plus) {
+
+
+	// header inner block
+	.header__inner {
+		max-width: 130em;
+	}
+
+
+	// landing inner container
+	.landing__inner {
+		max-width: 130em; // width cut-off is at this query
+	}
 
 	// footer inner block
 	.footer__inner {
-		max-width: 135em
+		max-width: 130em
 	}
 }
 
