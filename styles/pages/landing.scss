@@ -1,3 +1,16 @@
+//** TODO **//
+// * Test ::selection CSS to ensure it's working as desired on each page element
+// * Continue to refine and build code out in BEM methodology
+// * Create mobile responsive CSS media queries and style as needed
+// * Add micro-interactions and animations with the option to switch them off
+// * Add dark mode palette with an automatic feature that matches system setting
+// as well as the ability to turn it off or on manually
+// * Create the ability to set a cookie and allow the user to save their preferences
+// when visiting the site
+// * Complete menu and additional pages
+
+
+
 @import "../../fonts/fonts";
 @import "../resets/normalize";
 @import "../tokens/tokens";
@@ -28,7 +41,7 @@ a::selection {
 	align-self: stretch;
 	color: $dark-copy-text;
 	flex-grow: 0;
-	font-size: 13em;
+	font-size: 9em;
 	font-weight: 600;
 	line-height: 0.88em;
 	letter-spacing: -0.04em;
@@ -38,7 +51,7 @@ a::selection {
 
 // title mods -- size
 .h2--large {
-	font-size: 19em;
+	font-size: 13em;
 }
 
 
@@ -64,17 +77,17 @@ a::selection {
 
 // body copy mods -- text size
 .p--small-text {
-	font-size: 4em;
+	font-size: 2.75em;
 	font-weight: 300;
 	letter-spacing: -0.01%;
 }
 .p--medium-text {
-	font-size: 5em;
+	font-size: 3.25em;
 	font-weight: 500;
 	letter-spacing: -0.01%;
 }
 .p--large-text {
-	font-size: 6em;
+	font-size: 3.5em;
 	font-weight: 500;
 	letter-spacing: -0.025em;
 }
@@ -206,7 +219,7 @@ a::selection {
 	cursor: default;
 	display: flex;
 	font-weight: 600;
-	font-size: 4em;
+	font-size: 2.5em;
 	justify-content: center;
 	line-height: 2em;
 	letter-spacing: 0.01em;
@@ -690,7 +703,7 @@ a::selection {
 // landing section image container block
 .landing-section-image-container {
 	display: block;
-	height: 141em;
+	height: 106em;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
@@ -841,8 +854,8 @@ a::selection {
 // footer section dot block decorations
 .footer__section__dot {
 	border-radius: 100%;
-	height: 2em;
-	width: 2em;
+	height: 1.5em;
+	width: 1.5em;
 }
 
 
@@ -890,11 +903,11 @@ a::selection {
 	align-items: center;
 	border-radius: 9em;
 	display: flex;
-	height: 12em;
+	height: 8em;
 	justify-content: center;
 	position: relative;
 	text-decoration: none;
-	width: 12em;
+	width: 8em;
 
 	.footer__menu__item__link__focus-border {
 		@include border-color($ghost-white, 0);
@@ -938,8 +951,8 @@ a::selection {
 
 // footer menu item link image/icon (social icons)
 .footer__menu__item__link__image {
-	height: 12em;
-	width: 12em;
+	height: 8em;
+	width: 8em;
 }
 
 
@@ -1006,7 +1019,26 @@ a::selection {
 
 
 @media (min-width: $breakpoint-iphone-8-10-11-pro-and-13-mini) {
-
+	.nav__mobile {
+		height: 11em;
+		padding: 1em 4em;
+	}
+	.nav__mobile__menu__item {
+		height: 7em;
+		width: 8em;
+	}
+	.nav__mobile__menu__item__btn {
+		height: 7em;
+		gap: 0.75em 0em;
+		width: 8em;
+	}
+	.nav__mobile__menu__item__btn__image {
+		height: 4em;
+		width: 4em;
+	}
+	.nav__mobile__menu__item__btn__label {
+		font-size: 1.5em;
+	}
 }
 
 
