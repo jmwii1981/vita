@@ -1,6 +1,9 @@
 //** TODO **//
+// * Optimize images for different screen times to reduce
+//   load time
+// * Continue adding style updates for different screen sizes
+// * Start targeting landscape vs portrait in some cases
 // * Test ::selection CSS to ensure it's working as desired on each page element
-// * Continue to refine and build code out in BEM methodology
 // * Create mobile responsive CSS media queries and style as needed
 // * Add micro-interactions and animations with the option to switch them off
 // * Add dark mode palette with an automatic feature that matches system setting
@@ -8,8 +11,12 @@
 // * Create the ability to set a cookie and allow the user to save their preferences
 // when visiting the site
 // * Complete menu and additional pages
-
-
+// * Re-check and refine and build code out in BEM methodology once you've come
+//   to a stopping point
+// * Make a portion of your CSS (typography, main scaffolding,
+//   first content block and its children, etc. ) partially internal, and
+//   partially inline. See: https://www.ewaycorp.com/blog/advantages-of-inline-css/
+//   for more information.
 
 @import "../../fonts/fonts";
 @import "../resets/normalize";
@@ -719,6 +726,7 @@ a::selection {
 	height: 3.75em;
 	position: absolute;
 	width: 100%;
+	z-index: 1;
 }
 .landing-section-image-container--triangle--top--right--ghost-white:after {
 	@include triangle(left, bottom, $ghost-white);
@@ -750,6 +758,7 @@ a::selection {
 .landing-section-image {
 	display: block;
 	height: 100%;
+	height: calc(100% - 0.0625em);
 	object-fit: cover; /* or object-fit: contain; */
 	width: 100%;
 }
@@ -768,7 +777,6 @@ a::selection {
 // footer block
 .footer {
 	align-items: center;
-	@include background-color($footer-background, 1);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -776,6 +784,17 @@ a::selection {
 	padding: 22em 2em 35em;
 	position: relative;
 	width: 100%;
+
+	&:after {
+		@include background-color($footer-background, 1);
+		content: '';
+		height: calc(100% - 0.125em);
+		display: block;
+		position: absolute;
+			bottom: 0;
+			left: 0;
+		width: 100%;
+	}
 }
 
 
@@ -804,6 +823,7 @@ a::selection {
 	justify-content: center;
 	position: relative;
 	width: 100%;
+	z-index: 1;
 }
 
 
@@ -893,8 +913,11 @@ a::selection {
 
 // footer menu item
 .footer__menu__item {
+	display: flex;
+	height: 8em;
 	margin: 0;
 	padding: 0;
+	width: 8em;
 }
 
 
@@ -951,6 +974,7 @@ a::selection {
 
 // footer menu item link image/icon (social icons)
 .footer__menu__item__link__image {
+	display: flex;
 	height: 8em;
 	width: 8em;
 }
@@ -958,11 +982,12 @@ a::selection {
 
 /// mobile only nav
 .nav__mobile {
+	display: none;
 	@include background-color($dark-charchoal, 1);
 	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
 	flex-direction: column;
-	height: 20em; // temporary?
-	padding: 2em 8em;
+	height: calc(11em - 3vh);
+	padding: 1em 4em;
 	position: fixed;
 		bottom: 0;
 		left: 0;
@@ -987,9 +1012,9 @@ a::selection {
 	align-items: center;
  	display: flex;
 	flex-direction: column;
-	height: 14em;
+	height: 7em;
 	justify-content: center;
-	width: 16em;
+	width: 8em;
 }
 .nav__mobile__menu__item__btn {
 	align-items: center;
@@ -998,18 +1023,18 @@ a::selection {
 	@include background-color($dark-charchoal, 0);
 	display: flex;
 	flex-direction: column;
-	height: 14em;
-	gap: 1.5em 0em;
+	height: 7em;
+	gap: 0.75em 0em;
 	justify-content: center;
-	width: 16em;
+	width: 8em;
 }
 .nav__mobile__menu__item__btn__image {
-	height: 8em;
-	width: 8em;
+	height: 4em;
+	width: 4em;
 }
 .nav__mobile__menu__item__btn__label {
 	display: flex;
-	font-size: 3em;
+	font-size: 1.5em;
 	@include color($ghost-white, 1);
 }
 .nav__mobile__menu__item__btn__focus-border {
@@ -1017,42 +1042,44 @@ a::selection {
 }
 
 
-
-@media (min-width: $breakpoint-iphone-8-10-11-pro-and-13-mini) {
+@media (pointer: coarse)
+and (orientation: portrait)
+and (max-device-width: 400px) {
+	// on touch devices only
+	// in portrait mode
+	// until their screen widths are 500px max
+	// (100px smaller than the smallest tablet's screen size of 500px)
+	// then don't show it
 	.nav__mobile {
-		height: 11em;
-		padding: 1em 4em;
-	}
-	.nav__mobile__menu__item {
-		height: 7em;
-		width: 8em;
-	}
-	.nav__mobile__menu__item__btn {
-		height: 7em;
-		gap: 0.75em 0em;
-		width: 8em;
-	}
-	.nav__mobile__menu__item__btn__image {
-		height: 4em;
-		width: 4em;
-	}
-	.nav__mobile__menu__item__btn__label {
-		font-size: 1.5em;
+		display: flex;
 	}
 }
 
 
-@media (min-width: $breakpoint-iphone-13-pro-max) {
+// non-touch and touch devices with screen widths 1040px and above
+@media (min-device-width: 1040px) {
 
+
+	// header inner block
+	.header__inner {
+		max-width: 130em;
+	}
+
+
+	// landing inner container
+	.landing__inner {
+		max-width: 130em; // width cut-off is at this query
+	}
+
+	// footer inner block
+	.footer__inner {
+		max-width: 130em
+	}
 }
 
+// non-touch and touch devices with screen widths 600px and above
+@media (min-device-width: 501px) {
 
-@media (min-width: $breakpoint-ipad-mini) {
-
-}
-
-
-@media (min-width: $breakpoint-reg-to-pro-tablet-and-small-desktop) {
 
 	// main root styles
 	.html {
@@ -1262,41 +1289,38 @@ a::selection {
 
 }
 
-
-// touch devices only or devices with bad pointing input mechanisms
-@media (pointer:coarse) {
-	.nav__mobile {
-		display: flex;
+// touch only devices in landscape orientation
+// with max width of 500px
+@media (pointer: coarse)
+and (orientation: landscape)
+and (max-device-width: 500px) {
+	.html {
+		font-size: 50%;
 	}
-}
-
-@media (pointer: fine) {
-	.nav__mobile {
-		display: none;
-	}
-}
-
-// used for container block "max widths"
-@media (min-width: $breakpoint-desktop-plus) {
-
 
 	// header inner block
 	.header__inner {
-		max-width: 130em;
+		max-width: 108em;
 	}
-
 
 	// landing inner container
 	.landing__inner {
-		max-width: 130em; // width cut-off is at this query
+		max-width: 108em; // width cut-off is at this query
 	}
 
 	// footer inner block
 	.footer__inner {
-		max-width: 130em
+		max-width: 108em
+	}
+
+	// landing section image container block
+	.landing-section-image-container {
+		height: 64em;
 	}
 }
 
+
+// devices with hover support only
 @media (hover: hover) {
 	// add styles here for input devices
 	// that can "hover" interactive elements
