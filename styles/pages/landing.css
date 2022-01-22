@@ -1403,7 +1403,7 @@ a::selection {
     width: auto;
   }
 }
-@media only screen and (orientation: portrait) and (pointer: coarse) and (max-device-height: 767px) {
+@media only screen and (orientation: portrait) and (pointer: coarse) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
   .h2 {
     background-color: pink;
   }
