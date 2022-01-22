@@ -1406,7 +1406,6 @@ a::selection {
 @media only screen and (orientation: portrait) and (pointer: coarse) and (max-device-width: 767px) {
   .h2 {
     background-color: pink;
-    font-size: 9.2em;
   }
 
   .landing-section--halves {
@@ -1423,7 +1422,7 @@ a::selection {
 
   .landing-section-image-container {
     height: 50vh;
-    border: solid 10px red;
+    border: solid 10px blue;
     width: 100%;
   }
 }
