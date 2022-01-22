@@ -1373,7 +1373,7 @@ a::selection {
   display: none;
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) and (max-device-width: 449px), (orientation: portrait) and (max-device-width: 449px) and (-webkit-min-device-pixel-ratio: 1), (max-device-width: 449px) and (-webkit-min-device-pixel-ratio: 1) {
   .h2 {
     background-color: pink;
   }
@@ -1397,7 +1397,7 @@ a::selection {
   }
 }
 @media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1), (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1) {
-  GRAY .h2 {
+  .h2 {
     background-color: orange;
   }
 
