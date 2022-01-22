@@ -1396,7 +1396,7 @@ a::selection {
     width: 100%;
   }
 }
-@media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 768px), (orientation: portrait) and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 750px), (orientation: portrait) and (min-device-width: 750px) and (-webkit-min-device-pixel-ratio: 1) {
   .h2 {
     background-color: blue;
   }
