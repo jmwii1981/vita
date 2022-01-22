@@ -1373,6 +1373,52 @@ a::selection {
   display: none;
 }
 
+@media only screen and (orientation: portrait) {
+  .h2 {
+    background-color: pink;
+  }
+
+  .landing-section--halves {
+    flex-direction: column-reverse;
+  }
+
+  .landing-section--halves-reversed {
+    flex-direction: column-reverse;
+  }
+
+  .landing-section-content--halved {
+    width: 100%;
+  }
+
+  .landing-section-image-container {
+    height: 50vh;
+    border: solid 10px green;
+    width: 100%;
+  }
+}
+@media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 768px), (orientation: portrait) and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .h2 {
+    background-color: orange;
+  }
+
+  .landing-section--halves {
+    flex-direction: row;
+  }
+
+  .landing-section--halves-reversed {
+    flex-direction: row-reverse;
+  }
+
+  .landing-section-content--halved {
+    width: 50%;
+  }
+
+  .landing-section-image-container {
+    height: 100%;
+    border: solid 10px YELLOW;
+    width: 50%;
+  }
+}
 @media only screen and (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-width: 1024px) {
   .nav__mobile {
     display: none;
@@ -1401,29 +1447,6 @@ a::selection {
   .landing-section-content__btn-grp {
     flex-direction: row;
     width: auto;
-  }
-}
-@media only screen and (orientation: portrait) and (pointer: coarse) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 1) {
-  .h2 {
-    background-color: pink;
-  }
-
-  .landing-section--halves {
-    flex-direction: column-reverse;
-  }
-
-  .landing-section--halves-reversed {
-    flex-direction: column-reverse;
-  }
-
-  .landing-section-content--halved {
-    width: 100%;
-  }
-
-  .landing-section-image-container {
-    height: 50vh;
-    border: solid 10px yellow;
-    width: 100%;
   }
 }
 

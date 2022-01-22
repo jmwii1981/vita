@@ -1147,79 +1147,62 @@ a::selection {
 }
 
 
-// SCREEN SIZES
-// @media only screen
-// 	and (min-width: 401px) {
-// 		.landing-section-image-container {
-// 			height: 100%;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 549px) {
-// 		.h2 {
-// 			font-size: 2em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 598px) {
-// 		.h2 {
-// 			font-size: 2.25em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 646px) {
-// 		.h2 {
-// 			font-size: 2.5em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 696px) {
-// 		.h2 {
-// 			font-size: 2.75em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 743px) {
-// 		.h2 {
-// 			font-size: 3em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 792px) {
-// 		.h2 {
-// 			font-size: 3.25em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 845px) {
-// 		.h2 {
-// 			font-size: 3.5em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 890px) {
-// 		.h2 {
-// 			font-size: 3.75em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 938px) {
-// 		.h2 {
-// 			font-size: 4em;
-// 		}
-// }
-// @media only screen
-// 	and (min-width: 1041px) {
-// 		.h2 {
-// 			font-size: 4.5em;
-// 		}
-// 		.landing-section--tall {
-// 			height: 45em;
-// 		}
-// 		.landing-section--short {
-// 			height: 23.5em;
-// 		}
-// }
+
+@media only screen
+	and (orientation: portrait) {
+	// GREEN - portrait only until what width?
+	.h2 {
+		background-color: pink;
+		// font-size: 9.2em;
+	}
+	.landing-section--halves {
+		flex-direction: column-reverse;
+	}
+	.landing-section--halves-reversed {
+		flex-direction: column-reverse;
+	}
+	.landing-section-content--halved {
+		width: 100%;
+	}
+	.landing-section-image-container {
+		height: 50vh;
+		border: solid 10px green;
+		width: 100%;
+	}
+}
+
+@media only screen
+	and (orientation: landscape),
+	(orientation: portrait)
+		and (min-device-width: 768px),
+	(orientation: portrait)
+		and (min-device-width: 768px)
+		and (-webkit-min-device-pixel-ratio: 1) {
+	// YELLOW - landscape only experimental
+	.h2 {
+		background-color: orange;
+		// font-size: 9.2em;
+	}
+	.landing-section--halves {
+		// flex-direction: column-reverse; (mobile portrait)
+		flex-direction: row;
+	}
+	.landing-section--halves-reversed {
+		flex-direction: row-reverse;
+		// flex-direction: column-reverse;  (mobile portrait)
+	}
+	.landing-section-content--halved {
+		width: 50%;
+	}
+	.landing-section-image-container {
+		height: 100%;
+		border: solid 10px YELLOW;
+		width: 50%;
+	}
+}
+
+
+
 
 // HOVER CAPABILITIES
 @media only screen
@@ -1235,6 +1218,8 @@ a::selection {
 	and (min-device-width: 450px),
 	(orientation: portrait)
 	and (min-width: 1024px) {
+
+	// we're good here.
 	.nav__mobile {
 		display: none;
 	}
@@ -1268,22 +1253,5 @@ a::selection {
 	and (pointer: coarse)
 	and (max-device-width: 767px)
 	and (-webkit-min-device-pixel-ratio: 1) {
-		.h2 {
-			background-color: pink;
-			// font-size: 9.2em;
-		}
-		.landing-section--halves {
-			flex-direction: column-reverse;
-		}
-		.landing-section--halves-reversed {
-			flex-direction: column-reverse;
-		}
-		.landing-section-content--halved {
-			width: 100%;
-		}
-		.landing-section-image-container {
-			height: 50vh;
-			border: solid 10px yellow;
-			width: 100%;
-		}
+
 }
