@@ -1392,7 +1392,7 @@ a::selection {
 
   .landing-section-image-container {
     height: 50vh;
-    border: solid 10px green;
+    border: solid 10px violet;
     width: 100%;
   }
 }
