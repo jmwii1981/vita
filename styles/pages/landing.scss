@@ -1266,7 +1266,7 @@ a::selection {
 @media only screen
 	and (orientation: portrait)
 	and (pointer: coarse)
-	and (max-device-width: 767px) {
+	and (max-device-height: 767px) {
 		.h2 {
 			background-color: pink;
 			// font-size: 9.2em;
