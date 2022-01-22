@@ -1562,12 +1562,8 @@ body * {
     width: 50%;
   }
 
-  .footer__menu__item {
-    height: 7em;
-    width: 7em;
-  }
-
-  .footer__menu__item__link,
+  .footer__menu__item,
+.footer__menu__item__link,
 .footer__menu__item__link__image {
     height: 6em;
     width: 6em;
