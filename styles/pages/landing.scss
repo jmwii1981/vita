@@ -1253,19 +1253,19 @@ body * {
 		letter-spacing: 0.02em;
 	}
 	.p--medium-text {
-		font-size: 1.85em;
+		font-size: 1.7em;
 		font-weight: 600;
 		letter-spacing: 0.025em;
 	}
 	.p--large-text {
 		font-size: 2.75em;
-		font-weight: 500;
+		font-weight: 600;
 	}
 	.p--line-height-medium {
 		line-height: 1.5em;
 	}
 	.p--line-hight-large {
-	    line-height: 1.3em;
+		line-height: 1.3em;
 	}
 	.p--contained:last-child {
 		margin-top: 0.2em;
@@ -1278,7 +1278,7 @@ body * {
 	}
 	.link--large-text {
 		font-size: 1em;
-		font-weight: 800;
+		font-weight: 900;
 		letter-spacing: 0.02em;
 	}
 	.header__logo {
@@ -1294,6 +1294,7 @@ body * {
 	.header__nav-btn {
 		font-size: 1.275em;
 		height: 5.75em;
+			top: 0.75em;
 		width: 5.75em;
 
 		.header__nav-btn__icon {
@@ -1326,7 +1327,7 @@ body * {
 		padding: 1em 2.5em 4.5em;
 	}
 	.btn {
-		font-size: 2.15em;
+		font-size: 1.7em;
 		font-weight: 700;
 		letter-spacing: 0.03em;
 	}

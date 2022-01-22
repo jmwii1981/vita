@@ -1457,14 +1457,14 @@ body * {
   }
 
   .p--medium-text {
-    font-size: 1.85em;
+    font-size: 1.7em;
     font-weight: 600;
     letter-spacing: 0.025em;
   }
 
   .p--large-text {
     font-size: 2.75em;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .p--line-height-medium {
@@ -1488,7 +1488,7 @@ body * {
 
   .link--large-text {
     font-size: 1em;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.02em;
   }
 
@@ -1507,6 +1507,7 @@ body * {
   .header__nav-btn {
     font-size: 1.275em;
     height: 5.75em;
+    top: 0.75em;
     width: 5.75em;
   }
   .header__nav-btn .header__nav-btn__icon {
@@ -1543,7 +1544,7 @@ body * {
   }
 
   .btn {
-    font-size: 2.15em;
+    font-size: 1.7em;
     font-weight: 700;
     letter-spacing: 0.03em;
   }
