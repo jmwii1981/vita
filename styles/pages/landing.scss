@@ -1175,9 +1175,9 @@ a::selection {
 @media only screen
 	and (orientation: landscape),
 	(orientation: portrait)
-		and (min-device-width: 750px),
+		and (min-device-width: 350px),
 	(orientation: portrait)
-		and (min-device-width: 750px)
+		and (min-device-width: 350px)
 		and (-webkit-min-device-pixel-ratio: 1) {
 	// YELLOW - landscape only experimental
 	.h2 {
