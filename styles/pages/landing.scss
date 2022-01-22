@@ -86,12 +86,12 @@ a::selection {
 .p--small-text {
 	font-size: 1em;
 	font-weight: 500;
-	letter-spacing: -0.01%;
+	letter-spacing: -0.01em;
 }
 .p--medium-text {
 	font-size: 1em;
 	font-weight: 500;
-	letter-spacing: -0.01%;
+	letter-spacing: -0.01em;
 }
 .p--large-text {
 	font-size: 1.5em;
@@ -225,11 +225,11 @@ a::selection {
 	@include color($dark-copy-text, 1);
 	cursor: default;
 	display: flex;
-	font-weight: 600;
-	font-size: 1.375em;
+	font-weight: 500;
+	font-size: 1.65em;
 	justify-content: center;
 	line-height: 2em;
-	letter-spacing: 0.075em;
+	letter-spacing: 0.01em;
 	padding: 0.5em 3em;
 	position: relative;
 	text-decoration: none;
@@ -335,7 +335,7 @@ a::selection {
 	pointer-events: all;
 	position: absolute;
 		top: 1.5em;
-		right: 2.5em;
+		right: 1em;
 	width: 5em;
 	z-index: 3;
 
@@ -530,7 +530,7 @@ a::selection {
 	pointer-events: all;
 	position: absolute;
 		top: 2em;
-		left: 4em;
+		left: 2.5em;
 	width: 5em;
 	z-index: 3;
 }
@@ -781,8 +781,7 @@ a::selection {
 // landing-section content block
 .landing-section-content {
 	display: flex;
-	// padding: 10em 2em 10em; mobile portrait only
-	padding: 7em 2.5em 3em;
+	padding: 1em 2.5em 2.5em;
 	width: 100%;
 }
 
@@ -873,7 +872,7 @@ a::selection {
 .landing-section-content__btn-grp {
 	flex-direction: column;
 	display: flex;
-	gap: 1em;
+	gap: 2.5em;
 	margin-top: 4em;
 	width: 100%;
 }
@@ -1148,7 +1147,7 @@ a::selection {
 }
 
 
-
+// *** YELLOW *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
 @media only screen
 	and (orientation: portrait)
 		and (max-device-width: 449px),
@@ -1161,10 +1160,29 @@ a::selection {
 		and (-webkit-min-device-pixel-ratio: 1)
 
 	{
-	// yellow - portrait only until what width?
+	// .landing TEMPORARY FOR TESTING
+	.landing {
+		&:after {
+			background-color: YELLOW;
+			display: flex;
+			content: '';
+			height: 15px;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+			z-index: 15;
+		}
+	}
 	.h2 {
-		background-color: yellow;
-		// font-size: 9.2em;
+		font-size: 9.25em;
+	}
+	.p--medium-text {
+		font-size: 3em;
+	}
+	.btn {
+		font-weight: 500;
+		font-size: 3.1em;
 	}
 	.landing-section--halves {
 		flex-direction: column-reverse;
@@ -1177,12 +1195,12 @@ a::selection {
 	}
 	.landing-section-image-container {
 		height: 50vh;
-		border: solid 10px yellow;
 		width: 100%;
 	}
 }
 
-@media only screen // DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+// ***ORANGE *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+@media only screen
 	and (orientation: landscape),
 
 	(orientation: portrait)
@@ -1196,25 +1214,42 @@ a::selection {
 		and (-webkit-min-device-pixel-ratio: 1)
 
 	{
-	// ORANGE - landscape only experimental
+	// .landing TEMPORARY FOR TESTING
+	.landing {
+		&:after {
+			background-color: ORANGE;
+			display: flex;
+			content: '';
+			height: 15px;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+			z-index: 15;
+		}
+	}
 	.h2 {
-		background-color: ORANGE;
-		// font-size: 9.2em;
+		font-size: 7.05em; // feels better on landscape mobile
+		line-height: 0.925em;
+		margin-top: 1em;
+	}
+	.p--medium-text {
+		font-size: 1.6em;
+	}
+	.landing-section--tall {
+		height: auto;
 	}
 	.landing-section--halves {
-		// flex-direction: column-reverse; (mobile portrait)
 		flex-direction: row;
 	}
 	.landing-section--halves-reversed {
 		flex-direction: row-reverse;
-		// flex-direction: column-reverse;  (mobile portrait)
 	}
 	.landing-section-content--halved {
 		width: 50%;
 	}
 	.landing-section-image-container {
 		height: 100%;
-		border: solid 10px ORANGE;
 		width: 50%;
 	}
 }

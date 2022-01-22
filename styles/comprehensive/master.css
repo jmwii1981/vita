@@ -340,13 +340,13 @@ a::selection {
 .p--small-text {
   font-size: 1em;
   font-weight: 500;
-  letter-spacing: -0.01%;
+  letter-spacing: -0.01em;
 }
 
 .p--medium-text {
   font-size: 1em;
   font-weight: 500;
-  letter-spacing: -0.01%;
+  letter-spacing: -0.01em;
 }
 
 .p--large-text {
@@ -482,11 +482,11 @@ a::selection {
   color: #303135;
   cursor: default;
   display: flex;
-  font-weight: 600;
-  font-size: 1.375em;
+  font-weight: 500;
+  font-size: 1.65em;
   justify-content: center;
   line-height: 2em;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.01em;
   padding: 0.5em 3em;
   position: relative;
   text-decoration: none;
@@ -601,7 +601,7 @@ a::selection {
   pointer-events: all;
   position: absolute;
   top: 1.5em;
-  right: 2.5em;
+  right: 1em;
   width: 5em;
   z-index: 3;
 }
@@ -782,7 +782,7 @@ a::selection {
   pointer-events: all;
   position: absolute;
   top: 2em;
-  left: 4em;
+  left: 2.5em;
   width: 5em;
   z-index: 3;
 }
@@ -1007,7 +1007,7 @@ a::selection {
 
 .landing-section-content {
   display: flex;
-  padding: 7em 2.5em 3em;
+  padding: 1em 2.5em 2.5em;
   width: 100%;
 }
 
@@ -1085,7 +1085,7 @@ a::selection {
 .landing-section-content__btn-grp {
   flex-direction: column;
   display: flex;
-  gap: 1em;
+  gap: 2.5em;
   margin-top: 4em;
   width: 100%;
 }
@@ -1374,8 +1374,29 @@ a::selection {
 }
 
 @media only screen and (orientation: portrait) and (max-device-width: 449px), (orientation: portrait) and (max-device-width: 449px) and (-webkit-min-device-pixel-ratio: 1), (max-device-width: 449px) and (-webkit-min-device-pixel-ratio: 1) {
+  .landing:after {
+    background-color: YELLOW;
+    display: flex;
+    content: "";
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+  }
+
   .h2 {
-    background-color: yellow;
+    font-size: 9.25em;
+  }
+
+  .p--medium-text {
+    font-size: 3em;
+  }
+
+  .btn {
+    font-weight: 500;
+    font-size: 3.1em;
   }
 
   .landing-section--halves {
@@ -1392,13 +1413,34 @@ a::selection {
 
   .landing-section-image-container {
     height: 50vh;
-    border: solid 10px yellow;
     width: 100%;
   }
 }
 @media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1), (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1) {
-  .h2 {
+  .landing:after {
     background-color: ORANGE;
+    display: flex;
+    content: "";
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+  }
+
+  .h2 {
+    font-size: 7.05em;
+    line-height: 0.925em;
+    margin-top: 1em;
+  }
+
+  .p--medium-text {
+    font-size: 1.6em;
+  }
+
+  .landing-section--tall {
+    height: auto;
   }
 
   .landing-section--halves {
@@ -1415,7 +1457,6 @@ a::selection {
 
   .landing-section-image-container {
     height: 100%;
-    border: solid 10px ORANGE;
     width: 50%;
   }
 }
