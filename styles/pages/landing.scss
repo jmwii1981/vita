@@ -475,7 +475,7 @@ a::selection {
 	display: flex;
 	@include background-color($dark-charchoal, 1);
 	font-family: "Inter", sans-serif;
-	font-size: 100%;
+	// font-size: 100%;
 	font-size: 16px;
 	overflow-x: hidden;
 	position: relative;
@@ -1181,7 +1181,7 @@ a::selection {
 		and (-webkit-min-device-pixel-ratio: 1) {
 	// YELLOW - landscape only experimental
 	.h2 {
-		background-color: orange;
+		background-color: blue;
 		// font-size: 9.2em;
 	}
 	.landing-section--halves {
@@ -1197,7 +1197,7 @@ a::selection {
 	}
 	.landing-section-image-container {
 		height: 100%;
-		border: solid 10px YELLOW;
+		border: solid 10px RED;
 		width: 50%;
 	}
 }

@@ -730,7 +730,6 @@ a::selection {
   /* The Fallback */
   background-color: #303135;
   font-family: "Inter", sans-serif;
-  font-size: 100%;
   font-size: 16px;
   overflow-x: hidden;
   position: relative;
@@ -1399,7 +1398,7 @@ a::selection {
 }
 @media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 768px), (orientation: portrait) and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
   .h2 {
-    background-color: orange;
+    background-color: blue;
   }
 
   .landing-section--halves {
@@ -1416,7 +1415,7 @@ a::selection {
 
   .landing-section-image-container {
     height: 100%;
-    border: solid 10px YELLOW;
+    border: solid 10px RED;
     width: 50%;
   }
 }
