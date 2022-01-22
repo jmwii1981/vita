@@ -48,7 +48,7 @@ a::selection {
 	align-self: stretch;
 	color: $dark-copy-text;
 	flex-grow: 0;
-	font-size: 4.5em;
+	font-size: 4.2em;
 	font-weight: 600;
 	line-height: 0.88em;
 	letter-spacing: -0.055em;
@@ -872,7 +872,7 @@ a::selection {
 .landing-section-content__btn-grp {
 	flex-direction: column;
 	display: flex;
-	gap: 2em;
+	gap: 1em;
 	margin-top: 4em;
 	width: 100%;
 }
@@ -1147,6 +1147,81 @@ a::selection {
 }
 
 
+// SCREEN SIZES
+// @media only screen
+// 	and (min-width: 401px) {
+// 		.landing-section-image-container {
+// 			height: 100%;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 549px) {
+// 		.h2 {
+// 			font-size: 2em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 598px) {
+// 		.h2 {
+// 			font-size: 2.25em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 646px) {
+// 		.h2 {
+// 			font-size: 2.5em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 696px) {
+// 		.h2 {
+// 			font-size: 2.75em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 743px) {
+// 		.h2 {
+// 			font-size: 3em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 792px) {
+// 		.h2 {
+// 			font-size: 3.25em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 845px) {
+// 		.h2 {
+// 			font-size: 3.5em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 890px) {
+// 		.h2 {
+// 			font-size: 3.75em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 938px) {
+// 		.h2 {
+// 			font-size: 4em;
+// 		}
+// }
+// @media only screen
+// 	and (min-width: 1041px) {
+// 		.h2 {
+// 			font-size: 4.5em;
+// 		}
+// 		.landing-section--tall {
+// 			height: 45em;
+// 		}
+// 		.landing-section--short {
+// 			height: 23.5em;
+// 		}
+// }
+
+// HOVER CAPABILITIES
 @media only screen
 	and (hover: hover) {
 	// devices with hover support only
@@ -1154,6 +1229,7 @@ a::selection {
 	// that can "hover" interactive elements
 }
 
+// DEVICE SIZES AND CAPABILIITES
 @media only screen
 	and (orientation: portrait)
 	and (min-device-width: 450px),
@@ -1175,13 +1251,6 @@ a::selection {
 			display: flex;
 		}
 }
-
-@media only screen
-	and (max-device-width: 401px)
-	and (orientation: portrait) {
-
-}
-
 @media only screen
 	and (min-device-width: 916px) {
 		.btn {
@@ -1194,79 +1263,26 @@ a::selection {
 			width: auto;
 		}
 }
-
 @media only screen
-	and (min-width: 401px) {
+	and (orientation: portrait)
+	and (pointer: coarse)
+	and (max-device-width: 767px) {
+		.h2 {
+			background-color: pink;
+			font-size: 9.2em;
+		}
+		.landing-section--halves {
+			flex-direction: column-reverse;
+		}
+		.landing-section--halves-reversed {
+			flex-direction: column-reverse;
+		}
+		.landing-section-content--halved {
+			width: 100%;
+		}
 		.landing-section-image-container {
-			height: 100%;
-		}
-}
-
-
-
-@media only screen
-	and (min-width: 549px) {
-		.h2 {
-			font-size: 2em;
-		}
-}
-@media only screen
-	and (min-width: 598px) {
-		.h2 {
-			font-size: 2.25em;
-		}
-}
-@media only screen
-	and (min-width: 646px) {
-		.h2 {
-			font-size: 2.5em;
-		}
-}
-@media only screen
-	and (min-width: 696px) {
-		.h2 {
-			font-size: 2.75em;
-		}
-}
-@media only screen
-	and (min-width: 743px) {
-		.h2 {
-			font-size: 3em;
-		}
-}
-@media only screen
-	and (min-width: 792px) {
-		.h2 {
-			font-size: 3.25em;
-		}
-}
-@media only screen
-	and (min-width: 845px) {
-		.h2 {
-			font-size: 3.5em;
-		}
-}
-@media only screen
-	and (min-width: 890px) {
-		.h2 {
-			font-size: 3.75em;
-		}
-}
-@media only screen
-	and (min-width: 938px) {
-		.h2 {
-			font-size: 4em;
-		}
-}
-@media only screen
-	and (min-width: 1041px) {
-		.h2 {
-			font-size: 4.5em;
-		}
-		.landing-section--tall {
-			height: 45em;
-		}
-		.landing-section--short {
-			height: 23.5em;
+			height: 50vh;
+			border: solid 10px red;
+			width: 100%;
 		}
 }
