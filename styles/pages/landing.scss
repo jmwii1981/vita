@@ -90,7 +90,7 @@ a::selection {
 }
 .p--medium-text {
 	font-size: 1em;
-	font-weight: 500;
+	font-weight: 600;
 	letter-spacing: -0.01em;
 }
 .p--large-text {
@@ -225,8 +225,8 @@ a::selection {
 	@include color($dark-copy-text, 1);
 	cursor: default;
 	display: flex;
-	font-weight: 500;
-	font-size: 1.65em;
+	font-weight: 700;
+	font-size: 1.7em;
 	justify-content: center;
 	line-height: 2em;
 	letter-spacing: 0.01em;
@@ -468,9 +468,12 @@ a::selection {
 
 
 // parent/root blocks
-* {
+
+body * {
 	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
 }
+
 .html {
 	display: flex;
 	@include background-color($dark-charchoal, 1);
@@ -542,7 +545,9 @@ a::selection {
 	display: flex;
 	flex-direction: row;
 	gap: 0.45em;
+	height: 100%;
 	justify-content: center;
+	width: 100%;
 }
 
 
@@ -551,11 +556,11 @@ a::selection {
 	@include background-color($upper-half-background, 1);
 	border-radius: 3em;
 	display: block;
-	height: 4.75em;
-	width: 0.875em;
+	height: 100%;
+	width: 18%;
 }
 .header__logo__line:nth-child(1) {
-	height: 2.25em;
+	height: 45%;
 }
 
 
@@ -1181,7 +1186,7 @@ a::selection {
 		font-size: 3em;
 	}
 	.btn {
-		font-weight: 500;
+		font-weight: 700;
 		font-size: 3.1em;
 	}
 	.landing-section--halves {
@@ -1199,7 +1204,7 @@ a::selection {
 	}
 }
 
-// ***ORANGE *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+// *** ORANGE *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
 @media only screen
 	and (orientation: landscape),
 
@@ -1231,10 +1236,82 @@ a::selection {
 	.h2 {
 		font-size: 7.05em; // feels better on landscape mobile
 		line-height: 0.925em;
-		margin-top: 1em;
+		margin-top: 0.75em;
+	}
+	.landing-section:first-child .h2 {
+		margin-top: 1.4em;
+	}
+	.h2--large {
+		font-size: 10.5em;
+	}
+	.p {
+		margin-top: 0.45em;
+	}
+	.p--small-text {
+		font-size: 1.8em;
+		font-weight: 600;
+		letter-spacing: 0.02em;
 	}
 	.p--medium-text {
-		font-size: 1.6em;
+		font-size: 1.85em;
+		font-weight: 600;
+		letter-spacing: 0.025em;
+	}
+	.p--large-text {
+		font-size: 2.75em;
+		font-weight: 500;
+	}
+	.p--line-height-medium {
+		line-height: 1.5em;
+	}
+	.p--line-hight-large {
+	    line-height: 1.3em;
+	}
+	.p--contained:last-child {
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+	}
+	.link--small-text {
+		font-size: 1em;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+	}
+	.link--large-text {
+		font-size: 1em;
+		font-weight: 800;
+		letter-spacing: 0.02em;
+	}
+	.header__logo {
+		height: 6em;
+		position: absolute;
+			top: 2em;
+			left: 2.5em;
+		width: 6.2em;
+	}
+	.header__logo__mark {
+		gap: 0.65em;
+	}
+	.header__nav-btn {
+		font-size: 1.275em;
+		height: 5.75em;
+		width: 5.75em;
+
+		.header__nav-btn__icon {
+			height: 2.25em;
+			width: 2.5em;
+		}
+		.header__nav-btn__icon .header__nav-btn__icon__line {
+			width: 2.5em;
+		}
+		.header__nav-btn__icon--hamburger .header__nav-btn__icon__line:nth-child(2) {
+			transform: translate(0%, 275%) rotate(0deg);
+		}
+		.header__nav-btn__icon--hamburger .header__nav-btn__icon__line:nth-child(3) {
+			transform: translate(0%, 550%) rotate(0deg);
+		}
+		.header__nav-btn__label {
+			font-size: 0.95em;
+		}
 	}
 	.landing-section--tall {
 		height: auto;
@@ -1245,12 +1322,39 @@ a::selection {
 	.landing-section--halves-reversed {
 		flex-direction: row-reverse;
 	}
+	.landing-section-content {
+		padding: 1em 2.5em 4.5em;
+	}
+	.btn {
+		font-size: 2.15em;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+	}
+	.landing-section-content__btn-grp {
+		margin-top: 2em;
+	}
 	.landing-section-content--halved {
 		width: 50%;
 	}
 	.landing-section-image-container {
 		height: 100%;
 		width: 50%;
+	}
+	.footer__menu__item {
+		height: 7em;
+		width: 7em;
+	}
+	.footer__menu__item__link,
+	.footer__menu__item__link__image {
+		height: 6em;
+		width: 6em;
+	}
+	.footer-section__inner--dots {
+		gap: 1.5em;
+	}
+	.footer__section__dot {
+		height: 1em;
+		width: 1em;
 	}
 }
 
