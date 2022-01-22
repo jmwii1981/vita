@@ -483,7 +483,7 @@ a::selection {
   cursor: default;
   display: flex;
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.375em;
   justify-content: center;
   line-height: 2em;
   letter-spacing: 0.075em;
@@ -1373,7 +1373,7 @@ a::selection {
   display: none;
 }
 
-@media only screen and (orientation: portrait) and (min-device-width: 450px) {
+@media only screen and (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-width: 1024px) {
   .nav__mobile {
     display: none;
   }
@@ -1391,12 +1391,7 @@ a::selection {
     display: flex;
   }
 }
-@media only screen and (min-width: 401px) {
-  .landing-section-image-container {
-    height: 100%;
-  }
-}
-@media only screen and (min-device-width: 915px) {
+@media only screen and (min-device-width: 916px) {
   .btn {
     font-size: 1em;
     letter-spacing: 0.01em;
@@ -1408,9 +1403,39 @@ a::selection {
     width: auto;
   }
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 401px) {
+  .landing-section-image-container {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 549px) {
+  .h2 {
+    font-size: 2em;
+  }
+}
+@media only screen and (min-width: 598px) {
+  .h2 {
+    font-size: 2.25em;
+  }
+}
+@media only screen and (min-width: 646px) {
+  .h2 {
+    font-size: 2.5em;
+  }
+}
+@media only screen and (min-width: 696px) {
+  .h2 {
+    font-size: 2.75em;
+  }
+}
+@media only screen and (min-width: 743px) {
   .h2 {
     font-size: 3em;
+  }
+}
+@media only screen and (min-width: 792px) {
+  .h2 {
+    font-size: 3.25em;
   }
 }
 @media only screen and (min-width: 845px) {
