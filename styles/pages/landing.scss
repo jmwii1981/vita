@@ -1175,10 +1175,13 @@ a::selection {
 @media only screen
 	and (orientation: landscape),
 	(orientation: portrait)
-		and (min-device-width: 350px),
+		and (min-device-width: 400px),
 	(orientation: portrait)
-		and (min-device-width: 350px)
-		and (-webkit-min-device-pixel-ratio: 1) {
+		and (min-device-width: 400px)
+		and (-webkit-min-device-pixel-ratio: 1),
+	(min-device-width: 400px)
+		and (-webkit-min-device-pixel-ratio: 1),
+	(min-device-width: 400px) {
 	// YELLOW - landscape only experimental
 	.h2 {
 		background-color: orange;
