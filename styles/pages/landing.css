@@ -1396,7 +1396,7 @@ a::selection {
     width: 100%;
   }
 }
-@media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 400px), (orientation: portrait) and (min-device-width: 400px) and (-webkit-min-device-pixel-ratio: 1), (min-device-width: 400px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (orientation: landscape), (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1), (min-device-width: 450px) and (-webkit-min-device-pixel-ratio: 1) {
   .h2 {
     background-color: orange;
   }

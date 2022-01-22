@@ -1176,13 +1176,13 @@ a::selection {
 	and (orientation: landscape),
 
 	(orientation: portrait)
-		and (min-device-width: 400px),
+		and (min-device-width: 450px),
 
 	(orientation: portrait)
-		and (min-device-width: 400px)
+		and (min-device-width: 450px)
 		and (-webkit-min-device-pixel-ratio: 1),
 
-	(min-device-width: 400px)
+	(min-device-width: 450px)
 		and (-webkit-min-device-pixel-ratio: 1)
 
 	{
