@@ -1161,9 +1161,9 @@ a::selection {
 		and (-webkit-min-device-pixel-ratio: 1)
 
 	{
-	// GREEN - portrait only until what width?
+	// yellow - portrait only until what width?
 	.h2 {
-		background-color: pink;
+		background-color: yellow;
 		// font-size: 9.2em;
 	}
 	.landing-section--halves {
@@ -1177,7 +1177,7 @@ a::selection {
 	}
 	.landing-section-image-container {
 		height: 50vh;
-		border: solid 10px GRAY;
+		border: solid 10px yellow;
 		width: 100%;
 	}
 }
@@ -1196,9 +1196,9 @@ a::selection {
 		and (-webkit-min-device-pixel-ratio: 1)
 
 	{
-	// YELLOW - landscape only experimental
+	// ORANGE - landscape only experimental
 	.h2 {
-		background-color: orange;
+		background-color: ORANGE;
 		// font-size: 9.2em;
 	}
 	.landing-section--halves {
@@ -1214,7 +1214,7 @@ a::selection {
 	}
 	.landing-section-image-container {
 		height: 100%;
-		border: solid 10px GRAY;
+		border: solid 10px ORANGE;
 		width: 50%;
 	}
 }
