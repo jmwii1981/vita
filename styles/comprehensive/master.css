@@ -731,7 +731,7 @@ body * {
   /* The Fallback */
   background-color: #303135;
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 100%;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -1576,6 +1576,19 @@ body * {
   .footer__section__dot {
     height: 1em;
     width: 1em;
+  }
+}
+@media only screen and (orientation: landscape) and (min-device-width: 1025px), (orientation: portrait) and (min-device-width: 1025px), (orientation: portrait) and (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1), (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 1) {
+  .landing:after {
+    background-color: BLUE;
+    display: flex;
+    content: "";
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
   }
 }
 @media only screen and (orientation: portrait) and (min-device-width: 450px), (orientation: portrait) and (min-width: 1024px) {
