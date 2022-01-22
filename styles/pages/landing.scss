@@ -1167,21 +1167,25 @@ a::selection {
 	}
 	.landing-section-image-container {
 		height: 50vh;
-		border: solid 10px violet;
+		border: solid 10px black;
 		width: 100%;
 	}
 }
 
 @media only screen
 	and (orientation: landscape),
+
 	(orientation: portrait)
 		and (min-device-width: 400px),
+
 	(orientation: portrait)
 		and (min-device-width: 400px)
 		and (-webkit-min-device-pixel-ratio: 1),
+
 	(min-device-width: 400px)
-		and (-webkit-min-device-pixel-ratio: 1),
-	(min-device-width: 400px) {
+		and (-webkit-min-device-pixel-ratio: 1)
+
+	{
 	// YELLOW - landscape only experimental
 	.h2 {
 		background-color: orange;
