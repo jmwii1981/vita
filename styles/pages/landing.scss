@@ -3,7 +3,7 @@
 
 
 
-// ****** FIRST AS OF JAN 22, '22 ******* 
+// ****** FIRST AS OF JAN 22, '22 *******
 // * Optimize images for different screen times to reduce
 //   load time
 
@@ -47,8 +47,11 @@
 	@include background-color($dark-charchoal, 1);
 	font-family: "Inter", sans-serif;
 	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
 	position: relative;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 	width: 100%;
 	z-index: 0;
 }
@@ -66,7 +69,6 @@
 }
 .body * {
 	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
 }
 
 
@@ -1201,7 +1203,7 @@ a::selection {
 //**                      MEDIA QUERIES                    **//
 //***********************************************************//
 
-// SMALLEST SCREENS *** YELLOW ***
+// SMALLEST SCREENS *** YELLOW *** MOBILE PHONES IN PORTRAIT
 @media only screen
 	and (orientation: portrait)
 		and (max-device-width: 449px),
@@ -1253,7 +1255,7 @@ a::selection {
 	}
 }
 
-// SMALL SCREENS *** ORANGE ***
+// SMALL SCREENS *** ORANGE *** MOBILE PHONES IN LANDSCAPE
 @media only screen
 	and (orientation: landscape)
 		and (min-device-width: 450px),
@@ -1406,7 +1408,7 @@ a::selection {
 	}
 }
 
-// MEDIUM SCREENS *** VIOLET ***
+// MEDIUM SCREENS *** VIOLET *** IPAD AIR AND MINI IN PORTRAIT
 @media only screen
 	and (orientation: landscape)
 		and (min-device-width: 916px),
@@ -1447,7 +1449,7 @@ a::selection {
 
 // @import url("/inc/Styles/full.css") (min-width: 940px);
 
-// LARGE SCREENS *** BLUE ***
+// LARGE SCREENS *** BLUE *** IPAD AIR AND MINI IN LANDSCAPE AND COMPUTERS
 @media only screen
 	and (orientation: landscape)
 		and (min-device-width: 1024px),
@@ -1476,7 +1478,7 @@ a::selection {
 	}
 }
 
-// ** FINAL ** NAV BAR AND MENU BUTTON ONLY
+// ** FINAL ** NAV BAR AND MENU BUTTON ONLY *** MOBILE PHONES ONLY PORTRAIT
 @media only screen
 	and (orientation: portrait)
 	and (min-device-width: 450px),
@@ -1491,6 +1493,7 @@ a::selection {
 		display: flex;
 	}
 }
+// ** FINAL ** NAV BAR AND MENU BUTTON ONLY *** ANY DEVICE IN LANDSCAPE
 @media only screen
 	and (orientation: landscape) {
 		.nav__mobile {
@@ -1500,6 +1503,7 @@ a::selection {
 			display: flex;
 		}
 }
+// ** FINAL ** BUTTON GROUPS ONLY *** ANY DEVICE 916Ppx AND ABOVE
 @media only screen
 	and (min-device-width: 916px) {
 		.btn {
@@ -1517,7 +1521,7 @@ a::selection {
 	and (pointer: coarse)
 	and (max-device-width: 767px)
 	and (-webkit-min-device-pixel-ratio: 1) {
-
+		// Silence is golden.
 }
 
 // HOVER CAPABILITIES ONLY
