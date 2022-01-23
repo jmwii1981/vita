@@ -1,28 +1,79 @@
 //** TODO **//
+
+
+
+
+// ****** FIRST AS OF JAN 22, '22 ******* 
 // * Optimize images for different screen times to reduce
 //   load time
+
+// * SET UP SCSS SO THAT YOU ARE ONLY BRINGING CERTAIN STYLE SHEETS IN AT
+//   CERTAIN TIMES SO THAT YOU DON'T HAVE TO WORRY ABOUT OVERRIDING STYLES
+
 // * Continue adding style updates for different screen sizes
-// * Start targeting landscape vs portrait in some cases
-// * Test ::selection CSS to ensure it's working as desired on each page element
-// * Create mobile responsive CSS media queries and style as needed
-// * Add micro-interactions and animations with the option to switch them off
-// * Add dark mode palette with an automatic feature that matches system setting
-// as well as the ability to turn it off or on manually
-// * Create the ability to set a cookie and allow the user to save their preferences
-// when visiting the site
-// * Complete menu and additional pages
-// * Re-check and refine and build code out in BEM methodology once you've come
-//   to a stopping point
-// * Make a portion of your CSS (typography, main scaffolding,
-//   first content block and its children, etc. ) partially internal, and
-//   partially inline. See: https://www.ewaycorp.com/blog/advantages-of-inline-css/
-//   for more information.
+
+// * Complete menus
+
+// * Add any necessary additional pages
+
+
+
+
+		// ****** LATER OR SOMEDAY *********
+		// * Add micro-interactions and animations with the option to switch them off
+		// * Add dark mode palette with an automatic feature that matches system setting
+		// as well as the ability to turn it off or on manually
+		// * Create the ability to set a cookie and allow the user to save their preferences
+		// when visiting the site
+
+
+//***********************************************************//
+//**                         ASSETS                        **//
+//***********************************************************//
+
 
 @import "../../fonts/fonts";
 @import "../resets/normalize";
 @import "../tokens/tokens";
 
-//**-----TYPOGRAPHY-----**//
+
+//***********************************************************//
+//**                 INITIAL STYLES/RESETS                 **//
+//***********************************************************//
+
+
+.html {
+	display: flex;
+	@include background-color($dark-charchoal, 1);
+	font-family: "Inter", sans-serif;
+	font-size: 100%;
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+}
+
+
+.body {
+	align-items: center;
+	@include background-color($ghost-white, 1);
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+.body * {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+//***********************************************************//
+//**                       TYPOGRAPHY                      **//
+//***********************************************************//
+
 
 // selection color(s)
 img::selection,
@@ -121,10 +172,9 @@ a::selection {
 }
 
 
-
-
-
-//**-----INTERACTIVE-ELEMENTS-----**//
+//***********************************************************//
+//**                         LINKS                         **//
+//***********************************************************//
 
 
 // links (text only)
@@ -213,6 +263,11 @@ a::selection {
 		@include border-color($medium-interactive-press, 0);
 	}
 }
+
+
+//***********************************************************//
+//**                        BUTTONS                        **//
+//***********************************************************//
 
 
 // button
@@ -461,40 +516,9 @@ a::selection {
 }
 
 
-
-
-
-//**-----BLOCKS-----**//
-
-
-// parent/root blocks
-
-body * {
-	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
-}
-
-.html {
-	display: flex;
-	@include background-color($dark-charchoal, 1);
-	font-family: "Inter", sans-serif;
-	font-size: 100%;
-	overflow-x: hidden;
-	position: relative;
-	width: 100%;
-	z-index: 0;
-}
-
-.body {
-	align-items: center;
-	@include background-color($ghost-white, 1);
-	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
-	position: relative;
-	width: 100%;
-	z-index: 1;
-}
+//***********************************************************//
+//**                     HEADER BLOCKS                     **//
+//***********************************************************//
 
 
 // header block
@@ -520,6 +544,11 @@ body * {
 	position: relative;
 	width: 100%;
 }
+
+
+//***********************************************************//
+//**                      HEADER LOGO                      **//
+//***********************************************************//
 
 
 // header logo block
@@ -576,6 +605,11 @@ body * {
 }
 
 
+//***********************************************************//
+//**                       MAIN MENU                       **//
+//***********************************************************//
+
+
 // header nav
 .header__nav {
 	@include background-color($dark-charchoal, 1);
@@ -605,6 +639,78 @@ body * {
 	padding: 0em;
 	width: 0em;
 }
+
+
+//***********************************************************//
+//**                   MOBILE-ONLY NAV                     **//
+//***********************************************************//
+
+
+/// mobile only nav
+.nav__mobile {
+	display: flex;
+	@include background-color($dark-charchoal, 1);
+	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
+	flex-direction: column;
+	height: 11em;
+	padding: 1em 4em;
+	position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	width: 100%;
+	z-index: 3;
+}
+.nav__mobile__inner {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	width: 100%;
+}
+.nav__mobile__menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style: none;
+	padding: 0em;
+}
+.nav__mobile__menu__item {
+	align-items: center;
+ 	display: flex;
+	flex-direction: column;
+	height: 7em;
+	justify-content: center;
+	width: 8em;
+}
+.nav__mobile__menu__item__btn {
+	align-items: center;
+	appearance: none;
+	border: 0em;
+	@include background-color($dark-charchoal, 0);
+	display: flex;
+	flex-direction: column;
+	height: 7em;
+	gap: 0.75em 0em;
+	justify-content: center;
+	width: 8em;
+}
+.nav__mobile__menu__item__btn__image {
+	height: 4em;
+	width: 4em;
+}
+.nav__mobile__menu__item__btn__label {
+	display: flex;
+	font-size: 1.5em;
+	@include color($ghost-white, 1);
+}
+.nav__mobile__menu__item__btn__focus-border {
+	display: none; // temp
+}
+
+
+//***********************************************************//
+//**               LANDING CONTENT BLOCKS                  **//
+//***********************************************************//
 
 
 // landing block
@@ -710,9 +816,6 @@ body * {
 		bottom: calc(23.65em - 6vw);
 	}
 }
-
-
-
 
 
 // landing-section block
@@ -880,6 +983,11 @@ body * {
 	margin-top: 4em;
 	width: 100%;
 }
+
+
+//***********************************************************//
+//**                         FOOTER                        **//
+//***********************************************************//
 
 
 // footer block
@@ -1089,69 +1197,11 @@ body * {
 }
 
 
-/// mobile only nav
-.nav__mobile {
-	display: flex;
-	@include background-color($dark-charchoal, 1);
-	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
-	flex-direction: column;
-	height: 11em;
-	padding: 1em 4em;
-	position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	width: 100%;
-	z-index: 3;
-}
-.nav__mobile__inner {
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	width: 100%;
-}
-.nav__mobile__menu {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	list-style: none;
-	padding: 0em;
-}
-.nav__mobile__menu__item {
-	align-items: center;
- 	display: flex;
-	flex-direction: column;
-	height: 7em;
-	justify-content: center;
-	width: 8em;
-}
-.nav__mobile__menu__item__btn {
-	align-items: center;
-	appearance: none;
-	border: 0em;
-	@include background-color($dark-charchoal, 0);
-	display: flex;
-	flex-direction: column;
-	height: 7em;
-	gap: 0.75em 0em;
-	justify-content: center;
-	width: 8em;
-}
-.nav__mobile__menu__item__btn__image {
-	height: 4em;
-	width: 4em;
-}
-.nav__mobile__menu__item__btn__label {
-	display: flex;
-	font-size: 1.5em;
-	@include color($ghost-white, 1);
-}
-.nav__mobile__menu__item__btn__focus-border {
-	display: none; // temp
-}
+//***********************************************************//
+//**                      MEDIA QUERIES                    **//
+//***********************************************************//
 
-
-// *** YELLOW *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+// SMALLEST SCREENS *** YELLOW ***
 @media only screen
 	and (orientation: portrait)
 		and (max-device-width: 449px),
@@ -1161,7 +1211,7 @@ body * {
 		and (-webkit-min-device-pixel-ratio: 1),
 
 	(max-device-width: 449px)
-		and (-webkit-min-device-pixel-ratio: 1)
+	and (-webkit-min-device-pixel-ratio: 1)
 
 	{
 	// .landing TEMPORARY FOR TESTING
@@ -1203,9 +1253,10 @@ body * {
 	}
 }
 
-// *** ORANGE *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+// SMALL SCREENS *** ORANGE ***
 @media only screen
-	and (orientation: landscape),
+	and (orientation: landscape)
+		and (min-device-width: 450px),
 
 	(orientation: portrait)
 		and (min-device-width: 450px),
@@ -1355,15 +1406,53 @@ body * {
 	}
 }
 
-// *** BLUE *** DO NOT FUCKING TOUCH THIS MEDIA QUERY!!!!! USE IT WELL!!!
+// MEDIUM SCREENS *** VIOLET ***
+@media only screen
+	and (orientation: landscape)
+		and (min-device-width: 916px),
+
+	(orientation: landscape)
+		and (min-device-width: 916px),
+
+	(orientation: landscape)
+		and (min-device-width: 916px)
+		and (-webkit-min-device-pixel-ratio: 1),
+
+	(orientation: portrait)
+		and (min-device-width: 768px),
+
+	(orientation: portrait)
+		and (min-device-width: 768px)
+		and (-webkit-min-device-pixel-ratio: 1),
+
+	(min-device-width: 916px)
+		and (-webkit-min-device-pixel-ratio: 1)
+
+	{
+	// .landing TEMPORARY FOR TESTING
+	.landing {
+		&:after {
+			background-color: VIOLET;
+			display: flex;
+			content: '';
+			height: 15px;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+			z-index: 15;
+		}
+	}
+}
+
+// @import url("/inc/Styles/full.css") (min-width: 940px);
+
+// LARGE SCREENS *** BLUE ***
 @media only screen
 	and (orientation: landscape)
 		and (min-device-width: 1024px),
 
-	(orientation: portrait)
-		and (min-device-width: 1024px),
-
-	(orientation: portrait)
+	(orientation: landscape)
 		and (min-device-width: 1024px)
 		and (-webkit-min-device-pixel-ratio: 1),
 
@@ -1387,18 +1476,7 @@ body * {
 	}
 }
 
-
-
-
-// HOVER CAPABILITIES
-@media only screen
-	and (hover: hover) {
-	// devices with hover support only
-	// add styles here for input devices
-	// that can "hover" interactive elements
-}
-
-// DEVICE SIZES AND CAPABILIITES
+// ** FINAL ** NAV BAR AND MENU BUTTON ONLY
 @media only screen
 	and (orientation: portrait)
 	and (min-device-width: 450px),
@@ -1440,4 +1518,12 @@ body * {
 	and (max-device-width: 767px)
 	and (-webkit-min-device-pixel-ratio: 1) {
 
+}
+
+// HOVER CAPABILITIES ONLY
+@media only screen
+	and (hover: hover) {
+	// devices with hover support only
+	// add styles here for input devices
+	// that can "hover" interactive elements
 }
