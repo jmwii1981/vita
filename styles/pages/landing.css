@@ -1464,12 +1464,6 @@ nav {
   .landing-section--slant:after {
     width: 50%;
   }
-
-  .h2 {
-    font-size: 4.9em;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-  }
 }
 @media only screen and (orientation: landscape) and (min-width: 768px), only screen and (min-device-width: 768px) and (min-width: 768px) {
   .landing:after {
@@ -1495,6 +1489,31 @@ nav {
     left: 0;
     width: 100%;
     z-index: 15;
+  }
+
+  .landing-section-content__btn-grp {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .h2 {
+    font-size: 4.9em;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 0.85em;
+    margin: 0.4em 0em;
+  }
+
+  .p--medium-text {
+    font-size: 1em;
+  }
+
+  .p--line-height-medium {
+    line-height: 1.6em;
+  }
+
+  .btn {
+    font-size: 1em;
   }
 }
 
