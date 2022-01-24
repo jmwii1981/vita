@@ -1258,7 +1258,7 @@ nav {
 		width: 50%;
 	}
 	.landing-section-image-container {
-		height: 45em; // 106em?
+		height: 43em; // 106em?
 		width: 50%;
 	}
 	.landing-section-image-container--curved--top--left {
@@ -1275,7 +1275,7 @@ nav {
 	}
 
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 760px) {
 		.landing {
 			&:after {
 				background-color: INDIGO;
@@ -1309,22 +1309,22 @@ nav {
 			flex-direction: row;
 			width: auto;
 		}
-		.h2 {
-			font-size: 4.9em;
-			font-weight: 600;
-			letter-spacing: -0.05em;
-			line-height: 0.85em;
-			margin: 0.4em 0em;
-		}
-		.p--medium-text {
-			font-size: 1em;
-		}
-		.p--line-height-medium {
-			line-height: 1.6em;
-		}
-		.btn {
-			font-size: 1em;
-		}
+		// .h2 {
+		// 	font-size: 4.9em;
+		// 	font-weight: 600;
+		// 	letter-spacing: -0.05em;
+		// 	line-height: 0.85em;
+		// 	margin: 0.4em 0em;
+		// }
+		// .p--medium-text {
+		// 	font-size: 1em;
+		// }
+		// .p--line-height-medium {
+		// 	line-height: 1.6em;
+		// }
+		// .btn {
+		// 	font-size: 1em;
+		// }
 	}
 }
 
