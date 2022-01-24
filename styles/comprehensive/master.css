@@ -1162,11 +1162,11 @@ nav {
 }
 
 .landing-section-image-container--curved--bottom--right {
-  border-bottom-right-radius: 32vw;
+  border-bottom-right-radius: 0em;
 }
 
 .landing-section-image-container--curved--top--left {
-  border-top-left-radius: 32vw;
+  border-top-left-radius: 0em;
 }
 
 .landing-section-image {
