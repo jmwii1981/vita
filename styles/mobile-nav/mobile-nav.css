@@ -1,0 +1,19 @@
+@media only screen and (pointer: coarse) and (orientation: portrait) {
+  nav,
+.nav__mobile {
+    display: flex;
+  }
+}
+@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 550px) {
+  nav,
+.nav__mobile {
+    display: none;
+  }
+}
+@media only screen and (pointer: coarse) and (orientation: landscape) {
+  .header__nav-btn {
+    display: flex;
+  }
+}
+
+/*# sourceMappingURL=mobile-nav.css.map */

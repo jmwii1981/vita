@@ -101,17 +101,17 @@ a::selection {
 	align-self: stretch;
 	color: $dark-copy-text;
 	flex-grow: 0;
-	font-size: 4.2em;
-	font-weight: 600;
-	line-height: 0.88em;
-	letter-spacing: -0.055em;
-	margin: 0.23em 0em;
+	font-size: 3.1em;
+	font-weight: 900;
+	line-height: 1em;
+	letter-spacing: -0.009em;
+	margin: 0.40em 0em 0.08em;
 }
 
 
 // title mods -- size
 .h2--large {
-	font-size: 7em;
+	font-size: 4em;
 }
 
 
@@ -142,13 +142,13 @@ a::selection {
 	letter-spacing: -0.01em;
 }
 .p--medium-text {
-	font-size: 1em;
+	font-size: 1.3em;
 	font-weight: 600;
 	letter-spacing: -0.01em;
 }
 .p--large-text {
-	font-size: 1.5em;
-	font-weight: 400;
+	font-size: 1.6em;
+	font-weight: 600;
 	letter-spacing: -0.025em;
 }
 
@@ -163,13 +163,13 @@ a::selection {
 
 
 // body copy mods -- line-height
-.p--line-height-large { // .p
-	line-height: 1.34em;
+.p--line-height-large {
+	line-height: 1.4em;
 }
-.p--line-hight-medium {
-	line-height: 1.25em;
+.p--line-height-medium {
+	line-height: 1.5em;
 }
-.p--line-hight-small {
+.p--line-height-small {
 	line-height: 1em;
 }
 
@@ -185,7 +185,7 @@ a::selection {
 	color: inherit;
 	cursor: default;
 	display: inline-flex;
-	font-weight: 500; // play with this in desktop
+	font-weight: 800; // play with this in desktop
 	padding: 0em;
 	position: relative;
 	text-decoration: none;
@@ -282,12 +282,12 @@ a::selection {
 	@include color($dark-copy-text, 1);
 	cursor: default;
 	display: flex;
-	font-weight: 700;
-	font-size: 1.7em;
+	font-weight: 800;
+	font-size: 1.35em;
 	justify-content: center;
 	line-height: 2em;
-	letter-spacing: 0.01em;
-	padding: 0.5em 3em;
+	letter-spacing: 0.02em;
+	padding: 0.45em 3em;
 	position: relative;
 	text-decoration: none;
 
@@ -649,8 +649,11 @@ a::selection {
 
 
 /// mobile only nav
+nav {
+	display: none;
+}
 .nav__mobile {
-	display: flex;
+	display: none;
 	@include background-color($dark-charchoal, 1);
 	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
 	flex-direction: column;
@@ -838,15 +841,17 @@ a::selection {
 	height: auto;
 }
 
+.landing-section--halves {
+	flex-direction: row;
+}
 
 // landing-section block mods -- halfed layout
 .landing-section--halves {
-	// flex-direction: column-reverse; (mobile portrait)
-	flex-direction: row;
+	flex-direction: column-reverse;
 }
 .landing-section--halves-reversed {
-	flex-direction: row-reverse;
-	// flex-direction: column-reverse;  (mobile portrait)
+
+	flex-direction: column-reverse;
 }
 
 
@@ -865,23 +870,23 @@ a::selection {
 	&:before {
 		@include background-color($ghost-white, 1);
 		content: '';
-		height: 3.75em;
+		height: 2em;
 		pointer-events: none;
 		position: absolute;
 			top: 0;
 			right: 0;
-		width: 50%;
+		width: 100%;
 		z-index: 1;
 	}
 	&:after {
 		@include triangle(right, top, $cultured);
 		content: '';
-		height: 3.75em;
+		height: 2em;
 		pointer-events: none;
 		position: absolute;
 			top: 0;
 			right: 0;
-		width: 50%;
+		width: 100%;
 		z-index: 2;
 	}
 }
@@ -890,15 +895,16 @@ a::selection {
 // landing-section content block
 .landing-section-content {
 	display: flex;
-	padding: 1em 2.5em 2.5em;
+	padding: 1em 1em 2.5em;
 	width: 100%;
 }
-
+.landing-section-content:last-child {
+	padding: 5em 1em 1.5em;
+}
 
 // landing-section content block mods -- width
 .landing-section-content--halved {
-	width: 50%;
-	// width: 100%; mobile portrait only
+	width: 100%;
 }
 .landing-section-content--full {
 	width: 100%;
@@ -920,14 +926,12 @@ a::selection {
 // landing section image container block
 .landing-section-image-container {
 	display: block;
-	// height: 106em; mobile portrait only?
-	height: 60em;
+	height: 72vh;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
 	position: relative;
-	// width: 100%; mobile portrait only
-	width: 50%;
+	width: 100%;
 }
 
 
@@ -935,7 +939,7 @@ a::selection {
 .landing-section-image-container-triangle:after {
 	content: '';
 	display: block;
-	height: 3.75em;
+	height: 2em;
 	position: absolute;
 	width: 100%;
 	z-index: 1;
@@ -960,11 +964,11 @@ a::selection {
 // landing section image container block mods -- curve decorations
 .landing-section-image-container--curved--bottom--right {
 	// border-bottom-right-radius: 10em; all mobile at certain screen size ...
-	border-bottom-right-radius: 15vw;
+	border-bottom-right-radius: 32vw;
 }
 .landing-section-image-container--curved--top--left {
 	// border-bottom-right-radius: 10em; all mobile at certain screen size ...
-	border-top-left-radius: 15vw;
+	border-top-left-radius: 32vw;
 }
 
 
@@ -981,8 +985,8 @@ a::selection {
 .landing-section-content__btn-grp {
 	flex-direction: column;
 	display: flex;
-	gap: 2.5em;
-	margin-top: 4em;
+	gap: 1.25em;
+	margin-top: 1em;
 	width: 100%;
 }
 
@@ -1199,270 +1203,36 @@ a::selection {
 }
 
 
+// COLUMNED LAYOUTS FOR MOBILE / PORTRAIT / AND BASE STYLES - *GREEN*
+.landing {
+	&:after {
+		background-color: GREEN;
+		display: flex;
+		content: '';
+		height: 15px;
+		position: absolute;
+			top: 0;
+			left: 0;
+		width: 100%;
+		z-index: 15;
+	}
+}
+
+
 //***********************************************************//
 //**                      MEDIA QUERIES                    **//
 //***********************************************************//
 
-// SMALLEST SCREENS *** YELLOW *** MOBILE PHONES IN PORTRAIT
-@media only screen
-	and (orientation: portrait)
-		and (max-device-width: 449px),
+// EXAMPLE OF HOW TO SEPARATE STYLES OUT INTO MEDIA QUERIES
+//		@import url("/inc/Styles/full.css") (min-width: 940px);
 
-	(orientation: portrait)
-		and (max-device-width: 449px)
-		and (-webkit-min-device-pixel-ratio: 1),
+// HANDLES DISPLAY AND HIDING OF NAV BAR ONLY
+@import "../mobile-nav/mobile-nav";
 
-	(max-device-width: 449px)
-	and (-webkit-min-device-pixel-ratio: 1)
 
-	{
-	// .landing TEMPORARY FOR TESTING
-	.landing {
-		&:after {
-			background-color: YELLOW;
-			display: flex;
-			content: '';
-			height: 15px;
-			position: absolute;
-				top: 0;
-				left: 0;
-			width: 100%;
-			z-index: 15;
-		}
-	}
-	.h2 {
-		font-size: 9.25em;
-	}
-	.p--medium-text {
-		font-size: 3em;
-	}
-	.btn {
-		font-weight: 700;
-		font-size: 3.1em;
-	}
-	.landing-section--halves {
-		flex-direction: column-reverse;
-	}
-	.landing-section--halves-reversed {
-		flex-direction: column-reverse;
-	}
-	.landing-section-content--halved {
-		width: 100%;
-	}
-	.landing-section-image-container {
-		height: 50vh;
-		width: 100%;
-	}
-}
-
-// SMALL SCREENS *** ORANGE *** MOBILE PHONES IN LANDSCAPE
-@media only screen
-	and (orientation: landscape)
-		and (min-device-width: 450px),
-
-	(orientation: portrait)
-		and (min-device-width: 450px),
-
-	(orientation: portrait)
-		and (min-device-width: 450px)
-		and (-webkit-min-device-pixel-ratio: 1),
-
-	(min-device-width: 450px)
-		and (-webkit-min-device-pixel-ratio: 1)
-
-	{
-	// .landing TEMPORARY FOR TESTING
-	.landing {
-		&:after {
-			background-color: ORANGE;
-			display: flex;
-			content: '';
-			height: 15px;
-			position: absolute;
-				top: 0;
-				left: 0;
-			width: 100%;
-			z-index: 15;
-		}
-	}
-	.h2 {
-		font-size: 7.05em; // feels better on landscape mobile
-		line-height: 0.925em;
-		margin-top: 0.75em;
-	}
-	.landing-section:first-child .h2 {
-		margin-top: 1.4em;
-	}
-	.h2--large {
-		font-size: 10.5em;
-	}
-	.p {
-		margin-top: 0.45em;
-	}
-	.p--small-text {
-		font-size: 1.8em;
-		font-weight: 600;
-		letter-spacing: 0.02em;
-	}
-	.p--medium-text {
-		font-size: 1.7em;
-		font-weight: 600;
-		letter-spacing: 0.025em;
-	}
-	.p--large-text {
-		font-size: 2.75em;
-		font-weight: 600;
-	}
-	.p--line-height-medium {
-		line-height: 1.5em;
-	}
-	.p--line-hight-large {
-		line-height: 1.3em;
-	}
-	.p--contained:last-child {
-		margin-top: 0.2em;
-		margin-bottom: 0.2em;
-	}
-	.link--small-text {
-		font-size: 1em;
-		font-weight: 800;
-		letter-spacing: 0.06em;
-	}
-	.link--large-text {
-		font-size: 1em;
-		font-weight: 900;
-		letter-spacing: 0.02em;
-	}
-	.header__logo {
-		height: 6em;
-		position: absolute;
-			top: 2em;
-			left: 2.5em;
-		width: 6.2em;
-	}
-	.header__logo__mark {
-		gap: 0.65em;
-	}
-	.header__nav-btn {
-		font-size: 1.275em;
-		height: 5.75em;
-			top: 0.75em;
-		width: 5.75em;
-
-		.header__nav-btn__icon {
-			height: 2.25em;
-			width: 2.5em;
-		}
-		.header__nav-btn__icon .header__nav-btn__icon__line {
-			width: 2.5em;
-		}
-		.header__nav-btn__icon--hamburger .header__nav-btn__icon__line:nth-child(2) {
-			transform: translate(0%, 275%) rotate(0deg);
-		}
-		.header__nav-btn__icon--hamburger .header__nav-btn__icon__line:nth-child(3) {
-			transform: translate(0%, 550%) rotate(0deg);
-		}
-		.header__nav-btn__label {
-			font-size: 0.95em;
-		}
-	}
-	.landing-section--tall {
-		height: auto;
-	}
-	.landing-section--halves {
-		flex-direction: row;
-	}
-	.landing-section--halves-reversed {
-		flex-direction: row-reverse;
-	}
-	.landing-section-content {
-		padding: 1em 2.5em 4.5em;
-	}
-	.btn {
-		font-size: 1.7em;
-		font-weight: 700;
-		letter-spacing: 0.03em;
-	}
-	.landing-section-content__btn-grp {
-		margin-top: 2em;
-	}
-	.landing-section-content--halved {
-		width: 50%;
-	}
-	.landing-section-image-container {
-		height: 100%;
-		width: 50%;
-	}
-	.footer__menu__item,
-	.footer__menu__item__link,
-	.footer__menu__item__link__image {
-		height: 6em;
-		width: 6em;
-	}
-	.footer-section__inner--dots {
-		gap: 1.5em;
-	}
-	.footer__section__dot {
-		height: 1em;
-		width: 1em;
-	}
-}
-
-// MEDIUM SCREENS *** VIOLET *** IPAD AIR AND MINI IN PORTRAIT
-@media only screen
-	and (orientation: landscape)
-		and (min-device-width: 916px),
-
-	(orientation: landscape)
-		and (min-device-width: 916px),
-
-	(orientation: landscape)
-		and (min-device-width: 916px)
-		and (-webkit-min-device-pixel-ratio: 1),
-
-	(orientation: portrait)
-		and (min-device-width: 768px),
-
-	(orientation: portrait)
-		and (min-device-width: 768px)
-		and (-webkit-min-device-pixel-ratio: 1),
-
-	(min-device-width: 916px)
-		and (-webkit-min-device-pixel-ratio: 1)
-
-	{
-	// .landing TEMPORARY FOR TESTING
-	.landing {
-		&:after {
-			background-color: VIOLET;
-			display: flex;
-			content: '';
-			height: 15px;
-			position: absolute;
-				top: 0;
-				left: 0;
-			width: 100%;
-			z-index: 15;
-		}
-	}
-}
-
-// @import url("/inc/Styles/full.css") (min-width: 940px);
-
-// LARGE SCREENS *** BLUE *** IPAD AIR AND MINI IN LANDSCAPE AND COMPUTERS
-@media only screen
-	and (orientation: landscape)
-		and (min-device-width: 1024px),
-
-	(orientation: landscape)
-		and (min-device-width: 1024px)
-		and (-webkit-min-device-pixel-ratio: 1),
-
-	(min-device-width: 1024px)
-		and (-webkit-min-device-pixel-ratio: 1)
-
-	{
-	// .landing TEMPORARY FOR TESTING
+// ALL SCREENS IN LANDSCAPE OR 1024px AND UP - *BLUE*
+@media only screen and (orientation: landscape),
+(min-device-width: 768px) {
 	.landing {
 		&:after {
 			background-color: BLUE;
@@ -1476,55 +1246,78 @@ a::selection {
 			z-index: 15;
 		}
 	}
-}
 
-// ** FINAL ** NAV BAR AND MENU BUTTON ONLY *** MOBILE PHONES ONLY PORTRAIT
-@media only screen
-	and (orientation: portrait)
-	and (min-device-width: 450px),
-	(orientation: portrait)
-	and (min-width: 1024px) {
-
-	// we're good here.
-	.nav__mobile {
-		display: none;
+	//**  1/2 AND 1/2 LAYOUTS START HERE **//
+	.landing-section--halves {
+		flex-direction: row;
 	}
-	.header__nav-btn {
-		display: flex;
+	.landing-section--halves-reversed {
+		flex-direction: row-reverse;
+	}
+	.landing-section-content--halved {
+		width: 50%;
+	}
+	.landing-section-image-container {
+		height: 45em; // 106em?
+		width: 50%;
+	}
+	.landing-section-image-container--curved--top--left {
+		border-top-left-radius: 16em;
+	}
+	.landing-section-image-container--curved--bottom--right {
+		border-bottom-right-radius: 16em;
+	}
+	.landing-section--slant:before {
+		width: 50%;
+	}
+	.landing-section--slant:after {
+		width: 50%;
+	}
+
+
+	//typography
+	.h2 {
+		font-size: 4.9em;
+		font-weight: 700;
+		letter-spacing: -0.05em;
+	}
+
+
+	@media only screen and (min-width: 768px) {
+		.landing {
+			&:after {
+				background-color: INDIGO;
+				display: flex;
+				content: '';
+				height: 15px;
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: 100%;
+				z-index: 15;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.landing {
+			&:after {
+				background-color: VIOLET;
+				display: flex;
+				content: '';
+				height: 15px;
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: 100%;
+				z-index: 15;
+			}
+		}
 	}
 }
-// ** FINAL ** NAV BAR AND MENU BUTTON ONLY *** ANY DEVICE IN LANDSCAPE
-@media only screen
-	and (orientation: landscape) {
-		.nav__mobile {
-			display: none;
-		}
-		.header__nav-btn {
-			display: flex;
-		}
-}
-// ** FINAL ** BUTTON GROUPS ONLY *** ANY DEVICE 916Ppx AND ABOVE
-@media only screen
-	and (min-device-width: 916px) {
-		.btn {
-			font-size: 1em;
-			letter-spacing: 0.01em;
-			padding: 0.5em 3em;
-		}
-		.landing-section-content__btn-grp {
-			flex-direction: row;
-			width: auto;
-		}
-}
-@media only screen
-	and (orientation: portrait)
-	and (pointer: coarse)
-	and (max-device-width: 767px)
-	and (-webkit-min-device-pixel-ratio: 1) {
-		// Silence is golden.
-}
 
-// HOVER CAPABILITIES ONLY
+
+// HOVER CAPABILITIES ONLY ** ** //
 @media only screen
 	and (hover: hover) {
 	// devices with hover support only
