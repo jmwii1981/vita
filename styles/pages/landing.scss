@@ -657,8 +657,8 @@ nav {
 	@include background-color($dark-charchoal, 1);
 	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
 	flex-direction: column;
-	height: 11em;
-	padding: 1em 4em;
+	height: 5em;
+	padding: 0.5em 1em;
 	position: fixed;
 		bottom: 0;
 		left: 0;
@@ -670,6 +670,7 @@ nav {
 	display: flex;
 	height: 100%;
 	flex-direction: column;
+	justify-content: center;
 	width: 100%;
 }
 .nav__mobile__menu {
@@ -678,14 +679,15 @@ nav {
 	justify-content: space-between;
 	list-style: none;
 	padding: 0em;
+	margin: 0em;
 }
 .nav__mobile__menu__item {
 	align-items: center;
  	display: flex;
 	flex-direction: column;
-	height: 7em;
+	height: 3.5em;
 	justify-content: center;
-	width: 8em;
+	width: 4em;
 }
 .nav__mobile__menu__item__btn {
 	align-items: center;
@@ -694,18 +696,18 @@ nav {
 	@include background-color($dark-charchoal, 0);
 	display: flex;
 	flex-direction: column;
-	height: 7em;
-	gap: 0.75em 0em;
+	height: 3.5em;
+	gap: 0.25em 0em;
 	justify-content: center;
-	width: 8em;
+	width: 4em;
 }
 .nav__mobile__menu__item__btn__image {
-	height: 4em;
-	width: 4em;
+	height: 2em;
+	width: 2em;
 }
 .nav__mobile__menu__item__btn__label {
 	display: flex;
-	font-size: 1.5em;
+	font-size: 0.75em;
 	@include color($ghost-white, 1);
 }
 .nav__mobile__menu__item__btn__focus-border {
@@ -1232,7 +1234,8 @@ nav {
 
 // ALL SCREENS IN LANDSCAPE OR 1024px AND UP - *BLUE*
 @media only screen and (orientation: landscape),
-(min-device-width: 768px) {
+(min-device-width: 481px) {
+
 	.landing {
 		&:after {
 			background-color: BLUE;

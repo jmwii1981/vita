@@ -12,7 +12,7 @@
 }
 
 // **** FINAL **** ALL TOUCH SCREENS IN PORTRAIT AND LARGER THAN 550px IN WIDTH
-@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 550px) {
+@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 481px) {
 	nav,
 	.nav__mobile {
 		display: none;

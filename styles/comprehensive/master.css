@@ -863,8 +863,8 @@ nav {
   background-color: #303135;
   box-shadow: 0px 7px 15px 10px rgba(0, 0, 0, 0.76);
   flex-direction: column;
-  height: 11em;
-  padding: 1em 4em;
+  height: 5em;
+  padding: 0.5em 1em;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -877,6 +877,7 @@ nav {
   display: flex;
   height: 100%;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
@@ -886,15 +887,16 @@ nav {
   justify-content: space-between;
   list-style: none;
   padding: 0em;
+  margin: 0em;
 }
 
 .nav__mobile__menu__item {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 7em;
+  height: 3.5em;
   justify-content: center;
-  width: 8em;
+  width: 4em;
 }
 
 .nav__mobile__menu__item__btn {
@@ -906,20 +908,20 @@ nav {
   background-color: rgba(48, 49, 53, 0);
   display: flex;
   flex-direction: column;
-  height: 7em;
-  gap: 0.75em 0em;
+  height: 3.5em;
+  gap: 0.25em 0em;
   justify-content: center;
-  width: 8em;
+  width: 4em;
 }
 
 .nav__mobile__menu__item__btn__image {
-  height: 4em;
-  width: 4em;
+  height: 2em;
+  width: 2em;
 }
 
 .nav__mobile__menu__item__btn__label {
   display: flex;
-  font-size: 1.5em;
+  font-size: 0.75em;
   color: #F9FAFA;
   /* The Fallback */
   color: #f9fafa;
@@ -1408,7 +1410,7 @@ nav {
     display: flex;
   }
 }
-@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 550px) {
+@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 481px) {
   nav,
 .nav__mobile {
     display: none;
@@ -1419,7 +1421,7 @@ nav {
     display: flex;
   }
 }
-@media only screen and (orientation: landscape), (min-device-width: 768px) {
+@media only screen and (orientation: landscape), (min-device-width: 481px) {
   .landing:after {
     background-color: BLUE;
     display: flex;
@@ -1465,7 +1467,7 @@ nav {
     width: 50%;
   }
 }
-@media only screen and (orientation: landscape) and (min-width: 760px), only screen and (min-device-width: 768px) and (min-width: 760px) {
+@media only screen and (orientation: landscape) and (min-width: 760px), only screen and (min-device-width: 481px) and (min-width: 760px) {
   .landing:after {
     background-color: INDIGO;
     display: flex;
@@ -1478,7 +1480,7 @@ nav {
     z-index: 15;
   }
 }
-@media only screen and (orientation: landscape) and (min-width: 1024px), only screen and (min-device-width: 768px) and (min-width: 1024px) {
+@media only screen and (orientation: landscape) and (min-width: 1024px), only screen and (min-device-width: 481px) and (min-width: 1024px) {
   .landing:after {
     background-color: VIOLET;
     display: flex;
