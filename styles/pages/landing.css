@@ -302,6 +302,8 @@ ul {
 
 .body {
   align-items: center;
+  appearance: none;
+  -webkit-appearance: none;
   background-color: #F9FAFA;
   /* The Fallback */
   background-color: #f9fafa;
@@ -315,6 +317,15 @@ ul {
 
 .body * {
   box-sizing: border-box;
+}
+
+img,
+.btn {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 img::selection,
