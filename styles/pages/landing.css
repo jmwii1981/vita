@@ -346,12 +346,12 @@ a::selection {
   font-size: 3.15em;
   font-weight: 600;
   line-height: 1em;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
   margin: 0.4em 0em 0.08em;
 }
 
 .h2--large {
-  font-size: 4em;
+  font-size: 5em;
 }
 
 .p {
