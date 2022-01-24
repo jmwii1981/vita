@@ -343,10 +343,10 @@ a::selection {
   align-self: stretch;
   color: #303135;
   flex-grow: 0;
-  font-size: 3.1em;
-  font-weight: 900;
+  font-size: 3.15em;
+  font-weight: 600;
   line-height: 1em;
-  letter-spacing: -0.009em;
+  letter-spacing: -0.025em;
   margin: 0.4em 0em 0.08em;
 }
 
@@ -378,13 +378,13 @@ a::selection {
 
 .p--medium-text {
   font-size: 1.3em;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .p--large-text {
   font-size: 1.6em;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.025em;
 }
 
@@ -784,8 +784,8 @@ a::selection {
   justify-content: left;
   pointer-events: all;
   position: absolute;
-  top: 2em;
-  left: 2.5em;
+  top: 1em;
+  left: 1em;
   width: 5em;
   z-index: 3;
 }
@@ -1095,6 +1095,7 @@ nav {
 
 .landing-section-content {
   display: flex;
+  justify-content: center;
   padding: 1em 1em 2.5em;
   width: 100%;
 }
@@ -1117,13 +1118,15 @@ nav {
   display: flex;
   height: 100%;
   flex-direction: column;
+  max-width: 23em;
   position: relative;
   width: 100%;
 }
 
 .landing-section-image-container {
   display: block;
-  height: 72vh;
+  height: 100%;
+  min-height: 72vh;
   margin: 0;
   overflow: hidden;
   padding: 0;
@@ -1179,6 +1182,7 @@ nav {
   display: flex;
   gap: 1.25em;
   margin-top: 1em;
+  max-width: 23em;
   width: 100%;
 }
 
@@ -1442,21 +1446,33 @@ nav {
     flex-direction: row-reverse;
   }
 
+  .landing-section-content {
+    padding: 4em 1em 2.5em;
+  }
+
+  .landing-section:first-child .landing-section-content {
+    padding: 7em 1em 2.5em;
+  }
+
+  .landing-section:last-child .landing-section-content__inner {
+    max-width: 41em;
+  }
+
   .landing-section-content--halved {
     width: 50%;
   }
 
   .landing-section-image-container {
-    height: 43em;
+    height: 100%;
     width: 50%;
   }
 
   .landing-section-image-container--curved--top--left {
-    border-top-left-radius: 16em;
+    border-top-left-radius: 8em;
   }
 
   .landing-section-image-container--curved--bottom--right {
-    border-bottom-right-radius: 16em;
+    border-bottom-right-radius: 8em;
   }
 
   .landing-section--slant:before {
