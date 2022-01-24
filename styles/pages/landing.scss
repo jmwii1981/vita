@@ -82,7 +82,6 @@ img,
 	user-select: none;
 }
 
-
 //***********************************************************//
 //**                       TYPOGRAPHY                      **//
 //***********************************************************//
@@ -117,6 +116,7 @@ a::selection {
 	line-height: 1em;
 	letter-spacing: -0.04em;
 	margin: 0.40em 0em 0.08em;
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 
@@ -130,6 +130,7 @@ a::selection {
 .p {
 	flex-grow: 0;
 	margin: 0.67em 0em;
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
 	&:last-child {
 		margin-bottom: 0;
