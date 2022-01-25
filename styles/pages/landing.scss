@@ -56,7 +56,6 @@
 	z-index: 0;
 }
 
-
 .body {
 	align-items: center;
 	appearance: none;
@@ -69,6 +68,7 @@
 	width: 100%;
 	z-index: 1;
 }
+
 .body * {
 	box-sizing: border-box;
 }
@@ -80,6 +80,48 @@ img,
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+}
+
+// decorative background triangles for desktop view
+.bg-decorative-triangle:before {
+	content: '';
+	display: block;
+	position: absolute;
+		left: 0;
+	width: 100%;
+	z-index: 0;
+}
+.bg-decorative-triangle {
+	display: block;
+	position: absolute;
+		left: 50%;
+	transform: translate(-50%, 0%);
+	width: 100%;
+
+	&.top {
+		background-color: $cultured;
+		height: calc(43em - 3vw);
+			top: 0;
+
+		&:before {
+			border-top: 6vw solid $cultured;
+			border-left: 100vw solid transparent;
+			height: 0em;
+				top: calc(43em - 3vw);
+		}
+	}
+	&.bottom {
+		background-color: $cultured;
+		height: calc(21em + 3vw);
+			bottom: 0;
+
+		&:before {
+			border-top: 6vw solid $ghost-white;
+			border-left: 100vw solid transparent;
+			height: 0em;
+				bottom: calc(21em - 3vw);
+		}
+	}
 }
 
 //***********************************************************//
@@ -451,7 +493,7 @@ a::selection {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	height: 8.75em;
+	height: 7.5em;
 	pointer-events: none;
 	position: absolute;
 		top: 0;
@@ -651,6 +693,7 @@ nav {
 	position: relative;
 	width: 100%;
 }
+// landing block inner
 .landing__inner {
 	align-items: center;
 	height: 100%;
@@ -661,92 +704,6 @@ nav {
 	width: 100%;
 	z-index: 1;
 }
-
-
-// landing block mods -- rectangle decorations (not shown on mobile)
-.landing__rectangle {
-	// display: none; mobile portrait only
-	display: block;
-	pointer-events: none;
-	position: absolute;
-	width: 50%;
-	z-index: -1;
-
-	&:after {
-		content: '';
-		display: block;
-		height: 6vw;
-		position: absolute;
-			right: 0;
-		width: 100%;
-	}
-}
-
-// landing block decorations -- rectangles (positioning)
-.landing__rectangle--left {
-	left: 0;
-}
-.landing__rectangle--right {
-	right: 0;
-}
-.landing__rectangle--top {
-	top: 0;
-}
-.landing__rectangle--bottom {
-	bottom: 0;
-}
-
-// landing block decorations -- rectangles (colors)
-.landing__rectangle--anti-flash-white {
-	@include background-color($anti-flash-white, 1);
-
-	&:after {
-		@include triangle(left, bottom, $anti-flash-white);
-	}
-}
-.landing__rectangle--cultured {
-	@include background-color($cultured, 1);
-
-	&:after {
-		@include triangle(left, bottom, $ghost-white);
-	}
-}
-
-
-// landing block decorations -- rectangles (specfic dimensions)
-.landing__rectangle-top-left-height {
-	// height: calc(43em - 2.75vw);
-	// height: calc(48.55em - 6vw);
-	height: calc(45.15em - 6vw);
-
-	&:after {
-		top: calc(45.15em - 6vw);
-	}
-}
-.landing__rectangle-top-right--height {
-	height: 45em;
-
-	&:after {
-		top: 45em;
-	}
-}
-.landing__rectangle-bottom-left-height {
-	// height: calc(23.5em + 2.75vw);
-	height: calc(23.35em + 6vw);
-
-	&:after {
-		bottom: 23.35em;
-	}
-}
-.landing__rectangle-bottom-right--height {
-	// height: 21.625em;
-	height: 19.75em;
-
-	&:after {
-		bottom: calc(23.65em - 6vw);
-	}
-}
-
 
 // landing-section block
 .landing-section {
@@ -775,7 +732,6 @@ nav {
 	flex-direction: column-reverse;
 }
 .landing-section--halves-reversed {
-
 	flex-direction: column-reverse;
 }
 
@@ -824,9 +780,6 @@ nav {
 	padding: 1em 1em 2.5em;
 	width: 100%;
 }
-.landing-section-content:last-child {
-	padding: 5em 1em 1.5em;
-}
 
 // landing-section content block mods -- width
 .landing-section-content--halved {
@@ -863,31 +816,44 @@ nav {
 }
 
 
-// landing section image container block mods -- triangle decorations
-.landing-section-image-container-triangle:after {
-	content: '';
-	display: block;
-	height: 2em;
-	position: absolute;
-	width: 100%;
-	z-index: 1;
-}
-.landing-section-image-container--triangle--top--right--ghost-white:after {
-	@include triangle(left, bottom, $ghost-white);
-		top: 0;
-		left: 0;
-}
-.landing-section-image-container--triangle--bottom--right--ghost-white:after {
-	@include triangle(right, top, $ghost-white);
-		bottom: 0;
-		left: 0;
-}
-.landing-section-image-container--triangle--bottom--right--cultured:after {
-	@include triangle(right, top, $cultured);
-		bottom: 0;
-		left: 0;
+.landing-section-image-container-triangle {
+	&:after {
+		content: '';
+		display: block;
+		height: 0em;
+		position: absolute;
+			left: 0;
+			right: 0;
+		width: 0em;
+	}
+
+	&--top:after {
+		border-top: 1.95em solid red;
+		border-left: 520px solid transparent;
+			top: 0;
+	}
+	&--bottom:after {
+		border-bottom: 1.95em solid red;
+		border-right: 520px solid transparent;
+			bottom: 0;
+	}
 }
 
+.landing-section:first-child .landing-section-image-container-triangle {
+	&--bottom:after {
+		border-bottom: 1.95em solid $ghost-white;
+	}
+}
+.landing-section:nth-child(2) .landing-section-image-container-triangle {
+	&--top:after {
+		border-top: 1.95em solid $ghost-white;
+	}
+}
+.landing-section:nth-child(3) .landing-section-image-container-triangle {
+	&--bottom:after {
+		border-bottom: 1.95em solid $cultured;
+	}
+}
 
 // landing section image container block mods -- curve decorations
 .landing-section-image-container--curved--bottom--right {
@@ -901,7 +867,7 @@ nav {
 // landing section image
 .landing-section-image {
 	display: block;
-	height: calc(100% - 0.0625em);
+	height: 100%;
 	object-fit: cover; /* or object-fit: contain; */
 	width: 100%;
 }
@@ -1390,6 +1356,12 @@ nav {
 		height: 100%;
 		width: 50%;
 	}
+	.landing-section:nth-child(3) .landing-section-image-container-triangle:after {
+		@include triangle(right, top, $cultured);
+	}
+	.landing-section-image-container {
+		min-height: 100%;
+	}
 	.landing-section-image-container--curved--top--left {
 		border-top-left-radius: 8em;
 	}
@@ -1623,35 +1595,55 @@ nav {
 	// 	}
 	// }
 
+	//**  LAYOUT ADJUSTMENTS **//
+	.header__logo {
+		top: 1.25em;
+		left: 2.5em;
+	}
+	.header__nav-btn {
+		top: 1.75em;
+		right: 1.5em;
+	}
+	.landing-section--tall {
+		height: 43em;
+	}
+	.landing-section--short {
+		height: 21em;
+	}
+	.landing-section-content,
+	.landing-section:last-child .landing-section-content,
+	.landing-section:first-child .landing-section-content {
+		padding: 2.5em;
+	}
 
 	// TYPOGRAPHY //
 	.landing-section-content__inner {
-		max-width: 29.6em;
+		max-width: none;
 	}
 	.landing-section:last-child .landing-section-content__inner {
-		max-width: 60em;
+		max-width: none;
 	}
 	.h2 {
-		font-size: 4.8em;
+		font-size: 4.45em;
 		font-weight: 600;
 		letter-spacing: -0.06em;
 		line-height: 0.9em;
 		margin: 0.4em 0em;
 	}
 	.h2--large {
-		font-size: 6.8em;
+		font-size: 6.55em;
 	}
 	.p--small-text {
-		font-size: 0.9em;
+		font-size: 0.95em;
 	}
 	.p--medium-text {
-		font-size: 1em;
+		font-size: 1.05em;
 	}
 	.p--large-text {
-		font-size: 1.6em;
+		font-size: 1.4em;
 	}
 	.btn {
-		font-size: 1em;
+		font-size: 1.05em;
 	}
 }
 
