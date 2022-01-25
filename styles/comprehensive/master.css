@@ -1322,30 +1322,6 @@ nav {
   width: 4em;
 }
 
-.landing:after {
-  background-color: white;
-  border: solid 1px gray;
-  content: "~";
-  display: flex;
-  align-items: center;
-  height: 60px;
-  font-size: 1.2em;
-  font-weight: 500;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  text-align: center;
-  width: 80px;
-  z-index: 15;
-}
-
-@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "BASE Mobile";
-  }
-}
 @media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) and (max-width: 767px) {
   nav,
 .nav__mobile {
@@ -1353,21 +1329,11 @@ nav {
   }
 }
 @media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "BASE Mobile";
-  }
-
   .header__nav-btn {
     display: flex;
   }
 }
 @media only screen and (min-width: 320px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "320px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 17em;
   }
@@ -1397,11 +1363,6 @@ nav {
   }
 }
 @media only screen and (min-width: 375px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "375px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 21.65em;
   }
@@ -1419,11 +1380,6 @@ nav {
   }
 }
 @media only screen and (min-width: 390px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "390px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 22.2em;
   }
@@ -1437,11 +1393,6 @@ nav {
   }
 }
 @media only screen and (min-width: 393px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "393px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 22.5em;
   }
@@ -1454,24 +1405,7 @@ nav {
     font-size: 5.285em;
   }
 }
-@media only screen and (min-width: 412px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "412px Both";
-  }
-}
-@media only screen and (min-width: 414px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "414px Both";
-  }
-}
 @media only screen and (min-width: 440px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "440px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 25em;
   }
@@ -1501,11 +1435,6 @@ nav {
   }
 }
 @media only screen and (min-width: 480px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "480px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 28em;
   }
@@ -1523,11 +1452,6 @@ nav {
   }
 }
 @media only screen and (min-width: 540px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "540px Both";
-  }
-
   .landing-section--halves {
     flex-direction: row;
   }
@@ -1602,11 +1526,6 @@ nav {
   }
 }
 @media only screen and (min-width: 590px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "590px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 15.15em;
   }
@@ -1624,11 +1543,6 @@ nav {
   }
 }
 @media only screen and (min-width: 653px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "653px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 18.25em;
   }
@@ -1645,18 +1559,7 @@ nav {
     font-size: 4.8em;
   }
 }
-@media only screen and (min-width: 667px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "667px Both";
-  }
-}
 @media only screen and (min-width: 736px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "736px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 20.4em;
   }
@@ -1674,21 +1577,11 @@ nav {
   }
 }
 @media only screen and (min-width: 740px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "740px Both";
-  }
-
   .header__nav-btn {
     display: flex;
   }
 }
 @media only screen and (min-width: 768px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "768px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 21.8em;
   }
@@ -1705,53 +1598,13 @@ nav {
     font-size: 4.8em;
   }
 }
-@media only screen and (min-width: 812px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "812px Both";
-  }
-}
-@media only screen and (min-width: 820px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "820px Both";
-  }
-}
-@media only screen and (min-width: 844px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "844px Both";
-  }
-}
-@media only screen and (min-width: 851px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "851px Both";
-  }
-}
-@media only screen and (min-width: 896px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "896px Both";
-  }
-}
 @media only screen and (min-width: 915px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "915px Both";
-  }
-
   .landing-section-content__btn-grp {
     flex-direction: row;
     width: auto;
   }
 }
 @media only screen and (min-width: 1024px) {
-  .landing:after {
-    background-color: #FFFAF0;
-    content: "1024px Both";
-  }
-
   .landing-section-content__inner {
     max-width: 29.6em;
   }
