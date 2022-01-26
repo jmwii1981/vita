@@ -1009,7 +1009,6 @@ nav {
 .landing-section-image-container {
   display: block;
   height: 100%;
-  min-height: 72vh;
   margin: 0;
   overflow: hidden;
   padding: 0;
