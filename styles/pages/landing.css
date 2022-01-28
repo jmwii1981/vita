@@ -339,10 +339,11 @@ img,
 
 .bg-decorative-triangle {
   display: block;
+  pointer-events: none;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0%);
-  width: 100%;
+  width: 100vw;
 }
 .bg-decorative-triangle.top {
   background-color: #F3F6F7;
@@ -764,12 +765,17 @@ a::selection {
   margin: 0;
   opacity: 0;
   overflow: hidden;
+  opacity: 0;
   padding: 0;
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0%);
+  transition-property: visibility, opacity;
+  transition-delay: 0s, 0s;
+  transition-timing-function: ease-in-out, ease-in-out;
+  transition-duration: 0.15s, 0.15s;
   visibility: hidden;
   width: 100vw;
   z-index: 2;
@@ -796,18 +802,6 @@ a::selection {
   top: 2.5em;
   right: 3em;
   width: 117px;
-  z-index: 3;
-}
-.main-navigation__menu-btn:after {
-  background-color: #303135;
-  /* The Fallback */
-  background-color: #303135;
-  border-radius: 12em;
-  height: 44px;
-  position: absolute;
-  top: 2em;
-  right: 3em;
-  width: 44px;
   z-index: 3;
 }
 
@@ -840,7 +834,12 @@ a::selection {
   top: 0%;
   left: 0%;
   transform: translate(214%, 0%);
+  transition-property: transform;
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  transition-duration: 0.05s;
   width: 36px;
+  z-index: 1;
 }
 
 .main-navigation__menu-btn__handle__inner {
@@ -869,25 +868,30 @@ a::selection {
   background-color: #f9fafa;
   border-radius: 6em;
   display: flex;
-  height: 3px;
+  height: 2px;
   position: absolute;
   top: 46%;
   left: 50%;
   transform: translate(-50%, 0%) rotate(0deg);
+  transition-property: background-color, transform, width;
+  transition-delay: 0s, 0s, 0s;
+  transition-timing-function: ease-in-out, ease-in, ease-in;
+  transition-duration: 0.05s, 0.1s, 0.15s;
   width: 1em;
 }
 .main-navigation__menu-btn__handle__bar--top {
-  transform: translate(-50%, -200%) rotate(0deg);
+  transform: translate(-50%, -300%) rotate(0deg);
 }
 .main-navigation__menu-btn__handle__bar--middle {
   transform: translate(-50%, 0%) rotate(0deg);
 }
 .main-navigation__menu-btn__handle__bar--bottom {
-  transform: translate(-50%, 200%) rotate(0deg);
+  transform: translate(-50%, 300%) rotate(0deg);
 }
 
-.main-navigation__menu-btn__label-menu {
+.main-navigation__menu-btn__inner:after {
   align-items: center;
+  content: "Menu";
   display: flex;
   height: 100%;
   color: #303135;
@@ -896,46 +900,26 @@ a::selection {
   font-size: 1em;
   font-weight: 600;
   justify-content: center;
-  padding-right: 18px;
+  opacity: 1;
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  transform: translate(0px, 0);
+  transition-property: transform;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+  transition-duration: 0.1s;
+  width: calc(100% - 18px);
+  z-index: 0;
 }
-.main-navigation__menu-btn__label-menu::selection {
+.main-navigation__menu-btn__inner:after::selection {
   background-color: #303135;
   /* The Fallback */
   background-color: rgba(48, 49, 53, 0);
   color: #303135;
   /* The Fallback */
   color: #303135;
-}
-
-.main-navigation__menu-btn__label-close {
-  align-items: center;
-  display: none;
-  height: 100%;
-  color: #F9FAFA;
-  /* The Fallback */
-  color: #f9fafa;
-  font-size: 1em;
-  font-weight: 600;
-  justify-content: center;
-  padding-left: 18px;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.main-navigation__menu-btn__label-close::selection {
-  background-color: #F9FAFA;
-  /* The Fallback */
-  background-color: rgba(249, 250, 250, 0);
-  color: #F9FAFA;
-  /* The Fallback */
-  color: #f9fafa;
 }
 
 .main-navigation__menu__title {
@@ -956,10 +940,19 @@ a::selection {
   max-width: 65em;
 }
 
+.main-navigation__menu-item:focus {
+  outline: none;
+}
+
 .main-navigation__menu-item__link {
   color: #F9FAFA;
+  display: inline-flex;
   font-size: 3em;
   text-decoration: none;
+}
+
+.main-navigation__menu-item__link:hover {
+  text-decoration: underline;
 }
 
 .main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner {
@@ -968,6 +961,14 @@ a::selection {
   background-color: #303135;
   /* The Fallback */
   background-color: #303135;
+}
+.main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner:after {
+  content: "Close";
+  color: #F9FAFA;
+  /* The Fallback */
+  color: #f9fafa;
+  font-weight: 700;
+  transform: translate(18px, 0);
 }
 .main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle {
   background-color: #F9FAFA;
@@ -979,6 +980,7 @@ a::selection {
   background-color: #303135;
   /* The Fallback */
   background-color: #303135;
+  width: 1.25em;
 }
 .main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle__bar--top {
   transform: translate(-50%, 0%) rotate(45deg);
@@ -991,17 +993,6 @@ a::selection {
 }
 .main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle__bar--bottom {
   transform: translate(-50%, 0%) rotate(-45deg);
-}
-.main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__label-menu {
-  display: none;
-}
-.main-navigation__toggler:checked + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__label-close {
-  display: flex;
-}
-
-.main-navigation__menu-item:focus,
-.main-navigation__menu-item:hover {
-  text-decoration: underline;
 }
 
 .main-navigation__toggler:checked + .main-navigation__menu-btn .expanded-text {
@@ -1028,7 +1019,8 @@ a::selection {
 
 .main-navigation__toggler:checked ~ .landing,
 .main-navigation__toggler:checked ~ .footer,
-.main-navigation__toggler:checked ~ .nav__mobile {
+.main-navigation__toggler:checked ~ .nav__mobile,
+.main-navigation__toggler:checked ~ .bg-decorative-triangle {
   display: none;
 }
 
@@ -1324,7 +1316,7 @@ nav {
 }
 
 .landing-section:nth-child(2) .landing-section-image-container-triangle--top:after {
-  border-top: 1.95em solid #F9FAFA;
+  border-top: 1.95em solid #F3F6F7;
 }
 
 .landing-section:nth-child(3) .landing-section-image-container-triangle--bottom:after {
