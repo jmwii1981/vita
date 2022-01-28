@@ -717,6 +717,7 @@ a::selection {
 .hidden-control {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
+  display: none;
   height: 1px;
   overflow: hidden;
   padding: 0;
@@ -787,7 +788,7 @@ a::selection {
 .main-navigation__menu-btn {
   border-radius: 48px;
   align-items: center;
-  display: flex;
+  display: none;
   height: 40px;
   justify-content: center;
   pointer-events: all;
@@ -1594,6 +1595,11 @@ nav {
     background-color: #FFFAF0;
     content: "BASE Mobile";
   }
+
+  .main-navigation__toggler,
+.main-navigation__menu-btn {
+    display: flex;
+  }
 }
 @media only screen and (min-width: 320px) {
   .landing:after {
@@ -1920,6 +1926,11 @@ nav {
     content: "740px Both";
   }
 
+  .main-navigation__toggler,
+.main-navigation__menu-btn {
+    display: flex;
+  }
+
   nav,
 .nav__mobile {
     display: none;
@@ -1945,11 +1956,6 @@ nav {
 
   .h2--large {
     font-size: 4.8em;
-  }
-
-  nav,
-.nav__mobile {
-    display: none;
   }
 }
 @media only screen and (min-width: 812px) {

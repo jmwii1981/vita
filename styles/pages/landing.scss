@@ -600,6 +600,7 @@ a::selection {
 .hidden-control {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
+	display: none;
 	height: 1px;
 	overflow: hidden;
 	padding: 0;
@@ -670,7 +671,7 @@ a::selection {
 .main-navigation__menu-btn {
 	border-radius: 48px;
 	align-items: center;
-	display: flex;
+	display: none;
 	height: 40px;
 	justify-content: center;
 	pointer-events: all;
@@ -1532,9 +1533,13 @@ nav {
 	}
 
 	// place holder for where button should appear in mobile
-	// .header__nav-btn {
-	// 	display: flex;
-	// }
+	//landscape and desktop
+	.main-navigation__toggler,
+	.main-navigation__menu-btn {
+		display: flex;
+	}
+
+
 	// HANDLE THE REST IN MOBILE and DESKTOP //
 }
 
@@ -1867,10 +1872,12 @@ nav {
 			content: '740px Both';
 		}
 	}
-	// place holder for where button should appear in desktop and mobile
-	// .header__nav-btn {
-	// 	display: flex;
-	// }
+	// place holder for where button should appear in desktop after mobile
+	//landscape and desktop
+	.main-navigation__toggler,
+	.main-navigation__menu-btn {
+		display: flex;
+	}
 	nav,
 	.nav__mobile {
 		display: none;
@@ -1899,16 +1906,6 @@ nav {
 	.h2--large {
 		font-size: 4.8em;
 	}
-
-	// place holder for where button should appear in desktop after mobile
-	// .header__nav-btn {
-	// 	display: flex;
-	// }
-	nav,
-	.nav__mobile {
-		display: none;
-	}
-
 }
 // MOBILE and DESKTOP //
 @media only screen and (min-width: 812px) {
@@ -2044,36 +2041,6 @@ nav {
 
 // HOVER CAPABILITIES ONLY ** ** //
 @media only screen and (hover: hover) {
-
-	// HEADER NAV BUTTON //
-	// .header__nav-btn {
-	// 	&:hover {
-	// 		cursor: pointer;
-	// 	}
-	// 	&:hover .header__nav-btn__focus-border,
-	// 	&:focus .header__nav-btn__focus-border {
-	// 		@include border-color($primary-btn-bg-hover, 1);
-	// 	}
-	// 	&:active .header__nav-btn__focus-border {
-	// 		@include border-color($button-press, 0);
-	// 	}
-	// 	&:hover .header__nav-btn__elipses,
-	// 	&:focus .header__nav-btn__elipses {
-	// 		@include background-color($primary-btn-bg-hover, 1);
-	// 	}
-	// 	&:active .header__nav-btn__elipses {
-	// 		@include background-color($button-press, 1);
-	// 	}
-	// 	&:hover .header__nav-btn__icon__line,
-	// 	&:focus .header__nav-btn__icon__line,
-	// 	&:active .header__nav-btn__icon__line {
-	// 		@include background-color($label-interaction, 1);
-	// 	}
-	// 	&:hover .header__nav-btn__label,
-	// 	&:focus .header__nav-btn__label {
-	// 		opacity: 0;
-	// 	}
-	// }
 
 	// TEXT LINKS
 	.link:focus {
