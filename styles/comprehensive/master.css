@@ -1055,6 +1055,7 @@ a::selection {
   opacity: 0;
 }
 
+.main-navigation__toggler:checked:hover + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
 .main-navigation__toggler:checked:focus + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
 .main-navigation__toggler:checked:focus-within + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before {
   border: 2px solid #F3F6F7;
