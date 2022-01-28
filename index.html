@@ -15,283 +15,299 @@
 		</script>
 	</head>
 	<body class="body" ontouchstart>
+
 		<noscript>
 			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P66ZPQN" height="0" width="0" style="display: none; visibility: hidden">
 			</iframe>
 		</noscript>
-		<header class="header">
-			<div class="header__inner">
-				<div class="header__logo">
-					<i class="header__logo__mark" aria-hidden="true">
-						<span class="header__logo__line"></span>
-						<span class="header__logo__line"></span>
-						<span class="header__logo__line"></span>
-						<span class="header__logo__line"></span>
-					</i>
-					<h1 class="header__logo__title">
-						Jan Michael Wallace II, Digital Product Design Leader
-					</h1>
-				</div>
-				<button class="header__nav-btn" aria-label="Main Menu">
-					<span class="header__nav-btn__inner">
-						<span class="header__nav-btn__elipses"></span>
-						<i class="header__nav-btn__icon header__nav-btn__icon--hamburger" aria-hidden="true">
-							<span class="header__nav-btn__icon__line"></span>
-							<span class="header__nav-btn__icon__line"></span>
-							<span class="header__nav-btn__icon__line"></span>
-						</i>
-						<span class="header__nav-btn__label">Menu</span>
-						<span class="header__nav-btn__focus-border" aria-hidden="true"></span>
+
+		<span class="bg-decorative-triangle top" role="presentation"></span>
+
+			<div class="jan-michael-wrapper">
+
+				<!-- controls all following siblings upon click -->
+				<input tab-index="1" class="hidden-control main-navigation__toggler" type="checkbox" role="button" aria-haspopup="true" id="toggler">
+				<label tab-index="-1" class="main-navigation__menu-btn" for="toggler" data-opens-menu data-closes-menu>
+					<span class="hidden-control expanded-text" aria-labelledby="toggle">
+						Menu Open
 					</span>
-				</button>
-				<nav class="header__nav">
-					<div class="header__nav__inner">
-						<ul class="header__nav__menu">
-							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">About</a>
+					<span class="hidden-control collapsed-text" aria-labelledby="toggle">
+						Menu Closed
+					</span>
+					<span class="main-navigation__menu-btn__inner" aria-hidden="true">
+						<span class="main-navigation__menu-btn__label-menu">Menu</span>
+						<span class="main-navigation__menu-btn__label-close">Close</span>
+						<span role="presentation" class="main-navigation__menu-btn__handle">
+							<span role="presentation" class="main-navigation__menu-btn__handle__inner">
+								<span class="main-navigation__menu-btn__handle__bar main-navigation__menu-btn__handle__bar--top"></span>
+								<span class="main-navigation__menu-btn__handle__bar main-navigation__menu-btn__handle__bar--middle"></span>
+								<span class="main-navigation__menu-btn__handle__bar main-navigation__menu-btn__handle__bar--bottom"></span>
+							</span>
+						</span>
+					</span>
+				</label>
+				<!-- / controls all following siblings upon click -->
+
+				<!-- the 'go home' link -->
+				<h1 class="header__logo">
+					<a class="header__logo__anchor" href="https://janmichael.io/">
+						<span class="header__logo__anchor__text">
+							Go to homepage
+						</span>
+						<i class="header__logo__mark" aria-hidden="true">
+							<span class="header__logo__line"></span>
+							<span class="header__logo__line"></span>
+							<span class="header__logo__line"></span>
+							<span class="header__logo__line"></span>
+						</i>
+					</a>
+				</h1>
+				<!-- / the 'go home' link -->
+
+				<!-- make this full-screen -->
+				<nav class="main-navigation__menu">
+					<ul class="main-navigation__menu__section" data-menu-origin="left">
+						<li class="main-navigation__menu-item">
+							<a class="main-navigation__menu-item__link" href="about/index.html">
+								About
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- / make this full-screen -->
+
+
+				<main class="landing">
+					<article class="landing__inner">
+						<header class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
+							<div class="landing-section-content landing-section-content--halved">
+								<div class="landing-section-content__inner">
+									<h2 class="h2 landing-section-content__title">Leading along the way.</h2>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I'm a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I've worked with organizations large and small.</p>
+									<div class="landing-section-content__btn-grp">
+										<a class="btn btn--primary" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
+											<span class="btn__label">
+												View vitae
+											</span>
+											<span class="btn__focus-border" aria-hidden="true">
+											</span>
+										</a>
+										<a class="btn btn--secondary" href="mailto:hello@janmichael.io" target="_blank">
+											<span class="btn__label">
+												Connect
+											</span>
+											<span class="btn__focus-border" aria-hidden="true">
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--bottom">
+								<picture>
+									<source
+										srcset="images/1-624x816.webp"
+										media="(min-width: 624px)"
+									/>
+									<source
+										srcset="images/1-560x744.webp"
+										media="(min-width: 560px)"
+									/>
+									<source
+										srcset="images/1-448x576.webp"
+										media="(min-width: 448px)"
+									/>
+									<img class="landing-section-image" src="images/1-344x384.webp" alt="Jan Michael leaning against a wall, folding arms, and smiling." draggable="false">
+								</picture>
+							</figure>
+						</header>
+						<section class="landing-section landing-section--tall landing-section--halves landing-section--ghost-white">
+							<div class="landing-section-content landing-section-content--halved">
+								<div class="landing-section-content__inner">
+									<h2 class="h2 landing-section-content__title">Making the dream work.</h2>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">Currently, I lead a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">View some of the work.</p>
+									<div class="landing-section-content__btn-grp">
+										<a class="btn btn--primary" href="https://dribbble.com/jmwii1981" target="_blank">
+											<span class="btn__label">
+												View samples
+											</span>
+											<span class="btn__focus-border" aria-hidden="true">
+											</span>
+										</a>
+										<a class="btn btn--secondary">
+											<span class="btn__label">
+												Request more
+											</span>
+											<span class="btn__focus-border" aria-hidden="true">
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--top landing-section-image-container--curved--bottom--right">
+								<picture>
+									<source
+										srcset="images/2-624x816.webp"
+										media="(min-width: 624px)"
+									/>
+									<source
+										srcset="images/2-560x744.webp"
+										media="(min-width: 560px)"
+									/>
+									<source
+										srcset="images/2-448x576.webp"
+										media="(min-width: 448px)"
+									/>
+									<img class="landing-section-image" src="images/2-344x384.webp" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop." draggable="false">
+								</picture>
+							</figure>
+						</section>
+						<section class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
+							<div class="landing-section-content landing-section-content--halved">
+								<div class="landing-section-content__inner">
+									<h2 class="h2 landing-section-content__title">Leaning into the hustle.</h2>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
+									<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I come to the office to play hard, get things done, and have a little fun while doing it!</p>
+									<div class="landing-section-content__btn-grp">
+										<a class="btn btn--primary" href="https://medium.com/@jmwii1981" target="_blank">
+											<span class="btn__label">
+												Learn more
+											</span>
+											<span class="btn__focus-border" aria-hidden="true">
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--bottom landing-section-image-container--curved--top--left">
+								<picture>
+									<source
+										srcset="images/3-624x816.webp"
+										media="(min-width: 916px)"
+									/>
+									<source
+										srcset="images/3-560x744.webp"
+										media="(min-width: 450px)"
+									/>
+									<img class="landing-section-image" src="images/3-448x576.webp" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation." draggable="false">
+								</picture>
+							</figure>
+						</section>
+						<section class="landing-section landing-section--short landing-section--slant landing-section--cultured">
+							<div class="landing-section-content landing-section-content--full">
+								<div class="landing-section-content__inner">
+									<h2 class="h2 h2--large landing-section-content__title landing-section-content__title--large">Say hello.</h2>
+									<p class="p p--full p--light-mode p--large-text p--line-height-large">I'm always on the prowl for a new challenge.</p>
+									<p class="p p--full p--light-mode p--medium-text p--line-height-large">If you think you've got the cure, hit me up at <a class="link link--light-mode link--large-text" href="mailto:hello@janmichael.io">hello@janmichael.io<span class="link__focus-border"></span></a>.</p>
+								</div>
+							</div>
+						</section>
+					</article>
+				</main>
+
+				<footer class="footer">
+					<div class="footer__inner">
+						<span class="footer__elipses" aria-hidden="true"></span>
+						<section class="footer-section">
+							<ul class="footer-section__inner footer-section__inner--menu">
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/linked-in.svg" alt="Visit Jan Michael's Linked In profile and resumé." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://medium.com/@jmwii1981" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/medium.svg" alt="Visit Jan Michael's Medium profile and blog." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://dribbble.com/jmwii1981" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/dribbble.svg" alt="Visit Jan Michael's Dribble profile and portfolio." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://www.instagram.com/jmwii1981/" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/instagram.svg" alt="Visit Jan Michael's Instagram profile and feed." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://twitter.com/jmwii1981" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/twitter.svg" alt="Visit Jan Michael's Twitter profile and feed." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+								<li class="footer__menu__item">
+									<a class="footer__menu__item__link" href="https://github.com/jmwii1981" target="_blank">
+										<img class="footer__menu__item__link__image" src="icons/svg/github.svg" alt="Visit Jan Michael's Github profile and repository." draggable="false"/>
+										<span class="footer__menu__item__link__focus-border"></span>
+									</a>
+								</li>
+							</ul>
+						</section>
+						<section class="footer-section" aria-hidden="true">
+							<ul class="footer-section__inner footer-section__inner--dots">
+								<li class="footer__section__dot footer__section__dot--red">
+								</li>
+								<li class="footer__section__dot footer__section__dot--orange">
+								</li>
+								<li class="footer__section__dot footer__section__dot--yellow">
+								</li>
+								<li class="footer__section__dot footer__section__dot--green">
+								</li>
+								<li class="footer__section__dot footer__section__dot--blue">
+								</li>
+								<li class="footer__section__dot footer__section__dot--violet">
+								</li>
+							</ul>
+						</section>
+						<section class="footer-section">
+							<ul class="footer-section__inner footer-section__inner--disclaimers">
+								<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Photography by <a class="link link--dark-mode link--small-text" href="https://www.nunnphoto.com/thelatest/" target="_blank">Mary Helen Nunn<span class="link__focus-border"></span></a></p></li>
+								<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Website by <a class="link link--dark-mode link--small-text" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">Jan Michael Wallace II<span class="link__focus-border"></span></a></p></li>
+								<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Hosting by <a class="link link--dark-mode link--small-text" href="https://pages.github.com" target="_blank">Github Pages<span class="link__focus-border"></span></a></p></li>
+							</ul>
+						</section>
+						<section class="footer-section">
+							<ul class="footer-section__inner footer-section__inner--disclaimers">
+								<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Copyright &copy; 2022</li>
+							</ul>
+						</section>
+					</div>
+				</footer>
+
+				<nav class="nav__mobile">
+					<div class="nav__mobile__inner">
+						<ul class="nav__mobile__menu">
+							<li class="nav__mobile__menu__item">
+								<button class="nav__mobile__menu__item__btn">
+									<img class="nav__mobile__menu__item__btn__image" src="icons/svg/cog.svg" aria-hidden="true" draggable="false"/>
+									<span class="nav__mobile__menu__item__btn__label">Options</span>
+									<span class="nav__mobile__menu__item__btn__focus-border"></span>
+								</button>
 							</li>
-							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Work</a>
+							<li class="nav__mobile__menu__item">
+								<button class="nav__mobile__menu__item__btn">
+									<img class="nav__mobile__menu__item__btn__image" src="icons/svg/speech-bubble.svg" aria-hidden="true" draggable="false"/>
+									<span class="nav__mobile__menu__item__btn__label">Contact</span>
+									<span class="nav__mobile__menu__item__btn__focus-border"></span>
+								</button>
 							</li>
-							<li class="header__nav__menu__item">
-								<a class="header__nav__menu__item__link">Non-Work</a>
+							<li class="nav__mobile__menu__item">
+								<button class="nav__mobile__menu__item__btn">
+									<img class="nav__mobile__menu__item__btn__image" src="icons/svg/hamburger.svg" aria-hidden="true" draggable="false"/>
+									<span class="nav__mobile__menu__item__btn__label">Menu</span>
+									<span class="nav__mobile__menu__item__btn__focus-border"></span>
+								</button>
 							</li>
 						</ul>
 					</div>
 				</nav>
 			</div>
-		</header>
-		<main class="landing">
-			<span class="bg-decorative-triangle top">
-			</span>
-			<article class="landing__inner">
-				<section class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved">
-						<div class="landing-section-content__inner">
-							<h2 class="h2 landing-section-content__title">Leading along the way.</h2>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I'm a Product Design Leader with nearly a decade of experience. From humble agencies and non-profits to Fortune 500s, I've worked with organizations large and small.</p>
-							<div class="landing-section-content__btn-grp">
-								<a class="btn btn--primary" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
-									<span class="btn__label">
-										View vitae
-									</span>
-									<span class="btn__focus-border" aria-hidden="true">
-									</span>
-								</a>
-								<a class="btn btn--secondary" href="mailto:hello@janmichael.io" target="_blank">
-									<span class="btn__label">
-										Connect
-									</span>
-									<span class="btn__focus-border" aria-hidden="true">
-									</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--bottom">
-						<picture>
-							<source
-								srcset="images/1-624x816.webp"
-								media="(min-width: 624px)"
-							/>
-							<source
-								srcset="images/1-560x744.webp"
-								media="(min-width: 560px)"
-							/>
-							<source
-								srcset="images/1-448x576.webp"
-								media="(min-width: 448px)"
-							/>
-							<img class="landing-section-image" src="images/1-344x384.webp" alt="Jan Michael leaning against a wall, folding arms, and smiling." draggable="false">
-						</picture>
-					</figure>
-				</section>
-				<section class="landing-section landing-section--tall landing-section--halves landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved">
-						<div class="landing-section-content__inner">
-							<h2 class="h2 landing-section-content__title">Making the dream work.</h2>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">Currently, I lead a brilliant multi-disciplinary team that is ushering in the next generation of our most innovative FinTech Product yet at Heartland, a Global Payments company.</p>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">Both communication and collaboration have been keys in my leadership style, and I believe in the people that I work with. Without a great team, there is no great product.</p>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">View some of the work.</p>
-							<div class="landing-section-content__btn-grp">
-								<a class="btn btn--primary" href="https://dribbble.com/jmwii1981" target="_blank">
-									<span class="btn__label">
-										View samples
-									</span>
-									<span class="btn__focus-border" aria-hidden="true">
-									</span>
-								</a>
-								<a class="btn btn--secondary">
-									<span class="btn__label">
-										Request more
-									</span>
-									<span class="btn__focus-border" aria-hidden="true">
-									</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--top landing-section-image-container--curved--bottom--right">
-						<picture>
-							<source
-								srcset="images/2-624x816.webp"
-								media="(min-width: 624px)"
-							/>
-							<source
-								srcset="images/2-560x744.webp"
-								media="(min-width: 560px)"
-							/>
-							<source
-								srcset="images/2-448x576.webp"
-								media="(min-width: 448px)"
-							/>
-							<img class="landing-section-image" src="images/2-344x384.webp" alt="Jan Michael surrounded by plants, sitting on the floor and smiling while working on his laptop." draggable="false">
-						</picture>
-					</figure>
-				</section>
-				<section class="landing-section landing-section--tall landing-section--halves-reversed landing-section--ghost-white">
-					<div class="landing-section-content landing-section-content--halved">
-						<div class="landing-section-content__inner">
-							<h2 class="h2 landing-section-content__title">Leaning into the hustle.</h2>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I am just as passionate about the quality of a project as I am about getting that project launched. And to hit those targets, I believe in effective planning, teamwork, humility, vulnerability, a listening ear, and offering my team the resources they need to be successful.</p>
-							<p class="p p--full p--light-mode p--line-height-medium p--medium-text">I come to the office to play hard, get things done, and have a little fun while doing it!</p>
-							<div class="landing-section-content__btn-grp">
-								<a class="btn btn--primary" href="https://medium.com/@jmwii1981" target="_blank">
-									<span class="btn__label">
-										Learn more
-									</span>
-									<span class="btn__focus-border" aria-hidden="true">
-									</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<figure class="landing-section-image-container landing-section-image-container-triangle landing-section-image-container-triangle--bottom landing-section-image-container--curved--top--left">
-						<picture>
-							<source
-								srcset="images/3-624x816.webp"
-								media="(min-width: 916px)"
-							/>
-							<source
-								srcset="images/3-560x744.webp"
-								media="(min-width: 450px)"
-							/>
-							<img class="landing-section-image" src="images/3-448x576.webp" alt="Jan Michael smiling and staring down at the ground thoughtfully during a TED talk presentation." draggable="false">
-						</picture>
-					</figure>
-				</section>
-				<section class="landing-section landing-section--short landing-section--slant landing-section--cultured">
-					<div class="landing-section-content landing-section-content--full">
-						<div class="landing-section-content__inner">
-							<h2 class="h2 h2--large landing-section-content__title landing-section-content__title--large">Say hello.</h2>
-							<p class="p p--full p--light-mode p--large-text p--line-height-large">I'm always on the prowl for a new challenge.</p>
-							<p class="p p--full p--light-mode p--medium-text p--line-height-large">If you think you've got the cure, hit me up at <a class="link link--light-mode link--large-text" href="mailto:hello@janmichael.io">hello@janmichael.io<span class="link__focus-border"></span></a>.</p>
-						</div>
-					</div>
-				</section>
-			</article>
-			<span class="bg-decorative-triangle bottom">
-			</span>
-		</main>
-		<footer class="footer">
-			<span class="footer__elipses" aria-hidden="true"></span>
-			<div class="footer__inner">
-				<section class="footer-section">
-					<ul class="footer-section__inner footer-section__inner--menu">
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/linked-in.svg" alt="Visit Jan Michael's Linked In profile and resumé." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://medium.com/@jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/medium.svg" alt="Visit Jan Michael's Medium profile and blog." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://dribbble.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/dribbble.svg" alt="Visit Jan Michael's Dribble profile and portfolio." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://www.instagram.com/jmwii1981/" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/instagram.svg" alt="Visit Jan Michael's Instagram profile and feed." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://twitter.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/twitter.svg" alt="Visit Jan Michael's Twitter profile and feed." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-						<li class="footer__menu__item">
-							<a class="footer__menu__item__link" href="https://github.com/jmwii1981" target="_blank">
-								<img class="footer__menu__item__link__image" src="icons/svg/github.svg" alt="Visit Jan Michael's Github profile and repository." draggable="false"/>
-								<span class="footer__menu__item__link__focus-border"></span>
-							</a>
-						</li>
-					</ul>
-				</section>
-				<section class="footer-section" aria-hidden="true">
-					<ul class="footer-section__inner footer-section__inner--dots">
-						<li class="footer__section__dot footer__section__dot--red">
-						</li>
-						<li class="footer__section__dot footer__section__dot--orange">
-						</li>
-						<li class="footer__section__dot footer__section__dot--yellow">
-						</li>
-						<li class="footer__section__dot footer__section__dot--green">
-						</li>
-						<li class="footer__section__dot footer__section__dot--blue">
-						</li>
-						<li class="footer__section__dot footer__section__dot--violet">
-						</li>
-					</ul>
-				</section>
-				<section class="footer-section">
-					<ul class="footer-section__inner footer-section__inner--disclaimers">
-						<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Photography by <a class="link link--dark-mode link--small-text" href="https://www.nunnphoto.com/thelatest/" target="_blank">Mary Helen Nunn<span class="link__focus-border"></span></a></p></li>
-						<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Website by <a class="link link--dark-mode link--small-text" href="https://www.linkedin.com/in/jmwii1981/" target="_blank">Jan Michael Wallace II<span class="link__focus-border"></span></a></p></li>
-						<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Hosting by <a class="link link--dark-mode link--small-text" href="https://pages.github.com" target="_blank">Github Pages<span class="link__focus-border"></span></a></p></li>
-					</ul>
-				</section>
-				<section class="footer-section">
-					<ul class="footer-section__inner footer-section__inner--disclaimers">
-						<li><p class="p p--contained p--dark-mode p--small-text p--line-height-small">Copyright &copy; 2022</li>
-					</ul>
-				</section>
-			</div>
-		</footer>
-		<nav class="nav__mobile">
-			<div class="nav__mobile__inner">
-				<ul class="nav__mobile__menu">
-					<li class="nav__mobile__menu__item">
-						<button class="nav__mobile__menu__item__btn">
-							<img class="nav__mobile__menu__item__btn__image" src="icons/svg/cog.svg" aria-hidden="true" draggable="false"/>
-							<span class="nav__mobile__menu__item__btn__label">Options</span>
-							<span class="nav__mobile__menu__item__btn__focus-border"></span>
-						</button>
-					</li>
-					<li class="nav__mobile__menu__item">
-						<button class="nav__mobile__menu__item__btn">
-							<img class="nav__mobile__menu__item__btn__image" src="icons/svg/speech-bubble.svg" aria-hidden="true" draggable="false"/>
-							<span class="nav__mobile__menu__item__btn__label">Contact</span>
-							<span class="nav__mobile__menu__item__btn__focus-border"></span>
-						</button>
-					</li>
-					<li class="nav__mobile__menu__item">
-						<button class="nav__mobile__menu__item__btn">
-							<img class="nav__mobile__menu__item__btn__image" src="icons/svg/hamburger.svg" aria-hidden="true" draggable="false"/>
-							<span class="nav__mobile__menu__item__btn__label">Menu</span>
-							<span class="nav__mobile__menu__item__btn__focus-border"></span>
-						</button>
-					</li>
-				</ul>
-			</div>
-		</nav>
+		<span class="bg-decorative-triangle bottom" role="presentation"></span>
 	</body>
 <html>
