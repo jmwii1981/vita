@@ -20,7 +20,7 @@
 
 
 		// ****** LATER OR SOMEDAY *********
-		// * Add micro-interactions and animations with the option to switch them off
+		// * Add micro-hovers and animations with the option to switch them off
 		// * Add dark mode palette with an automatic feature that matches system setting
 		// as well as the ability to turn it off or on manually
 		// * Create the ability to set a cookie and allow the user to save their preferences
@@ -44,8 +44,9 @@
 
 .html {
 	display: flex;
-	@include background-color($dark-charchoal, 1);
-	font-family: "Inter", sans-serif;
+	@include background-color($body-background, 1);
+	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
+
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
@@ -60,8 +61,7 @@
 	align-items: center;
 	appearance: none;
 	-webkit-appearance: none;
-	@include background-color($ghost-white, 1);
-	// @include background-color(#FAFAFA, 1);
+	@include background-color($port-gore, 1);
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
@@ -75,13 +75,36 @@
 }
 
 img,
-.btn {
+.button {
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
 }
+
+
+//***********************************************************//
+//**                     MASTER CONTAINER                  **//
+//***********************************************************//
+
+
+// main wrapper
+.jan-michael-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+	max-width: 65em;
+	min-height: 100vh;
+	width: 100%;
+}
+
+
+//***********************************************************//
+//**              DECORATIVE DESKTOP ELEMENTS              **//
+//***********************************************************//
+
 
 // decorative background triangles for desktop view
 .bg-decorative-triangle:before {
@@ -93,32 +116,37 @@ img,
 	z-index: 0;
 }
 .bg-decorative-triangle {
-	display: block;
+	display: flex;
+	opacity: 1;
 	pointer-events: none;
 	position: absolute;
 		left: 50%;
 	transform: translate(-50%, 0%);
+	transition-property: opacity;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+	transition-duration: 1s;
 	width: 100vw;
 
 	&.top {
-		background-color: $cultured;
+		background-color: $alice-blue;
 		height: calc(43em - 3vw);
 			top: 0;
 
 		&:before {
-			border-top: 6vw solid $cultured;
+			border-top: 6vw solid $alice-blue;
 			border-left: 100vw solid transparent;
 			height: 0em;
 				top: calc(43em - 3vw);
 		}
 	}
 	&.bottom {
-		background-color: $cultured;
+		background-color: $alice-blue;
 		height: calc(53.75em + 3vw);
 			bottom: 0;
 
 		&:before {
-			border-top: 6vw solid $ghost-white;
+			border-top: 6vw solid $port-gore;
 			border-left: 100vw solid transparent;
 			height: 0em;
 				bottom: calc(53.75em - 3vw);
@@ -145,7 +173,7 @@ a::selection {
 }
 .p--dark-mode::selection,
 .link--dark-mode::selection,
-.btn__label::selection {
+.button__label::selection {
 	@include background-color($white, 0.25);
 }
 
@@ -250,24 +278,24 @@ a::selection {
 // link (text only) focus border
 .link__focus-border {
 	border-style: solid;
-	border-radius: 0.5rem;
+	border-radius: 0.25rem;
 	border-width: 0.125em;
 	display: block;
-	height: calc(100% + 1.25rem);
+	height: calc(100% + 0.3125rem);
 	pointer-events: none;
 	position: absolute;
-		top: -0.5rem;
-		left: -0.75rem;
-	width: calc(100% + 1.5rem);
+		top: -0.175rem;
+		left: -0.1875rem;
+	width: calc(100% + 0.325rem);
 }
 .link--dark-mode {
 	& .link__focus-border {
-		@include border-color($light-interactive-rest, 0);
+		@include border-color($interactive-rest--dark-mode, 0);
 	}
 }
 .link--light-mode {
 	& .link__focus-border {
-		@include border-color($medium-interactive-rest, 0);
+		@include border-color($interactive-rest--light-mode, 0);
 	}
 }
 
@@ -277,10 +305,10 @@ a::selection {
 
 
 // button
-.btn {
+.button {
 	appearance: none;
 	align-items: center;
-	@include background-color($btn-bg-disabled, 1);
+	@include background-color($disabled-button-bg-rest--light-mode, 1);
 	border: 0;
 	border-radius: 6em;
 	@include color($dark-copy-text, 1);
@@ -301,16 +329,16 @@ a::selection {
 	&:hover {
 		cursor: pointer;
 	}
-	&:hover,
-	&:focus,
-	&:active {
-		color: $label-interaction;
-	}
-	.btn__label {
+	// &:hover,
+	// &:focus,
+	// &:active {
+	// 	color: $primary-label-hover--light-mode;
+	// }
+	.button__label {
 		display: inline-flex;
 		white-space: nowrap;
 	}
-	.btn__focus-border {
+	.button__focus-border {
 		border-style: solid;
 		border-radius: 4.5em;
 		border-width: 0.125em;
@@ -326,167 +354,283 @@ a::selection {
 
 
 // button mods -- primary and secondary
-.btn--primary {
+.button--primary {
+
 	&,
 	&:visited {
-		@include background-color($primary-btn-bg-rest, 1);
+		@include color($primary-label-rest--light-mode, 1);
+		@include background-color($primary-button-bg-rest--light-mode, 1);
 	}
-	& .btn__focus-border,
-	&:visited .btn__focus-border {
-		@include border-color($primary-btn-bg-rest, 0);
+	& .button__focus-border,
+	&:visited .button__focus-border {
+		@include border-color($primary-button-bg-rest--light-mode, 0);
 	}
 	&:hover,
 	&:focus {
-		@include background-color($primary-btn-bg-hover, 1);
+		@include background-color($primary-button-bg-hover--light-mode, 1);
 	}
-	&:hover .btn__focus-border,
-	&:focus .btn__focus-border {
-		@include border-color($primary-btn-bg-hover, 1);
-	}
-}
-.btn--secondary {
-	&,
-	&:visited {
-		@include background-color($secondary-btn-bg-rest, 1);
-	}
-	& .btn__focus-border,
-	&:visited .btn__focus-border {
-		@include border-color($secondary-btn-bg-rest, 0);
-	}
-	&:hover,
-	&:focus {
-		@include background-color($secondary-btn-bg-hover, 1);
-	}
-	&:hover .btn__focus-border,
-	&:focus .btn__focus-border {
-		@include border-color($secondary-btn-bg-hover, 1);
-	}
-}
-.btn--primary,
-.btn--secondary {
-	&,
-	&:visited {
-		@include color($label-rest, 1);
+	&:hover .button__focus-border,
+	&:focus .button__focus-border {
+		@include border-color($primary-button-bg-hover--light-mode, 1);
 	}
 	&:active,
 	&:active:focus {
-		@include color($label-interaction, 1);
-		@include background-color($button-press, 1);
+		@include color($primary-label-hover--light-mode, 1);
+		@include background-color($primary-button-press--light-mode, 1);
 	}
-	&:active .btn__focus-border,
-	&:active:focus .btn__focus-border {
-		@include border-color($button-press, 0);
+	&:active .button__focus-border,
+	&:active:focus .button__focus-border {
+		@include border-color($primary-button-press--light-mode, 0);
+	}
+}
+.button--secondary {
+	&,
+	&:visited {
+		@include color($secondary-label-rest--light-mode, 1);
+		@include background-color($secondary-button-bg-rest--light-mode, 1);
+	}
+	& .button__focus-border,
+	&:visited .button__focus-border {
+		@include border-color($secondary-button-bg-rest--light-mode, 0);
+	}
+	&:hover,
+	&:focus {
+		@include background-color($secondary-button-bg-hover--light-mode, 1);
+	}
+	&:hover .button__focus-border,
+	&:focus .button__focus-border {
+		@include border-color($secondary-button-bg-hover--light-mode, 1);
+	}
+	&:active,
+	&:active:focus {
+		@include color($secondary-label-hover--light-mode, 1);
+		@include background-color($secondary-button-press--light-mode, 1);
+	}
+	&:active .button__focus-border,
+	&:active:focus .button__focus-border {
+		@include border-color($secondary-button-press--light-mode, 0);
 	}
 }
 
 
-// header nav button
-// .header__nav-btn {
-// 	align-items: center;
-// 	appearance: none;
-// 	@include background-color($primary-btn-bg-rest, 0);
-// 	border: 0;
-// 	border-radius: 100%;
-// 	display: none;
-// 	flex-direction: column;
-// 	height: 4em;
-// 	justify-content: center;
-// 	margin: 0em;
-// 	padding: 0em;
-// 	pointer-events: all;
-// 	position: absolute;
-// 		top: 1.5em;
-// 		right: 0em;
-// 	width: 4em;
-// 	z-index: 3;
-//
-// 	.header__nav-btn__inner {
-// 		align-items: center;
-// 		display: flex;
-// 		flex-direction: column;
-// 		gap: 0.25em;
-// 		height: 100%;
-// 		justify-content: center;
-// 		pointer-events: none;
-// 		width: 100%;
-// 	}
-//
-// 	.header__nav-btn__focus-border {
-// 		@include border-color($primary-btn-bg-rest, 0);
-// 		border-radius: 12.5em;
-// 		border-style: solid;
-// 		border-width: 0.25em;
-// 		display: block;
-// 		height: calc(100% + 0.75em);
-// 		pointer-events: none;
-// 		position: absolute;
-// 			top: calc(50% - 0.65em);
-// 			left: 50%;
-// 		transform: translate(-50%, -50%);
-// 		width: calc(100% + 0.75em);
-// 	}
-// 	.header__nav-btn__elipses {
-// 		@include background-color($primary-btn-bg-rest, 0);
-// 		border-radius: 100%;
-// 		display: flex;
-// 		height: 100%;
-// 		position: absolute;
-// 			top: calc(50% - 0.65em);
-// 			left: 50%;
-// 		transform: translate(-50%, -50%);
-// 		width: 100%;
-// 	}
-// 	.header__nav-btn__icon {
-// 		display: block;
-// 		height: 2em;
-// 		line-height: 0;
-// 		position: relative;
-// 		width: 2em;
-// 		.header__nav-btn__icon__line {
-// 			@include background-color($primary-btn-bg-rest, 1);
-// 			border-radius: 3.125em;
-// 			display: block;
-// 			height: 0.275em;
-// 			position: absolute;
-// 				top: 0;
-// 				left: 0;
-// 			width: 2em;
-// 		}
-// 	}
-//
-// 	.header__nav-btn__icon--hamburger {
-// 		.header__nav-btn__icon__line:nth-child(1) {
-// 			opacity: 1;
-// 			transform: translate(0%, 0%) rotate(0deg);
-// 		}
-// 		.header__nav-btn__icon__line:nth-child(2) {
-// 			opacity: 1;
-// 			transform: translate(0%, 250%) rotate(0deg);
-// 		}
-// 		.header__nav-btn__icon__line:nth-child(3) {
-// 			opacity: 1;
-// 			transform: translate(0%, 500%) rotate(0deg);
-// 		}
-// 	}
-// 	.header__nav-btn__icon--close {
-// 		// nothing yet.
-// 	}
-// 	.header__nav-btn__label {
-// 		@include color($primary-btn-bg-rest, 1);
-// 		display: block;
-// 		font-size: 0.75em;
-// 		font-weight: 600;
-// 		letter-spacing: .05em;
-// 		line-height: 1;
-// 		margin: 0 auto;
-// 		text-align: center;
-// 		width: 4em;
-// 	}
-// }
+//***********************************************************//
+//**                    MAIN MENU BUTTON                   **//
+//***********************************************************//
+
+
+/// MENU BUTTON
+
+.main-navigation__menu-button {
+	border-radius: 48px;
+	align-items: center;
+	display: none;
+	height: 32px;
+	justify-content: center;
+	opacity: 1;
+	pointer-events: all;
+	position: absolute;
+		top: 2.5em;
+		right: 3em;
+	transition-property: opacity;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+	transition-duration: 1s;
+	width: 92px;
+	z-index: 11;
+}
+
+.main-navigation__menu-button:hover {
+	cursor: pointer;
+}
+
+.main-navigation__menu-button__inner {
+	border: solid 2px $alice-blue;
+	border-radius: 48px;
+	box-shadow: -8px -4px 7px rgba(243, 246, 247, 0.77), 4px 5px 9px rgba(31, 32, 36, 0.49), inset 4px 4px 9px rgba(53, 61, 70, 0.28);
+	@include background-color($alice-blue, 1);
+	display:flex;
+	height: 100%;
+	pointer-events: none;
+	position: relative;
+	transition-property: background-color, box-shadow, border;
+	transition-delay: 0s, 0s, 0s;
+	transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+	transition-duration: 0.15s, 0.09s, 0.15s;
+	width: 100%;
+}
+
+.main-navigation__menu-button__handle {
+	border-radius: 100%;
+	@include background-color($primary-button-bg-rest--light-mode, 1);
+	display: flex;
+	height: 28px;
+	position: absolute;
+		top: 0%;
+		left: 0%;
+	transform: translate(214%, 0%);
+	transition-property: transform;
+	transition-delay: 0s;
+	transition-timing-function: ease-in;
+	transition-duration: 0.2s;
+	width: 28px;
+	z-index: 1;
+}
+
+.main-navigation__menu-button__handle__inner {
+	border-radius: 100%;
+	display: flex;
+	height: 100%;
+	position: relative;
+	width: 100%;
+
+	&:before {
+		border-radius: 100%;
+		border: solid 2px $port-gore;
+		content: '';
+		display: flex;
+		height: calc(100% + 4px);
+		opacity: 0;
+		position: absolute;
+			top: -4px;
+			left: -4px;
+		width: calc(100% + 4px);
+	}
+}
+
+.main-navigation__menu-button__handle__bar {
+	@include background-color($ghost-white, 1);
+	border-radius: 6em;
+	display: flex;
+	height: 1px;
+	position: absolute;
+		top: 46%;
+		left: 50%;
+	transform: translate(-50%, 0%) rotate(0deg);
+	transition-property: background-color, transform, width;
+	transition-delay: 0s, 0s, 0s;
+	transition-timing-function: ease-in, ease-in, ease-in;
+	transition-duration: 0.1s, 0.15s, 0.2s;
+	width: 10px;
+
+	&--top {
+		transform: translate(-50%, -400%) rotate(0deg);
+	}
+
+	&--middle {
+		transform: translate(-50%, 0%) rotate(0deg);
+	}
+
+	&--bottom {
+		transform: translate(-50%, 400%) rotate(0deg);
+	}
+
+}
+
+
+.main-navigation__menu-button__inner:after {
+	align-items: center;
+	content: 'Menu';
+	display: flex;
+	height: 100%;
+	@include color($port-gore, 1);
+	font-size: 0.8em;
+	font-weight: 500;
+	justify-content: center;
+	opacity: 1;
+	pointer-events: none;
+	position: absolute;
+		top: 1px;
+		left: 1px;
+	transform: translate(0px, 0);
+	transition-property: transform, font-weight;
+	transition-delay: 0s, 0s;
+	transition-timing-function: ease-in, ease-in;
+	transition-duration: 0.2s, 0.2s;
+	width: calc(100% - 18px);
+	z-index: 0;
+
+	&::selection {
+		@include background-color($port-gore, 0);
+		@include color($port-gore, 1);
+	}
+}
+
+.main-navigation__toggler:checked + .main-navigation__menu-button {
+
+	.main-navigation__menu-button__inner {
+		border: solid 2px $port-gore;
+		box-shadow: -8px -4px 7px rgba(243, 246, 247, 0.03), 4px 5px 9px rgba(31, 32, 36, 0.59), inset 4px 4px 9px rgba(0, 0, 0, 0.20);
+		@include background-color($port-gore, 1);
+		transition-property: background-color, box-shadow, border;
+		transition-duration: 0.5s, 0.09s, 0.5s;
+
+		&:after {
+			content: 'Close';
+			@include color($ghost-white, 1);
+			font-weight: 700;
+			transform: translate(18px, 0);
+		}
+
+		.main-navigation__menu-button__handle {
+			@include background-color($secondary-button-bg-rest--dark-mode, 1);
+			transform: translate(0%, 0%);
+		}
+		.main-navigation__menu-button__handle__bar {
+			@include background-color($secondary-label-rest--dark-mode, 1);
+			width: 12px;
+
+			&--top {
+				transform: translate(-50%, 0%) rotate(45deg);
+			}
+
+			&--middle {
+				@include background-color($port-gore, 0);
+				transform: translate(-50%, 0%) rotate(0deg) scale(0);
+			}
+
+			&--bottom {
+				transform: translate(-50%, 0%) rotate(-45deg);
+			}
+		}
+	}
+}
+
+// this may be wrong on the following couple of selectors ...
+// ... :hover might need to go on .main-navigation__menu-button instead - check other browsers
+.main-navigation__toggler:hover + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle {
+	@include background-color($primary-button-bg-hover--light-mode, 1);
+}
+.main-navigation__toggler:checked:hover + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle {
+	@include background-color($alice-blue, 1);
+}
+
+.main-navigation__toggler:hover + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before,
+.main-navigation__toggler:focus + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before,
+.main-navigation__toggler:focus-within + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before {
+	border: 2px solid $primary-button-bg-hover--light-mode;
+	opacity: 1;
+}
+
+.main-navigation__toggler:active + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before {
+	border: 2px solid $primary-button-bg-hover--light-mode;
+	opacity: 0;
+}
+
+.main-navigation__toggler:checked:hover + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before,
+.main-navigation__toggler:checked:focus + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before,
+.main-navigation__toggler:checked:focus-within + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before {
+	border: 2px solid $alice-blue;
+	opacity: 1;
+}
+
+.main-navigation__toggler:checked:active + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle .main-navigation__menu-button__handle__inner:before {
+	border: 2px solid $alice-blue;
+	opacity: 0;
+}
 
 
 //***********************************************************//
-//**                     HEADER BLOCKS                     **//
+//**                     HEADER BLOCK                      **//
 //***********************************************************//
 
 
@@ -516,27 +660,29 @@ a::selection {
 	border-radius: 0.25em;
 	display: flex;
 	flex-direction: row;
-	height: 3.55em;
+	height: 2.75em;
 	justify-content: left;
 	margin: 0;
-	overflow: hidden;
 	pointer-events: all;
 	position: absolute;
 		top: 1em;
 		left: 1em;
-	width: 3.55em;
+	width: 2.75em;
 	z-index: 3;
 }
 
 // header logo anchor wrapper
 .header__logo__anchor {
-	@include background-color($primary-btn-bg-hover, 0);
+	@include background-color($port-gore, 0);
+	border-radius: 0.25em;
 	height: 100%;
 	overflow: hidden;
-	padding: 0.55em;
+	padding: 0.5em;
+	pointer-events: none;
 	position: relative;
 	width: 100%;
 }
+
 
 .header__logo__anchor__text {
 	color: rgba(0,0,0,0%);
@@ -549,13 +695,6 @@ a::selection {
 		left: -1px;
 	width: 1px;
 }
-.header__logo__anchor:hover {
-	@include background-color($primary-btn-bg-hover, 1);
-	cursor: pointer;
-}
-.header__logo__anchor:focus {
-	@include background-color($primary-btn-bg-hover, 1);
-}
 
 
 // header logo mark block
@@ -563,39 +702,45 @@ a::selection {
 	align-items: flex-end;
 	display: flex;
 	flex-direction: row;
-	gap: 0.25em;
+	gap: 12%;
 	height: 100%;
 	justify-content: center;
 	pointer-events: none;
+	position: relative;
 	width: 100%;
+	z-index: 2;
 }
+
 
 // header logo mark block lines
 .header__logo__line {
+	box-shadow: 0 0 0px rgba($port-gore ,0.25), 0 0 0px rgba($port-gore ,0.25);
 	@include background-color($upper-half-background, 1);
 	border-radius: 3em;
 	display: block;
 	height: 100%;
-	width: 18%;
+	pointer-events: none;
+	width: 16%;
+	z-index: 2;
 }
+
+
 .header__logo__line:nth-child(1) {
 	height: 45%;
 }
 
 
+.header__logo:hover,
+.header__logo:focus {
+	outline: none;
+}
+.header__logo:hover {
+	cursor: pointer;
+}
+
 //***********************************************************//
 //**                 TOP-LEVEL MAIN MENU                   **//
 //***********************************************************//
-
-// EXPERIMENTAL LAYOUT
-.jan-michael-wrapper {
-	display: block;
-	height: 100%;
-	position: relative;
-	max-width: 65em;
-	min-height: 100vh;
-	width: 100%;
-}
 
 /// MENU CONTROLS AND LAYOUT SETUP
 .hidden-control {
@@ -637,7 +782,7 @@ a::selection {
 
 .main-navigation__menu {
 	align-items: center;
-	@include background-color($dark-charchoal, 1);
+	@include background-color($port-gore, 1);
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -659,7 +804,7 @@ a::selection {
 	transition-duration: 0.15s, 0.15s;
 	visibility: hidden;
 	width: 100vw;
-	z-index: 2;
+	z-index: 10;
 }
 
 .main-navigation__menu__section {
@@ -671,137 +816,6 @@ a::selection {
 	position: relative;
 	width: 100%;
 }
-
-/// MENU BUTTON
-
-.main-navigation__menu-btn {
-	border-radius: 48px;
-	align-items: center;
-	display: none;
-	height: 40px;
-	justify-content: center;
-	pointer-events: all;
-	position: absolute;
-		top: 2.5em;
-		right: 3em;
-	width: 117px;
-	z-index: 3;
-}
-
-.main-navigation__menu-btn:hover {
-	cursor: pointer;
-}
-
-.main-navigation__menu-btn__inner {
-	border: solid 2px $cultured;
-	border-radius: 48px;
-	box-shadow: -8px -4px 7px rgba(243, 246, 247, 0.77), 4px 5px 9px rgba(31, 32, 36, 0.49), inset 4px 4px 9px rgba(53, 61, 70, 0.28);
-	@include background-color(#F0F2F2, 1);
-	display:flex;
-	height: 100%;
-	pointer-events: none;
-	position: relative;
-	width: 100%;
-}
-
-.main-navigation__menu-btn__handle {
-	border-radius: 100%;
-	@include background-color($primary-btn-bg-rest, 1);
-	display: flex;
-	height: 36px;
-	position: absolute;
-		top: 0%;
-		left: 0%;
-	transform: translate(214%, 0%);
-	transition-property: transform;
-	transition-delay: 0s;
-	transition-timing-function: ease-out;
-	transition-duration: 0.05s;
-	width: 36px;
-	z-index: 1;
-}
-
-.main-navigation__menu-btn__handle__inner {
-	border-radius: 100%;
-	display: flex;
-	height: 100%;
-	position: relative;
-	width: 100%;
-
-	&:before {
-		border-radius: 100%;
-		border: solid 2px purple;
-		content: '';
-		display: flex;
-		height: calc(100% + 4px);
-		opacity: 0;
-		position: absolute;
-			top: -4px;
-			left: -4px;
-		width: calc(100% + 4px);
-	}
-}
-
-.main-navigation__menu-btn__handle__bar {
-	@include background-color($ghost-white, 1);
-	border-radius: 6em;
-	display: flex;
-	height: 2px;
-	position: absolute;
-		top: 46%;
-		left: 50%;
-	transform: translate(-50%, 0%) rotate(0deg);
-	transition-property: background-color, transform, width;
-	transition-delay: 0s, 0s, 0s;
-	transition-timing-function: ease-in-out, ease-in, ease-in;
-	transition-duration: 0.05s, 0.1s, 0.15s;
-	width: 1em;
-
-	&--top {
-		transform: translate(-50%, -300%) rotate(0deg);
-	}
-
-	&--middle {
-		transform: translate(-50%, 0%) rotate(0deg);
-	}
-
-	&--bottom {
-		transform: translate(-50%, 300%) rotate(0deg);
-	}
-
-}
-
-
-.main-navigation__menu-btn__inner:after {
-	align-items: center;
-	content: 'Menu';
-	display: flex;
-	height: 100%;
-	@include color($dark-charchoal, 1);
-	font-size: 1em;
-	font-weight: 600;
-	justify-content: center;
-	opacity: 1;
-	pointer-events: none;
-	position: absolute;
-		top: 0;
-		left: 0;
-	transform: translate(0px, 0);
-	transition-property: transform;
-	transition-delay: 0s;
-	transition-timing-function: ease-in;
-	transition-duration: 0.1s;
-	width: calc(100% - 18px);
-	z-index: 0;
-
-	&::selection {
-		@include background-color($dark-charchoal, 0);
-		@include color($dark-charchoal, 1);
-	}
-}
-
-
-/// MENU CONTENT AND MENU ITEMS
 
 .main-navigation__menu__title {
 	align-items: center;
@@ -829,6 +843,7 @@ a::selection {
 	color: $ghost-white;
 	display: inline-flex;
 	font-size: 3em;
+	font-weight: 700;
 	text-decoration: none;
 }
 
@@ -836,57 +851,19 @@ a::selection {
 	text-decoration: underline;
 }
 
-.main-navigation__toggler:checked + .main-navigation__menu-btn {
-
-	.main-navigation__menu-btn__inner {
-		border: solid 2px $dark-charchoal;
-		box-shadow: -8px -4px 7px rgba(243, 246, 247, 0.03), 4px 5px 9px rgba(31, 32, 36, 0.59), inset 4px 4px 9px rgba(0, 0, 0, 0.20);
-		@include background-color($dark-charchoal, 1);
-
-		&:after {
-			content: 'Close';
-			@include color($ghost-white, 1);
-			font-weight: 700;
-			transform: translate(18px, 0);
-		}
-
-		.main-navigation__menu-btn__handle {
-			@include background-color($ghost-white, 1);
-			transform: translate(0%, 0%);
-		}
-		.main-navigation__menu-btn__handle__bar {
-			@include background-color($dark-charchoal, 1);
-			width: 1.25em;
-
-			&--top {
-				transform: translate(-50%, 0%) rotate(45deg);
-			}
-
-			&--middle {
-				@include background-color($dark-charchoal, 0);
-				transform: translate(-50%, 0%) rotate(0deg) scale(0);
-			}
-
-			&--bottom {
-				transform: translate(-50%, 0%) rotate(-45deg);
-			}
-		}
-	}
-}
-
-.main-navigation__toggler:checked + .main-navigation__menu-btn .expanded-text {
+.main-navigation__toggler:checked + .main-navigation__menu-button .expanded-text {
 	display: inline;
 }
 
-.main-navigation__toggler:checked + .main-navigation__menu-btn .collapsed-text {
+.main-navigation__toggler:checked + .main-navigation__menu-button .collapsed-text {
 	display: none;
 }
 
-.main-navigation__toggler:not(:checked) + .main-navigation__menu-btn .expanded-text {
+.main-navigation__toggler:not(:checked) + .main-navigation__menu-button .expanded-text {
 	display: none;
 }
 
-.main-navigation__toggler:not(:checked) + .main-navigation__menu-btn .collapsed-text {
+.main-navigation__toggler:not(:checked) + .main-navigation__menu-button .collapsed-text {
 	display: inline;
 }
 
@@ -894,6 +871,7 @@ a::selection {
 	opacity: 1;
 	pointer-events: all;
 	visibility: visible;
+	transition-duration: 0.5s, 0.5s;
 }
 
 .main-navigation__toggler:checked ~ .landing,
@@ -903,82 +881,9 @@ a::selection {
 	display: none;
 }
 
-// this may be wrong on the following couple of selectors ...
-// ... :hover might need to go on .main-navigation__menu-btn instead - check other browsers
-.main-navigation__toggler:hover + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle {
-	@include background-color($primary-btn-bg-hover, 1);
-}
-.main-navigation__toggler:checked:hover + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle {
-	@include background-color($cultured, 1);
-}
-
-.main-navigation__toggler:hover + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
-.main-navigation__toggler:focus + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
-.main-navigation__toggler:focus-within + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before {
-	border: 2px solid $primary-btn-bg-hover;
-	opacity: 1;
-}
-
-.main-navigation__toggler:active + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before {
-	border: 2px solid $primary-btn-bg-hover;
-	opacity: 0;
-}
-
-.main-navigation__toggler:checked:hover + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
-.main-navigation__toggler:checked:focus + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before,
-.main-navigation__toggler:checked:focus-within + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before {
-	border: 2px solid $cultured;
-	opacity: 1;
-}
-
-.main-navigation__toggler:checked:active + .main-navigation__menu-btn .main-navigation__menu-btn__inner .main-navigation__menu-btn__handle .main-navigation__menu-btn__handle__inner:before {
-	border: 2px solid $cultured;
-	opacity: 0;
-}
-
-
 [data-menu-origin="right"] {
 	left: auto;
 	right: 0;
-}
-
-
-
-
-
-
-
-
-
-
-// header nav
-.header__nav {
-	@include background-color($dark-charchoal, 1);
-	display: none;
-	height: 3.75em;
-	position: relative;
-}
-
-
-// header nav inner block
-.header__nav__inner {
-	align-items: center;
-	height: 100%;
-	display: flex;
-	position: relative;
-	width: 100%;
-}
-
-
-// TEMPORARY UNTIL READY TO DISPLAY
-.header__nav__menu,
-.header__nav__menu__item {
-	display: none;
-	height: 0em;
-	margin: 0em;
-	overflow: hidden;
-	padding: 0em;
-	width: 0em;
 }
 
 
@@ -993,15 +898,20 @@ nav {
 }
 .nav__mobile {
 	display: none;
-	@include background-color($dark-charchoal, 1);
+	@include background-color($port-gore, 1);
 	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
 	flex-direction: column;
 	height: 5em;
+	opacity: 1;
 	padding: 0.5em 1em;
 	position: fixed;
 		bottom: 0;
 		left: 0;
 		right: 0;
+	transition-property: opacity;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+	transition-duration: 1s;
 	width: 100%;
 	z-index: 3;
 }
@@ -1028,11 +938,11 @@ nav {
 	justify-content: center;
 	width: 4em;
 }
-.nav__mobile__menu__item__btn {
+.nav__mobile__menu__item__button {
 	align-items: center;
 	appearance: none;
 	border: 0em;
-	@include background-color($dark-charchoal, 0);
+	@include background-color($port-gore, 0);
 	display: flex;
 	flex-direction: column;
 	height: 3.5em;
@@ -1040,16 +950,16 @@ nav {
 	justify-content: center;
 	width: 4em;
 }
-.nav__mobile__menu__item__btn__image {
+.nav__mobile__menu__item__button__image {
 	height: 2em;
 	width: 2em;
 }
-.nav__mobile__menu__item__btn__label {
+.nav__mobile__menu__item__button__label {
 	display: flex;
 	font-size: 0.75em;
 	@include color($ghost-white, 1);
 }
-.nav__mobile__menu__item__btn__focus-border {
+.nav__mobile__menu__item__button__focus-border {
 	display: none; // temp
 }
 
@@ -1064,8 +974,14 @@ nav {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	opacity: 1;
 	position: relative;
+	transition-property: opacity;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+	transition-duration: 1s;
 	width: 100%;
+	z-index: 2;
 }
 // landing block inner
 .landing__inner {
@@ -1115,34 +1031,35 @@ nav {
 	@include background-color($ghost-white, 1);
 }
 .landing-section--cultured {
-	@include background-color($cultured, 1);
+	@include background-color($alice-blue, 1);
 }
 
 
 // landing-section block mods -- slant decorations
 .landing-section--slant {
 
-	&:before {
-		@include background-color($ghost-white, 1);
+	&:before,
+	&:after {
 		content: '';
-		height: 2em;
+		display: block;
+		height: 0em;
 		pointer-events: none;
 		position: absolute;
 			top: 0;
 			right: 0;
-		width: 100%;
+	}
+
+	&:before {
+		@include background-color($alice-blue, 1);
 		z-index: 1;
+		width: 100%;
 	}
 	&:after {
-		@include triangle(right, top, $cultured);
-		content: '';
-		height: 2em;
-		pointer-events: none;
-		position: absolute;
+		border-top: 1.95em solid $port-gore;
+		border-left: 520px solid transparent;
 			top: 0;
-			right: 0;
-		width: 100%;
 		z-index: 2;
+		width: 0%;
 	}
 }
 
@@ -1176,6 +1093,16 @@ nav {
 	width: 100%;
 }
 
+.landing-section-content__title {
+
+	&--light {
+		@include color($port-gore, 1);
+	}
+	&--light {
+		@include color($alice-blue, 1);
+	}
+}
+
 
 // landing section image container block
 .landing-section-image-container {
@@ -1205,6 +1132,7 @@ nav {
 		border-left: 520px solid transparent;
 			top: 0;
 	}
+
 	&--bottom:after {
 		border-bottom: 1.95em solid red;
 		border-right: 520px solid transparent;
@@ -1214,17 +1142,17 @@ nav {
 
 .landing-section:first-child .landing-section-image-container-triangle {
 	&--bottom:after {
-		border-bottom: 1.95em solid $ghost-white;
+		border-bottom: 1.95em solid $port-gore;
 	}
 }
 .landing-section:nth-child(2) .landing-section-image-container-triangle {
 	&--top:after {
-		border-top: 1.95em solid $cultured;
+		border-top: 1.95em solid $alice-blue;
 	}
 }
 .landing-section:nth-child(3) .landing-section-image-container-triangle {
 	&--bottom:after {
-		border-bottom: 1.95em solid $cultured;
+		border-bottom: 1.95em solid $alice-blue;
 	}
 }
 
@@ -1247,7 +1175,7 @@ nav {
 
 
 // landing section button group
-.landing-section-content__btn-grp {
+.landing-section-content__button-grp {
 	flex-direction: column;
 	display: flex;
 	gap: 1.25em;
@@ -1268,7 +1196,12 @@ nav {
 	flex-direction: column;
 	height: 32.75em;
 	justify-content: center;
+	opacity: 1;
 	position: relative;
+	transition-property: opacity;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+	transition-duration: 1s;
 	width: 100%;
 	z-index: 1;
 }
@@ -1395,10 +1328,10 @@ nav {
 // footer menu item
 .footer__menu__item {
 	display: flex;
-	height: 4em;
+	height: 3em;
 	margin: 0;
 	padding: 0;
-	width: 4em;
+	width: 3em;
 }
 
 
@@ -1407,45 +1340,45 @@ nav {
 	align-items: center;
 	border-radius: 9em;
 	display: flex;
-	height: 4em;
+	height: 100%;
 	justify-content: center;
 	position: relative;
 	text-decoration: none;
-	width: 4em;
+	width: 100%;
 
 	.footer__menu__item__link__focus-border {
 		@include border-color($ghost-white, 0);
-		border-radius: 9em;
+		border-radius: 100%;
 		border-style: solid;
-		border-width: 0.25em;
+		border-width: 0.125em;
 		display: block;
-		height: calc(100% + 1.25em);
+		height: calc(100% + 0.8em);
 		pointer-events: none;
 		position: absolute;
-			top: -0.625em;
-			left: -0.625em;
-		width: calc(100% + 1.25em);
+			top: -0.4em;
+			left: -0.4em;
+		width: calc(100% + 0.8em);
 	}
 	&:focus {
 		outline: none;
 	}
 	&,
 	&:visited {
-		@include background-color($secondary-btn-bg-hover, 0);
+		@include background-color($secondary-button-bg-hover--light-mode, 0);
 	}
 	&:visited .footer__menu__item__link__focus-border {
 		@include border-color($ghost-white, 0);
 	}
 	&:hover,
 	&:focus {
-		@include background-color($secondary-btn-bg-hover, 0.25);
+		@include background-color($secondary-button-bg-hover--light-mode, 0.25);
 	}
 	&:hover .footer__menu__item__link__focus-border,
 	&:focus .footer__menu__item__link__focus-border {
 		@include border-color($ghost-white, 0.75);
 	}
 	&:active {
-		@include background-color($secondary-btn-bg-hover, 0.25);
+		@include background-color($secondary-button-bg-hover--light-mode, 0.25);
 	}
 	&:active .footer__menu__item__link__focus-border {
 		@include border-color($ghost-white, 0);
@@ -1456,8 +1389,8 @@ nav {
 // footer menu item link image/icon (social icons)
 .footer__menu__item__link__image {
 	display: flex;
-	height: 4em;
-	width: 4em;
+	height: 100%;
+	width: 100%;
 }
 
 
@@ -1527,7 +1460,7 @@ nav {
 	// place holder for where button should appear in mobile
 	//landscape and desktop
 	.main-navigation__toggler,
-	.main-navigation__menu-btn {
+	.main-navigation__menu-button {
 		display: flex;
 	}
 
@@ -1563,7 +1496,7 @@ nav {
 	.p--large-text {
 		font-size: 1.5em;
 	}
-	.btn {
+	.button {
 		font-size: 1em;
 	}
 }
@@ -1674,7 +1607,7 @@ nav {
 	.p--large-text {
 		font-size: 1.3em;
 	}
-	.btn {
+	.button {
 		font-size: 1em;
 	}
 }
@@ -1734,7 +1667,7 @@ nav {
 		width: 50%;
 	}
 	.landing-section:nth-child(3) .landing-section-image-container-triangle:after {
-		@include triangle(right, top, $cultured);
+		@include triangle(right, top, $alice-blue);
 	}
 	.landing-section-image-container {
 		min-height: 100%;
@@ -1749,7 +1682,7 @@ nav {
 		width: 50%;
 	}
 	.landing-section--slant:after {
-		width: 50%;
+		width: 0%;
 	}
 
 
@@ -1772,7 +1705,7 @@ nav {
 	.p--large-text {
 		font-size: 1.2em;
 	}
-	.btn {
+	.button {
 		font-size: 0.9em;
 	}
 }
@@ -1867,7 +1800,7 @@ nav {
 	// place holder for where button should appear in desktop after mobile
 	//landscape and desktop
 	.main-navigation__toggler,
-	.main-navigation__menu-btn {
+	.main-navigation__menu-button {
 		display: flex;
 	}
 	nav,
@@ -1963,7 +1896,7 @@ nav {
 		}
 	}
 
-	.landing-section-content__btn-grp {
+	.landing-section-content__button-grp {
 		flex-direction: row;
 		width: auto;
 	}
@@ -1980,10 +1913,10 @@ nav {
 
 	//**  LAYOUT ADJUSTMENTS **//
 	.header__logo {
-		top: 0.25em;
+		top: 0.5em;
 		left: 1em;
 	}
-	// .header__nav-btn {
+	// .header__nav-button {
 	// 	top: 1.75em;
 	// 	right: 1.5em;
 	// }
@@ -2009,8 +1942,8 @@ nav {
 	.h2 {
 		font-size: 4.45em;
 		font-weight: 600;
-		letter-spacing: -0.06em;
-		line-height: 0.9em;
+		letter-spacing: -0.03em;
+		line-height: 1em;
 		margin: 0.4em 0em;
 	}
 	.h2--large {
@@ -2025,7 +1958,7 @@ nav {
 	.p--large-text {
 		font-size: 1.4em;
 	}
-	.btn {
+	.button {
 		font-size: 1.05em;
 	}
 }
@@ -2046,51 +1979,51 @@ nav {
 	.link--dark-mode {
 		&,
 		&:visited {
-			@include color($light-interactive-rest, 1);
+			@include color($interactive-rest--dark-mode, 1);
 		}
 		& .link__focus-border,
 		&:visited .link__focus-border {
-			@include border-color($light-interactive-rest, 0);
+			@include border-color($interactive-rest--dark-mode, 0);
 		}
 		&:hover,
 		&:focus {
-			@include color($light-interactive-hover, 1);
+			@include color($interactive-hover--dark-mode, 1);
 			text-decoration: none;
 		}
 		&:hover .link__focus-border,
 		&:focus .link__focus-border {
-			@include border-color($light-interactive-hover, 0.75);
+			@include border-color($interactive-hover--dark-mode, 0.75);
 		}
 		&:active {
-			@include color($light-interactive-press, 1);
+			@include color($interactive-press--dark-mode, 1);
 		}
 		&:active .link__focus-border {
-			@include border-color($light-interactive-press, 0);
+			@include border-color($interactive-press--dark-mode, 0);
 		}
 	}
 	.link--light-mode {
 		&,
 		&:visited {
-			@include color($medium-interactive-rest, 1);
+			@include color($interactive-rest--light-mode, 1);
 		}
 		& .link__focus-border,
 		&:visited .focus-border {
-			@include border-color($medium-interactive-rest, 0);
+			@include border-color($interactive-rest--light-mode, 0);
 		}
 		&:hover,
 		&:focus {
-			@include color($medium-interactive-hover, 1);
+			@include color($interactive-hover--light-mode, 1);
 			text-decoration: none;
 		}
 		&:hover .link__focus-border,
 		&:focus .link__focus-border {
-			@include border-color($medium-interactive-hover, 0.75);
+			@include border-color($interactive-hover--light-mode, 0.75);
 		}
 		&:active {
-			@include color($medium-interactive-press, 1);
+			@include color($interactive-press--light-mode, 1);
 		}
 		&:active .link__focus-border {
-			@include border-color($medium-interactive-press, 0);
+			@include border-color($interactive-press--light-mode, 0);
 		}
 	}
 }

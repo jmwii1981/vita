@@ -22,15 +22,24 @@
 //////** BASE COLORS (value layer; hue HEX values)
 		 // $white
 		 $white: #FFFFFF;
-		 $ghost-white: #F9FAFA;
-		 $cultured: #F3F6F7;
+		 $ghost-white: #F9FAFE;
+		 $alice-blue: #F3F4FB;
 		 $anti-flash-white: #F0F2F2;
 		 $platinum: #E8E8E8;
 		 $dim-gray: #666773;
 		 $davys-gray: #4F505E;
-		 $dark-charchoal: #303135;
+		 $port-gore: #1A183F;
 		 $dark-jungle-green: #1A1F1F;
 		 $arsenic: #393B4F;
+
+		 $alice-blue: #F3F4FB; // lightened text
+		 $port-gore: #222146; // body background; some triangles
+		 $purple-heart: #4731C5; // primary buttons links rest
+		 $indigo: #4B4ED2; // primary buttons links hover
+		 $selago: #E6E2FC;
+		 $perfume: #DDCFFC;
+		 $blue-chalk: #E7DDFE;
+
 		 $gunmetal: #2C2E44;
 		 $desire: #E13B53;
 		 $vivid-tangelo: #E77B17;
@@ -85,46 +94,62 @@
 	// nothing added ...
 
 	// backgrounds
-		$elipses-background: $cultured;
-		$footer-background: $dark-charchoal;
-		$logo-background: $dark-charchoal;
+		$body-background: $port-gore;
+		$elipses-background: $alice-blue;
+		$footer-background: $port-gore;
+		$logo-background: $port-gore;
 		$upper-half-background: $ghost-white;
-		$lower-half-background: $cultured;
+		$lower-half-background: $alice-blue;
 
 	// text
-		$dark-copy-text: $dark-charchoal;
-		$light-copy-text: $platinum;
+		$dark-copy-text: $port-gore;
+		$light-copy-text: $alice-blue;
 
 	//links
 	// -- link rest
-		$dark-interactive-rest: $gunmetal;
-		$medium-interactive-rest: $davys-gray;
-		$light-interactive-rest: $cultured;
+		$interactive-rest--light-mode: $purple-heart;
+		$interactive-rest--dark-mode: $alice-blue;
 	// -- link hover
-		$dark-interactive-hover: $arsenic;
-		$medium-interactive-hover: $dim-gray;
-		$light-interactive-hover: $white;
+		$interactive-hover--light-mode: $indigo;
+		$interactive-hover--dark-mode: $alice-blue;
 	// -- link press
-		$dark-interactive-press: $dark-jungle-green;
-		$medium-interactive-press: $dark-jungle-green;
-		$light-interactive-press: $platinum;
+		$interactive-press--light-mode: $port-gore;
+		$interactive-press--dark-mode: $white;
 	// --link visited
 
-	// buttons
+	// buttons --light-mode   --dark-mode
 	// -- label rest
-		$label-rest: $anti-flash-white;
+		$primary-label-rest--light-mode: $alice-blue;
+		$secondary-label-rest--light-mode: $purple-heart;
+		// $primary-label-rest--dark-mode: ???;
+		$secondary-label-rest--dark-mode: $purple-heart;
 	// -- label hover/press
-		$label-interaction: $white;
-	// -- bg disabled
-		$btn-bg-disabled: $platinum;
-	// -- bg rest
-		$primary-btn-bg-rest: $gunmetal;
-		$secondary-btn-bg-rest: $davys-gray;
-	// -- bg hover
-		$primary-btn-bg-hover: $arsenic;
-		$secondary-btn-bg-hover: $dim-gray;
-	// -- bg press
-		$button-press: $dark-jungle-green;
+		$primary-label-hover--light-mode: $white;
+		$secondary-label-hover--light-mode: $indigo;
+		// $primary-label-hover--dark-mode: ???;
+		$secondary-label-hover--dark-mode: $indigo;
+
+	// -- background rest
+		$disabled-button-bg-rest--light-mode: $platinum;
+		// $disabled-button-bg-rest--dark-mode: ???;
+		$primary-button-bg-rest--light-mode: $purple-heart;
+		// $primary-button-bg-rest--dark-mode: ???;
+		$secondary-button-bg-rest--light-mode: $perfume;
+		$secondary-button-bg-rest--dark-mode: $alice-blue;
+	// -- background hover
+		// $disabled-button-hover-rest--light-mode: ???;
+		// $disabled-button-hover-rest--dark-mode: ???;
+		$primary-button-bg-hover--light-mode: $indigo;
+		// $primary-button-bg-hover--dark-mode: ???;
+		$secondary-button-bg-hover--light-mode: $blue-chalk;
+		$secondary-button-bg-hover--dark-mode: $selago;
+	// -- background press
+		// $disabled-button-bg-rest--light-mode: ???;
+		// $disabled-button-bg-rest--dark-mode: ???;
+		$primary-button-press--light-mode: $port-gore;
+		// $primary-button-press--dark-mode: ???;
+		$secondary-button-press--light-mode: $port-gore;
+		// $secondary-button-press--dark-mode: ???;
 
 	// rainbow dots
 	$red: $desire;
