@@ -37,8 +37,8 @@
 		 $purple-heart: #4731C5; // primary buttons links rest
 		 $indigo: #4B4ED2; // primary buttons links hover
 		 $selago: #E6E2FC;
-		 $perfume: #DDCFFC;
-		 $blue-chalk: #E7DDFE;
+		 $periwinkle-gray: #CDD1EE;
+		 $spindle: #B6BCE7;
 
 		 $gunmetal: #2C2E44;
 		 $desire: #E13B53;
@@ -123,25 +123,31 @@
 		$secondary-label-rest--light-mode: $purple-heart;
 		// $primary-label-rest--dark-mode: ???;
 		$secondary-label-rest--dark-mode: $purple-heart;
-	// -- label hover/press
+	// -- label hover
 		$primary-label-hover--light-mode: $white;
-		$secondary-label-hover--light-mode: $indigo;
+		$secondary-label-hover--light-mode: $purple-heart;
 		// $primary-label-hover--dark-mode: ???;
 		$secondary-label-hover--dark-mode: $indigo;
+	// -- label press
+		$primary-label-press--light-mode: $selago;
+		// $primary-label-press--dark-mode: ???;
+		$secondary-label-press--light-mode: $selago;
+		// $secondary-label-press--dark-mode: ???;
+
 
 	// -- background rest
 		$disabled-button-bg-rest--light-mode: $platinum;
 		// $disabled-button-bg-rest--dark-mode: ???;
 		$primary-button-bg-rest--light-mode: $purple-heart;
 		// $primary-button-bg-rest--dark-mode: ???;
-		$secondary-button-bg-rest--light-mode: $perfume;
+		$secondary-button-bg-rest--light-mode: $spindle;
 		$secondary-button-bg-rest--dark-mode: $alice-blue;
 	// -- background hover
 		// $disabled-button-hover-rest--light-mode: ???;
 		// $disabled-button-hover-rest--dark-mode: ???;
 		$primary-button-bg-hover--light-mode: $indigo;
 		// $primary-button-bg-hover--dark-mode: ???;
-		$secondary-button-bg-hover--light-mode: $blue-chalk;
+		$secondary-button-bg-hover--light-mode: $periwinkle-gray;
 		$secondary-button-bg-hover--dark-mode: $selago;
 	// -- background press
 		// $disabled-button-bg-rest--light-mode: ???;

@@ -583,9 +583,9 @@ a::selection {
   border-color: #4b4ed2;
 }
 .button--primary:active, .button--primary:active:focus {
-  color: #FFFFFF;
+  color: #E6E2FC;
   /* The Fallback */
-  color: white;
+  color: #e6e2fc;
   background-color: #222146;
   /* The Fallback */
   background-color: #222146;
@@ -600,29 +600,29 @@ a::selection {
   color: #4731C5;
   /* The Fallback */
   color: #4731c5;
-  background-color: #DDCFFC;
+  background-color: #B6BCE7;
   /* The Fallback */
-  background-color: #ddcffc;
+  background-color: #b6bce7;
 }
 .button--secondary .button__focus-border, .button--secondary:visited .button__focus-border {
-  border-color: #DDCFFC;
+  border-color: #B6BCE7;
   /* The Fallback */
-  border-color: rgba(221, 207, 252, 0);
+  border-color: rgba(182, 188, 231, 0);
 }
 .button--secondary:hover, .button--secondary:focus {
-  background-color: #E7DDFE;
+  background-color: #CDD1EE;
   /* The Fallback */
-  background-color: #e7ddfe;
+  background-color: #cdd1ee;
 }
 .button--secondary:hover .button__focus-border, .button--secondary:focus .button__focus-border {
-  border-color: #E7DDFE;
+  border-color: #CDD1EE;
   /* The Fallback */
-  border-color: #e7ddfe;
+  border-color: #cdd1ee;
 }
 .button--secondary:active, .button--secondary:active:focus {
-  color: #4B4ED2;
+  color: #E6E2FC;
   /* The Fallback */
-  color: #4b4ed2;
+  color: #e6e2fc;
   background-color: #222146;
   /* The Fallback */
   background-color: #222146;
@@ -1540,9 +1540,9 @@ nav {
   outline: none;
 }
 .footer__menu__item__link, .footer__menu__item__link:visited {
-  background-color: #E7DDFE;
+  background-color: #CDD1EE;
   /* The Fallback */
-  background-color: rgba(231, 221, 254, 0);
+  background-color: rgba(205, 209, 238, 0);
 }
 .footer__menu__item__link:visited .footer__menu__item__link__focus-border {
   border-color: #F9FAFE;
@@ -1550,9 +1550,9 @@ nav {
   border-color: rgba(249, 250, 254, 0);
 }
 .footer__menu__item__link:hover, .footer__menu__item__link:focus {
-  background-color: #E7DDFE;
+  background-color: #CDD1EE;
   /* The Fallback */
-  background-color: rgba(231, 221, 254, 0.25);
+  background-color: rgba(205, 209, 238, 0.25);
 }
 .footer__menu__item__link:hover .footer__menu__item__link__focus-border, .footer__menu__item__link:focus .footer__menu__item__link__focus-border {
   border-color: #F9FAFE;
@@ -1560,9 +1560,9 @@ nav {
   border-color: rgba(249, 250, 254, 0.75);
 }
 .footer__menu__item__link:active {
-  background-color: #E7DDFE;
+  background-color: #CDD1EE;
   /* The Fallback */
-  background-color: rgba(231, 221, 254, 0.25);
+  background-color: rgba(205, 209, 238, 0.25);
 }
 .footer__menu__item__link:active .footer__menu__item__link__focus-border {
   border-color: #F9FAFE;

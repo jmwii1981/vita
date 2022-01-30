@@ -46,7 +46,6 @@
 	display: flex;
 	@include background-color($body-background, 1);
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
@@ -61,7 +60,7 @@
 	align-items: center;
 	appearance: none;
 	-webkit-appearance: none;
-	@include background-color($port-gore, 1);
+	@include background-color($body-background, 1);
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
@@ -375,7 +374,7 @@ a::selection {
 	}
 	&:active,
 	&:active:focus {
-		@include color($primary-label-hover--light-mode, 1);
+		@include color($primary-label-press--light-mode, 1);
 		@include background-color($primary-button-press--light-mode, 1);
 	}
 	&:active .button__focus-border,
@@ -403,7 +402,7 @@ a::selection {
 	}
 	&:active,
 	&:active:focus {
-		@include color($secondary-label-hover--light-mode, 1);
+		@include color($secondary-label-press--light-mode, 1);
 		@include background-color($secondary-button-press--light-mode, 1);
 	}
 	&:active .button__focus-border,
