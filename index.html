@@ -4,7 +4,7 @@
 		<title>About – Jan Michael Wallace II</title>
 		<meta name="description" content="Jan Michael Wallace II has been working in product design for over a decade. Learn more about who he is, how he creates, and how he leads.">
 		<link rel="stylesheet" href="styles/pages/landing.css">
-		<meta name="theme-color" content="#303135" media="(prefers-color-scheme: light)">
+		<meta name="theme-color" content="#222146" media="(prefers-color-scheme: light)">
 		<meta name="theme-color" content="#ff0000" media="(prefers-color-scheme: dark)">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimum-scale=0.25, maximum-scale=2.0, user-scalable=yes">
 		<script>
@@ -24,7 +24,7 @@
 
 		<div class="jan-michael-wrapper">
 
-			<!-- the 'go home' link -->
+			<!-- BRANDED 'HOME' LINK -->
 			<h1 class="header__logo">
 				<a class="header__logo__anchor" href="https://janmichael.io/">
 					<span class="header__logo__anchor__text">
@@ -38,9 +38,8 @@
 					</i>
 				</a>
 			</h1>
-			<!-- / the 'go home' link -->
 
-			<!-- controls all following siblings upon click -->
+			<!-- DESKTOP NAV MENU -->
 			<input tab-index="1" class="hidden-control main-navigation__toggler" type="checkbox" role="button" aria-haspopup="true" id="toggler">
 			<label tab-index="-1" class="main-navigation__menu-button" for="toggler" data-opens-menu data-closes-menu>
 				<span class="hidden-control expanded-text" aria-labelledby="toggle">
@@ -59,9 +58,6 @@
 					</span>
 				</span>
 			</label>
-			<!-- / controls all following siblings upon click -->
-
-			<!-- make this full-screen -->
 			<nav class="main-navigation__menu">
 				<ul class="main-navigation__menu__section" data-menu-origin="left">
 					<li class="main-navigation__menu-item">
@@ -72,9 +68,37 @@
 					</li>
 				</ul>
 			</nav>
-			<!-- / make this full-screen -->
 
+			<!-- MOBILE NAV MENU -->
+			<nav class="nav__mobile">
+				<div class="nav__mobile__inner">
+					<ul class="nav__mobile__menu">
+						<li class="nav__mobile__menu__item">
+							<button class="nav__mobile__menu__item__button">
+								<img class="nav__mobile__menu__item__button__image" src="icons/svg/cog.svg" aria-hidden="true" draggable="false"/>
+								<span class="nav__mobile__menu__item__button__label">Options</span>
+								<span class="nav__mobile__menu__item__button__focus-border"></span>
+							</button>
+						</li>
+						<li class="nav__mobile__menu__item">
+							<button class="nav__mobile__menu__item__button">
+								<img class="nav__mobile__menu__item__button__image" src="icons/svg/speech-bubble.svg" aria-hidden="true" draggable="false"/>
+								<span class="nav__mobile__menu__item__button__label">Contact</span>
+								<span class="nav__mobile__menu__item__button__focus-border"></span>
+							</button>
+						</li>
+						<li class="nav__mobile__menu__item">
+							<button class="nav__mobile__menu__item__button">
+								<img class="nav__mobile__menu__item__button__image" src="icons/svg/hamburger.svg" aria-hidden="true" draggable="false"/>
+								<span class="nav__mobile__menu__item__button__label">Menu</span>
+								<span class="nav__mobile__menu__item__button__focus-border"></span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</nav>
 
+			<!-- CONTENT -->
 			<main class="landing">
 				<article class="landing__inner">
 					<!-- landing-section--cultured -->
@@ -199,6 +223,7 @@
 				</article>
 			</main>
 
+			<!-- FOOTER -->
 			<footer class="footer footer-background--light-mode">
 				<div class="footer__inner">
 					<span class="footer__elipses footer__elipses-background--light-mode" aria-hidden="true"></span>
@@ -298,33 +323,7 @@
 				</div>
 			</footer>
 
-			<nav class="nav__mobile">
-				<div class="nav__mobile__inner">
-					<ul class="nav__mobile__menu">
-						<li class="nav__mobile__menu__item">
-							<button class="nav__mobile__menu__item__button">
-								<img class="nav__mobile__menu__item__button__image" src="icons/svg/cog.svg" aria-hidden="true" draggable="false"/>
-								<span class="nav__mobile__menu__item__button__label">Options</span>
-								<span class="nav__mobile__menu__item__button__focus-border"></span>
-							</button>
-						</li>
-						<li class="nav__mobile__menu__item">
-							<button class="nav__mobile__menu__item__button">
-								<img class="nav__mobile__menu__item__button__image" src="icons/svg/speech-bubble.svg" aria-hidden="true" draggable="false"/>
-								<span class="nav__mobile__menu__item__button__label">Contact</span>
-								<span class="nav__mobile__menu__item__button__focus-border"></span>
-							</button>
-						</li>
-						<li class="nav__mobile__menu__item">
-							<button class="nav__mobile__menu__item__button">
-								<img class="nav__mobile__menu__item__button__image" src="icons/svg/hamburger.svg" aria-hidden="true" draggable="false"/>
-								<span class="nav__mobile__menu__item__button__label">Menu</span>
-								<span class="nav__mobile__menu__item__button__focus-border"></span>
-							</button>
-						</li>
-					</ul>
-				</div>
-			</nav>
+			<!-- DECORATIVE -->
 			<span class="bg-decorative-triangle bg-decorative-triangle--top bg-decorative-triangle--top-background--light-mode bg-decorative-triangle--top-slant--light-mode" role="presentation">
 			</span>
 			<span class="bg-decorative-triangle bg-decorative-triangle--bottom bg-decorative-triangle--bottom-background--light-mode bg-decorative-triangle--bottom-slant--light-mode" role="presentation">
