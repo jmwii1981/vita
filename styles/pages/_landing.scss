@@ -1,5 +1,5 @@
 //** TODO **//
-
+@use "../../styles" as *;
 
 
 
@@ -28,23 +28,12 @@
 
 
 //***********************************************************//
-//**                         ASSETS                        **//
-//***********************************************************//
-
-
-@import "../../fonts/fonts";
-@import "../resets/normalize";
-@import "../tokens/tokens";
-
-
-//***********************************************************//
 //**            INITIAL STYLES/ CUSTOM RESETS              **//
 //***********************************************************//
 
 
 .html {
 	display: flex;
-	@include background-color($html-background--light-mode, 1);
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
