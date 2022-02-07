@@ -37,6 +37,7 @@
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
+	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
 	position: relative;
 	-webkit-text-size-adjust: 100%;
@@ -101,41 +102,43 @@ img,
 
 
 // decorative background triangles for desktop view
-.bg-decorative-triangle:before {
-	content: '';
-	display: block;
-	position: absolute;
-		left: 0;
-	width: 100%;
-	z-index: 0;
-}
 .bg-decorative-triangle {
 	display: none;
 	opacity: 1;
 	pointer-events: none;
 	position: absolute;
-		left: 50%;
-	transform: translate(-50%, 0%);
 	transition-property: opacity;
 	transition-delay: 0s;
 	transition-timing-function: linear;
 	transition-duration: 1s;
-	width: 100vw;
+	z-index: 0;
 
-	&--top {
-		height: calc(43em - 3vw);
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 0;
+		z-index: 0;
+	}
+
+	&--top-left {
+		height: calc(43em - 2.97vw);
 			top: 0;
+			left: 50%;
+		transform: translate(-100%, 0%);
+		width: 50vw;
 
 		&:before {
-			border-left: 100vw solid transparent;
+			border-left: 50vw solid transparent;
 			height: 0em;
-				top: calc(43em - 3vw);
+				top: calc(43em - 2.97vw);
+				left: 0;
 		}
 
 		&-background {
 
 			&--light-mode {
-				@include background-color($bg-decorative-triangle--top-background--light-mode, 1);
+				@include background-color($bg-decorative-triangle--top-left-background--light-mode, 1);
 			}
 
 			// &--dark-mode {
@@ -146,7 +149,43 @@ img,
 		&-slant {
 
 			&--light-mode:before {
-				border-top: 6vw solid $bg-decorative-triangle--top-slant--light-mode;
+				border-top: 2.97vw solid $bg-decorative-triangle--top-left-slant--light-mode;
+			}
+
+			// &--dark-mode:before {
+			//
+			// }
+		}
+	}
+
+	&--top-right {
+		height: 43em;
+			top: 0;
+			right: 50%;
+		transform: translate(100%, 0%);
+		width: 50vw;
+
+		&:before {
+			border-left: 50vw solid transparent;
+			height: 0em;
+				top: 43em;
+		}
+
+		&-background {
+
+			&--light-mode {
+				@include background-color($bg-decorative-triangle--top-right-background--light-mode, 1);
+			}
+
+			// &--dark-mode {
+			//
+			// }
+		}
+
+		&-slant {
+
+			&--light-mode:before {
+				border-top: 2.97vw solid $bg-decorative-triangle--top-right-slant--light-mode;
 			}
 
 			// &--dark-mode:before {
@@ -158,11 +197,15 @@ img,
 	&--bottom {
 		height: calc(53.75em + 3vw);
 			bottom: 0;
+			left: 50%;
+		transform: translate(-50%, 0%);
+		width: 100vw;
 
 		&:before {
 			border-left: 100vw solid transparent;
 			height: 0em;
 				bottom: calc(53.75em - 3vw);
+				left: 0;
 		}
 
 		&-background {
@@ -364,26 +407,21 @@ a::selection {
 	&:hover {
 		cursor: pointer;
 	}
-	// &:hover,
-	// &:focus,
-	// &:active {
-	// 	color: $primary-label-hover--light-mode;
-	// }
 	.button__label {
 		display: inline-flex;
 		white-space: nowrap;
 	}
 	.button__focus-border {
 		border-style: solid;
-		border-radius: 4.5em;
-		border-width: 0.125em;
+		border-radius: 50px;
+		border-width: 2px;
 		display: block;
-		height: calc(100% + 0.5em);
+		height: calc(100% + 8px);
 		pointer-events: none;
 		position: absolute;
-			top: -0.25em;
-			left: -0.25em;
-		width: calc(100% + 0.5em);
+			top: -4px;
+			left: -4px;
+		width: calc(100% + 8px);
 	}
 }
 
@@ -419,10 +457,21 @@ a::selection {
 	}
 }
 .button--secondary {
+	border-style: solid;
+	border-width: 2px;
+
+	.button__focus-border {
+		height: calc(100% + 12px);
+			top: -6px;
+			left: -6px;
+		width: calc(100% + 12px);
+	}
+
 	&,
 	&:visited {
 		@include color($secondary-label-rest--light-mode, 1);
-		@include background-color($secondary-button-bg-rest--light-mode, 1);
+		@include background-color($secondary-button-bg-rest--light-mode, 0);
+		@include border-color($secondary-button-bg-rest--light-mode, 1);
 	}
 	& .button__focus-border,
 	&:visited .button__focus-border {
@@ -430,20 +479,26 @@ a::selection {
 	}
 	&:hover,
 	&:focus {
-		@include background-color($secondary-button-bg-hover--light-mode, 1);
+		@include color(#474758, 1);
+		@include border-color(#474758, 1);
+		// @include background-color($secondary-button-bg-hover--light-mode, 1);
+		background-color: rgba($ghost-white, 0.30)
 	}
 	&:hover .button__focus-border,
 	&:focus .button__focus-border {
-		@include border-color($secondary-button-bg-hover--light-mode, 1);
+		@include border-color(#474758, 1);
 	}
 	&:active,
 	&:active:focus {
 		@include color($secondary-label-press--light-mode, 1);
-		@include background-color($secondary-button-press--light-mode, 1);
+		border-color: #3D3843;
+		background-color: rgba(#3D3843, 0.10)
+		// @include background-color($secondary-button-press--light-mode, 1);
 	}
 	&:active .button__focus-border,
 	&:active:focus .button__focus-border {
-		@include border-color($secondary-button-press--light-mode, 0);
+		// @include border-color($secondary-button-press--light-mode, 0);
+		border-color: rgba(#3D3843, 0);
 	}
 }
 
@@ -566,7 +621,7 @@ a::selection {
 	content: 'Menu';
 	display: flex;
 	height: 100%;
-	@include color($port-gore, 0.9);
+	@include color(#3D3843, 0.9);
 	font-size: 0.8em;
 	font-weight: 500;
 	justify-content: center;
@@ -819,7 +874,7 @@ a::selection {
 
 .main-navigation__menu {
 	align-items: center;
-	@include background-color($port-gore, 1);
+	@include background-color(#3D3843, 1);
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -1776,7 +1831,7 @@ nav {
 	}
 	.landing-section:nth-child(2) .landing-section-image-container-triangle {
 		&--top:after {
-			border-top: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
+			border-top: 1.95em solid #dddce1;// $landing-section-image-container-triangle--light-mode-dark;
 		}
 	}
 	.landing-section:nth-child(3) .landing-section-image-container-triangle {
@@ -1791,9 +1846,6 @@ nav {
 	.landing-section-image-container {
 		height: 100%;
 		width: 50%;
-	}
-	.landing-section:nth-child(3) .landing-section-image-container-triangle:after {
-		@include triangle(right, top, $alice-blue);
 	}
 	.landing-section-image-container {
 		min-height: 100%;
@@ -2057,7 +2109,7 @@ nav {
 		padding: 2.5em;
 	}
 	.landing__inner .landing-section:first-child {
-		@include background-color($alice-blue, 0);
+		@include background-color($black-haze, 0);
 	}
 	.landing__inner .landing-section:last-child {
 		@include background-color($alice-blue, 0);
@@ -2071,7 +2123,7 @@ nav {
 
 	// TYPOGRAPHY //
 	.h2 {
-		font-size: 4.45em;
+		font-size: 4.2em;
 		font-weight: 600;
 		letter-spacing: -0.03em;
 		line-height: 1em;
@@ -2084,13 +2136,15 @@ nav {
 		font-size: 0.95em;
 	}
 	.p--medium-text {
-		font-size: 1.05em;
+		font-size: 0.88em;
 	}
 	.p--large-text {
 		font-size: 1.4em;
 	}
 	.button {
-		font-size: 1.05em;
+		font-size: 0.88em;
+		font-weight: 600;
+		padding: 0.25em 2.15em;
 	}
 	.bg-decorative-triangle {
 		display: flex;
