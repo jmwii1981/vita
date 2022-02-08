@@ -752,14 +752,14 @@ a::selection {
 	border-radius: 0.25em;
 	display: flex;
 	flex-direction: row;
-	height: 2.75em;
+	height: 3.75em;
 	justify-content: left;
 	margin: 0;
 	pointer-events: all;
 	position: absolute;
 		top: 1em;
 		left: 1em;
-	width: 2.75em;
+	width: 3.75em;
 	z-index: 3;
 }
 
@@ -806,7 +806,9 @@ a::selection {
 
 // header logo mark block lines
 .header__logo__line {
-	box-shadow: 0 0 0px rgba($port-gore ,0.25), 0 0 0px rgba($port-gore ,0.25);
+	box-shadow: 0 0 20px rgba($ghost-white ,0.85),
+				0 0 5px rgba(purple ,0.15),
+				0 0 2px rgba(pink ,0.35);
 	@include background-color($header__logo__line--light-mode, 1);
 	border-radius: 3em;
 	display: block;

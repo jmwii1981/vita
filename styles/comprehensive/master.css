@@ -933,14 +933,14 @@ a::selection {
   border-radius: 0.25em;
   display: flex;
   flex-direction: row;
-  height: 2.75em;
+  height: 3.75em;
   justify-content: left;
   margin: 0;
   pointer-events: all;
   position: absolute;
   top: 1em;
   left: 1em;
-  width: 2.75em;
+  width: 3.75em;
   z-index: 3;
 }
 
@@ -983,7 +983,7 @@ a::selection {
 }
 
 .header__logo__line {
-  box-shadow: 0 0 0px rgba(34, 33, 70, 0.25), 0 0 0px rgba(34, 33, 70, 0.25);
+  box-shadow: 0 0 20px rgba(249, 250, 254, 0.85), 0 0 5px rgba(128, 0, 128, 0.15), 0 0 2px rgba(255, 192, 203, 0.35);
   background-color: #F9FAFA;
   /* The Fallback */
   background-color: #f9fafa;
