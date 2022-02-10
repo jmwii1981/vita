@@ -111,7 +111,6 @@ img,
 	transition-delay: 0s;
 	transition-timing-function: linear;
 	transition-duration: 1s;
-	z-index: 0;
 
 	&:before {
 		content: '';
@@ -127,6 +126,7 @@ img,
 			left: 50%;
 		transform: translate(-100%, 0%);
 		width: 50vw;
+		z-index: 0;
 
 		&:before {
 			border-left: 50vw solid transparent;
@@ -164,6 +164,7 @@ img,
 			right: 50%;
 		transform: translate(100%, 0%);
 		width: 50vw;
+		z-index: 0;
 
 		&:before {
 			border-left: 50vw solid transparent;
@@ -194,12 +195,51 @@ img,
 		}
 	}
 
+	&--middle {
+		height: calc(96.75em + 3vw);
+			bottom: 0;
+			left: 50%;
+		transform: translate(-50%, 0%);
+		width: 100vw;
+		z-index: 1;
+
+		&:before {
+			border-right: 100vw solid transparent;
+			height: 0em;
+				bottom: calc(96.75em - 3vw);
+				left: 0;
+		}
+
+		&-background {
+
+			&--light-mode {
+				@include background-color(#dddce1, 1);
+			}
+
+			// &--dark-mode {
+			//
+			// }
+		}
+
+		&-slant {
+
+			&--light-mode:before {
+				border-top: 6vw solid #e2dfe2;
+			}
+
+			// &--dark-mode:before {
+			//
+			// }
+		}
+	}
+
 	&--bottom {
 		height: calc(53.75em + 3vw);
 			bottom: 0;
 			left: 50%;
 		transform: translate(-50%, 0%);
 		width: 100vw;
+			z-index: 2;
 
 		&:before {
 			border-left: 100vw solid transparent;
@@ -211,7 +251,7 @@ img,
 		&-background {
 
 			&--light-mode {
-				@include background-color($bg-decorative-triangle--bottom-background--light-mode, 1);
+				@include background-color(#e2dfe2, 1);
 			}
 
 			// &--dark-mode {
@@ -222,7 +262,7 @@ img,
 		&-slant {
 
 			&--light-mode:before {
-				border-top: 6vw solid $bg-decorative-triangle--bottom-slant--light-mode;
+				border-top: 6vw solid #dddce1;
 			}
 
 			// &--dark-mode:before {
@@ -547,20 +587,13 @@ a::selection {
 	border-width: 0.5px;
 	border-color: rgba($white, 0.01);
 	border-radius: 48px;
-	// box-shadow: 0px 0px 6px rgba($alice-blue, 0.75),
-	// 			-4px -4px 7px rgba($porcelain, 1),
-	// 			0px 5px 9px rgba($shark, 0.59),
-	// 			inset 2px 2px 9px rgba($black, 0.20),
-	// 			inset 2px 3px 9px rgb($black, 0),
-	// 			inset -1px -2px 12px rgb($black, 0);
-	box-shadow: -6px -5px 8px rgba(243, 244, 251, 0.15),
-				-2px -2px 2px rgba(243, 244, 251, 0.5),
-				1px 1px 4px rgba(0, 0, 0, 0.10),
-				3px 2px 4px rgba(0, 0, 0, 0.20),
-				inset -1px -5px 3px rgba(249, 250, 254, 0.5),
-				inset 1px 1px 6px rgba(249, 250, 254, 0.05),
-				inset 0px 0px 3px rgba(0, 0, 0, 0.40);
-	display:flex;
+	//light version
+	box-shadow: 0px -2px 1px rgba(255, 255, 255, 0.60),
+				0px 3px 2px rgba(0, 0, 0, 0.25),
+				0px 0px 6px rgba(243, 244, 251, 0.15),
+				inset 0px -5px 2px rgba(255, 255, 255, 0.25),
+				inset 0px 0px 2px rgba(0, 0, 0, 0.50);
+	display: flex;
 	height: 100%;
 	pointer-events: none;
 	position: relative;
@@ -642,17 +675,18 @@ a::selection {
 	font-size: 0.8em;
 	font-weight: 500;
 	justify-content: center;
+	line-height: 100%;
 	opacity: 1;
 	pointer-events: none;
 	position: absolute;
 		top: -50%;
 		left: -50%;
-	transform: translate(64%, 50%);
-	transition-property: transform, font-weight;
-	transition-delay: 0s, 0s;
-	transition-timing-function: ease-in, ease-in;
-	transition-duration: 0.2s, 0.2s;
-	width: calc(100% - 18px);
+	transform: translate(44%, 50%);
+	transition-property: color, transform, font-weight;
+	transition-delay: 0s, 0s, 0s;
+	transition-timing-function: ease-out, ease-in, ease-in;
+	transition-duration: 0.4s, 0.2s, 0.2s;
+	width: 100%;
 	z-index: 0;
 
 	&::selection {
@@ -663,26 +697,23 @@ a::selection {
 
 .main-navigation__toggler:checked + .main-navigation__menu-button {
 
-
 	.main-navigation__menu-button__inner {
-		border-color: rgba($port-gore, 0);
-		box-shadow: 7px 6px 7px rgba(0, 0, 0, 0.10),
-					3px 4px 3px rgba(0, 0, 0, 0.20),
-					0px 0px 3px rgba(243, 244, 251, 0.06),
-					-1px -1px 8px rgba(243, 244, 251, 0.17),
-					inset -2px 2px 18px rgba(0, 0, 0, 0.17),
-					inset 1px -2px 2px rgba(249, 250, 254, 0.21),
-					inset 0px 1px 3px rgba(0, 0, 0, 0.25);
+		border-color: rgba($white, 0.05);
+		box-shadow:	0px -2px 1px rgba(243, 244, 251, 0.15),
+					0px 3px 2px rgba(0, 0, 0, 0.15),
+					0px 0px 6px rgba(243, 244, 251, 0.05),
+					inset 0px 0px 2px rgba(0, 0, 0, 0.30),
+					inset 0px -3px 3px rgba(243, 244, 251, 0.08);
 		&:after {
 			content: 'Close';
-			@include color($ghost-white, 1);
+			@include color(#e1dfe4, 1);
 			font-size: 0.85em;
 			font-weight: 700;
-			transform: translate(87%, 50%);
+			transform: translate(58%, 50%);
 		}
 
 		.main-navigation__menu-button__handle {
-			@include background-color($secondary-button-bg-rest--dark-mode, 1);
+			@include background-color(#e1dfe4, 1);
 			box-shadow: -1px -1px 1px rgba($black, 0.4),
 						-1px -1px 3px rgba($black, 0.25),
 						inset 1px 1px 1px rgba($ghost-white, .5),
@@ -1043,7 +1074,7 @@ nav {
 }
 .nav__mobile {
 	display: none;
-	@include background-color($port-gore, 1);
+	@include background-color(#3D3843, 1);
 	box-shadow: 0px 7px 15px 10px rgba(0,0,0,0.76);
 	flex-direction: column;
 	height: 5em;
@@ -1126,7 +1157,7 @@ nav {
 	transition-timing-function: linear;
 	transition-duration: 1s;
 	width: 100%;
-	z-index: 2;
+	z-index: 3;
 
 	// landing block inner
 	&__inner {
@@ -1139,11 +1170,11 @@ nav {
 		width: 100%;
 		z-index: 1;
 
-		.landing-section:first-child {
-			@include background-color($alice-blue, 1);
+		.landing-section:nth-child(odd) {
+			@include background-color(#dddce1, 1);
 		}
-		.landing-section:last-child {
-			@include background-color($alice-blue, 1);
+		.landing-section:nth-child(even) {
+			@include background-color(#e2dfe2, 1);
 		}
 	}
 
@@ -1155,7 +1186,6 @@ nav {
 		position: relative;
 		width: 100%;
 	}
-
 
 	// landing-section block mods -- heights
 	&-section--tall {
@@ -1271,52 +1301,85 @@ nav {
 		width: 100%;
 
 		&-triangle {
-			&:after {
-				content: '';
+			&:after,
+			&:before {
 				display: block;
 				height: 0em;
 				position: absolute;
-					left: 0;
-					right: 0;
 				width: 0em;
 			}
 
-			&--top:after {
-				border-top-width: 1.95em;
-				border-top-style: solid;
-				border-left-width: 520px;
-				border-left-style: solid;
-				border-left-color: transparent;
-					top: 0;
-			}
-
-			&--bottom:after {
+			&--top-right:before {
 				border-bottom-width: 1.95em;
 				border-bottom-style: solid;
-				border-right-width: 520px;
+				border-right-width: 50vw;
 				border-right-style: solid;
-				border-right-color: transparent;
+				border-color: transparent;
+				content: '';
+					top: 0;
+					right: 0;
+			}
+			&--top-right:before {
+				border-right-color: #dddce1;
+			}
+			&--top-left:before {
+				border-bottom-width: 1.95em;
+				border-bottom-style: solid;
+				border-left-width: 50vw;
+				border-left-style: solid;
+				border-color: transparent;
+				content: '';
+					top: 0;
+					left: 0;
+			}
+			&--top-left:before {
+				border-left-color: #e2dfe2;
+			}
+			&--bottom-left:after {
+				border-top-width: 1.95em;
+				border-top-style: solid;
+				border-left-width: 50vw;
+				border-left-style: solid;
+				border-color: transparent;
+				content: '';
 					bottom: 0;
+					left: 0;
+			}
+			&--bottom-left:after {
+				border-left-color: #e2dfe2;
+			}
+			&--bottom-right:after {
+				border-top-width: 1.95em;
+				border-top-style: solid;
+				border-right-width: 50vw;
+				border-right-style: solid;
+				border-color: transparent;
+				content: '';
+					bottom: 0;
+					right: 0;
+			}
+			&--bottom-right:after {
+				border-right-color: #dddce1;
 			}
 		}
 	}
 
 
-	&-section:first-child &-section-image-container-triangle {
-		&--bottom:after {
-			border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
-		}
-	}
-	&-section:nth-child(2) &-section-image-container-triangle {
-		&--top:after {
-			border-top: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
-		}
-	}
-	&-section:nth-child(3) &-section-image-container-triangle {
-		&--bottom:after {
-			border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-light;
-		}
-	}
+	// &-section:first-child &-section-image-container-triangle {
+	// 	&--bottom:after {
+	// 		border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
+	// 	}
+	// }
+	// &-section:nth-child(2) &-section-image-container-triangle {
+	// 	&--top:after {
+	// 		border-top: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
+	// 	}
+	// }
+	// &-section:nth-child(3) &-section-image-container-triangle {
+	// 	&--bottom:after {
+	// 		border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-light;
+	// 	}
+	// }
 
 
 	// landing section image container block mods -- curve decorations
@@ -1368,7 +1431,7 @@ nav {
 	transition-timing-function: linear;
 	transition-duration: 1s;
 	width: 100%;
-	z-index: 1;
+	z-index: 3;
 
 	// footer block inner
 	&__inner {
@@ -1841,23 +1904,6 @@ nav {
 	.landing-section:last-child .landing-section-content__inner {
 		max-width: 33.5em;
 	}
-
-	.landing-section:first-child .landing-section-image-container-triangle {
-		&--bottom:after {
-			border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-light;
-		}
-	}
-	.landing-section:nth-child(2) .landing-section-image-container-triangle {
-		&--top:after {
-			border-top: 1.95em solid #dddce1;// $landing-section-image-container-triangle--light-mode-dark;
-		}
-	}
-	.landing-section:nth-child(3) .landing-section-image-container-triangle {
-		&--bottom:after {
-			border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
-		}
-	}
-
 	.landing-section-content--halved {
 		width: 50%;
 	}
@@ -1867,12 +1913,6 @@ nav {
 	}
 	.landing-section-image-container {
 		min-height: 100%;
-	}
-	.landing-section-image-container--curved--top--left {
-		border-top-left-radius: 8em;
-	}
-	.landing-section-image-container--curved--bottom--right {
-		border-bottom-right-radius: 8em;
 	}
 	.landing-section--slant:before {
 		width: 50%;
@@ -2126,19 +2166,20 @@ nav {
 	.landing-section:first-child .landing-section-content {
 		padding: 2.5em;
 	}
-	.landing__inner .landing-section:first-child {
-		@include background-color($black-haze, 0);
-	}
-	.landing__inner .landing-section:last-child {
-		@include background-color($alice-blue, 0);
-	}
 	.landing-section-content__inner {
 		max-width: none;
 	}
 	.landing-section:last-child .landing-section-content__inner {
 		max-width: none;
 	}
-
+	.landing-section-image-container-triangle--top-left:before,
+	.landing-section-image-container-triangle--bottom-left:after {
+		border-left-width: 520px;
+	}
+	.landing-section-image-container-triangle--top-right:before,
+	.landing-section-image-container-triangle--bottom-right:after {
+		border-right-width: 520px;
+	}
 	// TYPOGRAPHY //
 	.h2 {
 		font-size: 4.2em;
