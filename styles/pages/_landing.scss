@@ -196,7 +196,7 @@ img,
 	}
 
 	&--middle {
-		height: calc(96.75em + 3vw);
+		height: calc(92.75em + 3vw);
 			bottom: 0;
 			left: 50%;
 		transform: translate(-50%, 0%);
@@ -206,7 +206,7 @@ img,
 		&:before {
 			border-right: 100vw solid transparent;
 			height: 0em;
-				bottom: calc(96.75em - 3vw);
+				bottom: calc(92.75em - 3vw);
 				left: 0;
 		}
 
@@ -234,7 +234,7 @@ img,
 	}
 
 	&--bottom {
-		height: calc(53.75em + 3vw);
+		height: calc(49.75em + 3vw);
 			bottom: 0;
 			left: 50%;
 		transform: translate(-50%, 0%);
@@ -244,7 +244,7 @@ img,
 		&:before {
 			border-left: 100vw solid transparent;
 			height: 0em;
-				bottom: calc(53.75em - 3vw);
+				bottom: calc(49.75em - 3vw);
 				left: 0;
 		}
 
@@ -588,8 +588,10 @@ a::selection {
 	border-color: rgba($white, 0.01);
 	border-radius: 48px;
 	//light version
-	box-shadow: 0px -2px 1px rgba(255, 255, 255, 0.60),
-				0px 3px 2px rgba(0, 0, 0, 0.25),
+	box-shadow: -1px -2px 1px rgba(255, 255, 255, 0.30),
+				-1px 2px 1px rgba(0, 0, 0, 0.25),
+				1px -2px 1px rgba(255, 255, 255, 0.30),
+				1px 2px 1px rgba(0, 0, 0, 0.25),
 				0px 0px 6px rgba(243, 244, 251, 0.15),
 				inset 0px -5px 2px rgba(255, 255, 255, 0.25),
 				inset 0px 0px 2px rgba(0, 0, 0, 0.50);
@@ -607,12 +609,6 @@ a::selection {
 
 .main-navigation__menu-button__handle {
 	border-radius: 100%;
-	box-shadow: 1px 1px 1px rgba($black, 0.4),
-				1px 1px 3px rgba($black, 0.25),
-				inset 1px 1px 1px rgba($ghost-white, .05),
-				inset 1px 1px 2px rgba($ghost-white, 0.05),
-				inset -1px -1px 1px rgba($black, 0.05),
-				inset -1px -1px 4px rgba($alice-blue, 0.05);
 	@include background-color($primary-button-bg-rest--light-mode, 1);
 	display: flex;
 	height: 28px;
@@ -699,8 +695,10 @@ a::selection {
 
 	.main-navigation__menu-button__inner {
 		border-color: rgba($white, 0.05);
-		box-shadow:	0px -2px 1px rgba(243, 244, 251, 0.15),
-					0px 3px 2px rgba(0, 0, 0, 0.15),
+		box-shadow:	1px -2px 1px rgba(243, 244, 251, 0.15),
+					1px 3px 1px rgba(0, 0, 0, 0.15),
+					-1px -2px 1px rgba(243, 244, 251, 0.15),
+					-1px 3px 1px rgba(0, 0, 0, 0.15),
 					0px 0px 6px rgba(243, 244, 251, 0.05),
 					inset 0px 0px 2px rgba(0, 0, 0, 0.30),
 					inset 0px -3px 3px rgba(243, 244, 251, 0.08);
@@ -714,12 +712,6 @@ a::selection {
 
 		.main-navigation__menu-button__handle {
 			@include background-color(#e1dfe4, 1);
-			box-shadow: -1px -1px 1px rgba($black, 0.4),
-						-1px -1px 3px rgba($black, 0.25),
-						inset 1px 1px 1px rgba($ghost-white, .5),
-						inset 1px 1px 2px rgba($ghost-white, 0.5),
-						inset -1px -1px 1px rgba($black, 0.5),
-						inset -1px -1px 4px rgba($alice-blue, 0.5);
 			transform: translate(-156%, -50%);
 		}
 		.main-navigation__menu-button__handle__bar {
@@ -794,21 +786,25 @@ a::selection {
 //***********************************************************//
 
 
+
 // header logo block
 .header__logo {
-	align-items: flex-start;
-	border-radius: 0.25em;
 	display: flex;
-	flex-direction: row;
-	height: 3.75em;
-	justify-content: left;
-	margin: 0;
+	height: 5.75em;
 	pointer-events: all;
 	position: absolute;
-		top: 1em;
+		top: 1rem;
 		left: 1em;
-	width: 3.75em;
-	z-index: 3;
+	width: 5.75em;
+	z-index: 12;
+}
+
+.header__logo__inner {
+	display: flex;
+	height: 100%;
+	margin: 0;
+	position: relative;
+	width: 100%;
 }
 
 // header logo anchor wrapper
@@ -816,8 +812,6 @@ a::selection {
 	@include background-color($port-gore, 0);
 	border-radius: 0.25em;
 	height: 100%;
-	overflow: hidden;
-	padding: 0.5em;
 	position: relative;
 	width: 100%;
 }
@@ -830,8 +824,8 @@ a::selection {
 	overflow: hidden;
 	pointer-events: none;
 	position: absolute;
-		top: -1px;
-		left: -1px;
+		top: -101vh;
+		left: -101vw;
 	width: 1px;
 }
 
@@ -1180,7 +1174,6 @@ nav {
 
 	// landing-section block
 	&-section {
-		align-items: flex-end;
 		display: flex;
 		justify-content: flex-start;
 		position: relative;
@@ -1189,10 +1182,13 @@ nav {
 
 	// landing-section block mods -- heights
 	&-section--tall {
+		align-items: flex-end;
 		height: auto;
 	}
 	&-section--short {
+		align-items: flex-start;
 		height: auto;
+		padding-bottom: 4em;
 	}
 
 	&-section--halves {
@@ -1312,84 +1308,57 @@ nav {
 			&--top-right:before {
 				border-bottom-width: 1.95em;
 				border-bottom-style: solid;
-				border-right-width: 50vw;
+				border-right-width: 100vw;
 				border-right-style: solid;
 				border-color: transparent;
 				content: '';
 					top: 0;
 					right: 0;
-			}
-			&--top-right:before {
-				border-right-color: #dddce1;
 			}
 			&--top-left:before {
 				border-bottom-width: 1.95em;
 				border-bottom-style: solid;
-				border-left-width: 50vw;
+				border-left-width: 100vw;
 				border-left-style: solid;
 				border-color: transparent;
 				content: '';
 					top: 0;
 					left: 0;
 			}
-			&--top-left:before {
-				border-left-color: #e2dfe2;
-			}
 			&--bottom-left:after {
 				border-top-width: 1.95em;
 				border-top-style: solid;
-				border-left-width: 50vw;
+				border-left-width: 100vw;
 				border-left-style: solid;
 				border-color: transparent;
 				content: '';
 					bottom: 0;
 					left: 0;
 			}
-			&--bottom-left:after {
-				border-left-color: #e2dfe2;
-			}
 			&--bottom-right:after {
 				border-top-width: 1.95em;
 				border-top-style: solid;
-				border-right-width: 50vw;
+				border-right-width: 100vw;
 				border-right-style: solid;
 				border-color: transparent;
 				content: '';
 					bottom: 0;
 					right: 0;
 			}
-			&--bottom-right:after {
-				border-right-color: #dddce1;
-			}
+			// &--top-right:before {
+			// 	border-right-color: #dddce1;
+			// }
+			// &--top-left:before {
+			// 	border-left-color: #e2dfe2;
+			// }
+			// &--bottom-left:after {
+			// 	border-left-color: #e2dfe2;
+			// }
+			// &--bottom-right:after {
+			// 	border-right-color: #dddce1;
+			// }
 		}
 	}
-
-
-	// &-section:first-child &-section-image-container-triangle {
-	// 	&--bottom:after {
-	// 		border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
-	// 	}
-	// }
-	// &-section:nth-child(2) &-section-image-container-triangle {
-	// 	&--top:after {
-	// 		border-top: 1.95em solid $landing-section-image-container-triangle--light-mode-dark;
-	// 	}
-	// }
-	// &-section:nth-child(3) &-section-image-container-triangle {
-	// 	&--bottom:after {
-	// 		border-bottom: 1.95em solid $landing-section-image-container-triangle--light-mode-light;
-	// 	}
-	// }
-
-
-	// landing section image container block mods -- curve decorations
-	&-section-image-container--curved--bottom--right {
-		border-bottom-right-radius: 0em;
-	}
-	&-section-image-container--curved--top--left {
-		border-top-left-radius: 0em;
-	}
-
 
 	// landing section image
 	&-section-image {
@@ -1422,7 +1391,7 @@ nav {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	height: 32.75em;
+	height: 22.75em;
 	justify-content: center;
 	opacity: 1;
 	position: relative;
@@ -1442,7 +1411,6 @@ nav {
 		flex-direction: column;
 		gap: 0em;
 		justify-content: center;
-		overflow: hidden;
 		position: absolute;
 			top: 0;
 			left: 50%;
@@ -1455,7 +1423,7 @@ nav {
 	&__elipses {
 		border-radius: 100%;
 		display: flex;
-		height: 8em;
+		height: 2em;
 		position: absolute;
 			top: 0%;
 			left: 50%;
@@ -1479,6 +1447,7 @@ nav {
 		max-width: 65em;
 		position: relative;
 		width: 100%;
+		z-index: 2;
 	}
 
 	// footer section block inner
@@ -1879,6 +1848,8 @@ nav {
 		font-size: 5.9em;
 	}
 }
+
+//** -- HERE WE'RE BREAKING OUT OF SINGLE COLUMN INTO TWO COLUMNS -- **//
 // MOBILE and DESKTOP //
 @media only screen and (min-width: 540px) {
 	.landing {
@@ -1920,7 +1891,28 @@ nav {
 	.landing-section--slant:after {
 		border-left-width: 50vw;
 	}
-
+	.landing-section-image-container-triangle {
+		&--top-left:before,
+		&--bottom-left:after {
+			border-left-width: 50vw;
+		}
+		&--top-right:before,
+		&--bottom-right:after {
+			border-right-width: 50vw;
+		}
+		&--top-right:before {
+			border-right-color: #dddce1;
+		}
+		&--top-left:before {
+			border-left-color: #e2dfe2;
+		}
+		&--bottom-left:after {
+			border-left-color: #e2dfe2;
+		}
+		&--bottom-right:after {
+			border-right-color: #dddce1;
+		}
+	}
 	// TYPOGRAPHY //
 	.landing-section-content__inner {
 		max-width: 14.9em;
@@ -2148,18 +2140,14 @@ nav {
 
 	//**  LAYOUT ADJUSTMENTS **//
 	.header__logo {
-		top: 0.5em;
+		top: 2.5em;
 		left: 1em;
 	}
-	// .header__nav-button {
-	// 	top: 1.75em;
-	// 	right: 1.5em;
-	// }
 	.landing-section--tall {
 		height: 43em;
 	}
 	.landing-section--short {
-		height: 21em;
+		height: 27em;
 	}
 	.landing-section-content,
 	.landing-section:last-child .landing-section-content,

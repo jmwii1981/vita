@@ -434,7 +434,7 @@ img,
   border-top: 2.97vw solid #dddce1;
 }
 .bg-decorative-triangle--middle {
-  height: calc(96.75em + 3vw);
+  height: calc(92.75em + 3vw);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -444,7 +444,7 @@ img,
 .bg-decorative-triangle--middle:before {
   border-right: 100vw solid transparent;
   height: 0em;
-  bottom: calc(96.75em - 3vw);
+  bottom: calc(92.75em - 3vw);
   left: 0;
 }
 .bg-decorative-triangle--middle-background--light-mode {
@@ -456,7 +456,7 @@ img,
   border-top: 6vw solid #e2dfe2;
 }
 .bg-decorative-triangle--bottom {
-  height: calc(53.75em + 3vw);
+  height: calc(49.75em + 3vw);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -466,7 +466,7 @@ img,
 .bg-decorative-triangle--bottom:before {
   border-left: 100vw solid transparent;
   height: 0em;
-  bottom: calc(53.75em - 3vw);
+  bottom: calc(49.75em - 3vw);
   left: 0;
 }
 .bg-decorative-triangle--bottom-background--light-mode {
@@ -778,7 +778,7 @@ a::selection {
   border-width: 0.5px;
   border-color: rgba(255, 255, 255, 0.01);
   border-radius: 48px;
-  box-shadow: 0px -2px 1px rgba(255, 255, 255, 0.6), 0px 3px 2px rgba(0, 0, 0, 0.25), 0px 0px 6px rgba(243, 244, 251, 0.15), inset 0px -5px 2px rgba(255, 255, 255, 0.25), inset 0px 0px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: -1px -2px 1px rgba(255, 255, 255, 0.3), -1px 2px 1px rgba(0, 0, 0, 0.25), 1px -2px 1px rgba(255, 255, 255, 0.3), 1px 2px 1px rgba(0, 0, 0, 0.25), 0px 0px 6px rgba(243, 244, 251, 0.15), inset 0px -5px 2px rgba(255, 255, 255, 0.25), inset 0px 0px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   height: 100%;
   pointer-events: none;
@@ -792,7 +792,6 @@ a::selection {
 
 .main-navigation__menu-button__handle {
   border-radius: 100%;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.25), inset 1px 1px 1px rgba(249, 250, 254, 0.05), inset 1px 1px 2px rgba(249, 250, 254, 0.05), inset -1px -1px 1px rgba(0, 0, 0, 0.05), inset -1px -1px 4px rgba(243, 244, 251, 0.05);
   background-color: #565B73;
   /* The Fallback */
   background-color: #565b73;
@@ -881,7 +880,7 @@ a::selection {
 
 .main-navigation__toggler:checked + .main-navigation__menu-button .main-navigation__menu-button__inner {
   border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px -2px 1px rgba(243, 244, 251, 0.15), 0px 3px 2px rgba(0, 0, 0, 0.15), 0px 0px 6px rgba(243, 244, 251, 0.05), inset 0px 0px 2px rgba(0, 0, 0, 0.3), inset 0px -3px 3px rgba(243, 244, 251, 0.08);
+  box-shadow: 1px -2px 1px rgba(243, 244, 251, 0.15), 1px 3px 1px rgba(0, 0, 0, 0.15), -1px -2px 1px rgba(243, 244, 251, 0.15), -1px 3px 1px rgba(0, 0, 0, 0.15), 0px 0px 6px rgba(243, 244, 251, 0.05), inset 0px 0px 2px rgba(0, 0, 0, 0.3), inset 0px -3px 3px rgba(243, 244, 251, 0.08);
 }
 .main-navigation__toggler:checked + .main-navigation__menu-button .main-navigation__menu-button__inner:after {
   content: "Close";
@@ -896,7 +895,6 @@ a::selection {
   background-color: #e1dfe4;
   /* The Fallback */
   background-color: #e1dfe4;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4), -1px -1px 3px rgba(0, 0, 0, 0.25), inset 1px 1px 1px rgba(249, 250, 254, 0.5), inset 1px 1px 2px rgba(249, 250, 254, 0.5), inset -1px -1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 4px rgba(243, 244, 251, 0.5);
   transform: translate(-156%, -50%);
 }
 .main-navigation__toggler:checked + .main-navigation__menu-button .main-navigation__menu-button__inner .main-navigation__menu-button__handle__bar {
@@ -962,19 +960,22 @@ a::selection {
 }
 
 .header__logo {
-  align-items: flex-start;
-  border-radius: 0.25em;
   display: flex;
-  flex-direction: row;
-  height: 3.75em;
-  justify-content: left;
-  margin: 0;
+  height: 5.75em;
   pointer-events: all;
   position: absolute;
-  top: 1em;
+  top: 1rem;
   left: 1em;
-  width: 3.75em;
-  z-index: 3;
+  width: 5.75em;
+  z-index: 12;
+}
+
+.header__logo__inner {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  width: 100%;
 }
 
 .header__logo__anchor {
@@ -983,8 +984,6 @@ a::selection {
   background-color: rgba(34, 33, 70, 0);
   border-radius: 0.25em;
   height: 100%;
-  overflow: hidden;
-  padding: 0.5em;
   position: relative;
   width: 100%;
 }
@@ -996,8 +995,8 @@ a::selection {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
-  top: -1px;
-  left: -1px;
+  top: -101vh;
+  left: -101vw;
   width: 1px;
 }
 
@@ -1333,17 +1332,19 @@ nav {
   background-color: #e2dfe2;
 }
 .landing-section {
-  align-items: flex-end;
   display: flex;
   justify-content: flex-start;
   position: relative;
   width: 100%;
 }
 .landing-section--tall {
+  align-items: flex-end;
   height: auto;
 }
 .landing-section--short {
+  align-items: flex-start;
   height: auto;
+  padding-bottom: 4em;
 }
 .landing-section--halves {
   flex-direction: row;
@@ -1441,60 +1442,42 @@ nav {
 .landing-section-image-container-triangle--top-right:before {
   border-bottom-width: 1.95em;
   border-bottom-style: solid;
-  border-right-width: 50vw;
+  border-right-width: 100vw;
   border-right-style: solid;
   border-color: transparent;
   content: "";
   top: 0;
   right: 0;
-}
-.landing-section-image-container-triangle--top-right:before {
-  border-right-color: #dddce1;
 }
 .landing-section-image-container-triangle--top-left:before {
   border-bottom-width: 1.95em;
   border-bottom-style: solid;
-  border-left-width: 50vw;
+  border-left-width: 100vw;
   border-left-style: solid;
   border-color: transparent;
   content: "";
   top: 0;
   left: 0;
 }
-.landing-section-image-container-triangle--top-left:before {
-  border-left-color: #e2dfe2;
-}
 .landing-section-image-container-triangle--bottom-left:after {
   border-top-width: 1.95em;
   border-top-style: solid;
-  border-left-width: 50vw;
+  border-left-width: 100vw;
   border-left-style: solid;
   border-color: transparent;
   content: "";
   bottom: 0;
   left: 0;
 }
-.landing-section-image-container-triangle--bottom-left:after {
-  border-left-color: #e2dfe2;
-}
 .landing-section-image-container-triangle--bottom-right:after {
   border-top-width: 1.95em;
   border-top-style: solid;
-  border-right-width: 50vw;
+  border-right-width: 100vw;
   border-right-style: solid;
   border-color: transparent;
   content: "";
   bottom: 0;
   right: 0;
-}
-.landing-section-image-container-triangle--bottom-right:after {
-  border-right-color: #dddce1;
-}
-.landing-section-image-container--curved--bottom--right {
-  border-bottom-right-radius: 0em;
-}
-.landing-section-image-container--curved--top--left {
-  border-top-left-radius: 0em;
 }
 .landing-section-image {
   display: block;
@@ -1515,7 +1498,7 @@ nav {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 32.75em;
+  height: 22.75em;
   justify-content: center;
   opacity: 1;
   position: relative;
@@ -1536,7 +1519,6 @@ nav {
   flex-direction: column;
   gap: 0em;
   justify-content: center;
-  overflow: hidden;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1547,7 +1529,7 @@ nav {
 .footer__elipses {
   border-radius: 100%;
   display: flex;
-  height: 8em;
+  height: 2em;
   position: absolute;
   top: 0%;
   left: 50%;
@@ -1556,9 +1538,9 @@ nav {
   z-index: 2;
 }
 .footer__elipses-background--light-mode {
-  background-color: #e2dfe2;
+  background-color: #3D3843;
   /* The Fallback */
-  background-color: #e2dfe2;
+  background-color: #3d3843;
 }
 .footer-section {
   align-items: center;
@@ -1568,6 +1550,7 @@ nav {
   max-width: 65em;
   position: relative;
   width: 100%;
+  z-index: 2;
 }
 .footer-section__inner {
   align-items: center;
@@ -1968,6 +1951,25 @@ nav {
     border-left-width: 50vw;
   }
 
+  .landing-section-image-container-triangle--top-left:before, .landing-section-image-container-triangle--bottom-left:after {
+    border-left-width: 50vw;
+  }
+  .landing-section-image-container-triangle--top-right:before, .landing-section-image-container-triangle--bottom-right:after {
+    border-right-width: 50vw;
+  }
+  .landing-section-image-container-triangle--top-right:before {
+    border-right-color: #dddce1;
+  }
+  .landing-section-image-container-triangle--top-left:before {
+    border-left-color: #e2dfe2;
+  }
+  .landing-section-image-container-triangle--bottom-left:after {
+    border-left-color: #e2dfe2;
+  }
+  .landing-section-image-container-triangle--bottom-right:after {
+    border-right-color: #dddce1;
+  }
+
   .landing-section-content__inner {
     max-width: 14.9em;
   }
@@ -2154,7 +2156,7 @@ nav {
   }
 
   .header__logo {
-    top: 0.5em;
+    top: 2.5em;
     left: 1em;
   }
 
@@ -2163,7 +2165,7 @@ nav {
   }
 
   .landing-section--short {
-    height: 21em;
+    height: 27em;
   }
 
   .landing-section-content,
