@@ -100,9 +100,22 @@ img,
 //**              DECORATIVE DESKTOP ELEMENTS              **//
 //***********************************************************//
 
+@function big($number, $exponent) {
+	$value: 1;
+
+	@if $exponent > 0 {
+		@for $i from 1 through $exponent {
+			$value: $value * $number;
+		}
+	}
+
+	@return $value;
+}
 
 // decorative background triangles for desktop view
 .bg-decorative-triangle {
+	$bg-decorative-triangle: &;
+
 	display: none;
 	opacity: 1;
 	pointer-events: none;
@@ -111,25 +124,40 @@ img,
 	transition-delay: 0s;
 	transition-timing-function: linear;
 	transition-duration: 1s;
+	z-index: 0;
 
 	&:before {
+		background-color: transparent;
 		content: '';
 		display: block;
 		position: absolute;
 		width: 0;
+		z-index: 12;
+	}
+
+	&__inner {
+		background-color: transparent;
+		// background-color: yellow;
+		display: flex;
+		height: 100%;
+		// height: 43em; // temporary until there are two .bg-decorative triangles on each side for each section.
+		overflow: hidden;
+		position: relative;
 		z-index: 0;
 	}
 
 	&--top-left {
-		height: calc(43em - 2.97vw);
+		// height: calc(43em - 2.97vw);
+		height: 43em;
 			top: 0;
 			left: 50%;
 		transform: translate(-100%, 0%);
 		width: 50vw;
-		z-index: 0;
+		z-index: 8;
 
 		&:before {
-			border-left: 50vw solid transparent;
+			border-left: 50vw solid $bg-decorative-triangle--top-left-slant--light-mode;
+			// border-left: 50vw solid red;
 			height: 0em;
 				top: calc(43em - 2.97vw);
 				left: 0;
@@ -148,8 +176,11 @@ img,
 
 		&-slant {
 
-			&--light-mode:before {
-				border-top: 2.97vw solid $bg-decorative-triangle--top-left-slant--light-mode;
+			&--light-mode {
+				&:before {
+					// border-top: 2.97vw solid $bg-decorative-triangle--top-left-slant--light-mode;
+					border-top: 2.97vw solid transparent; // transparent not a test
+				}
 			}
 
 			// &--dark-mode:before {
@@ -164,12 +195,12 @@ img,
 			right: 50%;
 		transform: translate(100%, 0%);
 		width: 50vw;
-		z-index: 0;
+		z-index: 7;
 
 		&:before {
 			border-left: 50vw solid transparent;
 			height: 0em;
-				top: 43em;
+				top: 43.1em;
 		}
 
 		&-background {
@@ -195,19 +226,68 @@ img,
 		}
 	}
 
-	&--middle {
-		height: calc(92.75em + 3vw);
-			bottom: 0;
-			left: 50%;
-		transform: translate(-50%, 0%);
-		width: 100vw;
-		z-index: 1;
+	&--middle-top-right {
+		height: 41em;
+			top: 45em;
+			right: 50%;
+		transform: translate(100%, 0%);
+		width: 50vw;
+		z-index: 6;
 
 		&:before {
-			border-right: 100vw solid transparent;
+			border-right: 50vw solid $bg-decorative-triangle--top-right-slant--light-mode;
 			height: 0em;
-				bottom: calc(92.75em - 3vw);
+				top: calc(41em - 2.97vw);
+		}
+
+		&-background {
+
+			&--light-mode {
+				@include background-color(#e2dfe2, 1);
+			}
+
+			// &--dark-mode {
+			//
+			// }
+		}
+
+		&-slant {
+
+			&--light-mode:before {
+				border-top: 2.97vw solid transparent;
+			}
+
+			// &--dark-mode:before {
+			//
+			// }
+		}
+	}
+
+	&--middle-bottom-left {
+		height: 43em;
+			bottom: 49.75em;
+			left: 50%;
+		transform: translate(-100%, 0%);
+		width: 50vw;
+		z-index: 5;
+
+		&:before {
+			border-right: 50vw solid transparent;
+			height: 0em;
+				bottom: calc(43em - 2.97vw);
 				left: 0;
+		}
+		&:after {
+			background-color: transparent;
+			border-left: 50vw solid #e2dfe2;
+			content: '';
+			display: block;
+			height: 0em;
+			position: absolute;
+				bottom: 0em;
+				left: 0;
+			width: 0;
+			z-index: 12;
 		}
 
 		&-background {
@@ -224,7 +304,10 @@ img,
 		&-slant {
 
 			&--light-mode:before {
-				border-top: 6vw solid #e2dfe2;
+				border-top: 2.97vw solid #e2dfe2;
+			}
+			&--light-mode:after {
+				border-top: 2.97vw solid transparent;
 			}
 
 			// &--dark-mode:before {
@@ -233,18 +316,35 @@ img,
 		}
 	}
 
+	&--middle-bottom-right {
+		height: 43em;
+			bottom: 49.75em;
+			right: 50%;
+		transform: translate(100%, 0%);
+		width: 50vw;
+		z-index: 5;
+
+		&-background {
+
+			&--light-mode {
+				@include background-color(#dddce1, 1);
+			}
+
+		}
+	}
+
 	&--bottom {
-		height: calc(49.75em + 3vw);
+		height: 49.75em;
 			bottom: 0;
-			left: 50%;
-		transform: translate(-50%, 0%);
-		width: 100vw;
-			z-index: 2;
+			right: 50%;
+		transform: translate(100%, 0%);
+		width: 50vw;
+			z-index: 4;
 
 		&:before {
-			border-left: 100vw solid transparent;
+			border-left: 50vw solid transparent;
 			height: 0em;
-				bottom: calc(49.75em - 3vw);
+				bottom: calc(49.75em - 2.97vw);
 				left: 0;
 		}
 
@@ -262,12 +362,55 @@ img,
 		&-slant {
 
 			&--light-mode:before {
-				border-top: 6vw solid #dddce1;
+				border-top: 2.97vw solid #dddce1;
 			}
 
 			// &--dark-mode:before {
 			//
 			// }
+		}
+	}
+
+	&__vertical-line {
+		$vertical-line: &;
+
+		background-color: gray;
+		display: flex;
+		height: 100%;
+		margin: 0;
+		opacity: 0.15;
+		position: absolute;
+			top: 0;
+		width: 0.5px;
+		z-index: 2;
+
+
+		@at-root {
+
+			#{$bg-decorative-triangle}:nth-child(odd) {
+				// background-color: rgba(green, 0.1);
+				& #{$bg-decorative-triangle}__inner {
+					margin-left: auto;
+					width: 100%;
+				}
+				@for $i from 1 through 80 {
+					& #{$vertical-line}:nth-child(#{$i}) {
+						right: big($i, 2) * 0.02%;
+					}
+				}
+			}
+			#{$bg-decorative-triangle}:nth-child(even) {
+				// background-color: rgba(pink, 0.2);
+				& #{$bg-decorative-triangle}__inner {
+					margin-right: auto;
+					width: 100%;
+				}
+				@for $i from 1 through 80 {
+					& #{$vertical-line}:nth-child(#{$i}) {
+						left: big($i, 2) * 0.02%;
+					}
+				}
+			}
 		}
 	}
 }
@@ -1151,7 +1294,7 @@ nav {
 	transition-timing-function: linear;
 	transition-duration: 1s;
 	width: 100%;
-	z-index: 3;
+	z-index: 9; // after decorative triangles
 
 	// landing block inner
 	&__inner {
@@ -1400,7 +1543,7 @@ nav {
 	transition-timing-function: linear;
 	transition-duration: 1s;
 	width: 100%;
-	z-index: 3;
+	z-index: 9;
 
 	// footer block inner
 	&__inner {
