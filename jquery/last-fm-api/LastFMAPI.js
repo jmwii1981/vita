@@ -8,7 +8,7 @@ LastFMAPI = {
 	onWindowLoad: function() {
 		lastFMAPI.window.on('load', function () {
 
-			var apiRoot = "http://ws.audioscrobbler.com/2.0/?",
+			var apiRoot = "https://ws.audioscrobbler.com/2.0/?",
 			request = {
 				method: "user.getrecenttracks",
 				user: "jmwii1981",
@@ -19,7 +19,7 @@ LastFMAPI = {
 			call = apiRoot + $.param(request);
 
 			lastFMAPI.ajax(call).done(function (callResponse) {
-				console.log(callResponse);
+				// console.log(callResponse);
 				var track = callResponse.recenttracks.track[0],
 					trackName = track.name,
 					trackURL = track.url,
