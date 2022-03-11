@@ -777,7 +777,6 @@ img,
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
   padding: 7.5rem 1rem 5.5rem;
 }
 
