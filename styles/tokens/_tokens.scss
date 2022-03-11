@@ -9,9 +9,26 @@
 	// READ https://uxdesign.cc/defining-colors-in-your-design-system-828148e6210a
 	// TOOL https://lyft-colorbox.herokuapp.com/ <- instructions on usage in the immediately above article
 
-
+	// COLOR TOKENS
 	$black: #010101;
 	$charcoal: #3D3843;
 	$gray: #D8D5DA;
 	$dim-white: #F9FAFA;
 	$bright-white: #FDFCFC;
+
+	// COLOR MIXINS
+	@mixin background-color($color, $opacity: 1) {
+		background-color: $color; /* The Fallback */
+		background-color: rgba($color, $opacity);
+	}
+	@mixin border-color($color, $opacity: 1) {
+		border-color: $color; /* The Fallback */
+		border-color: rgba($color, $opacity);
+	}
+	@mixin color($color, $opacity: 1) {
+		color: $color; /* The Fallback */
+		color: rgba($color, $opacity);
+	}
+	@mixin triangle($position1 ,$position2, $color) {
+		background: linear-gradient(to $position1 $position2, $color 50%, transparent 50%);;
+	}
