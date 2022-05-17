@@ -29,6 +29,10 @@
 		color: $color; /* The Fallback */
 		color: rgba($color, $opacity);
 	}
+	@mixin fill($color, $opacity: 1) {
+		fill: $color; /* The Fallback */
+		fill: rgba($color, $opacity);
+	}
 	@mixin triangle($position1 ,$position2, $color) {
 		background: linear-gradient(to $position1 $position2, $color 50%, transparent 50%);;
 	}

@@ -450,6 +450,16 @@ img,
   padding: 0;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.link {
+  text-transform: lowercase;
+}
+
 .p {
   flex-grow: 0;
   margin: 0.67em 0em;
@@ -519,10 +529,20 @@ img,
 }
 
 .body,
-.main {
+.landing {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.header-inner,
+.article-inner,
+.footer-inner {
+  margin: 0 auto;
+  max-width: 100rem;
+  padding-top: 7.5rem;
+  padding-bottom: 5.5rem;
+  width: calc(100% - 2em);
 }
 
 .figure {
@@ -584,26 +604,8 @@ img,
 
 .header {
   align-items: flex-end;
-  background-color: #010101;
-  /* The Fallback */
-  background-color: #010101;
-  display: flex;
-  flex-direction: column;
   min-height: 480px;
   height: 100vh;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-}
-.header .h2-tag-line {
-  color: #FDFCFC;
-  /* The Fallback */
-  color: #fdfcfc;
-  order: 1;
-  line-height: 105%;
-  margin: auto;
-  max-width: calc(100% - 1em);
-  text-align: center;
 }
 .header-inner {
   align-items: flex-end;
@@ -613,136 +615,12 @@ img,
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: calc(100% - 2em);
+  padding: 0;
   padding-bottom: 2em;
   position: absolute;
   bottom: 0;
   left: 1em;
   right: 1em;
-  width: 100%;
-}
-.header-logo {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  height: 4.75rem;
-  margin: 0;
-  pointer-events: all;
-  width: 3.875em;
-}
-.header-logo:hover, .header-logo:focus {
-  outline: none;
-}
-.header-logo:hover {
-  cursor: pointer;
-}
-.header-logo-link {
-  display: flex;
-  height: 5rem;
-  flex-direction: column;
-  gap: 0.25em;
-  justify-content: space-between;
-  width: 100%;
-}
-.header-logo-link-mark {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: row;
-  gap: 12%;
-  height: 3.2rem;
-  justify-content: center;
-  pointer-events: none;
-  position: relative;
-  width: 3rem;
-}
-.header-logo-link-mark-line {
-  background-color: #FDFCFC;
-  /* The Fallback */
-  background-color: #fdfcfc;
-  border-radius: 3em;
-  display: block;
-  height: 100%;
-  pointer-events: none;
-  width: 16%;
-  z-index: 2;
-}
-.header-logo-link-mark-line:nth-child(1) {
-  height: 45%;
-}
-.header-logo-link-text {
-  color: #FDFCFC;
-  /* The Fallback */
-  color: #fdfcfc;
-  display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-}
-.header-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-.header-nav-toggle {
-  appearance: none;
-  background-color: #010101;
-  /* The Fallback */
-  background-color: rgba(1, 1, 1, 0);
-  border: 0;
-  display: flex;
-  justify-content: center;
-  order: 2;
-  padding: 0;
-}
-@media only screen and (min-width: 744px) {
-  .header-nav-toggle {
-    display: none;
-  }
-}
-.header-nav-toggle-arrow-icon {
-  display: flex;
-  height: 1em;
-  position: relative;
-  width: 3.25rem;
-}
-.header-nav-toggle-arrow-icon-head-top {
-  background-color: #FDFCFC;
-  /* The Fallback */
-  background-color: #fdfcfc;
-  border-radius: 3rem;
-  display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: calc(50% - 0.07rem);
-  right: -0.125rem;
-  transform: rotate(40deg);
-  width: 0.25rem;
-}
-.header-nav-toggle-arrow-icon-head-btm {
-  background-color: #FDFCFC;
-  /* The Fallback */
-  background-color: #fdfcfc;
-  border-radius: 3rem;
-  display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: calc(50% + 0.07rem);
-  right: -0.125rem;
-  transform: rotate(-40deg);
-  width: 0.25rem;
-}
-.header-nav-toggle-arrow-icon-tail {
-  background-color: #FDFCFC;
-  /* The Fallback */
-  background-color: #fdfcfc;
-  border-radius: 3rem;
-  display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: 50%;
-  left: 0.3rem;
-  width: 3rem;
 }
 .header-nav-list {
   display: flex;
@@ -762,10 +640,221 @@ img,
     gap: 1em;
   }
 }
-.header-nav-item {
+
+.footer {
+  align-items: flex-start;
+}
+.footer-inner {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-inner-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  list-style: none;
+  margin: 0;
+  order: 1;
+  overflow: hidden;
+  padding: 0;
+}
+.footer-social-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  list-style: none;
+}
+.footer-social-list-item {
   display: flex;
 }
-.header-nav-link {
+.footer-social-list-item-icon {
+  fill: #FDFCFC;
+  /* The Fallback */
+  fill: #fdfcfc;
+  display: flex;
+}
+.footer-social-list-item-link {
+  display: flex;
+  decoration: none;
+}
+.footer-social-list-item-link .focus-border {
+  display: none;
+}
+
+.header,
+.footer {
+  background-color: #010101;
+  /* The Fallback */
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+.header .h2-tag-line,
+.footer .h2-tag-line {
+  color: #FDFCFC;
+  /* The Fallback */
+  color: #fdfcfc;
+  order: 1;
+  line-height: 105%;
+  margin: auto;
+  max-width: calc(100% - 1em);
+  text-align: center;
+}
+.header-logo,
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: 4.75rem;
+  margin: 0;
+  pointer-events: all;
+  width: 3.875em;
+}
+.header-logo:hover, .header-logo:focus,
+.footer-logo:hover,
+.footer-logo:focus {
+  outline: none;
+}
+.header-logo:hover,
+.footer-logo:hover {
+  cursor: pointer;
+}
+.header-logo-link,
+.footer-logo-link {
+  display: flex;
+  height: 5rem;
+  flex-direction: column;
+  gap: 0.25em;
+  justify-content: space-between;
+  width: 100%;
+}
+.header-logo-link-mark,
+.footer-logo-link-mark {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 12%;
+  height: 3.2rem;
+  justify-content: center;
+  pointer-events: none;
+  position: relative;
+  width: 3rem;
+}
+.header-logo-link-mark-line,
+.footer-logo-link-mark-line {
+  background-color: #FDFCFC;
+  /* The Fallback */
+  background-color: #fdfcfc;
+  border-radius: 3em;
+  display: block;
+  height: 100%;
+  pointer-events: none;
+  width: 16%;
+  z-index: 2;
+}
+.header-logo-link-mark-line:nth-child(1),
+.footer-logo-link-mark-line:nth-child(1) {
+  height: 45%;
+}
+.header-logo-link-text,
+.footer-logo-link-text {
+  color: #FDFCFC;
+  /* The Fallback */
+  color: #fdfcfc;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+}
+.header-nav,
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.header-nav-toggle,
+.footer-nav-toggle {
+  appearance: none;
+  background-color: #010101;
+  /* The Fallback */
+  background-color: rgba(1, 1, 1, 0);
+  border: 0;
+  display: flex;
+  justify-content: center;
+  order: 2;
+  padding: 0;
+}
+@media only screen and (min-width: 744px) {
+  .header-nav-toggle,
+.footer-nav-toggle {
+    display: none;
+  }
+}
+.header-nav-toggle-arrow-icon,
+.footer-nav-toggle-arrow-icon {
+  display: flex;
+  height: 1em;
+  position: relative;
+  width: 3.25rem;
+}
+.header-nav-toggle-arrow-icon-head-top,
+.footer-nav-toggle-arrow-icon-head-top {
+  background-color: #FDFCFC;
+  /* The Fallback */
+  background-color: #fdfcfc;
+  border-radius: 3rem;
+  display: flex;
+  height: 0.0625rem;
+  position: absolute;
+  top: calc(50% - 0.07rem);
+  right: -0.125rem;
+  transform: rotate(40deg);
+  width: 0.25rem;
+}
+.header-nav-toggle-arrow-icon-head-btm,
+.footer-nav-toggle-arrow-icon-head-btm {
+  background-color: #FDFCFC;
+  /* The Fallback */
+  background-color: #fdfcfc;
+  border-radius: 3rem;
+  display: flex;
+  height: 0.0625rem;
+  position: absolute;
+  top: calc(50% + 0.07rem);
+  right: -0.125rem;
+  transform: rotate(-40deg);
+  width: 0.25rem;
+}
+.header-nav-toggle-arrow-icon-tail,
+.footer-nav-toggle-arrow-icon-tail {
+  background-color: #FDFCFC;
+  /* The Fallback */
+  background-color: #fdfcfc;
+  border-radius: 3rem;
+  display: flex;
+  height: 0.0625rem;
+  position: absolute;
+  top: 50%;
+  left: 0.3rem;
+  width: 3rem;
+}
+.header-nav-item,
+.footer-nav-item {
+  display: flex;
+}
+.header-nav-link,
+.footer-nav-link {
   color: #FDFCFC;
   /* The Fallback */
   color: #fdfcfc;
@@ -777,13 +866,31 @@ img,
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  padding: 7.5rem 1rem 5.5rem;
 }
 
 .vitae {
   background-color: #F9FAFA;
   /* The Fallback */
   background-color: #f9fafa;
+}
+
+.about {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  justify-content: flex-start;
+}
+.about .content-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+.about p {
+  margin: 0;
+  width: 66%;
 }
 
 /*# sourceMappingURL=master.css.map */

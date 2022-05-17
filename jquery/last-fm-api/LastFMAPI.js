@@ -3,33 +3,72 @@ LastFMAPI = {
 	settings: {
 		window: $(window),
 		ajax: $.get,
-		resultsContainer: $("#last-fm-output"),
-	},
-	onWindowLoad: function() {
-		lastFMAPI.window.on('load', function () {
-
-			var apiRoot = "https://ws.audioscrobbler.com/2.0/?",
-			request = {
-				method: "user.getrecenttracks",
+		apiRoot: "https://ws.audioscrobbler.com/2.0/?",
+		defaultRequest: {
 				user: "jmwii1981",
 				api_key: "3f05be6c065c84dffd06fc4306e60ef4",
-				limit: "1",
 				format: "json",
 			},
-			call = apiRoot + $.param(request);
+		trackRequest: {
+				method: "user.getrecenttracks",
+				limit: "1",
+			},
+		userRequest: {
+				method: "user.getinfo",
+			},
+		callForTrack: undefined,
+		callForUser: undefined,
+		callResponse: undefined,
+		track: undefined,
+		trackName: undefined,
+		trackURL: undefined,
+		trackURL: undefined,
+		trackArtist: undefined,
+		responseOutput: undefined,
+		userOutputContainer: $("#last-fm-user-output"),
+		trackOutputContainer: "#last-fm-track-output",
+	},
+	getUserInfo: function() {
+		var callForUser = lastFMAPI.apiRoot + $.param(lastFMAPI.defaultRequest) + "&" + $.param(lastFMAPI.userRequest);
 
-			lastFMAPI.ajax(call).done(function (callResponse) {
-				// console.log(callResponse);
-				var track = callResponse.recenttracks.track[0],
-					trackName = track.name,
-					trackURL = track.url,
-					trackURL = encodeURI(trackURL),
-					trackArtist = track.artist["#text"],
-					responseOutput = "Currently Vibing to: <a class='link link--dark' href='" + trackURL + "'>\"" + trackName + "\"<\/a> by " + trackArtist;
+		lastFMAPI.ajax(callForUser).done(function (callResponse) {
+			// test call results
+			console.log(callResponse);
 
-					$("#last-fm-output").append(responseOutput);
-			});
+			// test output
+			// console.log(responseOutput);
+			// lastFMAPI.userOutputContainer.html(responseOutput);
 		});
+	},
+	getRecentTrack: function() {
+		var callForTrack = lastFMAPI.apiRoot + $.param(lastFMAPI.defaultRequest) + "&" + $.param(lastFMAPI.trackRequest);
+
+		lastFMAPI.ajax(callForTrack).done(function (callResponse) {
+			// test call results
+			// console.log(callResponse);
+
+			track = callResponse.recenttracks.track[0],
+			trackName = track.name,
+			trackURL = track.url,
+			trackURL = encodeURI(trackURL),
+			trackArtist = track.artist["#text"],
+			responseOutput = "Current Vibe <a class='link link--dark' href='" + trackURL + "' target='_blank'>\"" + trackName + "\"<\/a> by " + trackArtist;
+
+			// test output
+			console.log(responseOutput);
+
+			$(lastFMAPI.trackOutputContainer).html(responseOutput);
+		});
+	},
+	updateRecentTrack: function() {
+		setInterval(function() {
+			LastFMAPI.getRecentTrack();
+		}, 30 * 1000); // 30 * 1000 milsec = 30 seconds
+	},
+	onWindowLoad: function() {
+		LastFMAPI.getUserInfo();
+		LastFMAPI.getRecentTrack();
+		LastFMAPI.updateRecentTrack();
 	},
 	bindUIActions: function() {
 		LastFMAPI.onWindowLoad();

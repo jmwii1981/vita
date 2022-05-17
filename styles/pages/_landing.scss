@@ -131,7 +131,7 @@ a::selection {
 	}
 }
 
-// titles
+// title-specific
 .h1,
 .h2,
 .h3,
@@ -140,6 +140,17 @@ a::selection {
 .h6 {
 	margin: 0;
 	padding: 0;
+}
+
+// title and link title-specific
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.link {
+	text-transform: lowercase;
 }
 
 // body copy
@@ -219,10 +230,23 @@ a::selection {
 //***********************************************************//
 
 .body,
-.main {
+.landing {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+}
+
+.header,
+.article,
+.footer {
+
+	&-inner {
+		margin: 0 auto;
+		max-width: 100rem;
+		padding-top: 7.5rem;
+		padding-bottom: 5.5rem;
+		width: calc(100% - 2em);
+	}
 }
 
 .figure {
@@ -288,13 +312,115 @@ a::selection {
 //***********************************************************//
 
 // header block - branded & nav
+
 .header {
 	align-items: flex-end;
+	min-height: 480px;
+	height: 100vh;
+
+	&-inner {
+		align-items: flex-end;
+		display: flex;
+		order: 2;
+		height: 6em;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 0 auto;
+		padding: 0;
+		padding-bottom: 2em;
+		position: absolute;
+			bottom: 0;
+			left: 1em;
+			right: 1em;
+	}
+
+	&-nav {
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5em;
+			height: 0rem;
+			list-style: none;
+			margin: 0;
+			order: 1;
+			overflow: hidden;
+			padding: 0;
+
+			// MOBILE //
+			@media only screen and (min-width: 744px) {
+				flex-direction: row;
+				height: auto;
+				gap: 1em;
+			}
+		}
+	}
+}
+
+.footer {
+	align-items: flex-start;
+
+	&-inner {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		&-col {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+		}
+	}
+
+	&-nav {
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5em;
+			list-style: none;
+			margin: 0;
+			order: 1;
+			overflow: hidden;
+			padding: 0;
+		}
+	}
+
+	&-social {
+
+		&-list {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5em;
+			list-style: none;
+
+			&-item {
+				display: flex;
+
+				&-icon {
+					@include fill($bright-white, 1);
+					display: flex;
+				}
+
+				&-link {
+					display: flex;
+					decoration: none;
+
+					.focus-border {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.header,
+.footer {
 	@include background-color($black, 1);
 	display: flex;
 	flex-direction: column;
-	min-height: 480px;
-	height: 100vh;
 	justify-content: space-between;
 	position: relative;
 	width: 100%;
@@ -306,23 +432,6 @@ a::selection {
 		margin: auto;
 		max-width: calc(100% - 1em);
 		text-align: center;
-	}
-
-	&-inner {
-		align-items: flex-end;
-		display: flex;
-		order: 2;
-		height: 6em;
-		flex-direction: row;
-		justify-content: space-between;
-		margin: 0 auto;
-		max-width: calc(100% - 2em);
-		padding-bottom: 2em;
-		position: absolute;
-			bottom: 0;
-			left: 1em;
-			right: 1em;
-		width: 100%;
 	}
 
 	&-logo {
@@ -451,24 +560,6 @@ a::selection {
 			}
 		}
 
-		&-list {
-			display: flex;
-			flex-direction: column;
-			gap: 0.5em;
-			height: 0rem;
-			list-style: none;
-			margin: 0;
-			order: 1;
-			overflow: hidden;
-			padding: 0;
-
-			// MOBILE //
-			@media only screen and (min-width: 744px) {
-				flex-direction: row;
-				height: auto;
-				gap: 1em;
-			}
-		}
 		&-item {
 			display: flex;
 		}
@@ -484,6 +575,7 @@ a::selection {
 	}
 }
 
+
 //***********************************************************//
 //**                      ARTICLES                         **//
 //***********************************************************//
@@ -492,7 +584,6 @@ a::selection {
 	align-items: flex-start;
 	display: flex;
 	flex-direction: column;
-	padding: 7.5rem 1rem 5.5rem;
 }
 
 
@@ -504,8 +595,25 @@ a::selection {
 //**                      SECTIONS                         **//
 //***********************************************************//
 
-.section {
-	// Silence is golden.
+.about {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: 6rem;
+	justify-content: flex-start;
+
+	.content-wrapper {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		justify-content: flex-start;
+	}
+
+	p {
+		margin: 0;
+		width: 66%;
+	}
 }
 
 
@@ -564,32 +672,18 @@ a::selection {
 }
 
 
-// DAY AND NIGHT MODES (EXAMPLES)
-// .day   { background: #eee; color: black; }
-// .night { background: #333; color: white; }
+// DARK AND LIGHT MODES (EXAMPLES)
 //
 // @media (prefers-color-scheme: dark) {
-//   .day.dark-scheme   { background:  #333; color: white; }
-//   .night.dark-scheme { background: black; color:  #ddd; }
+//   (ENTER CODE HERE)
 // }
 //
 // @media (prefers-color-scheme: light) {
-//   .day.light-scheme   { background: white; color:  #555; }
-//   .night.light-scheme { background:  #eee; color: black; }
+//   (ENTER CODE HERE)
 // }
 //
-// .day, .night {
-//   display: inline-block;
-//   padding: 1em;
-//   width: 7em;
-//   height: 2em;
-//   vertical-align: middle;
-// }
-
-
 // PREFERS REDUCED MOTION (EXAMPLES)
-// .animation {
-//   animation: pulse 1s linear infinite both;
+//   (ENTER CODE HERE)
 // }
 //
 // /* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
