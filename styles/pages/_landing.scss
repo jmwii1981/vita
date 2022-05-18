@@ -117,8 +117,11 @@ a::selection {
 	&--x-small {
 		font-size: 1.25rem;
 	}
-	&--xxx-small {
+	&--xx-small {
 		font-size: 1rem;
+	}
+	&--xxx-small {
+		font-size: 0.75rem;
 	}
 
 	// case
@@ -313,7 +316,7 @@ a::selection {
 
 			&-left {
 				align-items: flex-start;
-				gap: 3rem;
+				gap: 2.75rem;
 			}
 			&-right {
 				align-items: flex-end;
@@ -327,7 +330,7 @@ a::selection {
 		&-list {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5em;
+			gap: 0.6em;
 			list-style: none;
 			margin: 0;
 			order: 1;
@@ -448,7 +451,7 @@ a::selection {
 			&-text {
 				@include color($bright-white, 1);
 				display: flex;
-				font-size: 1rem;
+				font-size: 0.75rem;
 				font-weight: 700;
 			}
 		}
@@ -547,17 +550,29 @@ a::selection {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: 4rem;
+		gap: 3rem;
 		justify-content: flex-start;
 	}
 }
 
-.about {
+.about,
+.hello {
 	align-items: flex-start;
-	@include background-color($dim-white, 1);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+
+	.selfie {
+		display: block;
+		margin: 0;
+		padding: 0;
+		width: 40%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
 
 	.content-wrapper {
 		align-items: flex-start;
@@ -569,10 +584,33 @@ a::selection {
 
 	p {
 		margin: 0;
-		width: 66%;
 	}
 }
 
+.about {
+	@include background-color($dim-white, 1);
+
+	.h2 {
+		writing-mode: tb-rl;
+		transform: rotate(-180deg);
+	}
+
+	.section-inner {
+		flex-direction: row;
+	}
+
+	.content-wrapper {
+		width: 40%;
+	}
+}
+
+.hello {
+	@include background-color($emo-blue, 1);
+
+	.content-wrapper {
+		width: 60%;
+	}
+}
 
 
 //***********************************************************//
