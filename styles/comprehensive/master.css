@@ -382,7 +382,8 @@ img,
 .h5--xx-large,
 .h6--xx-large,
 .p--xx-large,
-.link--xx-large {
+.link--xx-large,
+.label--xx-large {
   font-size: 5rem;
 }
 .h1--x-large,
@@ -392,7 +393,8 @@ img,
 .h5--x-large,
 .h6--x-large,
 .p--x-large,
-.link--x-large {
+.link--x-large,
+.label--x-large {
   font-size: 4rem;
 }
 .h1--large,
@@ -402,7 +404,8 @@ img,
 .h5--large,
 .h6--large,
 .p--large,
-.link--large {
+.link--large,
+.label--large {
   font-size: 3rem;
 }
 .h1--medium,
@@ -412,7 +415,8 @@ img,
 .h5--medium,
 .h6--medium,
 .p--medium,
-.link--medium {
+.link--medium,
+.label--medium {
   font-size: 2rem;
 }
 .h1--small,
@@ -422,7 +426,8 @@ img,
 .h5--small,
 .h6--small,
 .p--small,
-.link--small {
+.link--small,
+.label--small {
   font-size: 1.5rem;
 }
 .h1--x-small,
@@ -432,7 +437,8 @@ img,
 .h5--x-small,
 .h6--x-small,
 .p--x-small,
-.link--x-small {
+.link--x-small,
+.label--x-small {
   font-size: 1.25rem;
 }
 .h1--xx-small,
@@ -442,7 +448,8 @@ img,
 .h5--xx-small,
 .h6--xx-small,
 .p--xx-small,
-.link--xx-small {
+.link--xx-small,
+.label--xx-small {
   font-size: 1rem;
 }
 .h1--xxx-small,
@@ -452,8 +459,108 @@ img,
 .h5--xxx-small,
 .h6--xxx-small,
 .p--xxx-small,
-.link--xxx-small {
+.link--xxx-small,
+.label--xxx-small {
   font-size: 0.75rem;
+}
+.h1--weight-100,
+.h2--weight-100,
+.h3--weight-100,
+.h4--weight-100,
+.h5--weight-100,
+.h6--weight-100,
+.p--weight-100,
+.link--weight-100,
+.label--weight-100 {
+  font-weight: 100;
+}
+.h1--weight-200,
+.h2--weight-200,
+.h3--weight-200,
+.h4--weight-200,
+.h5--weight-200,
+.h6--weight-200,
+.p--weight-200,
+.link--weight-200,
+.label--weight-200 {
+  font-weight: 200;
+}
+.h1--weight-300,
+.h2--weight-300,
+.h3--weight-300,
+.h4--weight-300,
+.h5--weight-300,
+.h6--weight-300,
+.p--weight-300,
+.link--weight-300,
+.label--weight-300 {
+  font-weight: 300;
+}
+.h1--weight-400,
+.h2--weight-400,
+.h3--weight-400,
+.h4--weight-400,
+.h5--weight-400,
+.h6--weight-400,
+.p--weight-400,
+.link--weight-400,
+.label--weight-400 {
+  font-weight: 400;
+}
+.h1--weight-500,
+.h2--weight-500,
+.h3--weight-500,
+.h4--weight-500,
+.h5--weight-500,
+.h6--weight-500,
+.p--weight-500,
+.link--weight-500,
+.label--weight-500 {
+  font-weight: 500;
+}
+.h1--weight-600,
+.h2--weight-600,
+.h3--weight-600,
+.h4--weight-600,
+.h5--weight-600,
+.h6--weight-600,
+.p--weight-600,
+.link--weight-600,
+.label--weight-600 {
+  font-weight: 600;
+}
+.h1--weight-700,
+.h2--weight-700,
+.h3--weight-700,
+.h4--weight-700,
+.h5--weight-700,
+.h6--weight-700,
+.p--weight-700,
+.link--weight-700,
+.label--weight-700 {
+  font-weight: 700;
+}
+.h1--weight-800,
+.h2--weight-800,
+.h3--weight-800,
+.h4--weight-800,
+.h5--weight-800,
+.h6--weight-800,
+.p--weight-800,
+.link--weight-800,
+.label--weight-800 {
+  font-weight: 800;
+}
+.h1--weight-900,
+.h2--weight-900,
+.h3--weight-900,
+.h4--weight-900,
+.h5--weight-900,
+.h6--weight-900,
+.p--weight-900,
+.link--weight-900,
+.label--weight-900 {
+  font-weight: 900;
 }
 .h1--lower,
 .h2--lower,
@@ -462,7 +569,8 @@ img,
 .h5--lower,
 .h6--lower,
 .p--lower,
-.link--lower {
+.link--lower,
+.label--lower {
   text-transform: lowercase;
 }
 .h1--upper,
@@ -472,7 +580,8 @@ img,
 .h5--upper,
 .h6--upper,
 .p--upper,
-.link--upper {
+.link--upper,
+.label--upper {
   text-transform: capitalize;
 }
 .h1--light,
@@ -482,7 +591,8 @@ img,
 .h5--light,
 .h6--light,
 .p--light,
-.link--light {
+.link--light,
+.label--light {
   color: #FDFCFC;
   /* The Fallback */
   color: #fdfcfc;
@@ -494,7 +604,8 @@ img,
 .h5--dark,
 .h6--dark,
 .p--dark,
-.link--dark {
+.link--dark,
+.label--dark {
   color: #010101;
   /* The Fallback */
   color: #010101;
@@ -506,7 +617,8 @@ img,
 .h5--decorative,
 .h6--decorative,
 .p--decorative,
-.link--decorative {
+.link--decorative,
+.label--decorative {
   color: #4F505E;
   /* The Fallback */
   color: #4f505e;
@@ -534,23 +646,22 @@ img,
 }
 
 .link {
-  font-weight: 700;
   letter-spacing: 0.05em;
   text-decoration: none;
 }
-.link-external {
+.link--arrow {
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
 }
-.link-external-arrow-icon {
+.link--arrow-arrow-icon {
   display: flex;
   height: 1em;
   position: relative;
   width: 3.25rem;
 }
-.link-external-arrow-icon-head-top {
+.link--arrow-arrow-icon-head-top {
   background-color: #010101;
   /* The Fallback */
   background-color: #010101;
@@ -563,7 +674,7 @@ img,
   transform: rotate(40deg);
   width: 0.25rem;
 }
-.link-external-arrow-icon-head-btm {
+.link--arrow-arrow-icon-head-btm {
   background-color: #010101;
   /* The Fallback */
   background-color: #010101;
@@ -576,7 +687,7 @@ img,
   transform: rotate(-40deg);
   width: 0.25rem;
 }
-.link-external-arrow-icon-tail {
+.link--arrow-arrow-icon-tail {
   background-color: #010101;
   /* The Fallback */
   background-color: #010101;

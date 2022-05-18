@@ -96,7 +96,8 @@ a::selection {
 .h5,
 .h6,
 .p,
-.link {
+.link,
+.label {
 
 	//sizing
 	&--xx-large {
@@ -122,6 +123,35 @@ a::selection {
 	}
 	&--xxx-small {
 		font-size: 0.75rem;
+	}
+
+	// weight
+	&--weight-100 {
+		font-weight: 100;
+	}
+	&--weight-200 {
+		font-weight: 200;
+	}
+	&--weight-300 {
+		font-weight: 300;
+	}
+	&--weight-400 {
+		font-weight: 400;
+	}
+	&--weight-500 {
+		font-weight: 500;
+	}
+	&--weight-600 {
+		font-weight: 600;
+	}
+	&--weight-700 {
+		font-weight: 700;
+	}
+	&--weight-800 {
+		font-weight: 800;
+	}
+	&--weight-900 {
+		font-weight: 900;
 	}
 
 	// case
@@ -169,11 +199,10 @@ a::selection {
 }
 
 .link {
-	font-weight: 700;
 	letter-spacing: 0.05em;
 	text-decoration: none;
 
-	&-external {
+	&--arrow {
 		display: flex;
 		justify-content: center;
 		margin: 0;
