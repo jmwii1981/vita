@@ -765,39 +765,87 @@ img,
   align-items: flex-start;
 }
 .footer-inner {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.footer-inner-col {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  gap: 3rem;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 744px) {
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+.footer-inner-col {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .footer-inner-col-left {
-  align-items: flex-start;
+  flex-direction: column;
   gap: 2.75rem;
 }
+@media only screen and (min-width: 744px) {
+  .footer-inner-col-left {
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: auto;
+  }
+}
 .footer-inner-col-right {
-  align-items: flex-end;
-  gap: 2.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media only screen and (min-width: 744px) {
+  .footer-inner-col-right {
+    align-items: flex-end;
+    gap: 2.25rem;
+    justify-content: flex-end;
+    width: auto;
+  }
 }
 .footer-nav-list {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.6em;
   list-style: none;
   margin: 0;
+  margin-right: 0.35rem;
   order: 1;
   overflow: hidden;
   padding: 0;
 }
+@media only screen and (min-width: 744px) {
+  .footer-nav-list {
+    align-items: flex-start;
+  }
+}
 .footer-social-list {
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
+  margin: 0 auto;
+  max-width: 18rem;
+  padding: 0;
+}
+@media only screen and (min-width: 400px) {
+  .footer-social-list {
+    max-width: none;
+  }
+}
+@media only screen and (min-width: 744px) {
+  .footer-social-list {
+    gap: 0.5em;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding-left: 5rem;
+  }
 }
 .footer-social-list-item {
   display: flex;
@@ -818,11 +866,17 @@ img,
 .footer-disclaimers {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .footer-disclaimers .p {
   margin: 0;
-  text-align: right;
+  text-align: center;
   width: 100%;
+}
+@media only screen and (min-width: 744px) {
+  .footer-disclaimers .p {
+    text-align: right;
+  }
 }
 
 .header,
@@ -868,12 +922,19 @@ img,
 }
 .header-logo-link,
 .footer-logo-link {
+  align-items: center;
   display: flex;
   height: 5rem;
   flex-direction: column;
   gap: 0.25em;
   justify-content: space-between;
   width: 100%;
+}
+@media only screen and (min-width: 744px) {
+  .header-logo-link,
+.footer-logo-link {
+    align-items: flex-start;
+  }
 }
 .header-logo-link-mark,
 .footer-logo-link-mark {
@@ -883,9 +944,16 @@ img,
   gap: 12%;
   height: 3.2rem;
   justify-content: center;
+  margin-right: 0.25rem;
   pointer-events: none;
   position: relative;
   width: 3rem;
+}
+@media only screen and (min-width: 744px) {
+  .header-logo-link-mark,
+.footer-logo-link-mark {
+    margin-right: 0;
+  }
 }
 .header-logo-link-mark-line,
 .footer-logo-link-mark-line {
@@ -1014,7 +1082,19 @@ img,
   display: block;
   margin: 0;
   padding: 0;
-  width: 40%;
+  width: 100%;
+}
+@media only screen and (min-width: 744px) {
+  .about .selfie,
+.hello .selfie {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .about .selfie,
+.hello .selfie {
+    width: 44%;
+  }
 }
 .about .selfie img,
 .hello .selfie img {
@@ -1039,15 +1119,34 @@ img,
   /* The Fallback */
   background-color: #f9fafa;
 }
-.about .h2 {
-  writing-mode: tb-rl;
-  transform: rotate(-180deg);
+@media only screen and (min-width: 950px) {
+  .about .h2 {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+  }
 }
 .about .section-inner {
-  flex-direction: row;
+  flex-direction: column;
 }
-.about .content-wrapper {
-  width: 40%;
+@media only screen and (min-width: 950px) {
+  .about .section-inner {
+    flex-direction: row;
+  }
+}
+.about .layout-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+@media only screen and (min-width: 744px) {
+  .about .layout-wrapper {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 744px) {
+  .about .content-wrapper {
+    width: 40%;
+  }
 }
 
 .hello {
@@ -1056,7 +1155,7 @@ img,
   background-color: #d1dce7;
 }
 .hello .content-wrapper {
-  width: 60%;
+  max-width: 600px;
 }
 
 /*# sourceMappingURL=master.css.map */
