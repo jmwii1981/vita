@@ -916,8 +916,12 @@ img,
 
 .header {
   align-items: flex-end;
-  height: 100vh;
-  min-height: 450px;
+  height: 450px;
+}
+@media only screen and (min-width: 750px) {
+  .header {
+    height: 100vh;
+  }
 }
 .header-inner {
   align-items: flex-end;
