@@ -631,6 +631,7 @@ a::selection {
 				display: flex;
 				height: 100%;
 				justify-content: flex-end;
+				overflow: hidden;
 				padding-top: 0.15rem;
 
 				.arrow {

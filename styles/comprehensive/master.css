@@ -1188,6 +1188,7 @@ img,
   display: flex;
   height: 100%;
   justify-content: flex-end;
+  overflow: hidden;
   padding-top: 0.15rem;
 }
 .header-nav-toggle-arrow-icon .arrow,
