@@ -1363,7 +1363,7 @@ img,
 }
 @media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
   .header {
-    min-height: 400px;
+    height: 400px;
   }
 }
 
