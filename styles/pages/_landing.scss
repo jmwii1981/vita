@@ -860,13 +860,13 @@ a::selection {
 // MOBILE - PORTRAIT //
 @media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
 	.header {
-		height: 650px;
+		height: 700px;
 	}
 }
 // MOBILE - LANDSCAPE //
 @media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
 	.header {
-		min-height: 430px;
+		min-height: 400px;
 	}
 }
 
