@@ -1192,12 +1192,14 @@ img,
   height: 100%;
   justify-content: flex-end;
   overflow: hidden;
-  padding-top: 0.15rem;
+  padding-top: 0.175rem;
+  padding-left: 0.3rem;
+  width: 2.25rem;
 }
 .header-nav-toggle-arrow-icon .arrow,
 .footer-nav-toggle-arrow-icon .arrow {
   display: flex;
-  width: 75%;
+  width: 100%;
 }
 .header-nav-item,
 .footer-nav-item {
