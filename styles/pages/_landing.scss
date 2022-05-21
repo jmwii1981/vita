@@ -34,7 +34,7 @@
 .html {
 	display: flex;
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-	font-size: 100%;
+	font-size: calc(20px + 13 * ((30vw - 500px) / 680));
 	-webkit-font-smoothing: antialiased;
 	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
@@ -43,6 +43,14 @@
 	text-size-adjust: 100%;
 	width: 100%;
 	z-index: 0;
+
+	@media only screen and (min-width: 1100px) {
+		font-size: calc(16px + 6 * ((39vw - 320px) / 680));
+	}
+
+	@media only screen and (min-width: 2000px) {
+		font-size: 20px;
+	}
 }
 
 .body {
@@ -51,6 +59,7 @@
 	-webkit-appearance: none;
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 	overflow-x: hidden;
 	position: relative;
 	width: 100%;
@@ -98,8 +107,56 @@ a::selection {
 .p,
 .link,
 .label {
+	letter-spacing: 0.025rem;
 
-	//sizing
+	// top/bottom margin
+	&--margin-large {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+	&--margin-medium {
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+	}
+	&--margin-small {
+		margin-top: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+	&--margin-x-small { // experimental
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	&--margin-xx-small { // experimental
+		margin-top: 0.125rem;
+		margin-bottom: 0.125rem;
+	}
+	&--margin-xxx-small { // experimental
+		margin-top: 0rem;
+		margin-bottom: 0rem;
+	}
+
+	// line-height
+	&--line-height-large {
+		line-height: 210%;
+	}
+	&--line-height-medium {
+		line-height: 173%;
+	}
+	&--line-height-small { // experimental
+		line-height: 136%;
+	}
+	&--line-height-x-small { // experimental
+		line-height: 99%;
+	}
+	&--line-height-xx-small { // experimental
+		line-height: 62%;
+	}
+	&--line-height-xxx-small { // experimental
+		line-height: 25%;
+	}
+
+
+	// sizing
 	&--xx-large {
 		font-size: 5rem;
 	}
@@ -186,20 +243,8 @@ a::selection {
 	padding: 0;
 }
 
-// body copy
-.p { // this is right for smallest mobile; change in a media query
-	flex-grow: 0;
-	letter-spacing: -2.35%;
-	line-height: 145%;
-	margin: 0.67em 0em;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
+// links
 .link {
-	letter-spacing: 0.05em;
 	text-decoration: none;
 
 	&--arrow {
@@ -213,7 +258,7 @@ a::selection {
 		}
 		&-arrow-icon {
 			display: flex;
-			height: 1em;
+			height: 1rrem;
 			position: relative;
 			width: 3.25rem;
 
@@ -265,6 +310,30 @@ a::selection {
 	width: 100%;
 }
 
+.h2-tag-line,
+.header-inner,
+.section-inner,
+.footer-inner {
+	width: calc(100% - 2rem);
+
+	@media only screen and (min-width: 750px) {
+		max-width: 100rem;
+		width: calc(100% - 12rem);
+	}
+}
+
+.h2-tag-line {
+	max-width: 18rem;
+
+	@media only screen and (min-width: 400px) {
+		max-width: 20rem;
+	}
+
+	@media only screen and (min-width: 750px) {
+		max-width: 44rem;
+	}
+}
+
 .header,
 .section,
 .footer {
@@ -272,10 +341,8 @@ a::selection {
 
 	&-inner {
 		margin: 0 auto;
-		max-width: 60rem;
 		padding-top: 7.5rem;
 		padding-bottom: 5.5rem;
-		width: calc(100% - 2em);
 	}
 }
 
@@ -294,16 +361,16 @@ a::selection {
 		align-items: flex-end;
 		display: flex;
 		order: 2;
-		height: 6em;
+		height: 6rem;
 		flex-direction: row;
 		justify-content: space-between;
 		margin: 0 auto;
 		padding: 0;
-		padding-bottom: 2em;
+		padding-bottom: 2rem;
 		position: absolute;
 			bottom: 0;
-			left: 1em;
-			right: 1em;
+			left: 1rem;
+			right: 1rem;
 	}
 
 	&-nav {
@@ -311,7 +378,7 @@ a::selection {
 		&-list {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5em;
+			gap: 0.5rem;
 			height: 0rem;
 			list-style: none;
 			margin: 0;
@@ -319,11 +386,11 @@ a::selection {
 			overflow: hidden;
 			padding: 0;
 
-			// MOBILE //
-			@media only screen and (min-width: 744px) {
+			 //
+			@media only screen and (min-width: 750px) {
 				flex-direction: row;
 				height: auto;
-				gap: 1em;
+				gap: 1rem;
 			}
 		}
 	}
@@ -339,7 +406,7 @@ a::selection {
 		gap: 3rem;
 		justify-content: space-between;
 
-		@media only screen and (min-width: 744px) {
+		@media only screen and (min-width: 750px) {
 			align-items: flex-start;
 			flex-direction: row;
 			gap: 0;
@@ -356,7 +423,7 @@ a::selection {
 				flex-direction: column;
 				gap: 2.75rem;
 
-				@media only screen and (min-width: 744px) {
+				@media only screen and (min-width: 750px) {
 					align-items: flex-start;
 					justify-content: flex-end;
 					width: auto;
@@ -366,7 +433,7 @@ a::selection {
 				flex-direction: column;
 				gap: 0.5rem;
 
-				@media only screen and (min-width: 744px) {
+				@media only screen and (min-width: 750px) {
 					align-items: flex-end;
 					gap: 2.25rem;
 					justify-content: flex-end;
@@ -382,7 +449,7 @@ a::selection {
 			align-items: center;
 			display: flex;
 			flex-direction: column;
-			gap: 0.6em;
+			gap: 0.6rem;
 			list-style: none;
 			margin: 0;
 			margin-right: 0.35rem;
@@ -391,7 +458,7 @@ a::selection {
 			padding: 0;
 
 
-			@media only screen and (min-width: 744px) {
+			@media only screen and (min-width: 750px) {
 				align-items: flex-start;
 			}
 		}
@@ -413,8 +480,8 @@ a::selection {
 				max-width: none;
 			}
 
-			@media only screen and (min-width: 744px) {
-				gap: 0.5em;
+			@media only screen and (min-width: 750px) {
+				gap: 0.5rem;
 				justify-content: space-between;
 				margin: 1rem 0;
 				padding-left: 5rem;
@@ -450,7 +517,7 @@ a::selection {
 			text-align: center;
 			width: 100%;
 
-			@media only screen and (min-width: 744px) {
+			@media only screen and (min-width: 750px) {
 				text-align: right;
 			}
 		}
@@ -467,22 +534,25 @@ a::selection {
 	width: 100%;
 
 	.h2-tag-line {
-		@include color($bright-white, 1);
 		order: 1;
-		line-height: 105%;
-		margin: auto;
-		max-width: calc(100% - 1em);
-		text-align: center;
+		margin: auto auto auto 1rem;
+
+		text-align: left;
+
+		@media only screen and (min-width: 750px) {
+			margin: auto;
+			text-align: center;
+		}
 	}
 
 	&-logo {
 		display: flex;
 		flex-direction: column;
-		gap: 1em;
+		gap: 1rem;
 		height: 4.75rem;
 		margin: 0;
 		pointer-events: all;
-		width: 3.875em;
+		width: 3.875rem;
 
 		&:hover,
 		&:focus {
@@ -493,17 +563,13 @@ a::selection {
 		}
 
 		&-link {
-			align-items: center;
+			align-items: flex-start;
 			display: flex;
 			height: 5rem;
 			flex-direction: column;
-			gap: 0.25em;
+			gap: 0.25rem;
 			justify-content: space-between;
 			width: 100%;
-
-			@media only screen and (min-width: 744px) {
-				align-items: flex-start;
-			}
 
 			&-mark {
 				align-items: flex-end;
@@ -517,13 +583,13 @@ a::selection {
 				position: relative;
 				width: 3rem;
 
-				@media only screen and (min-width: 744px) {
+				@media only screen and (min-width: 750px) {
 					margin-right: 0;
 				}
 
 				&-line {
 					@include background-color($bright-white, 1);
-					border-radius: 3em;
+					border-radius: 3rem;
 					display: block;
 					height: 100%;
 					pointer-events: none;
@@ -535,20 +601,13 @@ a::selection {
 					}
 				}
 			}
-
-			&-text {
-				@include color($bright-white, 1);
-				display: flex;
-				font-size: 0.75rem;
-				font-weight: 700;
-			}
 		}
 	}
 
 	&-nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5em;
+		gap: 0.5rem;
 
 		&-toggle {
 			appearance: none;
@@ -559,8 +618,8 @@ a::selection {
 			order: 2;
 			padding: 0;
 
-			// MOBILE //
-			@media only screen and (min-width: 744px) {
+			 //
+			@media only screen and (min-width: 750px) {
 				display: none;
 			}
 
@@ -570,7 +629,7 @@ a::selection {
 
 			&-arrow-icon {
 				display: flex;
-				height: 1em;
+				height: 1rem;
 				position: relative;
 				width: 3.25rem;
 
@@ -618,6 +677,15 @@ a::selection {
 	}
 }
 
+.footer {
+	&-logo-link {
+		align-items: center;
+
+		@media only screen and (min-width: 750px) {
+			align-items: flex-start;
+		}
+	}
+}
 
 //***********************************************************//
 //**                      ARTICLES                         **//
@@ -638,7 +706,7 @@ a::selection {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 2.5rem;
 		justify-content: flex-start;
 	}
 }
@@ -650,36 +718,11 @@ a::selection {
 	flex-direction: column;
 	justify-content: flex-start;
 
-	.selfie {
-		display: block;
-		margin: 0;
-		padding: 0;
-		width: 100%;
-
-		@media only screen and (min-width: 744px) {
-			width: 50%;
-		}
-
-		@media only screen and (min-width: 950px) {
-			width: 44%;
-		}
-
-		img {
-			display: block;
-			width: 100%;
-		}
-	}
-
 	.content-wrapper {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
 		justify-content: flex-start;
-	}
-
-	p {
-		margin: 0;
 	}
 }
 
@@ -687,38 +730,109 @@ a::selection {
 	@include background-color($dim-white, 1);
 
 	.h2 {
+		text-align: center;
 
 		@media only screen and (min-width: 950px) {
+			text-align: left;
 			writing-mode: tb-rl;
 			transform: rotate(-180deg);
 		}
 	}
 
 	.section-inner {
+		align-items: center;
 		flex-direction: column;
+		gap: 4rem;
+
+		@media only screen and (min-width: 750px) {
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
 
 		@media only screen and (min-width: 950px) {
 			flex-direction: row;
+			gap: 2rem;
 		}
 	}
 
 	.layout-wrapper {
 		display: flex;
-		gap: 2rem;
 		flex-direction: column;
 
-
-		@media only screen and (min-width: 744px) {
-			flex-direction: row;
+		@media only screen and (min-width: 750px) {
+			gap: 1rem;
 		}
 	}
 
 	.content-wrapper {
+		align-items: center;
+		flex-direction: column;
+		gap: 3rem;
 
-		@media only screen and (min-width: 744px) {
+		@media only screen and (min-width: 750px) {
+			flex-direction: row;
+			max-width: 40rem;
+		}
+
+		&--break {
+			align-items: flex-start;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+
+			@media only screen and (min-width: 750px) {
+				max-width: 36rem;
+				width: 34rem;
+			}
+		}
+	}
+
+	.selfie {
+		border-radius: 100%;
+		height: 75vw;
+		max-height: 22rem;
+		margin: 0;
+		max-width: 22rem;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		width: 75vw;
+
+		@media only screen and (min-width: 750px) {
+			align-self: stretch;
+			display: flex;
+			border-radius: 0%;
+			max-width: 17rem;
 			width: 40%;
 		}
 
+		// @media only screen and (min-width: 950px) {
+		// 	width: 46%;
+		// }
+
+		img {
+			display: block;
+			margin: 0 auto;
+			position: absolute;
+				top: 0%;
+				left: -30%;
+			width: 161%;
+
+			@media only screen and (min-width: 750px) {
+				object-fit: cover;
+				position: static;
+				width: 100%;
+			}
+		}
+	}
+
+	.p--decorative {
+
+		@media only screen and (min-width: 750px) {
+			max-width: 20rem;
+			width: 60%;
+		}
 	}
 }
 
@@ -726,7 +840,9 @@ a::selection {
 	@include background-color($emo-blue, 1);
 
 	.content-wrapper {
-		max-width: 600px;
+		@media only screen and (min-width: 750px) {
+			max-width: 600px;
+		}
 	}
 }
 
