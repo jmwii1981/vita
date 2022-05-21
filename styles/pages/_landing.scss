@@ -59,7 +59,7 @@
 	-webkit-appearance: none;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	overflow-x: hidden;
 	position: relative;
 	width: 100%;
@@ -354,7 +354,6 @@ a::selection {
 
 .header {
 	align-items: flex-end;
-	min-height: 480px;
 	height: 100vh;
 
 	&-inner {
@@ -886,11 +885,15 @@ a::selection {
 
 // MOBILE - PORTRAIT //
 @media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
-	// Silence is golden.
+	.header {
+		height: 600px;
+	}
 }
 // MOBILE - LANDSCAPE //
 @media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
-	// Silence is golden.
+	.header {
+		min-height: 480px;
+	}
 }
 
 
