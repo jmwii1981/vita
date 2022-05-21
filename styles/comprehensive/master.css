@@ -916,11 +916,27 @@ img,
 
 .header {
   align-items: flex-end;
-  height: 675px;
+  min-height: 550px;
+  height: 100vh;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (orientation: portrait) and (max-height: 812px) {
   .header {
-    height: 100vh;
+    min-height: 812px;
+  }
+}
+@media only screen and (orientation: portrait) and (max-height: 736px) {
+  .header {
+    min-height: 736px;
+  }
+}
+@media only screen and (orientation: portrait) and (max-height: 667px) {
+  .header {
+    min-height: 667px;
+  }
+}
+@media only screen and (orientation: portrait) and (max-height: 568px) {
+  .header {
+    min-height: 568px;
   }
 }
 .header-inner {
@@ -1367,19 +1383,6 @@ img,
 @media only screen and (min-width: 750px) {
   .hello .content-wrapper {
     max-width: 600px;
-  }
-}
-
-@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
-  .header {
-    height: 675px;
-    min-height: none;
-  }
-}
-@media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
-  .header {
-    height: 400px;
-    min-height: none;
   }
 }
 
