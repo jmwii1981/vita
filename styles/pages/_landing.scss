@@ -360,6 +360,7 @@ a::selection {
 .header {
 	align-items: flex-end;
 	height: 100vh;
+	min-height: 450px;
 
 	&-inner {
 		align-items: flex-end;
@@ -540,11 +541,12 @@ a::selection {
 	.h2-tag-line {
 		order: 1;
 		margin: auto auto auto 1rem;
-
+		padding-bottom: 6rem;
 		text-align: left;
 
 		@media only screen and (min-width: 750px) {
 			margin: auto;
+			padding-bottom: 3rem;
 			text-align: center;
 		}
 	}
@@ -861,12 +863,14 @@ a::selection {
 @media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
 	.header {
 		height: 700px;
+		min-height: none;
 	}
 }
 // MOBILE - LANDSCAPE //
 @media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
 	.header {
 		height: 400px;
+		min-height: none;
 	}
 }
 
