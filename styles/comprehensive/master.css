@@ -1192,13 +1192,18 @@ img,
   height: 100%;
   justify-content: flex-end;
   overflow: hidden;
-  padding-top: 0.175rem;
   padding-left: 0.3rem;
   width: 2.25rem;
 }
 .header-nav-toggle-arrow-icon .arrow,
 .footer-nav-toggle-arrow-icon .arrow {
-  display: flex;
+  display: block;
+  margin-top: 0.1rem;
+  width: 100%;
+}
+.header-nav-toggle-arrow-icon .arrow path,
+.footer-nav-toggle-arrow-icon .arrow path {
+  height: 0.65rem;
   width: 100%;
 }
 .header-nav-item,
