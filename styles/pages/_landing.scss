@@ -359,7 +359,7 @@ a::selection {
 
 .header {
 	align-items: flex-end;
-	height: 700px;
+	height: 675px;
 
 	@media only screen and (min-width: 750px) {
 		height: 100vh;
@@ -872,7 +872,7 @@ a::selection {
 // MOBILE - PORTRAIT //
 @media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
 	.header {
-		height: 700px;
+		height: 675px;
 		min-height: none;
 	}
 }
