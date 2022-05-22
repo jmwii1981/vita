@@ -825,6 +825,7 @@ img,
 }
 
 .button {
+  align-items: center;
   appearance: none;
   border: solid 0.125rem #010101;
   border-radius: 3rem;
@@ -833,8 +834,12 @@ img,
   background-color: #fdfcfc;
   display: flex;
   padding: 0.8rem 2.1rem;
+  justify-content: flex-start;
   margin-top: 2rem;
   text-decoration: none;
+}
+.button .label {
+  display: flex;
 }
 
 .label + .label {
@@ -1131,7 +1136,7 @@ img,
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 4.75rem;
+  height: 5rem;
   margin: 0;
   pointer-events: all;
   width: 3.875rem;
@@ -1194,10 +1199,10 @@ img,
 .footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 .header-nav-toggle,
 .footer-nav-toggle {
+  align-items: center;
   appearance: none;
   background-color: #010101;
   /* The Fallback */
@@ -1213,6 +1218,10 @@ img,
 .footer-nav-toggle {
     display: none;
   }
+}
+.header-nav-toggle .label,
+.footer-nav-toggle .label {
+  display: flex;
 }
 .header-nav-item,
 .footer-nav-item {

@@ -264,14 +264,20 @@ a::selection {
 
 // buttons
 .button {
+	align-items: center;
 	appearance: none;
 	border: solid 0.125rem $black;
 	border-radius: 3rem;
 	@include background-color($bright-white, 1);
 	display: flex;
 	padding: 0.8rem 2.1rem;
+	justify-content: flex-start;
 	margin-top: 2rem;
 	text-decoration: none;
+
+	.label {
+		display: flex;
+	}
 }
 
 // neighboring labels
@@ -570,7 +576,7 @@ a::selection {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-		height: 4.75rem;
+		height: 5rem;
 		margin: 0;
 		pointer-events: all;
 		width: 3.875rem;
@@ -628,9 +634,9 @@ a::selection {
 	&-nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
 
 		&-toggle {
+			align-items: center;
 			appearance: none;
 			@include background-color($black, 0);
 			border: 0;
@@ -641,6 +647,10 @@ a::selection {
 
 			@media only screen and (min-width: 750px) {
 				display: none;
+			}
+
+			.label {
+				display: flex;
 			}
 		}
 
