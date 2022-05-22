@@ -942,6 +942,11 @@ img,
   align-items: flex-end;
   height: 100vh;
 }
+@media only screen and (hover: hover) {
+  .header {
+    min-height: 100vh;
+  }
+}
 .header-inner {
   align-items: flex-end;
   display: flex;

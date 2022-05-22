@@ -3,21 +3,21 @@ FullHeight = {
 	settings: {
 		window: $(window)
 	},
-	getWindowHeight: function() {
+	makeFullScreen: function() {
 		$('.header').css({'height': $(window).height()*1});
 	},
 	onOrientationChange: function() {
 		$(window).on('orientationchange', function() {
-			fullHeight.getWindowHeight;
+			fullHeight.makeFullScreen;
 		});
 	},
 	onResize: function() {
 		$(window).on('resize', function() {
-			fullHeight.getWindowHeight;
+			fullHeight.makeFullScreen;
 		});
 	},
 	bindUIActions: function() {
-		FullHeight.getWindowHeight();
+		FullHeight.makeFullScreen();
 		FullHeight.onOrientationChange();
 		FullHeight.onResize();
 	},

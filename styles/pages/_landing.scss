@@ -376,8 +376,11 @@ a::selection {
 
 .header {
 	align-items: flex-end;
-	// min-height: 414px;
 	height: 100vh;
+
+	@media only screen and (hover: hover) {
+		min-height: 100vh;
+	}
 
 	&-inner {
 		align-items: flex-end;
