@@ -34,7 +34,7 @@
 .html {
 	display: flex;
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-	font-size: calc(24px + 13 * ((30vw - 500px) / 680));
+	font-size: calc(19px + 13 * ((30vw - 500px) / 680));
 	-webkit-font-smoothing: antialiased;
 	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
@@ -43,6 +43,18 @@
 	text-size-adjust: 100%;
 	width: 100%;
 	z-index: 0;
+
+	@media only screen and (orientation: portrait) {
+		font-size: calc(19px + 13 * ((30vw - 500px) / 680));
+	}
+
+	@media only screen and (min-width: 390px) and (orientation: portrait) {
+		font-size: calc(24px + 13 * ((30vw - 500px) / 680));
+	}
+
+	@media only screen and (min-width: 1100px) {
+		font-size: calc(16px + 6 * ((39vw - 320px) / 680));
+	}
 
 	@media only screen and (min-width: 1100px) {
 		font-size: calc(16px + 6 * ((39vw - 320px) / 680));
@@ -320,6 +332,11 @@ a::selection {
 
 	@media only screen and (min-width: 750px) {
 		max-width: 100rem;
+		width: calc(100% - 4rem);
+	}
+
+	@media only screen and (min-width: 1100px) {
+		max-width: 100rem;
 		width: calc(100% - 12rem);
 	}
 }
@@ -359,7 +376,7 @@ a::selection {
 
 .header {
 	align-items: flex-end;
-	min-height: 550px;
+	// min-height: 414px;
 	height: 100vh;
 
 	&-inner {
@@ -823,7 +840,8 @@ a::selection {
 
 	.content-wrapper {
 		@media only screen and (min-width: 750px) {
-			max-width: 600px;
+			max-width: 55rem;
+			width: 80%;
 		}
 	}
 }

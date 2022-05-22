@@ -3,16 +3,23 @@ FullHeight = {
 	settings: {
 		window: $(window)
 	},
-	onWindowLoad: function() {
-
+	getWindowHeight: function() {
 		$('.header').css({'height': $(window).height()*1});
-
-		$(window).on('orientationchange', function(event) {
-			$('.header').css({'height': $(window).width()*1});
+	},
+	onOrientationChange: function() {
+		$(window).on('orientationchange', function() {
+			fullHeight.getWindowHeight;
+		});
+	},
+	onResize: function() {
+		$(window).on('resize', function() {
+			fullHeight.getWindowHeight;
 		});
 	},
 	bindUIActions: function() {
-		FullHeight.onWindowLoad();
+		FullHeight.getWindowHeight();
+		FullHeight.onOrientationChange();
+		FullHeight.onResize();
 	},
 	init: function() {
 		fullHeight = this.settings;
