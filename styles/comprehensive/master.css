@@ -3,7 +3,7 @@
   font-family: "PT Serif Caption";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("../fonts/pt-serif-caption-v17-latin-ext_latin-regular.woff2") format("woff2"), url("../fonts/pt-serif-caption-v17-latin-ext_latin-regular.woff") format("woff");
+  src: local(""), url("../../fonts/pt-serif-caption-v17-latin-ext_latin-regular.woff2") format("woff2"), url("../../fonts/pt-serif-caption-v17-latin-ext_latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* pt-serif-caption-italic - latin-ext_latin */
@@ -11,7 +11,7 @@
   font-family: "PT Serif Caption";
   font-style: italic;
   font-weight: 400;
-  src: local(""), url("../fonts/pt-serif-caption-v17-latin-ext_latin-italic.woff2") format("woff2"), url("../fonts/pt-serif-caption-v17-latin-ext_latin-italic.woff") format("woff");
+  src: local(""), url("../../fonts/pt-serif-caption-v17-latin-ext_latin-italic.woff2") format("woff2"), url("../../fonts/pt-serif-caption-v17-latin-ext_latin-italic.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* roboto-100 - latin-ext_latin */
@@ -918,26 +918,6 @@ img,
   align-items: flex-end;
   min-height: 550px;
   height: 100vh;
-}
-@media only screen and (orientation: portrait) and (max-height: 812px) {
-  .header {
-    min-height: 812px;
-  }
-}
-@media only screen and (orientation: portrait) and (max-height: 736px) {
-  .header {
-    min-height: 736px;
-  }
-}
-@media only screen and (orientation: portrait) and (max-height: 667px) {
-  .header {
-    min-height: 667px;
-  }
-}
-@media only screen and (orientation: portrait) and (max-height: 568px) {
-  .header {
-    min-height: 568px;
-  }
 }
 .header-inner {
   align-items: flex-end;
