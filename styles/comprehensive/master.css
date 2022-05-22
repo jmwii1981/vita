@@ -409,7 +409,7 @@ img,
 .p,
 .link,
 .label {
-  letter-spacing: 0.025rem;
+  letter-spacing: 0.075rem;
 }
 .h1--margin-large,
 .h2--margin-large,
@@ -823,55 +823,56 @@ img,
 .link {
   text-decoration: none;
 }
-.link--arrow {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-.link--arrow-arrow-icon {
-  display: flex;
-  height: 1rrem;
-  position: relative;
-  width: 3.25rem;
-}
-.link--arrow-arrow-icon-head-top {
-  background-color: #010101;
-  /* The Fallback */
-  background-color: #010101;
+
+.button {
+  appearance: none;
+  border: solid 0.125rem #010101;
   border-radius: 3rem;
-  display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: calc(50% - 0.07rem);
-  right: -0.125rem;
-  transform: rotate(40deg);
-  width: 0.25rem;
-}
-.link--arrow-arrow-icon-head-btm {
-  background-color: #010101;
+  background-color: #FDFCFC;
   /* The Fallback */
-  background-color: #010101;
-  border-radius: 3rem;
+  background-color: #fdfcfc;
   display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: calc(50% + 0.07rem);
-  right: -0.125rem;
-  transform: rotate(-40deg);
-  width: 0.25rem;
+  padding: 0.8rem 2.1rem;
+  margin-top: 2rem;
+  text-decoration: none;
 }
-.link--arrow-arrow-icon-tail {
-  background-color: #010101;
+
+.label + .label {
+  margin-left: 0.25rem;
+}
+@media only screen and (orientation: portrait) {
+  .label + .label {
+    margin-left: 0.15rem;
+  }
+}
+@media only screen and (min-width: 390px) and (orientation: portrait) {
+  .label + .label {
+    margin-left: 0.55rem;
+  }
+}
+
+.arrow {
+  height: 0.7rem;
+}
+@media only screen and (orientation: portrait) {
+  .arrow {
+    margin-left: 0.15rem;
+  }
+}
+@media only screen and (min-width: 390px) and (orientation: portrait) {
+  .arrow {
+    height: 1.1rem;
+  }
+}
+.arrow--light {
+  fill: #FDFCFC;
   /* The Fallback */
-  background-color: #010101;
-  border-radius: 3rem;
-  display: flex;
-  height: 0.0625rem;
-  position: absolute;
-  top: 50%;
-  left: 0.3rem;
-  width: 3rem;
+  fill: #fdfcfc;
+}
+.arrow--dark {
+  fill: #010101;
+  /* The Fallback */
+  fill: #010101;
 }
 
 .body,
@@ -1006,7 +1007,7 @@ img,
 }
 .footer-inner-col-left {
   flex-direction: column;
-  gap: 2.75rem;
+  gap: 2.5rem;
 }
 @media only screen and (min-width: 750px) {
   .footer-inner-col-left {
@@ -1017,12 +1018,12 @@ img,
 }
 .footer-inner-col-right {
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 3rem;
 }
 @media only screen and (min-width: 750px) {
   .footer-inner-col-right {
     align-items: flex-end;
-    gap: 2.25rem;
+    gap: 2.4rem;
     justify-content: flex-end;
     width: auto;
   }
@@ -1031,7 +1032,6 @@ img,
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
   list-style: none;
   margin: 0;
   margin-right: 0.35rem;
@@ -1051,12 +1051,12 @@ img,
   justify-content: center;
   list-style: none;
   margin: 0 auto;
-  max-width: 18rem;
+  max-width: 22rem;
   padding: 0;
 }
 @media only screen and (min-width: 400px) {
   .footer-social-list {
-    max-width: none;
+    height: 2.9rem;
   }
 }
 @media only screen and (min-width: 750px) {
@@ -1064,6 +1064,7 @@ img,
     gap: 0.5rem;
     justify-content: space-between;
     margin: 1rem 0;
+    max-width: none;
     padding-left: 5rem;
   }
 }
@@ -1212,27 +1213,6 @@ img,
 .footer-nav-toggle {
     display: none;
   }
-}
-.header-nav-toggle-arrow-icon,
-.footer-nav-toggle-arrow-icon {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: flex-end;
-  overflow: hidden;
-  padding-left: 0.3rem;
-  width: 2.25rem;
-}
-.header-nav-toggle-arrow-icon .arrow,
-.footer-nav-toggle-arrow-icon .arrow {
-  display: block;
-  margin-top: 0.1rem;
-  width: 100%;
-}
-.header-nav-toggle-arrow-icon .arrow path,
-.footer-nav-toggle-arrow-icon .arrow path {
-  height: 0.65rem;
-  width: 100%;
 }
 .header-nav-item,
 .footer-nav-item {

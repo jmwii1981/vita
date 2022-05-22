@@ -52,7 +52,7 @@ LastFMAPI = {
 			trackURL = track.url,
 			trackURL = encodeURI(trackURL),
 			trackArtist = track.artist["#text"],
-			responseOutput = "Currently Vibing to <a class='link link--dark' href='" + trackURL + "' target='_blank'>\"" + trackArtist + "\"<\/a>";
+			responseOutput = "Currently Vibing to <a class='link link--upper link--xx-small link--light link--weight-500 link--line-height-medium' href='" + trackURL + "' target='_blank'>" + trackArtist + "<\/a>";
 
 			// test output
 			console.log(responseOutput);
