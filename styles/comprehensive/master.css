@@ -348,6 +348,7 @@ ul {
   text-size-adjust: 100%;
   width: 100%;
   z-index: 0;
+  height: -webkit-fill-available;
 }
 @media only screen and (orientation: portrait) {
   .html {
@@ -385,6 +386,7 @@ ul {
   position: relative;
   width: 100%;
   z-index: 1;
+  min-height: -webkit-fill-available;
 }
 
 .body * {
@@ -950,9 +952,13 @@ img,
   height: 100vh;
   /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
-  transition-property: height;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
+}
+@media only screen and (pointer: coarse) {
+  .header {
+    transition-property: height;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
 }
 .header-inner {
   align-items: flex-end;

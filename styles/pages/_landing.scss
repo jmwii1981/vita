@@ -63,6 +63,8 @@
 	@media only screen and (min-width: 2000px) {
 		font-size: 20px;
 	}
+
+	height: -webkit-fill-available;
 }
 
 .body {
@@ -75,6 +77,8 @@
 	position: relative;
 	width: 100%;
 	z-index: 1;
+
+	min-height: -webkit-fill-available;
 }
 
 .body * {
@@ -379,9 +383,12 @@ a::selection {
 	align-items: flex-end;
 	height: 100vh; /* Fallback for browsers that do not support Custom Properties */
 	height: calc(var(--vh, 1vh) * 100);
-	transition-property: height;
-	transition-duration: 0.3s;
-	transition-timing-function: ease-out;
+
+	@media only screen and (pointer: coarse) {
+		transition-property: height;
+		transition-duration: 0.3s;
+		transition-timing-function: ease-out;
+	}
 
 	&-inner {
 		align-items: flex-end;
