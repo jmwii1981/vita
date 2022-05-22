@@ -3,26 +3,23 @@ FullHeight = {
 	settings: {
 		window: $(window)
 	},
-	makeFullScreen: function() {
-		$('.header').css({'height': $(window).height()*1});
+	debounce: function(func, timeout = 300) {
+		let timer;
+		return (...args) => {
+			clearTimeout(timer);
+			timer = setTimeout(() => { func.apply(this, args); }, timeout);
+		};
 	},
-	onOrientationChange: function() {
-		$(window).on('orientationchange', function() {
-			fullHeight.makeFullScreen;
-		});
-	},
-	onResize: function() {
-		$(window).on('resize', function() {
-			fullHeight.makeFullScreen;
-		});
+	saveHeight: function() {
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	},
 	onWindowLoad: function() {
-		FullHeight.makeFullScreen();
+		const deliverHeight = FullHeight.debounce(() => FullHeight.saveHeight());
+		window.addEventListener("resize", deliverHeight);
 	},
 	bindUIActions: function() {
-		// FullHeight.onOrientationChange();
-		// FullHeight.onResize();
-		// FullHeight.onWindowLoad();
+		FullHeight.onWindowLoad();
 	},
 	init: function() {
 		fullHeight = this.settings;

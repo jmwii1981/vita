@@ -1,6 +1,6 @@
 $(document).on("DOMContentLoaded", function() {
 	'use strict';
 
-	// FullHeight.init();
+	FullHeight.init();
 	LastFMAPI.init();
 });

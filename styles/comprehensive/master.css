@@ -948,11 +948,8 @@ img,
 .header {
   align-items: flex-end;
   height: 100vh;
-}
-@media only screen and (hover: hover) {
-  .header {
-    height: 100vh;
-  }
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
 }
 .header-inner {
   align-items: flex-end;
