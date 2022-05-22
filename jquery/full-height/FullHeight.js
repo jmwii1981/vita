@@ -4,10 +4,12 @@ FullHeight = {
 		window: $(window)
 	},
 	onWindowLoad: function() {
-		// $(document).ready(function(){
 
 		$('.header').css({'height': $(window).height()*1});
-		// });
+
+		$(window).on('orientationchange', function(event) {
+			$('.header').css({'height': $(window).width()*1});
+		});
 	},
 	bindUIActions: function() {
 		FullHeight.onWindowLoad();
