@@ -912,7 +912,7 @@ img,
 }
 @media only screen and (min-width: 400px) {
   .h2-tag-line {
-    max-width: 20rem;
+    max-width: 23rem;
   }
 }
 @media only screen and (min-width: 750px) {
@@ -945,7 +945,7 @@ img,
 }
 @media only screen and (hover: hover) {
   .header {
-    min-height: 100vh;
+    height: 100vh;
   }
 }
 .header-inner {
@@ -958,7 +958,7 @@ img,
   margin: 0 auto;
   padding: 0;
   padding-bottom: 2rem;
-  position: absolute;
+  position: sticky;
   bottom: 0;
   left: 1rem;
   right: 1rem;

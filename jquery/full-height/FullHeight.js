@@ -16,10 +16,13 @@ FullHeight = {
 			fullHeight.makeFullScreen;
 		});
 	},
-	bindUIActions: function() {
+	onWindowLoad: function() {
 		FullHeight.makeFullScreen();
-		FullHeight.onOrientationChange();
-		FullHeight.onResize();
+	},
+	bindUIActions: function() {
+		// FullHeight.onOrientationChange();
+		// FullHeight.onResize();
+		// FullHeight.onWindowLoad();
 	},
 	init: function() {
 		fullHeight = this.settings;
