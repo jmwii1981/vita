@@ -338,6 +338,7 @@ ul {
 
 .html {
   display: flex;
+  height: -webkit-fill-available;
   font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
   font-size: calc(16px + 13 * ((30vw - 500px) / 680));
   -webkit-font-smoothing: antialiased;
@@ -348,7 +349,6 @@ ul {
   text-size-adjust: 100%;
   width: 100%;
   z-index: 0;
-  height: -webkit-fill-available;
 }
 @media only screen and (min-width: 320px) and (orientation: portrait) {
   .html {
@@ -362,17 +362,7 @@ ul {
 }
 @media only screen and (min-width: 1100px) {
   .html {
-    font-size: calc(16px + 6 * ((39vw - 320px) / 680));
-  }
-}
-@media only screen and (min-width: 1100px) {
-  .html {
-    font-size: calc(16px + 6 * ((39vw - 320px) / 680));
-  }
-}
-@media only screen and (min-width: 2000px) {
-  .html {
-    font-size: 20px;
+    font-size: calc(16px + 13 * ((30vw - 500px) / 680));
   }
 }
 
@@ -896,7 +886,7 @@ img,
 .footer-inner {
   width: calc(100% - 2rem);
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .h2-tag-line,
 .header-inner,
 .section-inner,
@@ -905,7 +895,7 @@ img,
     width: calc(100% - 4rem);
   }
 }
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 950px) {
   .h2-tag-line,
 .header-inner,
 .section-inner,
@@ -918,7 +908,7 @@ img,
 .h2-tag-line {
   max-width: 23rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .h2-tag-line {
     max-width: 44rem;
   }
@@ -981,7 +971,7 @@ img,
   overflow: hidden;
   padding: 0;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .header-nav-list {
     flex-direction: row;
     height: auto;
@@ -999,7 +989,7 @@ img,
   gap: 3rem;
   justify-content: space-between;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-inner {
     align-items: flex-start;
     flex-direction: row;
@@ -1016,7 +1006,7 @@ img,
   flex-direction: column;
   gap: 2.5rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-inner-col-left {
     align-items: flex-start;
     justify-content: flex-end;
@@ -1027,7 +1017,7 @@ img,
   flex-direction: column;
   gap: 3rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-inner-col-right {
     align-items: flex-end;
     gap: 2.4rem;
@@ -1046,7 +1036,7 @@ img,
   overflow: hidden;
   padding: 0;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-nav-list {
     align-items: flex-start;
   }
@@ -1061,7 +1051,7 @@ img,
   max-width: 22rem;
   padding: 0;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-social-list {
     gap: 0.5rem;
     height: 2.9rem;
@@ -1097,7 +1087,7 @@ img,
   text-align: center;
   width: 100%;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-disclaimers .p {
     text-align: right;
   }
@@ -1121,7 +1111,7 @@ img,
   padding-bottom: 6rem;
   text-align: left;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .header .h2-tag-line,
 .footer .h2-tag-line {
     margin: auto;
@@ -1171,7 +1161,7 @@ img,
   position: relative;
   width: 3rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .header-logo-link-mark,
 .footer-logo-link-mark {
     margin-right: 0;
@@ -1211,7 +1201,7 @@ img,
   order: 2;
   padding: 0;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .header-nav-toggle,
 .footer-nav-toggle {
     display: none;
@@ -1228,7 +1218,7 @@ img,
 .footer-logo-link {
   align-items: center;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .footer-logo-link {
     align-items: flex-start;
   }
@@ -1283,7 +1273,7 @@ img,
   flex-direction: column;
   gap: 4rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .about .section-inner {
     align-items: flex-start;
     gap: 1.5rem;
@@ -1299,7 +1289,7 @@ img,
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .about .layout-wrapper {
     gap: 1rem;
   }
@@ -1307,24 +1297,13 @@ img,
 .about .content-wrapper {
   align-items: center;
   flex-direction: column;
-  gap: 3rem;
+  column-gap: 0rem;
+  row-gap: 2rem;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .about .content-wrapper {
-    flex-direction: row;
-    max-width: 40rem;
-  }
-}
-.about .content-wrapper--break {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-@media only screen and (min-width: 750px) {
-  .about .content-wrapper--break {
-    max-width: 36rem;
-    width: 34rem;
+    display: block;
+    width: 100%;
   }
 }
 .about .selfie {
@@ -1339,13 +1318,15 @@ img,
   text-align: center;
   width: 75vw;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .about .selfie {
-    align-self: stretch;
-    display: flex;
     border-radius: 0%;
-    max-width: 17rem;
-    width: 40%;
+    display: block;
+    float: left;
+    height: auto;
+    max-height: none;
+    max-width: 34rem;
+    width: 47%;
   }
 }
 .about .selfie img {
@@ -1356,17 +1337,23 @@ img,
   left: -30%;
   width: 161%;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .about .selfie img {
     object-fit: cover;
     position: static;
+    top: 0;
+    left: 0;
     width: 100%;
   }
 }
-@media only screen and (min-width: 750px) {
-  .about .p--decorative {
-    max-width: 20rem;
-    width: 60%;
+@media only screen and (min-width: 790px) {
+  .about .p {
+    float: right;
+    width: 47%;
+    overflow: hidden;
+  }
+  .about .button {
+    display: inline-flex;
   }
 }
 
@@ -1375,7 +1362,7 @@ img,
   /* The Fallback */
   background-color: #d1dce7;
 }
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 790px) {
   .hello .content-wrapper {
     max-width: 55rem;
     width: 80%;
