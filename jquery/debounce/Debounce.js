@@ -3,7 +3,7 @@ Debounce = {
 	settings: {
 		window: $(window)
 	},
-	deBall: function(func, timeout = 300) {
+	deBall: function(func, timeout = 600) {
 		let timer;
 		return (...args) => {
 			clearTimeout(timer);
