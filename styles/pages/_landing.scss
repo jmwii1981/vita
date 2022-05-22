@@ -34,7 +34,7 @@
 .html {
 	display: flex;
 	font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-	font-size: calc(19px + 13 * ((30vw - 500px) / 680));
+	font-size: calc(16px + 13 * ((30vw - 500px) / 680));
 	-webkit-font-smoothing: antialiased;
 	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
@@ -44,13 +44,18 @@
 	width: 100%;
 	z-index: 0;
 
-	@media only screen and (orientation: portrait) {
-		font-size: calc(19px + 13 * ((30vw - 500px) / 680));
+	// @media only screen and (orientation: portrait) {
+	// 	font-size: calc(21px + 13 * ((30vw - 500px) / 680));
+	// }
+	@media only screen and (min-width: 320px) and (orientation: portrait) {
+		font-size: calc(21px + 13 * ((30vw - 500px) / 680));
 	}
-
-	@media only screen and (min-width: 390px) and (orientation: portrait) {
-		font-size: calc(24px + 13 * ((30vw - 500px) / 680));
+	@media only screen and (min-width: 375px) and (orientation: portrait) {
+		font-size: calc(23px + 13 * ((30vw - 500px) / 680));
 	}
+	// @media only screen and (min-width: 390px) and (orientation: portrait) {
+	// 	font-size: calc(24px + 13 * ((30vw - 500px) / 680));
+	// }
 
 	@media only screen and (min-width: 1100px) {
 		font-size: calc(16px + 6 * ((39vw - 320px) / 680));
@@ -272,7 +277,7 @@ a::selection {
 	appearance: none;
 	border: solid 0.125rem $black;
 	border-radius: 3rem;
-	@include background-color($bright-white, 1);
+	@include background-color($dim-white, 1);
 	display: flex;
 	padding: 0.8rem 2.1rem;
 	justify-content: flex-start;
@@ -351,11 +356,7 @@ a::selection {
 }
 
 .h2-tag-line {
-	max-width: 18rem;
-
-	@media only screen and (min-width: 400px) {
-		max-width: 23rem;
-	}
+	max-width: 23rem;
 
 	@media only screen and (min-width: 750px) {
 		max-width: 44rem;
@@ -512,12 +513,9 @@ a::selection {
 			max-width: 22rem;
 			padding: 0;
 
-			@media only screen and (min-width: 400px) {
-				height: 2.9rem;
-			}
-
 			@media only screen and (min-width: 750px) {
 				gap: 0.5rem;
+				height: 2.9rem;
 				justify-content: space-between;
 				margin: 1rem 0;
 				max-width: none;

@@ -339,7 +339,7 @@ ul {
 .html {
   display: flex;
   font-family: "Roboto", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-  font-size: calc(19px + 13 * ((30vw - 500px) / 680));
+  font-size: calc(16px + 13 * ((30vw - 500px) / 680));
   -webkit-font-smoothing: antialiased;
   image-rendering: -webkit-optimize-contrast;
   overflow-x: hidden;
@@ -350,14 +350,14 @@ ul {
   z-index: 0;
   height: -webkit-fill-available;
 }
-@media only screen and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (orientation: portrait) {
   .html {
-    font-size: calc(19px + 13 * ((30vw - 500px) / 680));
+    font-size: calc(21px + 13 * ((30vw - 500px) / 680));
   }
 }
-@media only screen and (min-width: 390px) and (orientation: portrait) {
+@media only screen and (min-width: 375px) and (orientation: portrait) {
   .html {
-    font-size: calc(24px + 13 * ((30vw - 500px) / 680));
+    font-size: calc(23px + 13 * ((30vw - 500px) / 680));
   }
 }
 @media only screen and (min-width: 1100px) {
@@ -831,9 +831,9 @@ img,
   appearance: none;
   border: solid 0.125rem #010101;
   border-radius: 3rem;
-  background-color: #FDFCFC;
+  background-color: #F9FAFA;
   /* The Fallback */
-  background-color: #fdfcfc;
+  background-color: #f9fafa;
   display: flex;
   padding: 0.8rem 2.1rem;
   justify-content: flex-start;
@@ -916,12 +916,7 @@ img,
 }
 
 .h2-tag-line {
-  max-width: 18rem;
-}
-@media only screen and (min-width: 400px) {
-  .h2-tag-line {
-    max-width: 23rem;
-  }
+  max-width: 23rem;
 }
 @media only screen and (min-width: 750px) {
   .h2-tag-line {
@@ -1066,14 +1061,10 @@ img,
   max-width: 22rem;
   padding: 0;
 }
-@media only screen and (min-width: 400px) {
-  .footer-social-list {
-    height: 2.9rem;
-  }
-}
 @media only screen and (min-width: 750px) {
   .footer-social-list {
     gap: 0.5rem;
+    height: 2.9rem;
     justify-content: space-between;
     margin: 1rem 0;
     max-width: none;
