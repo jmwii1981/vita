@@ -60,7 +60,6 @@ LastFMAPI = {
 			$(lastFMAPI.trackOutputContainer).html(responseOutput);
 		});
 	},
-
 	onWindowLoad: function() {
 		LastFMAPI.getUserInfo();
 		LastFMAPI.getRecentTrack();
