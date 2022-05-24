@@ -1358,9 +1358,9 @@ img,
 }
 
 .hello {
-  background-color: #D1DCE7;
+  background-color: #E9EDF3;
   /* The Fallback */
-  background-color: #d1dce7;
+  background-color: #e9edf3;
 }
 @media only screen and (min-width: 790px) {
   .hello .content-wrapper {

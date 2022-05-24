@@ -841,7 +841,7 @@ a::selection {
 }
 
 .hello {
-	@include background-color($emo-blue, 1);
+	@include background-color($bronco-gray, 1);
 
 	.content-wrapper {
 		@media only screen and (min-width: 790px) {
