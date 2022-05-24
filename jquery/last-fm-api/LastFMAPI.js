@@ -63,7 +63,7 @@ LastFMAPI = {
 
 	onWindowLoad: function() {
 		LastFMAPI.getUserInfo();
-		Debounce.deRepeat(() => LastFMAPI.getRecentTrack());
+		LastFMAPI.getRecentTrack();
 	},
 	bindUIActions: function() {
 		LastFMAPI.onWindowLoad();
