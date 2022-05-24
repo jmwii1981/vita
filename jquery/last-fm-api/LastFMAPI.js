@@ -52,23 +52,16 @@ LastFMAPI = {
 			trackURL = track.url,
 			trackURL = encodeURI(trackURL),
 			trackArtist = track.artist["#text"],
-			responseOutput = "Currently Vibing to <a class='link link--upper link--xx-small link--light link--weight-500 link--line-height-medium' href='" + trackURL + "' target='_blank'>" + trackArtist + "<\/a>";
+			responseOutput = "Currently vibing to <a class='link link--upper link--xx-small link--light link--weight-500 link--line-height-medium' href='" + trackURL + "' target='_blank'>" + trackArtist + "<\/a>";
 
 			// test output
-			console.log(responseOutput);
-
-			$(lastFMAPI.trackOutputContainer).html(responseOutput);
+			// console.log(responseOutput);
+			//
+			// $(lastFMAPI.trackOutputContainer).html(responseOutput);
 		});
 	},
-	updateRecentTrack: function() {
-		setInterval(function() {
-			LastFMAPI.getRecentTrack();
-		}, 30 * 1000); // 30 * 1000 milsec = 30 seconds
-	},
 	onWindowLoad: function() {
-		LastFMAPI.getUserInfo();
-		LastFMAPI.getRecentTrack();
-		LastFMAPI.updateRecentTrack();
+		Debounce.deRepeat(() => LastFMAPI.getRecentTrack());
 	},
 	bindUIActions: function() {
 		LastFMAPI.onWindowLoad();

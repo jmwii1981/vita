@@ -10,6 +10,13 @@ Debounce = {
 			timer = setTimeout(() => { func.apply(this, args); }, timeout);
 		};
 	},
+	deRepeat: function(func, timeout = 10000) { // 10 seconds
+		let repeatingTimer;
+		return (...args) => {
+			clearInterval(repeatingTimer);
+			repeatingTimer = setInterval(() => { func.apply(this, args); }, repeater);
+		};
+	},
 	bindUIActions: function() {
 		Debounce.deBall();
 	},
