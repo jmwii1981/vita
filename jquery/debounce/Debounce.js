@@ -10,7 +10,7 @@ Debounce = {
 			timer = setTimeout(() => { func.apply(this, args); }, timeout);
 		};
 	},
-	deRepeat: function(func, timeout = 10000) { // 10 seconds
+	deRepeat: function(func, timeout = 5000) { // 5 seconds
 		let repeatingTimer;
 		return (...args) => {
 			clearInterval(repeatingTimer);
