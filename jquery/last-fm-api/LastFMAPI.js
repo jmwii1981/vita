@@ -56,10 +56,11 @@ LastFMAPI = {
 
 			// test output
 			// console.log(responseOutput);
-			//
-			// $(lastFMAPI.trackOutputContainer).html(responseOutput);
+
+			$(lastFMAPI.trackOutputContainer).html(responseOutput);
 		});
 	},
+
 	onWindowLoad: function() {
 		Debounce.deRepeat(() => LastFMAPI.getRecentTrack());
 	},
