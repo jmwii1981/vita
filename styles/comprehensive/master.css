@@ -1112,18 +1112,52 @@ a::selection {
   }
 }
 
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .h2-tag-line {
-  max-width: 23rem;
+  margin: auto auto auto 1rem;
+  order: 1;
+  padding-bottom: 6rem;
+  position: relative;
+  text-align: left;
 }
 @media only screen and (min-width: 790px) {
   .h2-tag-line {
-    max-width: 44rem;
+    margin: auto;
+    padding-bottom: 3rem;
   }
 }
-@media only screen and (min-width: 1200px) {
-  .h2-tag-line {
-    max-width: 100rem;
-  }
+.h2-tag-line-cursor {
+  display: inline-block;
+  height: 7rem;
+  position: relative;
+}
+.h2-tag-line-cursor:after {
+  animation: cursor-blink 0.8s infinite;
+  background-color: #EEF2F6;
+  /* The Fallback */
+  background-color: #eef2f6;
+  content: "";
+  display: inline-block;
+  height: 9rem;
+  position: absolute;
+  top: -1rem;
+  right: -1.75rem;
+  width: 0.75rem;
 }
 
 .header {
@@ -1291,21 +1325,6 @@ a::selection {
   justify-content: space-between;
   position: relative;
   width: 100%;
-}
-.header .h2-tag-line,
-.footer .h2-tag-line {
-  order: 1;
-  margin: auto auto auto 1rem;
-  padding-bottom: 6rem;
-  text-align: left;
-}
-@media only screen and (min-width: 790px) {
-  .header .h2-tag-line,
-.footer .h2-tag-line {
-    margin: auto;
-    padding-bottom: 3rem;
-    text-align: center;
-  }
 }
 .header-logo,
 .footer-logo {
