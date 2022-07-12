@@ -10,11 +10,13 @@
 	// TOOL https://lyft-colorbox.herokuapp.com/ <- instructions on usage in the immediately above article
 
 	// COLOR TOKENS
-	$black: #010101;
-	$charcoal: #4F505E;
-	$dim-white: #F9FAFA;
-	$bright-white: #FDFCFC;
-	$bronco-gray: #E9EDF3;
+	$stiletto: #303135;
+	$alley-cat: #666773;
+	$fog: #EEF2F6;
+
+	// $dim-white: #F9FAFA;
+	// $bright-white: #FDFCFC;
+	// $bronco-gray: #E9EDF3;
 
 	// COLOR MIXINS
 	@mixin background-color($color, $opacity: 1) {
