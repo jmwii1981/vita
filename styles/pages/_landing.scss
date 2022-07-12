@@ -384,11 +384,6 @@ a::selection {
 .landing {
 	display: flex;
 	flex-direction: column;
-	padding:
-		env(safe-area-inset-top, 2rem)
-		env(safe-area-inset-right, 2rem)
-		env(safe-area-inset-bottom, 2rem)
-		env(safe-area-inset-left, 2rem);
 	width: 100%;
 }
 
