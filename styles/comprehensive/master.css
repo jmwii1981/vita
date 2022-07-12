@@ -304,7 +304,6 @@ ul {
   display: flex;
   height: -webkit-fill-available;
   font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-  font-size: calc(16px + 13 * ((30vw - 500px) / 680));
   -webkit-font-smoothing: antialiased;
   image-rendering: -webkit-optimize-contrast;
   overflow-x: hidden;
@@ -313,20 +312,16 @@ ul {
   text-size-adjust: 100%;
   width: 100%;
   z-index: 0;
+  font-size: 0.5rem;
 }
-@media only screen and (min-width: 320px) and (orientation: portrait) {
+@media only screen and (min-width: 790px) {
   .html {
-    font-size: calc(21px + 13 * ((30vw - 500px) / 680));
-  }
-}
-@media only screen and (min-width: 375px) and (orientation: portrait) {
-  .html {
-    font-size: calc(23px + 13 * ((30vw - 500px) / 680));
+    font-size: 0.8rem;
   }
 }
 @media only screen and (min-width: 1100px) {
   .html {
-    font-size: calc(16px + 13 * ((30vw - 500px) / 680));
+    font-size: 1rem;
   }
 }
 

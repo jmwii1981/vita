@@ -2,32 +2,13 @@
 @use "../../styles" as *;
 
 
-// ****** FIRST AS OF JAN 22, '22 *******
-// * Optimize images for different screen times to reduce
-//   load time
-
-// * SET UP SCSS SO THAT YOU ARE ONLY BRINGING CERTAIN STYLE SHEETS IN AT
-//   CERTAIN TIMES SO THAT YOU DON'T HAVE TO WORRY ABOUT OVERRIDING STYLES
-
-// * Continue adding style updates for different screen sizes
-
-// * Complete menus
-
-// * Add any necessary additional pages
-
-
-
-
 		// ****** LATER OR SOMEDAY *********
 		// * Add micro-hovers and animations with the option to switch them off
 		// * Add dark mode palette with an automatic feature that matches system setting
 		// as well as the ability to turn it off or on manually
-		// * Create the ability to set a cookie and allow the user to save their preferences
-		// when visiting the site
-
 
 //***********************************************************//
-//**            INITIAL STYLES/ CUSTOM RESETS              **//
+//**            INITIAL STYLES / CUSTOM RESETS             **//
 //***********************************************************//
 
 
@@ -35,7 +16,6 @@
 	display: flex;
 	height: -webkit-fill-available;
 	font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
-	font-size: calc(16px + 13 * ((30vw - 500px) / 680));
 	-webkit-font-smoothing: antialiased;
 	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
@@ -45,14 +25,14 @@
 	width: 100%;
 	z-index: 0;
 
-	@media only screen and (min-width: 320px) and (orientation: portrait) {
-		font-size: calc(21px + 13 * ((30vw - 500px) / 680));
+	font-size: 0.5rem;
+
+	@media only screen and (min-width: 790px) {
+		font-size: 0.8rem;
 	}
-	@media only screen and (min-width: 375px) and (orientation: portrait) {
-		font-size: calc(23px + 13 * ((30vw - 500px) / 680));
-	}
+
 	@media only screen and (min-width: 1100px) {
-		font-size: calc(16px + 13 * ((30vw - 500px) / 680));
+		font-size: 1rem;
 	}
 }
 
