@@ -320,22 +320,21 @@ span::selection {
 	z-index: 1;
 }
 
-.link,
-.link:focus,
-.button,
-.button:focus {
+.button {
 
-}
+	.label {
+		white-space: nowrap;
+	}
 
-
-.button .focus-border {
-	border-radius: 3.125rem;
-	border-width: 0.25rem;
-	height: calc(100% + 0.5rem);
-		top: 50%;
-		left: 50%;
-	transform: translate(-50%, -50%);
-	width: calc(100% + 0.5rem);
+	.focus-border {
+		border-radius: 3.125rem;
+		border-width: 0.25rem;
+		height: calc(100% + 0.5rem);
+			top: 50%;
+			left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% + 0.5rem);
+	}
 }
 
 // focus border
@@ -389,9 +388,26 @@ span::selection {
 	&--button-grp {
 		align-items: center;
 		display: flex;
+		flex-direction: column;
 		gap: 1.5rem;
 		justify-content: center;
 		margin: 0 auto;
+		max-width: 25rem;
+		width: 100%;
+
+		@media only screen and (min-width: 400px) {
+			flex-direction: row;
+			width: auto;
+		}
+
+		.button {
+			flex-grow: 1;
+			width: 100%;
+
+			@media only screen and (min-width: 400px) {
+				width: auto;
+			}
+		}
 	}
 }
 
@@ -401,7 +417,7 @@ span::selection {
 	appearance: none;
 	border-radius: 3rem;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	text-decoration: none;
 
 	&--size-md {

@@ -950,6 +950,9 @@ span::selection {
   z-index: 1;
 }
 
+.button .label {
+  white-space: nowrap;
+}
 .button .focus-border {
   border-radius: 3.125rem;
   border-width: 0.25rem;
@@ -1011,9 +1014,27 @@ span::selection {
 .wrapper--button-grp {
   align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   justify-content: center;
   margin: 0 auto;
+  max-width: 25rem;
+  width: 100%;
+}
+@media only screen and (min-width: 400px) {
+  .wrapper--button-grp {
+    flex-direction: row;
+    width: auto;
+  }
+}
+.wrapper--button-grp .button {
+  flex-grow: 1;
+  width: 100%;
+}
+@media only screen and (min-width: 400px) {
+  .wrapper--button-grp .button {
+    width: auto;
+  }
 }
 
 .button {
@@ -1021,7 +1042,7 @@ span::selection {
   appearance: none;
   border-radius: 3rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   text-decoration: none;
 }
 .button--size-md {
