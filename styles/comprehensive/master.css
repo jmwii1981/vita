@@ -303,7 +303,6 @@ ul {
   -webkit-appearance: none;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -444,6 +443,17 @@ span::selection {
 .label--max-width-small {
   max-width: 43rem;
 }
+.h1--max-width-xxxx-large,
+.h2--max-width-xxxx-large,
+.h3--max-width-xxxx-large,
+.h4--max-width-xxxx-large,
+.h5--max-width-xxxx-large,
+.h6--max-width-xxxx-large,
+.p--max-width-xxxx-large,
+.link--max-width-xxxx-large,
+.label--max-width-xxxx-large {
+  max-width: 91rem;
+}
 .h1--line-height-large,
 .h2--line-height-large,
 .h3--line-height-large,
@@ -519,7 +529,20 @@ span::selection {
 .p--xxxx-large,
 .link--xxxx-large,
 .label--xxxx-large {
-  font-size: 8rem;
+  font-size: 14vw;
+}
+@media only screen and (min-width: 567px) {
+  .h1--xxxx-large,
+.h2--xxxx-large,
+.h3--xxxx-large,
+.h4--xxxx-large,
+.h5--xxxx-large,
+.h6--xxxx-large,
+.p--xxxx-large,
+.link--xxxx-large,
+.label--xxxx-large {
+    font-size: 8rem;
+  }
 }
 .h1--xxx-large,
 .h2--xxx-large,
@@ -530,7 +553,20 @@ span::selection {
 .p--xxx-large,
 .link--xxx-large,
 .label--xxx-large {
-  font-size: 6rem;
+  font-size: 20vw;
+}
+@media only screen and (min-width: 290px) {
+  .h1--xxx-large,
+.h2--xxx-large,
+.h3--xxx-large,
+.h4--xxx-large,
+.h5--xxx-large,
+.h6--xxx-large,
+.p--xxx-large,
+.link--xxx-large,
+.label--xxx-large {
+    font-size: 6rem;
+  }
 }
 .h1--xx-large,
 .h2--xx-large,
@@ -1117,6 +1153,22 @@ span::selection {
   padding-bottom: 5.5rem;
 }
 
+.header {
+  align-items: flex-end;
+  height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media only screen and (pointer: coarse) {
+  .header {
+    transition-property: height;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+}
+
 .article {
   padding-top: 10rem;
 }
@@ -1127,7 +1179,7 @@ span::selection {
   gap: 3rem;
 }
 
-.h2-tag-line,
+.floating-nav-bar,
 .article-inner,
 .header-inner,
 .section-inner,
@@ -1135,7 +1187,7 @@ span::selection {
   width: calc(100% - 2rem);
 }
 @media only screen and (min-width: 790px) {
-  .h2-tag-line,
+  .floating-nav-bar,
 .article-inner,
 .header-inner,
 .section-inner,
@@ -1145,7 +1197,7 @@ span::selection {
   }
 }
 @media only screen and (min-width: 950px) {
-  .h2-tag-line,
+  .floating-nav-bar,
 .article-inner,
 .header-inner,
 .section-inner,
@@ -1195,49 +1247,62 @@ span::selection {
   background-color: #eef2f6;
   content: "";
   display: inline-block;
-  height: 9rem;
   position: absolute;
-  top: -1rem;
-  right: -1.75rem;
-  width: 0.75rem;
+  height: 15.5vw;
+  top: -0.884vw;
+  right: -2.78vw;
+  width: 1.34vw;
 }
-
-.header {
-  align-items: flex-end;
-  height: 100vh;
-  /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
-}
-@media only screen and (pointer: coarse) {
-  .header {
-    transition-property: height;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
+@media only screen and (min-width: 567px) {
+  .h2-tag-line-cursor:after {
+    height: 8.75rem;
+    top: -0.5rem;
+    right: -1.75rem;
+    width: 0.75rem;
   }
 }
-.header-inner {
+
+.floating-nav-bar {
   align-items: center;
   display: flex;
   flex-direction: column;
   order: 2;
-  height: 6rem;
-  justify-content: space-between;
+  height: 10rem;
   margin: 0 auto;
   padding: 0;
-  padding-bottom: 2rem;
   position: absolute;
   bottom: 0;
   left: 1rem;
   right: 1rem;
-  z-index: 2;
+  z-index: 1000;
 }
 @media only screen and (min-width: 790px) {
-  .header-inner {
+  .floating-nav-bar {
+    height: 6rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+.floating-nav-bar--inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+@media only screen and (min-width: 790px) {
+  .floating-nav-bar--inner {
     align-items: flex-end;
     flex-direction: row;
   }
 }
-.header-nav-list {
+.floating-nav-bar-nav-list {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -1360,7 +1425,7 @@ span::selection {
 .footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   width: 100%;
 }

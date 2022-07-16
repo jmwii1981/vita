@@ -42,7 +42,6 @@
 	-webkit-appearance: none;
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
 	position: relative;
 	width: 100%;
 	z-index: 1;
@@ -130,6 +129,9 @@ span::selection {
 	&--max-width-small {
 		max-width: 43rem;
 	}
+	&--max-width-xxxx-large {
+		max-width: 91rem;
+	}
 
 	// line-height
 	&--line-height-large {
@@ -153,10 +155,18 @@ span::selection {
 
 	// sizing
 	&--xxxx-large {
-		font-size: 8rem;
+		font-size: 14vw;
+
+		@media only screen and (min-width: 567px) {
+			font-size: 8rem;
+		}
 	}
 	&--xxx-large {
-		font-size: 6rem;
+		font-size: 20vw;
+
+		@media only screen and (min-width: 290px) {
+			font-size: 6rem;
+		}
 	}
 	&--xx-large {
 		font-size: 5rem;
@@ -299,17 +309,6 @@ span::selection {
 .link {
 	text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -494,6 +493,20 @@ span::selection {
 		padding-bottom: 5.5rem;
 	}
 }
+.header {
+	align-items: flex-end;
+	height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+	height: calc(var(--vh, 1vh) * 100);
+	padding-top: 0;
+	padding-bottom: 0;
+
+	// transition height when native mobile nav bars "jerk"
+	@media only screen and (pointer: coarse) {
+		transition-property: height;
+		transition-duration: 0.3s;
+		transition-timing-function: ease-out;
+	}
+}
 
 .article {
 	padding-top: 10rem;
@@ -505,8 +518,7 @@ span::selection {
 	gap: 3rem;
 }
 
-
-.h2-tag-line,
+.floating-nav-bar,
 .article-inner,
 .header-inner,
 .section-inner,
@@ -556,42 +568,58 @@ span::selection {
 			@include background-color($fog, 1);
 			content: '';
 			display: inline-block;
-			height: 9rem;
+
 			position: absolute;
-				top: -1rem;
-				right: -1.75rem;
-			width: 0.75rem;
+
+
+			height: 15.5vw;
+				top: -0.884vw;
+				right: -2.78vw;
+			width: 1.34vw;
+
+
+			@media only screen and (min-width: 567px) {
+				height: 8.75rem;
+					top: -0.5rem;
+					right: -1.75rem;
+				width: 0.75rem;
+			}
 		}
 	}
 }
 
-.header {
-	align-items: flex-end;
-	height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-	height: calc(var(--vh, 1vh) * 100);
+.floating-nav-bar {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	order: 2;
+	height: 10rem;
+	margin: 0 auto;
+	padding: 0;
+	position: absolute;
+		bottom: 0;
+		left: 1rem;
+		right: 1rem;
+	z-index: 1000;
 
-	// transition height when native mobile nav bars "jerk"
-	@media only screen and (pointer: coarse) {
-		transition-property: height;
-		transition-duration: 0.3s;
-		transition-timing-function: ease-out;
+	@media only screen and (min-width: 790px) {
+		height: 6rem;
+		position: fixed;
+			bottom: 0;
+			left: 0;
 	}
 
-	&-inner {
+	&--inner {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		order: 2;
-		height: 6rem;
+		flex-grow: 1;
+		height: 100%;
 		justify-content: space-between;
 		margin: 0 auto;
 		padding: 0;
 		padding-bottom: 2rem;
-		position: absolute;
-			bottom: 0;
-			left: 1rem;
-			right: 1rem;
-		z-index: 2;
+		width: 100%;
 
 		@media only screen and (min-width: 790px) {
 			align-items: flex-end;
@@ -737,7 +765,7 @@ span::selection {
 .footer {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	position: relative;
 	width: 100%;
 
