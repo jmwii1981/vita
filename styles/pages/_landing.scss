@@ -307,7 +307,6 @@ span::selection {
 
 .link,
 .button {
-
 	position: relative;
 	z-index: 1;
 
@@ -336,11 +335,13 @@ span::selection {
 	outline-offset: -0.125rem;
 	outline-width: 0.5rem;
 }
+
 .link:focus {
 	border-radius: 0.2rem;
 	outline-offset: 0.2rem;
 	outline-width: 0.3rem;
 }
+
 .header-logo-link:focus {
 	outline-offset: 0.5rem;
 }
