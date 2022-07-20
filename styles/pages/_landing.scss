@@ -16,24 +16,23 @@
 	display: flex;
 	height: -webkit-fill-available;
 	font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
+	font-size: 62.5%;
 	-webkit-font-smoothing: antialiased;
 	image-rendering: -webkit-optimize-contrast;
 	overflow-x: hidden;
 	position: relative;
-	// -webkit-text-size-adjust: 100%;
-	// text-size-adjust: 100%;
 	width: 100%;
 	z-index: 0;
 
-	font-size: 62.5%;
-	// font-size: 0.5rem;
-	// @media only screen and (min-width: 790px) {
-	// 	font-size: 0.8rem;
-	// }
-	//
-	// @media only screen and (min-width: 1100px) {
-	// 	font-size: 1rem;
-	// }
+
+
+	@media only screen and (min-width: 790px) {
+		font-size: 62.5%;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		font-size: 62.5%;
+	}
 }
 
 .body {
@@ -125,14 +124,6 @@ span::selection {
 		margin-bottom: 0rem;
 	}
 
-	// max-width
-	&--max-width-small {
-		max-width: 43rem;
-	}
-	&--max-width-xxxx-large {
-		max-width: 91rem;
-	}
-
 	// line-height
 	&--line-height-large {
 		line-height: 210%;
@@ -184,7 +175,7 @@ span::selection {
 		font-size: 1.5rem;
 	}
 	&--x-small {
-		font-size: 1.375rem;
+		font-size: 1.6rem;
 	}
 	&--xx-small {
 		font-size: 1rem;
@@ -313,11 +304,47 @@ span::selection {
 
 
 // focus border parents
+
 .link,
 .button {
+
 	position: relative;
 	z-index: 1;
+
+	//animations
+	outline-color: rgba(white, 0);
+	outline-offset: 0rem;
+	outline-style: solid;
+	outline-width: 0rem;
+	transition-duration: 0.3s, 0.3s;
+	transition-property: outline-color, outline-offset;
+	transition-timing-function: ease-out, ease-out;
+
+
+	&--light:focus,
+	&--border-light:focus {
+		outline-color: rgba($fog, 0.6);
+	}
+
+	&--dark:focus,
+	&--border-dark:focus {
+		outline-color: rgba($stiletto, 0.6);
+	}
 }
+
+.button:focus {
+	outline-offset: -0.125rem;
+	outline-width: 0.5rem;
+}
+.link:focus {
+	border-radius: 0.2rem;
+	outline-offset: 0.2rem;
+	outline-width: 0.3rem;
+}
+.header-logo-link:focus {
+	outline-offset: 0.5rem;
+}
+
 
 .button {
 
@@ -325,52 +352,52 @@ span::selection {
 		white-space: nowrap;
 	}
 
-	.focus-border {
-		border-radius: 3.125rem;
-		border-width: 0.25rem;
-		height: calc(100% + 0.5rem);
-			top: 50%;
-			left: 50%;
-		transform: translate(-50%, -50%);
-		width: calc(100% + 0.5rem);
-	}
+	// .focus-border {
+	// 	border-radius: 3.125rem;
+	// 	border-width: 0.25rem;
+	// 	height: calc(100% + 0.5rem);
+	// 		top: 50%;
+	// 		left: 50%;
+	// 	transform: translate(-50%, -50%);
+	// 	width: calc(100% + 0.5rem);
+	// }
 }
 
 // focus border
-.focus-border {
-	@include border-color($flint-shard, 0);
-	border-radius: 0.25rem;
-	border-style: solid;
-	border-width: 0.25rem;
-	display: block;
-	height: calc(100% + 1rem);
-	pointer-events: none;
-	position: absolute;
-		top: 50%;
-		left: 50%;
-	transform: translate(-50%, -50%);
-	transition-property: border-color, height, width;
-	transition-delay: 0s, 0.1s, 0.1s;
-	transition-duration: 0.2s, 0.2s, 0.2s;
-	transition-timing-function: ease-out, ease-out, ease-out;
-	width: calc(100% + 1rem);
-	z-index: -2;
-}
-
-.link:focus .focus-border {
-	height: calc(100% + 0.5rem);
-	width: calc(100% + 0.5rem);
-}
-
-.button:focus .focus-border {
-	height: calc(100% + 1rem);
-	width: calc(100% + 1rem);
-}
-
-.link:focus .focus-border,
-.button:focus .focus-border {
-	@include border-color($flint-shard, 1);
-}
+// .focus-border {
+// 	@include border-color($flint-shard, 0);
+// 	border-radius: 0.25rem;
+// 	border-style: solid;
+// 	border-width: 0.25rem;
+// 	display: block;
+// 	height: calc(100% + 1rem);
+// 	pointer-events: none;
+// 	position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 	transform: translate(-50%, -50%);
+// 	transition-property: border-color, height, width;
+// 	transition-delay: 0s, 0.1s, 0.1s;
+// 	transition-duration: 0.2s, 0.2s, 0.2s;
+// 	transition-timing-function: ease-out, ease-out, ease-out;
+// 	width: calc(100% + 1rem);
+// 	z-index: -2;
+// }
+//
+// .link:focus .focus-border {
+// 	height: calc(100% + 0.5rem);
+// 	width: calc(100% + 0.5rem);
+// }
+//
+// .button:focus .focus-border {
+// 	height: calc(100% + 1rem);
+// 	width: calc(100% + 1rem);
+// }
+//
+// .link:focus .focus-border,
+// .button:focus .focus-border {
+// 	@include border-color($flint-shard, 1);
+// }
 
 
 // buttons containers
@@ -382,7 +409,7 @@ span::selection {
 		gap: 1.5rem;
 		justify-content: center;
 		margin: 0 auto;
-		max-width: 50rem;
+		max-width: 81rem;
 	}
 	&--button-grp {
 		align-items: center;
@@ -518,7 +545,7 @@ span::selection {
 	gap: 3rem;
 }
 
-.floating-nav-bar,
+.floating-nav-bar--inner,
 .article-inner,
 .header-inner,
 .section-inner,
@@ -568,21 +595,18 @@ span::selection {
 			@include background-color($fog, 1);
 			content: '';
 			display: inline-block;
-
-			position: absolute;
-
-
 			height: 15.5vw;
+			position: absolute;
 				top: -0.884vw;
 				right: -2.78vw;
-			width: 1.34vw;
+			width: 0.67vw;
 
 
 			@media only screen and (min-width: 567px) {
 				height: 8.75rem;
 					top: -0.5rem;
 					right: -1.75rem;
-				width: 0.75rem;
+				width: 0.375rem;
 			}
 		}
 	}
@@ -590,6 +614,8 @@ span::selection {
 
 .floating-nav-bar {
 	align-items: center;
+	backdrop-filter: blur(5px);
+	@include background-color($stiletto, 0.97);
 	display: flex;
 	flex-direction: column;
 	order: 2;
@@ -598,15 +624,19 @@ span::selection {
 	padding: 0;
 	position: absolute;
 		bottom: 0;
-		left: 1rem;
-		right: 1rem;
+		left: 0;
+		right: 0;
 	z-index: 1000;
 
-	@media only screen and (min-width: 790px) {
-		height: 6rem;
+	&.fixed {
 		position: fixed;
-			bottom: 0;
-			left: 0;
+			top: 0;
+			left: 1rem;
+			right: 1rem;
+	}
+
+	@media only screen and (min-width: 790px) {
+		height: 9.5rem;
 	}
 
 	&--inner {
@@ -718,6 +748,7 @@ span::selection {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
+			height: 4rem;
 			justify-content: center;
 			list-style: none;
 			margin: 0 auto;
@@ -726,24 +757,29 @@ span::selection {
 
 			@media only screen and (min-width: 790px) {
 				gap: 0.5rem;
-				height: 2.9rem;
 				justify-content: space-between;
-				margin: 0;
+				margin: -0.75rem 0 0;
 				max-width: none;
 				padding-left: 5rem;
 			}
 
 			&-item {
 				display: flex;
+				height: 4rem;
+				width: 4rem;
 
 				&-icon {
+					height: 4rem;
 					@include fill($stiletto, 1);
 					display: flex;
+					width: 4rem;
 				}
 
 				&-link {
 					display: flex;
 					decoration: none;
+					height: 4rem;
+					width: 4rem;
 				}
 			}
 		}
