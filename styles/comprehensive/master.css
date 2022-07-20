@@ -1252,7 +1252,7 @@ span::selection {
   right: 0;
   z-index: 1000;
 }
-.floating-nav-bar.fixed {
+.floating-nav-bar.stick {
   position: fixed;
   top: 0;
   left: 1rem;

@@ -2,35 +2,35 @@ var s,
 StickyNav = {
 
 	settings: {
-		siteHeader: $('.frontpage-header'),
+		siteHeader: $('.floating-nav-bar'),
 		siteHeaderOffset: null,
 		scrollTop: 0
 	},
 
 	WindowInteractions: function() {
 
-		// If the '.frontpage-header' exists
-		if ( $('.frontpage-header').length > 0 ) {
+		// If the '.floating-nav-bar' exists
+		if ( $('.floating-nav-bar').length > 0 ) {
 
 			// On window load or resize..
 			$(window).on('load resize', function() {
 
-				// Update the siteHeaderOffset variable with the outerHeight dimensions of the '.frontpage-header' element
-				s.siteHeaderOffset = window.innerHeight - $('.frontpage-header').outerHeight();
+				// Update the siteHeaderOffset variable with the outerHeight dimensions of the '.floating-nav-bar' element
+				s.siteHeaderOffset = window.innerHeight - $('.floating-nav-bar').outerHeight();
 
 				// If the siteHeaderOffset variable is less than or equal to the scrollTop variable.
 				// So, if scrolled down the page ...
 				if ( s.siteHeaderOffset <= s.scrollTop ) {
 
-					// On '.frontpage-header' add a class of stick.
-					$('.frontpage-header').addClass('stick');
+					// On '.floating-nav-bar' add a class of stick.
+					$('.floating-nav-bar').addClass('stick');
 
 				// If the siteHeaderOffset variable is greater than the scrollTop variable
 				// So, if scrolled to the top ...
 				} else if ( s.siteHeaderOffset > s.scrollTop ) {
 
-					// On '.frontpage-header' remove the class of stick if it's there.
-					$('.frontpage-header').removeClass('stick');
+					// On '.floating-nav-bar' remove the class of stick if it's there.
+					$('.floating-nav-bar').removeClass('stick');
 				}
 			});
 		}
@@ -45,14 +45,14 @@ StickyNav = {
 			s.scrollTop = $(window).scrollTop();
 
 			// If the scrollTop variable's value is greater than zero
-			if ( $('.frontpage-header').length > 0 ) {
+			if ( $('.floating-nav-bar').length > 0 ) {
 
 				// If the siteHeaderOffset variable is less than or equal to the scrollTop variable's value.
 				// So, if the nav bar has hit the top of the window's viewport.
 				if ( s.siteHeaderOffset <= s.scrollTop ) {
 
-					// On '.frontpage-header' add a class of stick.
-					$('.frontpage-header').addClass('stick');
+					// On '.floating-nav-bar' add a class of stick.
+					$('.floating-nav-bar').addClass('stick');
 
 					// On '.notification-header' add a class of stick.
 					$('.notification-header').addClass('stick');
@@ -64,8 +64,8 @@ StickyNav = {
 				// So, if the nav bar is below the top of the window's viewport.
 				} else if ( s.siteHeaderOffset > s.scrollTop ) {
 
-					// On '.frontpage-header' remove the class of stick if it's there.
-					$('.frontpage-header').removeClass('stick');
+					// On '.floating-nav-bar' remove the class of stick if it's there.
+					$('.floating-nav-bar').removeClass('stick');
 
 					// On '.notification-header' remove the class of stick if it's there.
 					$('.notification-header').removeClass('stick');
