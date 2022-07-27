@@ -1187,7 +1187,10 @@ span::selection {
   0% {
     opacity: 0;
   }
-  30% {
+  20% {
+    opacity: 0.95;
+  }
+  27% {
     opacity: 1;
   }
   100% {
@@ -1213,10 +1216,11 @@ span::selection {
   position: relative;
 }
 .h2-tag-line-cursor:after {
-  animation: cursor-blink 0.8s infinite;
+  animation: cursor-blink 0.9s infinite;
   background-color: #EEF2F6;
   /* The Fallback */
   background-color: #eef2f6;
+  border-radius: 0.015rem;
   content: "";
   display: inline-block;
   height: 15.5vw;
@@ -1255,8 +1259,8 @@ span::selection {
 .floating-nav-bar.stick {
   position: fixed;
   top: 0;
-  left: 1rem;
-  right: 1rem;
+  left: 0;
+  right: 0;
 }
 @media only screen and (min-width: 790px) {
   .floating-nav-bar {
@@ -1488,6 +1492,7 @@ span::selection {
 .footer-nav-item {
   display: flex;
 }
+
 .footer-logo-link {
   align-items: center;
 }
