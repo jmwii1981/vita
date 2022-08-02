@@ -1,16 +1,17 @@
 //** TODO **//
 @use "../../styles" as *;
 
+//***********************************************************//
+//**              LIGHT / DARK MODE PALLETES               **//
+//***********************************************************//
 
-		// ****** LATER OR SOMEDAY *********
-		// * Add micro-hovers and animations with the option to switch them off
-		// * Add dark mode palette with an automatic feature that matches system setting
-		// as well as the ability to turn it off or on manually
+
+
+
 
 //***********************************************************//
 //**            INITIAL STYLES / CUSTOM RESETS             **//
 //***********************************************************//
-
 
 .html {
 	display: flex;
@@ -24,9 +25,7 @@
 	width: 100%;
 	z-index: 0;
 
-
-
-	@media only screen and (min-width: 790px) {
+	@media only screen and (min-width: 640px) {
 		font-size: 62.5%;
 	}
 
@@ -62,10 +61,20 @@ img,
 }
 
 .layout-bg--light {
-	@include background-color($fog, 1);
+	@media (prefers-color-scheme: light) {
+			@include background-color($light--lightest-background);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include background-color($dark--lightest-background);
+	}
 }
 .layout-bg--dark {
-	@include background-color($stiletto, 1);
+	@media (prefers-color-scheme: light) {
+			@include background-color($light--darkest-background);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include background-color($dark--darkest-background);
+	}
 }
 
 //***********************************************************//
@@ -83,7 +92,12 @@ h6::selection,
 p::selection,
 a::selection,
 span::selection {
-	@include background-color($alley-cat, 0.25);
+	@media (prefers-color-scheme: light) {
+			@include background-color($light--dark-background, 0.25);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include background-color($dark--dark-background, 0.25);
+	}
 }
 
 // typography mods
@@ -146,10 +160,10 @@ span::selection {
 
 	// sizing
 	&--xxxx-large {
-		font-size: 14vw;
+		font-size: 13.5vw;
 
 		@media only screen and (min-width: 567px) {
-			font-size: 8rem;
+			font-size: 7.5rem;
 		}
 	}
 	&--xxx-large {
@@ -223,13 +237,28 @@ span::selection {
 
 	// coloring
 	&--light {
-		@include color($fog, 1);
+		@media (prefers-color-scheme: light) {
+				@include color($light--lightest-text);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include color($dark--lightest-text);
+		}
 	}
 	&--dark {
-		@include color($stiletto, 1);
+		@media (prefers-color-scheme: light) {
+				@include color($light--darkest-text);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include color($dark--darkest-text);
+		}
 	}
 	&--decorative {
-		@include color($alley-cat, 1);
+		@media (prefers-color-scheme: light) {
+				@include color($light--dark-text);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include color($dark--dark-text);
+		}
 		font-family: "PT Serif Caption";
 		font-style: italic;
 		letter-spacing: 0rem;
@@ -247,7 +276,7 @@ span::selection {
 		text-align: right;
 	}
 
-	@media only screen and (min-width: 790px) {
+	@media only screen and (min-width: 640px) {
 		&--align-center-dsktp-sml {
 			margin: 0 auto;
 			text-align: center;
@@ -311,7 +340,12 @@ span::selection {
 	z-index: 1;
 
 	//animations
-	outline-color: rgba(white, 0);
+	@media (prefers-color-scheme: light) {
+			@include outline-color($light--light-outline-color);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include outline-color($dark--light-outline-color);
+	}
 	outline-offset: 0rem;
 	outline-style: solid;
 	outline-width: 0rem;
@@ -322,12 +356,22 @@ span::selection {
 
 	&--light:focus,
 	&--border-light:focus {
-		outline-color: rgba($fog, 0.6);
+		@media (prefers-color-scheme: light) {
+				@include outline-color($light--light-outline-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include outline-color($dark--light-outline-color);
+		}
 	}
 
 	&--dark:focus,
 	&--border-dark:focus {
-		outline-color: rgba($stiletto, 0.6);
+		@media (prefers-color-scheme: light) {
+				@include outline-color($light--darkest-outline-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include outline-color($dark--darkest-outline-color);
+		}
 	}
 }
 
@@ -405,10 +449,20 @@ span::selection {
 	}
 
 	&--bg-dark {
-		@include background-color($stiletto, 1);
+		@media (prefers-color-scheme: light) {
+				@include background-color($light--darkest-background);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include background-color($dark--darkest-background);
+		}
 	}
 	&--bg-light {
-		@include background-color($fog, 1);
+		@media (prefers-color-scheme: light) {
+				@include background-color($light--lightest-background);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include background-color($dark--lightest-background);
+		}
 	}
 
 	&--label {
@@ -417,10 +471,20 @@ span::selection {
 	}
 
 	&--border-dark {
-		@include border-color($stiletto, 1);
+		@media (prefers-color-scheme: light) {
+				@include border-color($light--darkest-border-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include border-color($dark--darkest-border-color);
+		}
 	}
 	&--border-light {
-		@include border-color($fog, 1);
+		@media (prefers-color-scheme: light) {
+				@include border-color($light--lightest-border-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				@include border-color($dark--lightest-border-color);
+		}
 	}
 
 	&--solid,
@@ -504,15 +568,12 @@ span::selection {
 .header-inner,
 .section-inner,
 .footer-inner {
-	width: calc(100% - 2rem);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 100%;
 
-	@media only screen and (min-width: 790px) {
+	@media only screen and (min-width: 640px) {
 		max-width: 91rem;
-		width: calc(100% - 4rem);
-	}
-
-	@media only screen and (min-width: 950px) {
-		width: calc(100% - 12rem);
 	}
 }
 
@@ -529,16 +590,11 @@ span::selection {
 }
 
 .h2-tag-line {
-	margin: auto auto auto 1rem;
+	margin: auto auto auto 0rem;
 	order: 1;
 	padding-bottom: 6rem;
 	position: relative;
 	text-align: left;
-
-	@media only screen and (min-width: 790px) {
-		margin: auto;
-		padding-bottom: 3rem;
-	}
 
 	&-cursor {
 		display: inline-block;
@@ -547,7 +603,12 @@ span::selection {
 
 		&:after {
 			animation: cursor-blink 0.9s infinite;
-			@include background-color($fog, 1);
+			@media (prefers-color-scheme: light) {
+					@include background-color($light--lightest-background);
+			}
+			@media (prefers-color-scheme: dark) {
+					@include background-color($dark--lightest-background);
+			}
 			border-radius: 0.015rem;
 			content: '';
 			display: inline-block;
@@ -570,59 +631,80 @@ span::selection {
 
 .floating-nav-bar {
 	align-items: center;
-	backdrop-filter: blur(5px);
-	@include background-color($stiletto, 0.97);
+	backdrop-filter: blur(0.3125rem);
+	@media (prefers-color-scheme: light) {
+		@include background-color($light--darkest-background, 0.97);
+	}
+	@media (prefers-color-scheme: dark) {
+		@include background-color($dark--darkest-background, 0.97);
+	}
 	display: flex;
 	flex-direction: column;
 	order: 2;
-	height: 10rem;
+	height: 8rem;
+	justify-content: center;
 	margin: 0 auto;
 	padding: 0;
+	padding-bottom: 2rem;
 	position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
+	transition-property: height, padding;
+	transition-delay: 0.05s, 0.05s;
+	transition-duration: 0.5s, 0.5s;
+	transition-timing-function: ease-in, ease-in;
 	z-index: 1000;
 
 	&.stick {
+		height: 4rem;
+		padding-bottom: 1rem;
 		position: fixed;
 			top: 0;
 			left: 0;
 			right: 0;
 	}
 
-	@media only screen and (min-width: 790px) {
-		height: 9.5rem;
+	@media only screen and (min-width: 640px) {
+		height: 7rem;
 	}
 
 	&--inner {
 		align-items: center;
 		display: flex;
-		flex-direction: column;
 		flex-grow: 1;
 		height: 100%;
 		justify-content: space-between;
 		margin: 0 auto;
-		padding: 0;
-		padding-bottom: 2rem;
 		width: 100%;
 
-		@media only screen and (min-width: 790px) {
-			align-items: flex-end;
-			flex-direction: row;
+		@media only screen and (min-width: 640px) {
+			// silence
 		}
 	}
 
 	&-nav {
+		align-items: flex-end;
+		display: flex;
+		height: 100%;
 
 		&-list {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			gap: 1rem;
+			height: 0rem;
 			list-style: none;
 			margin: 0;
+			overflow: hidden;
 			order: 1;
 			padding: 0;
+
+			@media only screen and (min-width: 640px) {
+				flex-direction: row;
+				height: auto;
+			}
+
+
 		}
 	}
 }
@@ -634,10 +716,10 @@ span::selection {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 1rem;
 		justify-content: space-between;
 
-		@media only screen and (min-width: 790px) {
+		@media only screen and (min-width: 640px) {
 			align-items: flex-start;
 			flex-direction: row;
 			gap: 0;
@@ -655,7 +737,7 @@ span::selection {
 				gap: 2.5rem;
 				order: 2;
 
-				@media only screen and (min-width: 790px) {
+				@media only screen and (min-width: 640px) {
 					align-items: flex-start;
 					order: 1;
 					justify-content: flex-end;
@@ -667,7 +749,7 @@ span::selection {
 				gap: 3rem;
 				order: 1;
 
-				@media only screen and (min-width: 790px) {
+				@media only screen and (min-width: 640px) {
 					align-items: flex-end;
 					gap: 2.4rem;
 					order: 2;
@@ -692,7 +774,7 @@ span::selection {
 			padding: 0;
 
 
-			@media only screen and (min-width: 790px) {
+			@media only screen and (min-width: 640px) {
 				align-items: flex-start;
 			}
 		}
@@ -704,19 +786,15 @@ span::selection {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			height: 4rem;
 			justify-content: center;
 			list-style: none;
 			margin: 0 auto;
-			max-width: 22rem;
 			padding: 0;
 
-			@media only screen and (min-width: 790px) {
+			@media only screen and (min-width: 640px) {
 				gap: 0.5rem;
 				justify-content: space-between;
 				margin: -0.75rem 0 0;
-				max-width: none;
-				padding-left: 5rem;
 			}
 
 			&-item {
@@ -725,8 +803,12 @@ span::selection {
 				width: 4rem;
 
 				&-icon {
-					height: 4rem;
-					@include fill($stiletto, 1);
+					@media (prefers-color-scheme: light) {
+							@include fill($light--darkest-fill, 1);
+					}
+					@media (prefers-color-scheme: dark) {
+							@include fill($light--darkest-fill, 1);
+					}
 					display: flex;
 					width: 4rem;
 				}
@@ -753,6 +835,16 @@ span::selection {
 	}
 }
 
+.floating-nav-bar.stick {
+	.header-logo {
+		height: 1.125rem;
+	}
+
+	.header-logo-link-mark {
+		height: 3.2rem;
+	}
+}
+
 .header,
 .footer {
 	display: flex;
@@ -768,22 +860,26 @@ span::selection {
 		height: 5rem;
 		margin: 0;
 		pointer-events: all;
+		transition-property: height;
+		transition-delay: 0.05s;
+		transition-duration: 0.5s;
+		transition-timing-function: ease-in;
 		width: auto;
 
 		&:hover {
 			cursor: pointer;
 		}
 		&-link {
-			align-items: center;
+			align-items: flex-start;
 			display: flex;
-			height: 5rem;
+			height: 100%;
 			flex-direction: column;
 			gap: 0.25rem;
 			justify-content: space-between;
 			width: 100%;
 
-			@media only screen and (min-width: 790px) {
-				align-items: flex-start;
+			@media only screen and (min-width: 640px) {
+				//silence
 			}
 
 			&-mark {
@@ -796,14 +892,24 @@ span::selection {
 				margin-right: 0.25rem;
 				pointer-events: none;
 				position: relative;
+				transition-property: height;
+				transition-delay: 0.05s;
+				transition-duration: 0.5s;
+				transition-timing-function: ease-in;
 				width: 3rem;
 
-				@media only screen and (min-width: 790px) {
+				@media only screen and (min-width: 640px) {
 					margin-right: 0;
+					transform: scale(1);
 				}
 
 				&-line {
-					@include background-color($fog, 1);
+					@media (prefers-color-scheme: light) {
+							@include background-color($light--lightest-background);
+					}
+					@media (prefers-color-scheme: dark) {
+							@include background-color($dark--lightest-background);
+					}
 					border-radius: 3rem;
 					display: block;
 					height: 100%;
@@ -834,7 +940,7 @@ span::selection {
 	&-logo-link {
 		align-items: center;
 
-		@media only screen and (min-width: 790px) {
+		@media only screen and (min-width: 640px) {
 			align-items: flex-start;
 		}
 	}
@@ -874,28 +980,15 @@ span::selection {
 }
 
 
-
 // HOVER CAPABILITIES ONLY ** ** //
 @media only screen and (hover: hover) {
 	// Silence is golden.
 }
 
-
-// DARK AND LIGHT MODES (EXAMPLES)
-//
-// @media (prefers-color-scheme: dark) {
-//   (ENTER CODE HERE)
-// }
-//
-// @media (prefers-color-scheme: light) {
-//   (ENTER CODE HERE)
-// }
-//
 // PREFERS REDUCED MOTION (EXAMPLES)
 //   (ENTER CODE HERE)
 // }
-//
-// /* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+
 // @media (prefers-reduced-motion) {
 //   .animation {
 //     animation-name: dissolve;

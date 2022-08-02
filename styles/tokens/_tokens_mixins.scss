@@ -1,0 +1,21 @@
+// COLOR MIXINS
+@mixin background-color($color, $opacity: 1) { // background color
+	background-color: $color; /* The Fallback */
+	background-color: rgba($color, $opacity);
+}
+@mixin border-color($color, $opacity: 1) { // border color
+	border-color: $color; /* The Fallback */
+	border-color: rgba($color, $opacity);
+}
+@mixin color($color, $opacity: 1) { // text color
+	color: $color; /* The Fallback */
+	color: rgba($color, $opacity);
+}
+@mixin fill($color, $opacity: 1) { // icon color
+	fill: $color; /* The Fallback */
+	fill: rgba($color, $opacity);
+}
+@mixin outline-color($color, $opacity: 1) { // icon color
+	outline-color: $color; /* The Fallback */
+	outline-color: rgba($color, $opacity);
+}
