@@ -1471,22 +1471,39 @@ span::selection {
   display: flex;
   height: 100%;
 }
+.floating-nav-bar-nav #menu-button {
+  appearance: none;
+  background: red;
+  border-radius: 1rem;
+  display: flex;
+  height: auto;
+  width: auto;
+}
+@media only screen and (min-width: 640px) {
+  .floating-nav-bar-nav #menu-button {
+    display: none;
+    visibility: hidden;
+  }
+}
+.floating-nav-bar-nav #main-menu {
+  display: flex;
+  height: 0rem;
+  overflow: hidden;
+}
+@media only screen and (min-width: 640px) {
+  .floating-nav-bar-nav #main-menu {
+    flex-direction: row;
+    height: auto;
+  }
+}
 .floating-nav-bar-nav-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 0rem;
   list-style: none;
   margin: 0;
-  overflow: hidden;
   order: 1;
   padding: 0;
-}
-@media only screen and (min-width: 640px) {
-  .floating-nav-bar-nav-list {
-    flex-direction: row;
-    height: auto;
-  }
 }
 
 .footer {
