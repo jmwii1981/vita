@@ -23,6 +23,6 @@ Debounce = {
 	init: function() {
 		debounce = this.settings;
 		this.bindUIActions();
-		console.log( 'Debounce loaded!' );
+		// console.log( 'Debounce loaded!' );
 	},
 };

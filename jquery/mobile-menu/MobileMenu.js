@@ -1,4 +1,4 @@
-var s,
+var mobileMenu,
 MobileMenu = {
 
 	settings: {
@@ -11,6 +11,17 @@ MobileMenu = {
 		// Down Arrow, Space, or Enter – Opens menu and moves focus to first menuitem
 		// Up Arrow – Opens menu and moves focus to last menuitem
 
+		// SELECTORS
+		// "#menu-button"
+
+		// RESULTS
+		// aria-expanded="true" when menu is opened
+		// aria-expanded="false" when menu is closed
+
+	},
+
+	MenuReactions: function() {
+
 		// NAV EVENTS – Menu
 		// Space or Enter – Activates the menu item, which is equivalent to activating the link element from which the menu item is made.
 		// Escape – Closes the menu.
@@ -22,20 +33,12 @@ MobileMenu = {
 		// A-Z [a-z] – Moves focus to the next menu item with a label that starts with the typed character if such an menu item exists. Otherwise, focus does not move.
 
 		// SELECTORS
-		// "#menu-button"
 		// "#main-menu" ".floating-nav-bar-nav-list"
-
-		// RESULTS
-		// aria-expanded="true" when menu is opened
-		// aria-expanded="false" when menu is closed
-
-
-
 
 	},
 
 	bindUIActions: function() {
-		MobileMenu.ButtonInjection();
+		MobileMenu.ButtonPresence();
 	},
 
 	init: function() {

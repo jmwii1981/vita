@@ -33,7 +33,7 @@ LastFMAPI = {
 
 		lastFMAPI.ajax(callForUser).done(function (callResponse) {
 			// test call results
-			console.log(callResponse);
+			// console.log(callResponse);
 
 			// test output
 			// console.log(responseOutput);
@@ -70,6 +70,6 @@ LastFMAPI = {
 	init: function() {
 		lastFMAPI = this.settings;
 		this.bindUIActions();
-		console.log( 'LastFMAPI loaded!' );
+		// console.log( 'LastFMAPI loaded!' );
 	},
 };
