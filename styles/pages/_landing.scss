@@ -631,13 +631,6 @@ span::selection {
 
 .floating-nav-bar {
 	align-items: center;
-	backdrop-filter: blur(0.3125rem);
-	@media (prefers-color-scheme: light) {
-		@include background-color($light--darkest-background, 0.97);
-	}
-	@media (prefers-color-scheme: dark) {
-		@include background-color($dark--darkest-background, 0.97);
-	}
 	display: flex;
 	flex-direction: column;
 	order: 2;
@@ -645,29 +638,7 @@ span::selection {
 	justify-content: center;
 	margin: 0 auto;
 	padding: 0;
-	padding-bottom: 2rem;
-	position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	transition-property: height, padding;
-	transition-delay: 0.05s, 0.05s;
-	transition-duration: 0.5s, 0.5s;
-	transition-timing-function: ease-in, ease-in;
 	z-index: 1000;
-
-	&.stick {
-		height: 4rem;
-		padding-bottom: 1rem;
-		position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-	}
-
-	@media only screen and (min-width: 640px) {
-		height: 7rem;
-	}
 
 	&--inner {
 		align-items: flex-end;
@@ -677,54 +648,52 @@ span::selection {
 		justify-content: space-between;
 		margin: 0 auto;
 		width: 100%;
-
-		@media only screen and (min-width: 640px) {
-			// silence
-		}
 	}
 
-	&-nav {
-		align-items: flex-end;
-		display: flex;
-		height: 100%;
-
-		#menu-button { // same as .menu-button
-			// silence.
+	.menu-button {
+		appearance: none;
+		@media (prefers-color-scheme: light) {
+			@include background-color($light--darkest-fill, 0);
 		}
-		.menu-button {
-			appearance: none;
+		@media (prefers-color-scheme: dark) {
+			@include background-color($light--darkest-fill, 0);
+		}
+		border-radius: 0rem;
+		border-width: 0;
+		cursor: pointer;
+		display: flex;
+		gap: 0.5rem;
+		height: auto;
+		justify-content: center;
+		padding: 0.25rem 2rem 0;
+		width: auto;
+
+		&-label {
 			@media (prefers-color-scheme: light) {
-				@include background-color($light--darkest-fill, 1);
+				@include color($light--lightest-text, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include background-color($light--darkest-fill, 1);
+				@include color($light--lightest-text, 1);
 			}
-			border-radius: 0rem;
-			border-width: 0;
-			cursor: pointer;
-			display: flex;
-			gap: 0.5rem;
-			height: auto;
-			justify-content: center;
-			padding: 0.25rem 2rem 0;
-			width: auto;
+			display: inline-flex;
+			text-transform: lowercase;
+		}
+		&-arrow {
+			@media (prefers-color-scheme: light) {
+				@include background-color($light--lightest-background, 1);
+			}
+			@media (prefers-color-scheme: dark) {
+				@include background-color($light--lightest-background, 1);
+			}
+			border-radius: 0.2rem;
+			display: inline-flex;
+			height: 0.1rem;
+			margin: auto 0;
+			position: relative;
+			width: 2rem;
 
-			@media only screen and (min-width: 640px) {
-				display: none;
-				visibility: hidden;
-			}
-
-			&-label {
-				@media (prefers-color-scheme: light) {
-					@include color($light--lightest-text, 1);
-				}
-				@media (prefers-color-scheme: dark) {
-					@include color($light--lightest-text, 1);
-				}
-				display: inline-flex;
-				text-transform: lowercase;
-			}
-			&-arrow {
+			&:before,
+			&:after {
 				@media (prefers-color-scheme: light) {
 					@include background-color($light--lightest-background, 1);
 				}
@@ -732,60 +701,154 @@ span::selection {
 					@include background-color($light--lightest-background, 1);
 				}
 				border-radius: 0.2rem;
-				display: inline-flex;
+				content: '';
+				display: block;
 				height: 0.1rem;
-				margin: auto 0;
-				position: relative;
-				width: 2rem;
-
-				&:before,
-				&:after {
-					@media (prefers-color-scheme: light) {
-						@include background-color($light--lightest-background, 1);
-					}
-					@media (prefers-color-scheme: dark) {
-						@include background-color($light--lightest-background, 1);
-					}
-					border-radius: 0.2rem;
-					content: '';
-					display: block;
-					height: 0.1rem;
-					position: absolute;
-						right: -0.05rem;
-					width: 0.5rem;
-				}
-				&:before {
-					bottom: 0.15rem;
-					transform: rotate(45deg);
-				}
-				&:after {
-					top: 0.15rem;
-					transform: rotate(-45deg);
-				}
+				position: absolute;
+					right: -0.05rem;
+				width: 0.5rem;
 			}
-		}
-		#main-menu { // same as &-list
-
-		}
-		&-list {
-			display: flex;
-			flex-direction: column;
-			height: 0rem;
-			overflow: hidden;
-			gap: 1rem;
-			list-style: none;
-			margin: 0rem;
-			order: 1;
-			padding: 0rem;
-			width: 0rem;
-
-			@media only screen and (min-width: 640px) {
-				flex-direction: row;
-				height: auto;
+			&:before {
+				bottom: 0.15rem;
+				transform: rotate(45deg);
+			}
+			&:after {
+				top: 0.15rem;
+				transform: rotate(-45deg);
 			}
 		}
 	}
 }
+
+.floating-nav-bar {
+
+	&.no-stick {
+		padding-bottom: 2rem;
+		position: absolute;
+			top: calc(100% - 8rem);
+			bottom: 0%;
+			left: 0;
+			right: 0;
+		transition-property: top;
+		transition-delay: 0s;
+		transition-duration: 0.5s;
+		transition-timing-function: ease;
+	}
+
+	&.sticky {
+		height: 4rem;
+		padding-bottom: 1rem;
+		backdrop-filter: blur(0.3125rem);
+		@media (prefers-color-scheme: light) {
+			@include background-color($light--darkest-background, 0.97);
+		}
+		@media (prefers-color-scheme: dark) {
+			@include background-color($dark--darkest-background, 0.97);
+		}
+		position: fixed;
+			top: 0;
+			bottom: calc(100% - 4rem);
+			left: 0;
+			right: 0;
+
+		.header-logo {
+			height: 6.6328rem;
+		}
+
+		.header-logo-link-mark {
+			height: 3.2rem;
+		}
+		transition: none;
+	}
+
+	&.anchored-top,
+	&.anchored-top.sticky {
+		height: 8rem;
+		backdrop-filter: none;
+		@media (prefers-color-scheme: light) {
+			@include background-color($light--darkest-background, 0);
+		}
+		@media (prefers-color-scheme: dark) {
+			@include background-color($dark--darkest-background, 0);
+		}
+		padding-bottom: 0rem;
+		position: fixed;
+			top: 0;
+			bottom: calc(100% - 4rem);
+			left: 0;
+			right: 0;
+
+		.header-logo {
+			height: 6.6328rem;
+		}
+
+		.header-logo-link-mark {
+			height: 3.2rem;
+		}
+	}
+}
+
+// NAV MENU (FULL SCREEN LIST OF ITEMS)
+.main-menu {
+	align-items: center;
+	backdrop-filter: blur(0.3125rem);
+	@media (prefers-color-scheme: light) {
+		@include background-color($light--darkest-background, 0.97);
+	}
+	@media (prefers-color-scheme: dark) {
+		@include background-color($dark--darkest-background, 0.97);
+	}
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	opacity: 0;
+	position: fixed;
+		top: 0;
+		left: 0;
+	transition-property: visibility, opacity;
+	transition-delay: 0s, 0s;
+	transition-duration: 0.5s, 0.5s;
+	transition-timing-function: ease-in, ease-in;
+	visibility: hidden;
+	width: 100%;
+	z-index: 999; // in back of floating nav bar
+
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&-list {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		justify-content: center;
+		list-style: none;
+		margin: 0rem;
+		padding: 0rem;
+
+		&-item {
+			align-items: center;
+			justify-content: center;
+
+			&-link {
+				align-items: center;
+				justify-content: center;
+				text-shadow: white 0px 0px 0px;
+				transition-property: text-shadow;
+				transition-delay: 0s;
+				transition-duration: 0.5s;
+				transition-timing-function: ease-in;
+
+				&.display {
+					text-shadow: white 1px 0px 10px;
+				}
+			}
+		}
+	}
+}
+
 
 .footer {
 	align-items: flex-start;
@@ -913,16 +976,6 @@ span::selection {
 	}
 }
 
-.floating-nav-bar.stick {
-	.header-logo {
-		height: 1.125rem;
-	}
-
-	.header-logo-link-mark {
-		height: 3.2rem;
-	}
-}
-
 .header,
 .footer {
 	display: flex;
@@ -938,10 +991,6 @@ span::selection {
 		height: 5rem;
 		margin: 0;
 		pointer-events: all;
-		transition-property: height;
-		transition-delay: 0.05s;
-		transition-duration: 0.5s;
-		transition-timing-function: ease-in;
 		width: auto;
 
 		&:hover {
@@ -970,10 +1019,6 @@ span::selection {
 				margin-right: 0.25rem;
 				pointer-events: none;
 				position: relative;
-				transition-property: height;
-				transition-delay: 0.05s;
-				transition-duration: 0.5s;
-				transition-timing-function: ease-in;
 				width: 3rem;
 
 				@media only screen and (min-width: 640px) {
@@ -1009,17 +1054,6 @@ span::selection {
 
 		&-item {
 			display: flex;
-		}
-	}
-}
-
-.footer {
-
-	&-logo-link {
-		align-items: center;
-
-		@media only screen and (min-width: 640px) {
-			align-items: flex-start;
 		}
 	}
 }

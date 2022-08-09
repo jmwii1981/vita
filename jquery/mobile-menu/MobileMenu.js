@@ -2,10 +2,15 @@ var mobileMenu,
 MobileMenu = {
 
 	settings: {
-		siteMenu: $('.floating-nav-bar-nav-list'),
+		// "#main-menu" ".main-menu"
+		menuNav: $('#main-menu'),
+		// "#menu-button" ".menu-button"
+		menuButton: $('#menu-button'),
 	},
 
-	ButtonPresence: function() {
+	ButtonActions: function() {
+
+		//** THIS area is reserved for button clicks that create menu element responses.
 
 		// NAV EVENTS – Menu Button
 		// Down Arrow, Space, or Enter – Opens menu and moves focus to first menuitem
@@ -14,13 +19,21 @@ MobileMenu = {
 		// SELECTORS
 		// "#menu-button"
 
-		// RESULTS
+		// ARIA RESULTS
 		// aria-expanded="true" when menu is opened
 		// aria-expanded="false" when menu is closed
 
+		// VISUAL RESULTS
+		// logo and menu button move to the top of the screen
+		// menu button arrow turns into an 'x'
+		// menu items flash into view
+		// accessibility features are included with menu items
+
 	},
 
-	MenuReactions: function() {
+	MenuActions: function() {
+
+		//** THIS area is reserved for button clicks that create menu element responses.
 
 		// NAV EVENTS – Menu
 		// Space or Enter – Activates the menu item, which is equivalent to activating the link element from which the menu item is made.
@@ -38,11 +51,12 @@ MobileMenu = {
 	},
 
 	bindUIActions: function() {
-		MobileMenu.ButtonPresence();
+		MobileMenu.ButtonActions();
+		MobileMenu.MenuActions();
 	},
 
 	init: function() {
-		s = this.settings;
+		mobileMenu = this.settings;
 		this.bindUIActions();
 	},
 };
