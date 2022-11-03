@@ -850,9 +850,8 @@ span::selection {
 }
 
 
+.article,
 .footer {
-	align-items: flex-start;
-
 	&-inner {
 		align-items: center;
 		display: flex;
@@ -900,6 +899,10 @@ span::selection {
 			}
 		}
 	}
+}
+
+.footer {
+	align-items: flex-start;
 
 	&-nav {
 
