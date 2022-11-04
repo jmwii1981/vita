@@ -859,6 +859,11 @@ span::selection {
 		gap: 1rem;
 		justify-content: space-between;
 
+		&-inner-left,
+		&-inner-right {
+			flex-direction: column;
+		}
+
 		@media only screen and (min-width: 640px) {
 			align-items: flex-start;
 			flex-direction: row;
@@ -866,37 +871,45 @@ span::selection {
 		}
 
 		&-col {
-			align-items: center;
 			display: flex;
-			justify-content: center;
 			width: 100%;
+		}
+	}
+}
 
+.article {
+	&-inner-col {
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+}
 
-			&-left {
-				flex-direction: column;
-				gap: 2.5rem;
-				order: 2;
+.footer {
+	&-inner-col {
+		align-items: center;
+		justify-content: center;
+	}
+	&-inner-left {
+		gap: 2.5rem;
+		order: 2;
 
-				@media only screen and (min-width: 640px) {
-					align-items: flex-start;
-					order: 1;
-					justify-content: flex-end;
-					width: auto;
-				}
-			}
-			&-right {
-				flex-direction: column;
-				gap: 3rem;
-				order: 1;
+		@media only screen and (min-width: 640px) {
+			align-items: flex-start;
+			order: 1;
+			justify-content: flex-end;
+			width: auto;
+		}
+	}
+	&-inner-right {
+		gap: 3rem;
+		order: 1;
 
-				@media only screen and (min-width: 640px) {
-					align-items: flex-end;
-					gap: 2.4rem;
-					order: 2;
-					justify-content: flex-end;
-					width: auto;
-				}
-			}
+		@media only screen and (min-width: 640px) {
+			align-items: flex-end;
+			gap: 2.4rem;
+			order: 2;
+			justify-content: flex-end;
+			width: auto;
 		}
 	}
 }
@@ -1064,42 +1077,23 @@ span::selection {
 	flex-direction: column;
 
 	&-list {
+		align-items: flex-start;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 		list-style: none;
 		margin: 0 auto;
 		padding: 0;
+		width: 100%;
 
 		@media only screen and (min-width: 640px) {
 			gap: 0.5rem;
-			justify-content: space-between;
 			margin: -0.75rem 0 0;
 		}
 
 		&-item {
 			display: flex;
-			height: 4rem;
-			width: 4rem;
-
-			&-icon {
-				@media (prefers-color-scheme: light) {
-						@include fill($light--darkest-fill, 1);
-				}
-				@media (prefers-color-scheme: dark) {
-						@include fill($light--darkest-fill, 1);
-				}
-				display: flex;
-				width: 4rem;
-			}
-
-			&-link {
-				display: flex;
-				decoration: none;
-				height: 4rem;
-				width: 4rem;
-			}
 		}
 	}
 }

@@ -1591,6 +1591,11 @@ span::selection {
   gap: 1rem;
   justify-content: space-between;
 }
+.article-inner-inner-left, .article-inner-inner-right,
+.footer-inner-inner-left,
+.footer-inner-inner-right {
+  flex-direction: column;
+}
 @media only screen and (min-width: 640px) {
   .article-inner,
 .footer-inner {
@@ -1601,35 +1606,37 @@ span::selection {
 }
 .article-inner-col,
 .footer-inner-col {
-  align-items: center;
   display: flex;
-  justify-content: center;
   width: 100%;
 }
-.article-inner-col-left,
-.footer-inner-col-left {
-  flex-direction: column;
+
+.article-inner-col {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.footer-inner-col {
+  align-items: center;
+  justify-content: center;
+}
+.footer-inner-left {
   gap: 2.5rem;
   order: 2;
 }
 @media only screen and (min-width: 640px) {
-  .article-inner-col-left,
-.footer-inner-col-left {
+  .footer-inner-left {
     align-items: flex-start;
     order: 1;
     justify-content: flex-end;
     width: auto;
   }
 }
-.article-inner-col-right,
-.footer-inner-col-right {
-  flex-direction: column;
+.footer-inner-right {
   gap: 3rem;
   order: 1;
 }
 @media only screen and (min-width: 640px) {
-  .article-inner-col-right,
-.footer-inner-col-right {
+  .footer-inner-right {
     align-items: flex-end;
     gap: 2.4rem;
     order: 2;
@@ -1805,47 +1812,24 @@ span::selection {
   flex-direction: column;
 }
 .article-list {
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   list-style: none;
   margin: 0 auto;
   padding: 0;
+  width: 100%;
 }
 @media only screen and (min-width: 640px) {
   .article-list {
     gap: 0.5rem;
-    justify-content: space-between;
     margin: -0.75rem 0 0;
   }
 }
 .article-list-item {
   display: flex;
-  height: 4rem;
-  width: 4rem;
-}
-.article-list-item-icon {
-  display: flex;
-  width: 4rem;
-}
-@media (prefers-color-scheme: light) {
-  .article-list-item-icon {
-    fill: #303135; /* The Fallback */
-    fill: #303135;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .article-list-item-icon {
-    fill: #303135; /* The Fallback */
-    fill: #303135;
-  }
-}
-.article-list-item-link {
-  display: flex;
-  decoration: none;
-  height: 4rem;
-  width: 4rem;
 }
 
 /*# sourceMappingURL=master.css.map */
