@@ -1,73 +1,57 @@
 /*
-    == RESOURCES ==    
+    The Github API for 'Listing Commits' provides the per_page parameter which allow us to 
+    only display a given number of commits per page up to '100'. For instance, setting the
+    'per_page' parameter to 1 will only list 1 commit per page. Therefor, 'page' parameter
+    returns a numerical value of pages. If we have '192' commits and list 1 commit per page,
+    it's expected that if we have '192' commits, then we'll have a value of '192' pages.
 
-        Dev Docs: https://docs.github.com/en/rest/commits/commits#list-commits
-
-        Auth Token : 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
-
-    == WHAT IT DOES ==    
-
-        Gets the number of commits I've made to the 'Vita' repository on Github
-
-    == WHY THIS WORKS ==
-
-        I've customized the response so that the 'per_page' parameter is passed a 
-        value of 1 which according to Github's documentation, means that I will see
-        one commit and its information listed per page. Thus, for example, if I receive
-        back 192 pages, then that means I have 192 commits.
-
-    == HOW IT'S DONE ==
-
-        ... See below ...
-
+    The goal of this program is to grab the value of the 'page' parameter in a given
+    Github API provided URL to understand how many commits have been pushed to a given
+    repo. That value will then be used to display this data on a web page.
 */
-// Importing Github Octokit module
-import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
-// Custom Vars declarations
-let myResponse = [];
-let myResponseList = [];
+// Var declarations
+const myURL = `https://api.github.com`;
+const myUsername = `jmwii1981`;
+const myRepo = `vita`;
 
-// Creating a new instance of Octokit that houses my auth token
-const octokit = new Octokit({ auth: `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` });
+// Fx definitions
+async function getData(givenURL, givenOwner, givenRepo) {
+    // Build out the URL to fetch so that we get my commits within my repo
+    givenURL = `${givenURL}/repos/${givenOwner}/${givenRepo}/commits?per_page=1`;
 
-// Grabbing info. from Github API
-const response = await octokit.request('GET /repos/{owner}/{repo}/commits', {
-    owner: 'jmwii1981',
-    repo: 'vita',
-    sha: 'main',
-    since: '2021-12-09T00:00:00-05:00', // 2021-12-09THH:MM:SSZ
-    per_page: '1',        
-});
+    // Get a response for the built out URL to fetch
+    let myResponse = await fetch(givenURL)
+        .then((githubResponse) => {
+            return githubResponse.headers;
+    });
+ 
+    // Build new empthy Map object
+    let myResponseMap = new Map();
+ 
+    // Store key-value pairs from URL to fetch response data in new Map object
+    for (let [key, value] of myResponse) {
+        myResponseMap = myResponseMap.set(key, value);
+    }
 
-/* Pulling information relevant to my goal ...
-        Stores the response and traverses to the link key and returns its value; two links
-*/
-myResponseList = myResponse.push(response.headers.link);
-for (const item of myResponseList) {
-    console.log(item);
+    // Return the Map object and get the value of the key 'link'
+    myResponse = myResponseMap.get(`link`);
+
+    // Clean up the link value like so ...
+    myResponse = myResponse.split(`, `).pop().replace(/<|>|;|rel=|"|last/gi, ``).trim().toString();
+    
+    // Parse URL
+    myResponse = new URL(myResponse);
+
+    // Grab the 'page' parameter's value
+    myResponse = myResponse.searchParams.get(`page`);
+
+    // Inject the resulting value where it needs to go ...
+    const githubCommitsSpan = document.createElement(`span`);
+    const githubCommitsEl = document.getElementById(`githubCommits`);
+
+    myResponse = document.createTextNode(`${myResponse}`);
+    githubCommitsSpan.appendChild(myResponse);
+    githubCommitsEl.appendChild(githubCommitsSpan);
 }
-
-console.log(`${myResponseList}`);
-
-/* Cleans up the response by splitting the given info into an array
-        Removes the last item in the array (the relevant one), and trashes the first rest of the items
-        Strips out all of the junk from the response that I don't need
-        Trims whitespace and ensures the remaining value is a string
-*/
-function cleanUpResponse(yourResponse) {
-    myResponse = myResponse.split(', ').pop().replace(/<|>|;|rel=|"|last/gi, '').trim().toString();
-}
-
-cleanUpResponse(myResponse);
-
-
-
-/* Parses the URL string
-        Searches for the 'page' parameter
-        Returns the numerical value that's assigned to the 'page' parameter
-*/
-myResponse = new URLSearchParams(myResponse).get('page');
-
-// TEST
-console.log(`${myResponse}`);
+getData(myURL, myUsername, myRepo);
