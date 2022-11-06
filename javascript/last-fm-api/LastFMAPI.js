@@ -1,5 +1,6 @@
-var lastFMAPI,
-LastFMAPI = {
+var lastFMAPI;
+
+var LastFMAPI = {
 	settings: {
 		window: $(window),
 		ajax: $.get,
@@ -52,7 +53,7 @@ LastFMAPI = {
 			trackURL = track.url,
 			trackURL = encodeURI(trackURL),
 			trackArtist = track.artist["#text"],
-			responseOutput = "Currently vibing to <a class='link link--upper link--x-small link--dark link--weight-500 link--line-height-medium' href='" + trackURL + "' target='_blank'>" + trackArtist + "<span class='focus-border'></span><\/a>";
+			responseOutput = "vibing to <a class='link link--upper link--x-small link--dark link--weight-500 link--line-height-medium' href='" + trackURL + "' target='_blank'>" + trackArtist + "<span class='focus-border'></span><\/a>";
 
 			// test output
 			// console.log(responseOutput);
