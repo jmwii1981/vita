@@ -14,6 +14,7 @@
 const myURL = `https://api.github.com`;
 const myUsername = `jmwii1981`;
 const myRepo = `vita`;
+const myCommitsEl = document.getElementById(`myCommits`);
 
 // Fx definitions
 async function getData(givenURL, givenOwner, givenRepo) {
@@ -47,11 +48,7 @@ async function getData(givenURL, givenOwner, givenRepo) {
     myResponse = myResponse.searchParams.get(`page`);
 
     // Inject the resulting value where it needs to go ...
-    const githubCommitsSpan = document.createElement(`span`);
-    const githubCommitsEl = document.getElementById(`githubCommits`);
-
     myResponse = document.createTextNode(`${myResponse}`);
-    githubCommitsSpan.appendChild(myResponse);
-    githubCommitsEl.appendChild(githubCommitsSpan);
+    myCommitsEl.appendChild(myResponse);
 }
 getData(myURL, myUsername, myRepo);
