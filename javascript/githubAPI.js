@@ -27,7 +27,7 @@ async function getData(givenURL, givenOwner, givenRepo) {
             return githubResponse.headers;
     });
  
-    // Build new empthy Map object
+    // Build new empty Map object
     let myResponseMap = new Map();
  
     // Store key-value pairs from URL to fetch response data in new Map object
