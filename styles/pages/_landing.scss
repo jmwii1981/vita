@@ -601,13 +601,30 @@ span::selection {
 
 // MAIN CONTENT CONTAINER
 .main {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	justify-content: space-between;
+	justify-content: center;
 	position: relative;
 	width: 100%;
 	z-index: 1;
+}
+
+.section {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+
+
+	@media only screen and (min-width: 640px) {
+		max-width: 91rem;
+	}
 }
 
 // H2 - POSITIONING
@@ -660,7 +677,7 @@ span::selection {
 
 // FOOTER
 .footer {
-	align-items: flex-start;
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -717,6 +734,10 @@ span::selection {
 		flex-direction: column;
 		gap: 1rem;
 		width: 100%;
+
+		@media only screen and (min-width: 640px) {
+			max-width: 91rem;
+		}
 
 		.p {
 			margin: 0;
