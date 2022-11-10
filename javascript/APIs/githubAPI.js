@@ -24,7 +24,7 @@ const myResponseLinkAttribs = {
     classes: [ // Could potentially change
         `link`,
         `link--x-small`,
-        `link--dark`,
+        `link--light`,
         `link--weight-500`
     ],
     href: `${myURL}/${myUsername}/${myRepo}/commits/${myBranch}`,
