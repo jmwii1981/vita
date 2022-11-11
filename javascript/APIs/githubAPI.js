@@ -18,14 +18,13 @@ const myURL = `https://github.com`;
 const myUsername = `jmwii1981`;
 const myRepo = `vita`;
 const myBranch = `main`;
-
 const myCommitsEl = document.getElementById(`myCommits`);
 const myResponseLinkAttribs = {
     classes: [ // Could potentially change
         `link`,
         `link--x-small`,
         `link--light`,
-        `link--weight-500`
+        `link--weight-900`
     ],
     href: `${myURL}/${myUsername}/${myRepo}/commits/${myBranch}`,
     target: `_blank`,

@@ -31,15 +31,11 @@ let checkForTrack = async function() {
 	let getTrackInfo = async function() {
 		try {
 			const response = await fetch(requestTrack);
-
-			if (!response.ok) {
-				return null;
-				throw new Error(``);
-			}
 			const myTracks = await response.json();
+			// console.log(myTracks);
 			return myTracks;
 		} catch (err) {
-			return null;
+			return;
 			console.log(err);
 		}
 	}
@@ -58,7 +54,7 @@ let checkForTrack = async function() {
 			`link`,
 			`link--x-small`,
 			`link--light`,
-			`link--weight-500`,
+			`link--weight-900`,
 		],
 		href: `${spotifyArtistURL}`,
 		target: `_blank`,
@@ -68,7 +64,7 @@ let checkForTrack = async function() {
 			`link`,
 			`link--x-small`,
 			`link--light`,
-			`link--weight-500`,
+			`link--weight-900`,
 		],
 		href: `${spotifyTrackURL}`,
 		target: `_blank`,
@@ -98,11 +94,11 @@ let checkForTrack = async function() {
 	if (document.getElementById(`myTrack`) || document.getElementById(`myArtist`)) {
 		if ((document.getElementById(`myTrack`).textContent.toString() != myResponse2Track.toString()) || (document.getElementById(`myArtist`).textContent.toString() != myResponse2Artist.toString())) {
 			// replace element or just create an object to generate sentence with later ...
-			myResponseTrackLink2.innerHTML = myResponse2Track;
-			myResponseArtistLink2.innerHTML = myResponse2Artist;
-			myMusicEl.appendChild(myResponseTrackLink2);
-			myMusicEl.append(whoDoneIt);
-			myMusicEl.appendChild(myResponseArtistLink2);
+			// myResponseTrackLink2.innerHTML = myResponse2Track;
+			// myResponseArtistLink2.innerHTML = myResponse2Artist;
+			// myMusicEl.appendChild(myResponseTrackLink2);
+			// myMusicEl.append(whoDoneIt);
+			// myMusicEl.appendChild(myResponseArtistLink2);
 		}
 	} else {
 		myResponseTrackLink2.innerHTML = myResponse2Track;
@@ -113,7 +109,7 @@ let checkForTrack = async function() {
 	}
 
 	// Let's do it all again!
-	checkAgain();
+	//checkAgain();
 }
 const checkAgain = function() {
 	intervalID();
@@ -121,8 +117,9 @@ const checkAgain = function() {
 const intervalID = function() {
 	setInterval(
 		checkForTrack,
-		10000
+		60000
 	);
 }
+
 // Get the ball rolling ...
 checkForTrack();

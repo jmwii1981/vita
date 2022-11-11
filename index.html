@@ -55,7 +55,9 @@
 
 			<!-- My  Scripts -->
 			<script src="javascript/APIs/githubAPI.js" type="module"></script>
-			<!-- <script src="javascript/APIs/lastFMAPI.js" type="module"></script> -->
+			<script src="javascript/APIs/lastFMAPI.js" type="module"></script>
+			<script src="javascript/APIs/googleMapsAPI.js" type="module"></script>
+			<script src="javascript/APIs/openLibraryAPI.js" type="module"></script>
 	</head>
 	<body class="body layout-bg--dark">
 		<noscript>
@@ -85,27 +87,27 @@
 			<nav id="main-menu" class="main-menu" aria-labelledby="menu-button">
 				<ul class="main-menu-list" role="menu">
 					<li class="main-menu-list-item" role="none">
-						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-500" href="#aborole="menuitem" ut" target="_blank">
+						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-900" href="#aborole="menuitem" ut" target="_blank">
 							About
 						</a>
 					</li>
 					<li class="main-menu-list-item" role="none">
-						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-500" role="menuitem" href="//medium.com/@jmwii1981" target="_blank">
+						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-900" role="menuitem" href="//medium.com/@jmwii1981" target="_blank">
 							Method
 						</a>
 					</li>
 					<li class="main-menu-list-item" role="none">
-						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-500" role="menuitem" href="//linkedin.com/in/jmwii1981" target="_blank">
+						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-900" role="menuitem" href="//linkedin.com/in/jmwii1981" target="_blank">
 							Experience
 						</a>
 					</li>
 					<li class="main-menu-list-item" role="none">
-						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-500" role="menuitem" href="//dribbble.com/jmwii1981" target="_blank">
+						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-900" role="menuitem" href="//dribbble.com/jmwii1981" target="_blank">
 							Design
 						</a>
 					</li>
 					<li class="main-menu-list-item" role="none">
-						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-500" role="menuitem" href="//codepen.io/jmwii1981" target="_blank">
+						<a class="main-menu-list-item-link link link--light link--lower link--x-small link--weight-900" role="menuitem" href="//codepen.io/jmwii1981" target="_blank">
 							Code
 						</a>
 					</li>
@@ -123,22 +125,23 @@
 		<footer class="footer">
 			<div class="footer-disclaimers">
 				<p class="p p--x-small p--light p--line-height-medium p--align-center-mbl">
-					<a class="link link--x-small link--light link--weight-500" property="dct:title" rel="cc:attributionURL" href="//github.com/jmwii1981/vita" target="_blank">Vita</a> is currently built with <span id="myCommits"></span>. It is hosted with <a class="link link--x-small link--light link--weight-500" href="//pages.github.com/" target="_blank">Github Pages</a>, and boasts a <a class="link link--x-small link--light link--weight-500" href="//creativecommons.org/" target="_blank">Creative Commons license</a>: <a class="link link--x-small link--light link--weight-500" href="//creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC 4.0</a>.
+					<a class="link link--x-small link--light link--weight-900" property="dct:title" rel="cc:attributionURL" href="//github.com/jmwii1981/vita" target="_blank">Vita</a> is currently built with <span id="myCommits"></span>. It is hosted with <a class="link link--x-small link--light link--weight-900" href="//pages.github.com/" target="_blank">Github Pages</a>, and boasts a <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/" target="_blank">Creative Commons license</a>: <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC 4.0</a>.
 				</p>
 				<p id="janTracker" class="p p--x-small p--light p--line-height-medium p--align-center-mbl">
-					Jan was last seen in 
-					<a class="link link--x-small link--light link--weight-500" href="#" target="_blank">
+					<a class="link link--x-small link--light link--weight-900" href="//linkedin.com/in/jmwii1981" target="_blank">
+						Jan Michael
+					</a>
+					was last seen in 
+					<a class="link link--x-small link--light link--weight-900" href="#" target="_blank">
 						Louisville, KY
 					</a>,
 					sporting 
-					<a class="link link--x-small link--light link--weight-500" href="//openweathermap.org/city/4296212" target="_blank">
+					<a class="link link--x-small link--light link--weight-900" href="//openweathermap.org/city/4296212" target="_blank">
 						shades
 					</a>, 
 					reading 
-					<a class="link link--x-small link--light link--weight-500" href="//openlibrary.org/people/jmwii1981/books/currently-reading" target="_blank">
-						<em>Inspired</em>
-					</a>
-					and,<span id="last-fm-track-output"></span>.
+					<span id="myBookEl"></span>
+					and, vibing to <span id="last-fm-track-output"></span>.
 				</p>
 				<!-- Create some JS magic and dynamically place 'and' and punctuation in above sentence as things load ... -->
 			</div>
