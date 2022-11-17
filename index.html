@@ -42,7 +42,7 @@
 			<meta name="msapplication-config" content="/favicons/browserconfig.xml">
 			<meta name="theme-color" content="#010101">
 		<!-- CUSTOM STYLES -->
-		<link rel="stylesheet" href="styles/comprehensive/master.css">
+			<link rel="stylesheet" href="styles/comprehensive/master.css">
 		<!-- SUPPORTING SCRIPTS -->
 			<!-- google tag manager -->
 			<script>
@@ -52,13 +52,9 @@
 				'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 				})(window,document,'script','dataLayer','GTM-53BZRHG');
 			</script>
-
-			<!-- My  Scripts -->
-			<script src="javascript/APIs/githubAPI.js" type="module"></script>
-			<script src="javascript/APIs/lastFMAPI.js" type="module"></script>
-			<script src="javascript/APIs/openLibraryAPI.js" type="module"></script>
-
-		</head>
+		<!-- CUSTOM SCRIPTS -->
+			<script src="javascript/scripts.js" type="module" defer></script>
+</head>
 	<body class="body layout-bg--dark">
 		<noscript>
 			<!-- Google Tag Manager (noscript) -->
@@ -123,27 +119,7 @@
 			</section>
 		</main>
 		<footer class="footer">
-			<div class="footer-disclaimers">
-				<p class="p p--x-small p--light p--line-height-medium p--align-center-mbl">
-					<a class="link link--x-small link--light link--weight-900" property="dct:title" rel="cc:attributionURL" href="//github.com/jmwii1981/vita" target="_blank">Vita</a> is currently built with <span id="myCommits"></span>. It is hosted with <a class="link link--x-small link--light link--weight-900" href="//pages.github.com/" target="_blank">Github Pages</a>, and boasts a <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/" target="_blank">Creative Commons license</a>: <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC 4.0</a>.
-				</p>
-				<p id="janTracker" class="p p--x-small p--light p--line-height-medium p--align-center-mbl">
-					<a class="link link--x-small link--light link--weight-900" href="//linkedin.com/in/jmwii1981" target="_blank">
-						Jan Michael
-					</a>
-					was last seen in 
-					<a class="link link--x-small link--light link--weight-900" href="#" target="_blank">
-						Louisville, KY
-					</a>,
-					sporting 
-					<a class="link link--x-small link--light link--weight-900" href="//openweathermap.org/city/4296212" target="_blank">
-						shades
-					</a>, 
-					reading 
-					<span id="myBookEl"></span>
-					and, vibing to <span id="last-fm-track-output"></span>.
-				</p>
-				<!-- Create some JS magic and dynamically place 'and' and punctuation in above sentence as things load ... -->
+			<div class="footer-content">
 			</div>
 			<ul class="footer-list">
 				<li class="footer-list-item">
@@ -210,7 +186,6 @@
 					</a>
 				</li>
 			</ul>
-
 		</footer>
 	</body>
 </html>

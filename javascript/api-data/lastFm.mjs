@@ -1,6 +1,28 @@
 /*
 	ABOUT
 */
+import { urlBaseFactory } from '../factories/urlBase.mjs';
+import { urlAssimilationFactory } from '../factories/urlAssimilation.mjs';
+import { apiFetchFactory } from '../factories/apiFetch.mjs';
+
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+
 let checkForTrack = async function() {
 	// If interval, clear out ...
 	clearInterval(intervalID);
@@ -103,9 +125,9 @@ let checkForTrack = async function() {
 	} else {
 		myResponseTrackLink2.innerHTML = myResponse2Track;
 		myResponseArtistLink2.innerHTML = myResponse2Artist;
-		myMusicEl.appendChild(myResponseTrackLink2);
-		myMusicEl.append(whoDoneIt);
-		myMusicEl.appendChild(myResponseArtistLink2);
+		// myMusicEl.appendChild(myResponseTrackLink2);
+		// myMusicEl.append(whoDoneIt);
+		// myMusicEl.appendChild(myResponseArtistLink2);
 	}
 
 	// Let's do it all again!
@@ -123,3 +145,5 @@ const intervalID = function() {
 
 // Get the ball rolling ...
 checkForTrack();
+const thing3 = console.log(`lastFm`);
+export { thing3 };

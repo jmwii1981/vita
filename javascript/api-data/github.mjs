@@ -11,6 +11,29 @@
     Github API provided URL and its endpoints to understand how many commits have been
     pushed to a given repo. That value will then be used to display this data on a web page.
 */
+import { urlBaseFactory } from '../factories/urlBase.mjs';
+import { urlAssimilationFactory } from '../factories/urlAssimilation.mjs';
+import { apiFetchFactory } from '../factories/apiFetch.mjs';
+
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+// REFACTOR NOT DONE YET
+
+
 
 // Var declarations
 const myAPIURL = `https://api.github.com`;
@@ -75,5 +98,7 @@ const getData = async function(givenURL, givenOwner, givenRepo) {
     myCommitsEl.appendChild(myResponseLink);
 }
 
-// Fx executions
-getData(myAPIURL, myUsername, myRepo);
+// Fx usage
+// getData(myAPIURL, myUsername, myRepo);
+const thing1 = console.log(`github`);
+export { thing1 };

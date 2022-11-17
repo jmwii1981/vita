@@ -1429,18 +1429,18 @@ span::selection {
   height: 4rem;
   width: 4rem;
 }
-.footer-disclaimers {
+.footer-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
 }
 @media only screen and (min-width: 640px) {
-  .footer-disclaimers {
+  .footer-content {
     max-width: 91rem;
   }
 }
-.footer-disclaimers .p {
+.footer-content .p {
   margin: 0;
   width: 100%;
 }
