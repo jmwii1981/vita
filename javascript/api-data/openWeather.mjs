@@ -37,7 +37,8 @@ const apiUrlBase = urlBaseFactory(...apiUrl.base);
 const apiUrlFull = urlAssimilationFactory(apiUrlBase, apiUrl.paths, apiUrl.params);
 
 // Getting and storing results for later
-const result = await apiFetch(apiUrlFull);
+let result = await apiFetchFactory(apiUrlFull);
+result = result.apiData;
 const current = result.current;
 const currentTemp = Math.round(Number(current.temp));
 const currentConditions = current.weather[0].main;

@@ -36,8 +36,8 @@ const apiUrlBase = urlBaseFactory(...apiUrl.base);
 const apiUrlFull = urlAssimilationFactory(apiUrlBase, apiUrl.paths, apiUrl.params);
 
 // Getting and storing OL results for later ...
-const result = await apiFetch(apiUrlFull);
-
+let result = await apiFetchFactory(apiUrlFull);
+result = result.apiData;
 // Getting and storing OL book title for later ...
 const bookTitle = result.reading_log_entries[0].work.title;
 
