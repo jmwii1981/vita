@@ -6,16 +6,14 @@
 */
 
 // Data
-import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data/github.mjs';
+// import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data/github.mjs';
 import { listOfAuthors, bookLink, bookTitle } from './data/openLibrary.mjs';
 import { searchUrlFull, currentShoes, currentGear } from './data/openWeather.mjs';
-import { trackURL, spotifyTrackURL, spotifyArtistURL, trackName, trackArtist } from './data/lastFm.mjs';
+import { spotifyTrackURL, spotifyArtistURL, trackName, trackArtist } from './data/lastFm.mjs';
 
 // Factories
 import { paragraphTagFactory } from './factories/paragraphTag.mjs';
 import { anchorTagFactory } from './factories/anchorTag.mjs';
-import { sentenceBuilderFactory } from './factories/sentenceBuilder.mjs';
-import { addToDocumentFactory } from './factories/addToDocument.mjs';
 
 // Create Objects for later use ...
 const linkedInLink = anchorTagFactory(`Jan Michael`, undefined, `//linkedin.com/in/jmwii1981`, undefined, undefined, undefined, undefined);
@@ -32,7 +30,8 @@ const myOpening = [
 ];
 const myLocation = [
     ` was last seen in `,
-    googleMapsLink
+    googleMapsLink,
+    `, `,
 ];
 const myWeather = [
     ` sporting his `,
@@ -44,8 +43,8 @@ const myWeather = [
 const myReading = [
     ` reading `,
     myBookLink,
-    // ` by `,
-    // listOfAuthors,
+    ` by `,
+    listOfAuthors,
 ];
 const myMusic = [
     `, and vibing to `,

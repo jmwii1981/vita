@@ -11,6 +11,7 @@
 import { urlBaseFactory } from '../factories/urlBase.mjs';
 import { urlAssimilationFactory } from '../factories/urlAssimilation.mjs';
 import { apiFetchFactory } from '../factories/apiFetch.mjs';
+import { anchorTagFactory } from '../factories/anchorTag.mjs';
 
 // OL API URL
 let apiUrl = {
@@ -77,9 +78,9 @@ let listOfAuthors = function() {
                 i = i -1;
                 let authorLink = ``;
                 if (i == 0) {
-                    authorLink = `<a href="${value}">${key}</a>`;
+                    authorLink = anchorTagFactory(`${key}`, undefined, `${value}`, undefined, undefined, undefined, undefined);
                 } else {
-                    authorLink = `<a href="${value}">${key}</a>,`;
+                    authorLink = anchorTagFactory(`${key}`, undefined, `${value}`, undefined, undefined, undefined, undefined);
                 }
                 return authorLink;
             }

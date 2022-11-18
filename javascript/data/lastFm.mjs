@@ -57,10 +57,10 @@ result = result.apiData;
 // Making the OL results useful ...
 const recentTrack = result.recenttracks.track[0];
 const trackName = recentTrack.name;
-const trackURL = new URL(recentTrack.url).toString();
+// const trackURL = new URL(recentTrack.url).toString();
 const trackArtist = recentTrack.artist["#text"];
 const spotifyTrackURL = new URL(`${spotifySearchiUrlFull}/${trackName} by ${trackArtist}`).toString();
 const spotifyArtistURL = new URL(`${spotifySearchiUrlFull}/${trackArtist}`).toString();
 
 // Export values for later use ...
-export { trackName, trackURL, trackArtist, spotifyTrackURL, spotifyArtistURL };
+export { trackName, trackArtist, spotifyTrackURL, spotifyArtistURL };
