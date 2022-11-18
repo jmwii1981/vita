@@ -16,8 +16,8 @@ import { paragraphTagFactory } from './factories/paragraphTag.mjs';
 import { anchorTagFactory } from './factories/anchorTag.mjs';
 
 // Create Objects for later use ...
-const linkedInLink = anchorTagFactory(`Jan Michael`, undefined, `//linkedin.com/in/jmwii1981`, undefined, undefined, undefined, undefined);
 const googleMapsLink = anchorTagFactory(`Louisville, KY`, undefined, `//www.google.com/maps/place/Louisville,+KY/@38.1884721,-85.9569664,10z/data=!3m1!4b1!4m6!3m5!1s0x88690b1ab35bd511:0xd4d3b4282071fd32!8m2!3d38.2526647!4d-85.7584557!16zL20vMGZfXzE`, undefined, undefined, undefined, undefined);
+const myLinkedInLink = anchorTagFactory(`Jan Michael`, undefined, `//linkedin.com/in/jmwii1981`, undefined, undefined, undefined, undefined);
 const myWeatherShoesLink =  anchorTagFactory(`${currentShoes}`, undefined, `${searchUrlFull}`, undefined, undefined, undefined, undefined);
 const myWeatherGearLink =  anchorTagFactory(`${currentGear}`, undefined, `${searchUrlFull}`, undefined, undefined, undefined, undefined);
 const myBookLink = anchorTagFactory(`${bookTitle}`, undefined, `${bookLink}`, undefined, undefined, undefined, undefined);
@@ -26,7 +26,7 @@ const myArtistLink = anchorTagFactory(`${trackArtist}`, undefined, `${spotifyArt
 
 // Content
 const myOpening = [
-    linkedInLink,
+    myLinkedInLink,
 ];
 const myLocation = [
     ` was last seen in `,
