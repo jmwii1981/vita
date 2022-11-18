@@ -28,7 +28,6 @@ let apiUrl = {
         `books`,
         `currently-reading.json`,
     ],
-    query: [],
     params: {},
 };
 apiUrl.base = Object.values(apiUrl.base);
@@ -38,6 +37,7 @@ const apiUrlFull = urlAssimilationFactory(apiUrlBase, apiUrl.paths, apiUrl.param
 // Getting and storing OL results for later ...
 let result = await apiFetchFactory(apiUrlFull);
 result = result.apiData;
+
 // Getting and storing OL book title for later ...
 const bookTitle = result.reading_log_entries[0].work.title;
 
@@ -80,6 +80,8 @@ if (bookAuthorNamesList.length == bookAuthorEndpointsList.length) {
 let authorUrl = {
     // code
 };
+
+// Export values for later use ...
 export { bookTitle, bookLink, bookAuthorNamesAndLinks }
 
 

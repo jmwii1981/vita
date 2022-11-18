@@ -1,40 +1,51 @@
 /*
-    The Github API for 'Listing Commits' (https://docs.github.com/en/rest/commits/commits)
-    instructs us that it provides the per_page parameter which allow us to only display a
-    given number of commits per page.
-    
-    For instance, setting the 'per_page' parameter to 1 will only list 1 commit per page.
-    Therefore, 'page' parameter returns a numerical value of pages. If we have '192' commits
-    and list 1 commit per page, it's expected we'll have a value of '192' pages.
+    GITHUB API 
+    Dev Docs: 
 
-    The goal of this program is to grab the value of the 'page' parameter in a given
-    Github API provided URL and its endpoints to understand how many commits have been
-    pushed to a given repo. That value will then be used to display this data on a web page.
+    ----------------
+    STRUCTURES
+        •   Thing 1
+            • Thing 2
 */
 import { urlBaseFactory } from '../factories/urlBase.mjs';
 import { urlAssimilationFactory } from '../factories/urlAssimilation.mjs';
 import { apiFetchFactory } from '../factories/apiFetch.mjs';
 
-// Var declarations for linking out to commits page
-// const myAPIURL = `https://api.github.com`;
-// const myURL = `https://github.com`;
-// const myUsername = `jmwii1981`;
-// const myRepo = `vita`;
-// const myBranch = `main`;
-// const myCommitsEl = document.getElementById(`myCommits`);
-// const myResponseLinkAttribs = {
-//     classes: [ // Could potentially change
-//         `link`,
-//         `link--x-small`,
-//         `link--light`,
-//         `link--weight-900`
-//     ],
-//     href: `${myURL}/${myUsername}/${myRepo}/commits/${myBranch}`,
-//     target: `_blank`,
-// }
-// const responseLinkClasses = Object.values(myResponseLinkAttribs.classes);
-// const myResponseLink = document.createElement('a');
+// GH REPO URL
+let githubRepoUrl = {
+    base: {
+        protocol: undefined,
+        tertiaryDomain: ``,
+        secondaryDomain: `github`,
+        topDomain: `com`,
+    },
+    paths: [
+        `jmwii1981`,
+        `vita`,
+    ],
+};
+githubRepoUrl.base = Object.values(githubRepoUrl.base);
+const githubRepoUrlBase = urlBaseFactory(...githubRepoUrl.base);
+const githubRepoUrlFull = urlAssimilationFactory(githubRepoUrlBase, githubRepoUrl.paths, githubRepoUrl.params);
 
+// GH COMMITS URL
+let githubCommitsUrl = {
+    base: {
+        protocol: undefined,
+        tertiaryDomain: ``,
+        secondaryDomain: `github`,
+        topDomain: `com`,
+    },
+    paths: [
+        `jmwii1981`,
+        `vita`,
+        `commits`,
+        `main`,
+    ],
+};
+githubCommitsUrl.base = Object.values(githubCommitsUrl.base);
+const githubCommitsUrlBase = urlBaseFactory(...githubCommitsUrl.base);
+const githubCommitsUrlFull = urlAssimilationFactory(githubCommitsUrlBase, githubCommitsUrl.paths, githubCommitsUrl.params);
 
 // GH API URL (NEW)
 let apiUrl = {
@@ -58,20 +69,14 @@ apiUrl.base = Object.values(apiUrl.base);
 const apiUrlBase = urlBaseFactory(...apiUrl.base);
 const apiUrlFull = urlAssimilationFactory(apiUrlBase, apiUrl.paths, apiUrl.params);
 
-
+// Getting and storing GH results for later ...
 let result = await apiFetchFactory(apiUrlFull);
 result = result.apiHeaders.link;
 
-// Clean up the link value like so ...
+// Making the GH results useful ...
 result = result.split(`, `).pop().replace(/<|>|;|rel=|"|last/gi, ``).trim().toString();
-
-// Parse URL
 result = new URL(result);
+const numberOfCommits = result.searchParams.get(`page`);
 
-// Grab the 'page' parameter's value
-result = result.searchParams.get(`page`);
-
-// Store resulting value in 'myResponse'
-result = document.createTextNode(`${result} commits`);
-
-export { result };
+// Export values for later use ...
+export { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits };

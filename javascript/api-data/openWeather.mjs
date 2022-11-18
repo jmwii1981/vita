@@ -61,7 +61,7 @@ searchUrl.base = Object.values(searchUrl.base);
 const searchUrlBase = urlBaseFactory(...searchUrl.base);
 const searchUrlFull = urlAssimilationFactory(searchUrlBase, searchUrl.paths, searchUrl.params);
 
-// Storing current shoes for later
+// Making the OW results useful ...
 let currentShoes = ``;
 switch(true) {
     case currentTemp > 105:
@@ -83,7 +83,6 @@ switch(true) {
         currentShoes = `foo`;
         break;
 }
-// Storing current gear for later
 let currentGear = ``;
 switch(true) {
     case currentConditions == `Thunderstorm`:
@@ -135,8 +134,6 @@ switch(true) {
         currentGear = `bar`;
         break;
 }
-/*
-    Explanation of Exports
-    searchUrlFull is to be used as an anchor wrapper for currentShoes and currentGear
-*/ 
+
+// Export values for later use ...
 export { searchUrlFull, currentShoes, currentGear };

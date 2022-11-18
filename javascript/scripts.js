@@ -6,9 +6,10 @@
 */
 
 // API Data Grab
+import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './api-data/github.mjs';
 import { bookTitle, bookLink, bookAuthorNamesAndLinks } from './api-data/openLibrary.mjs';
 import { searchUrlFull, currentShoes, currentGear } from './api-data/openWeather.mjs';
-import { result }from './api-data/github.mjs';
+import { trackName, trackURL, trackArtist, spotifyTrackURL, spotifyArtistURL } from './api-data/lastFm.mjs';
 
 // Factories
 // import { sentenceBuilderFactory } from './factories/sentenceBuilder.mjs';
