@@ -6,10 +6,10 @@
 */
 
 // API Data Grab
-import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './api-data/github.mjs';
-import { bookTitle, bookLink, bookAuthorNamesAndLinks } from './api-data/openLibrary.mjs';
-import { searchUrlFull, currentShoes, currentGear } from './api-data/openWeather.mjs';
-import { trackName, trackURL, trackArtist, spotifyTrackURL, spotifyArtistURL } from './api-data/lastFm.mjs';
+import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data/github.mjs';
+import { bookTitle, bookLink, listOfAuthors } from './data/openLibrary.mjs';
+import { searchUrlFull, currentShoes, currentGear } from './data/openWeather.mjs';
+import { trackName, trackURL, trackArtist, spotifyTrackURL, spotifyArtistURL } from './data/lastFm.mjs';
 
 // Factories
 // import { sentenceBuilderFactory } from './factories/sentenceBuilder.mjs';
@@ -17,39 +17,28 @@ import { trackName, trackURL, trackArtist, spotifyTrackURL, spotifyArtistURL } f
 
 // Content
 const myOpening = [
+    `<p>`,
     `<a class="link link--x-small link--light link--weight-900" href="//linkedin.com/in/jmwii1981" target="_blank">Jan Michael</a>`,
-]
+];
 const myLocation = [
     ` was last seen in `,
     `<a class="link link--x-small link--light link--weight-900" href="//www.google.com/maps/place/Louisville,+KY/@38.1884721,-85.9569664,10z/data=!3m1!4b1!4m6!3m5!1s0x88690b1ab35bd511:0xd4d3b4282071fd32!8m2!3d38.2526647!4d-85.7584557!16zL20vMGZfXzE" target="_blank">Louisville, KY</a>, `,
-]
+];
 const myWeather = [
     `sporting his `,
     // topic: myWeatherShoesLink,
     currentShoes,
-    ` and a `,
+    ` and `,
     // topic: myWeatherGearLink,
     currentGear,
     `, `,
-]
+];
 const myReading = [
     ` reading `,
     `<a href="${bookLink}">${bookTitle}</a>`,
     ` by `,
-    function() {
-        i = Object.entries(bookAuthorNamesAndLinks).length;
-        for (const [key, value] of Object.entries(bookAuthorNamesAndLinks)) {
-            i = i -1;
-            let authorLink = ``;
-            if (i == 0) {
-                authorLink = `<a href="${value}">${key}</a>`;
-            } else {
-                authorLink = `<a href="${value}">${key}</a>,`;
-            }
-            return authorLink;
-        };
-    },
-]
+    listOfAuthors,
+];
 const myMusic = [
     `and, `,
     `vibing to `,
@@ -61,16 +50,15 @@ const myMusic = [
                 Artist
             </a>`,
     `.`,
-]
+];
 const myClosing = [
     `</p>`,
-]
-let fullSentence = []
+];
+const footerContent = document.getElementById(`footer-content`);
+let fullSentence = [];
 fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myClosing);
-// fullSentence = JSON.stringify(fullSentence.join(`, `));
-// console.log(fullSentence);
-document.getElementById(`footer-content`).append(fullSentence);
-
+fullSentence = fullSentence.flat().join(``);
+footerContent.append(fullSentence);
 
 /*
     STATIC SENTENCE (BEGINNING)

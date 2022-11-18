@@ -64,24 +64,32 @@ for (let i = 0; i < bookAuthorsEndpoints.length; i++) {
 }
 
 // List of Author's names and page links for later ...
-let bookAuthorNamesAndLinks = new Array();
-if (bookAuthorNamesList.length == bookAuthorEndpointsList.length) {
-    for (let i = 0; i < bookAuthorNamesList.length; i++) {
-        let keys = bookAuthorNamesList[i];
-        let values = bookAuthorEndpointsList[i];
-        bookAuthorNamesAndLinks[keys] = `${apiUrlBase}${values}`;
-        
-
-        // - Author name(s) and link(s) to inject
-
-        // make a list of authors wrapped in links to inject in footer ... 
+let listOfAuthors = function() {
+    let bookAuthorNamesAndLinks = new Array();
+    if (bookAuthorNamesList.length == bookAuthorEndpointsList.length) {
+        for (let i = 0; i < bookAuthorNamesList.length; i++) {
+            let keys = bookAuthorNamesList[i];
+            let values = bookAuthorEndpointsList[i];
+            bookAuthorNamesAndLinks[keys] = `${apiUrlBase}${values}`;
+            
+            i = Object.entries(bookAuthorNamesAndLinks).length;
+            for (const [key, value] of Object.entries(bookAuthorNamesAndLinks)) {
+                i = i -1;
+                let authorLink = ``;
+                if (i == 0) {
+                    authorLink = `<a href="${value}">${key}</a>`;
+                } else {
+                    authorLink = `<a href="${value}">${key}</a>,`;
+                }
+                return authorLink;
+            }
+        }
     }
+
 }
-let authorUrl = {
-    // code
-};
+listOfAuthors = listOfAuthors();
 
 // Export values for later use ...
-export { bookTitle, bookLink, bookAuthorNamesAndLinks }
+export { bookTitle, bookLink, listOfAuthors }
 
 
