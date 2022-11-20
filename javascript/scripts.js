@@ -6,7 +6,7 @@
 */
 
 // Data
-// import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data/github.mjs';
+import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data/github.mjs';
 import { listOfAuthors, bookLink, bookTitle } from './data/openLibrary.mjs';
 import { searchUrlFull, currentShoes, currentGear } from './data/openWeather.mjs';
 import { spotifyTrackURL, spotifyArtistURL, trackName, trackArtist } from './data/lastFm.mjs';
@@ -23,6 +23,12 @@ const myWeatherGearLink =  anchorTagFactory(`${currentGear}`, undefined, `${sear
 const myBookLink = anchorTagFactory(`${bookTitle}`, undefined, `${bookLink}`, undefined, undefined, undefined, undefined);
 const myTrackLink = anchorTagFactory(`${trackName}`, undefined, `${spotifyTrackURL}`, undefined, undefined, undefined, undefined);
 const myArtistLink = anchorTagFactory(`${trackArtist}`, undefined, `${spotifyArtistURL}`, undefined, undefined, undefined, undefined);
+const myVitaLink = anchorTagFactory(`Vita`, undefined, `//github.com/jmwii1981/vita`, undefined, undefined, undefined, undefined);
+const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, undefined, `//creativecommons.org/`, undefined, undefined, undefined, undefined);
+const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, undefined, `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
+const myGithubPagesLink = anchorTagFactory(`Github Pages`, undefined, `https://pages.github.com/`, undefined, undefined, undefined, undefined);
+const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, undefined, `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
+
 
 // Content
 const myOpening = [
@@ -51,12 +57,23 @@ const myMusic = [
     myTrackLink,
     ` by `,
     myArtistLink,
-    `.`,
+    `. `,
 ];
-
+const myVita = [
+        myVitaLink,
+        ` is built with `,
+        myGithubCommitsLink,
+        `. It is hosted with `,
+        myGithubPagesLink,
+        `, and boasts a `,
+        myCCLIcenseLink,
+        `: `,
+        myCCLicensureLink,
+        `.`
+];
 // Put it all together ..
 let fullSentence = [];
-fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic);
+fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myVita);
 fullSentence = fullSentence.flat();
 
 // Create p tag, flatten array, and append to p tag ...
@@ -66,24 +83,3 @@ fullSentence.forEach(element => mySentence.append(element));
 // Append mySentence to footer-content div in document ...
 const footerContent = document.getElementById(`footer-content`);
 footerContent.append(mySentence);
-
-
-/*
-    STATIC SENTENCE (BEGINNING)
-    <p 
-    class="p p--x-small p--light p--line-height-medium p--align-center-mbl">
-        <a class="link link--x-small link--light link--weight-900" property="dct:title" rel="cc:attributionURL" href="//github.com/jmwii1981/vita" target="_blank">
-            Vita
-        </a>
-        is currently built with
-        <span id="myCommits">
-        </span>.
-        It is hosted with
-        <a class="link link--x-small link--light link--weight-900" href="//pages.github.com/" target="_blank">Github Pages</a>, and boasts a <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/" target="_blank">
-            Creative Commons license
-        </a>:
-        <a class="link link--x-small link--light link--weight-900" href="//creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer">
-            CC BY-NC 4.0
-        </a>.
-    </p>
-*/
