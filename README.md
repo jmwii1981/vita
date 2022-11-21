@@ -17,11 +17,18 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
  - [Open Library API](https://openlibrary.org/developers/api)
  - [Github API](https://docs.github.com/en/rest)
 
-... all to track real-time data about me, including the current music I'm listening to, weather in my area (via what shoes and jacket I might be wearing, etc.), and what I'm currently reading. _Vita_ always tells you how many commits it's taken to build it to date, and I plan to add more features over time, as ideas come to me (there are a few below). If you take a look at the codebase in the [JavaScript directory](https://github.com/jmwii1981/vita/tree/main/javascript), you'll see that all of this has been written in a modularly succinct way with modern JavaScript best practices and syntax.
+... all to track real-time data about me, including the current music I'm listening to, weather in my area (via what shoes and jacket I might be wearing, etc.), and what I'm currently reading. _Vita_ always tells you how many commits it's taken to build it to date, and I plan to add more features over time, as ideas come to me (there are a few below). If you take a look at the codebase in the [JavaScript directory](https://github.com/jmwii1981/vita/tree/main/javascript), you'll see that all of this has been written in a modularly succinct way with modern JavaScript best practices and syntax. You may notice that I've achieved the following ...
+
+ - Arrays and other objects are used to store and retrieve information that is displayed on the page.
+ - Data that is stored in arrays and objects, is analyzed and displays information about it in your app.
+ - Factory and data-retrieval functions that accepts two or more input parameters and returns a value that is calculated or determined by the data from an API
+ - Data that is easily consumed by its audience (via text which can be read by a screen reader)
+ - Data retrieved from a third-party API and used it to display something.
+
 
 ## To the Future And Beyond!
- - Geolocation tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
- - Medium API interfacing (once I get some content up .. ¯\/_(ツ)_/¯)
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
+ - Medium API output to display my most recent article once I get some content up .. ¯\/_(ツ)_/¯
+ - Geo-location tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
 
- ... when will this happen? Who's to say?
+ ... when will this happen? [Who's to say?](https://www.youtube.com/watch?v=m-ugwoEOMvg)
