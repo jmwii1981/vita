@@ -30,6 +30,7 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
 
 ## To the Future And Beyond!
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
+ - After initial type out (above) ... add this animation ... [Text glitch animations](https://codepen.io/aldrie/pen/PojGYLo)
  - Medium API output to display my most recent article once I get some content up .. ¯!\_(ツ)_/¯
  - Geo-location tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
 
