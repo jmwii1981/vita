@@ -1,3 +1,6 @@
+![Image of Jan Michael](https://github.com/jmwii1981/vita/blob/main/images/jan-michael-186x186-current.png?raw=true)
+
+
 # Vita
 
 ## Why?
@@ -28,7 +31,7 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
 
 ## To the Future And Beyond!
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
- - Medium API output to display my most recent article once I get some content up .. ¯\/_(ツ)_/¯
+ - Medium API output to display my most recent article once I get some content up .. ¯!\_(ツ)_/¯
  - Geo-location tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
 
  ... when will this happen? [Who's to say?](https://youtu.be/m-ugwoEOMvg?t=807)
