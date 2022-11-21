@@ -10,7 +10,7 @@ Creatively, _Vita_ is meant to be a fun nod to a great one-line ad, featuring th
 
 ## Who's to say?
 
-Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping my skills sharp. From a code standpoint, _Vita_ currently interfaces with ...
+Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping my skills sharp. Most recently, from a code standpoint, _Vita_ interfaces with a variety of APIs ...
 
  - [LastFM API](https://www.last.fm/api)
  - [Open Weather API](https://openweathermap.org/api)
