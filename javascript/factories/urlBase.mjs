@@ -17,9 +17,9 @@ const urlBaseFactory = function(protocol = `https`, tertiaryDomain = `www`, seco
     let urlBase = ``;
 
     if (tertiaryDomain) {
-        urlBase = `${protocol}:${tertiaryDomain}.${secondaryDomain}.${topDomain}`;
+        urlBase = `${protocol}://${tertiaryDomain}.${secondaryDomain}.${topDomain}`;
     } else {
-        urlBase = `${protocol}:${secondaryDomain}.${topDomain}`;
+        urlBase = `${protocol}://${secondaryDomain}.${topDomain}`;
     }
     return urlBase;
 }

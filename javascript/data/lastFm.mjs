@@ -14,7 +14,7 @@ import { apiFetchFactory } from '../factories/apiFetch.mjs';
 // LF SPOTIFY SEARCH URL
 let spotifySearchiUrl = {
     base: {
-        protocol: `https`,
+        protocol: undefined,
         tertiaryDomain: `open`,
         secondaryDomain: `spotify`,
         topDomain: `com`,

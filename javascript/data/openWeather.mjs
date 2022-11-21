@@ -15,7 +15,7 @@ import { apiFetchFactory } from '../factories/apiFetch.mjs';
 // OW API URL
 let apiUrl = {
     base: {
-        protocol: `https`,
+        protocol: undefined,
         tertiaryDomain: `api`,
         secondaryDomain: `openweathermap`,
         topDomain: `org`,
