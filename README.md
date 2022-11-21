@@ -1,5 +1,7 @@
 # Vita
 
+![Image of Jan Michael](https://github.com/jmwii1981/vita/blob/main/images/jan-michael-186x186-current.png?raw=true)
+
 ## Why?
 
 From a purpose-driven standpoint, [_Vita_](https://janmichael.io) is a landing page for my personal curriculum vita. I initially created _Vita_ to link out to different social media channels because (1) it's great for SEO to link in both directions ([try Googling 'Jan Michael Wallace'](https://www.google.com/search?q=jan+michael+wallace&rlz=1C5CHFA_enUS817US817&oq=jan+michael+wallace&aqs=chrome.0.69i59j0i22i30j69i60j69i61l2j69i65l3.5263j1j7&sourceid=chrome&ie=UTF-8), and see if this site is a top hit ... or at least close, depending on your algorithm), and (2) I thought I'd let those channels do the heavy lifting in showcasing media feeds that demonstrate my talents.
@@ -10,7 +12,7 @@ Creatively, _Vita_ is meant to be a fun nod to a great one-line ad, featuring th
 
 ## Who's to say?
 
-Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping my skills sharp. From a code standpoint, _Vita_ currently interfaces with ...
+Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping my skills sharp. Most recently, from a code standpoint, _Vita_ interfaces with a variety of APIs ...
 
  - [LastFM API](https://www.last.fm/api)
  - [Open Weather API](https://openweathermap.org/api)
@@ -28,7 +30,7 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
 
 ## To the Future And Beyond!
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
- - Medium API output to display my most recent article once I get some content up .. ¯\/_(ツ)_/¯
+ - Medium API output to display my most recent article once I get some content up .. ¯!\_(ツ)_/¯
  - Geo-location tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
 
- ... when will this happen? [Who's to say?](https://www.youtube.com/watch?v=m-ugwoEOMvg)
+ ... when will this happen? [Who's to say?](https://youtu.be/m-ugwoEOMvg?t=807)
