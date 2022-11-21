@@ -6,7 +6,7 @@ From a purpose-driven standpoint, [_Vita_](https://janmichael.io) is a landing p
 
 ## For what reason?
 
-Creatively, _Vita_ is meant to be a fun nod to a great one-line ad, featuring the text ... **"Take me to your end user,"** with a blinking cursor, depicting the likeness of a computer screen, and a nod to some old-school sci-fi movies ... think "follow the white rabbit," and, "take me to your _leader_." This is to illustrate my passion for user-centric design (and obviously people).
+Creatively, _Vita_ is meant to be a fun nod to a great one-line ad, featuring the text ... **"Take me to your end user,"** with a blinking cursor, depicting the likeness of a computer screen, and a nod to some old-school sci-fi movies ... think "follow the white rabbit," and, "take me to your _leader_." The message illustrates my passion for user-centric design ... and humor.
 
 ## Who's to say?
 
@@ -21,7 +21,7 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
 
 ## Future ideas ...
  - Geolocation tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
- - Medium API interfacing (once I get some content up .. ¯\_(ツ)_/¯)
+ - Medium API interfacing (once I get some content up .. ¯\/_(ツ)_/¯)
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
 
  ... when will this happen? Who's to say?
