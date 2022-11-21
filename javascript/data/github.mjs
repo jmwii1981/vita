@@ -14,7 +14,7 @@ import { apiFetchFactory } from '../factories/apiFetch.mjs';
 // GH REPO URL
 let githubRepoUrl = {
     base: {
-        protocol: undefined,
+        protocol: `https`,
         tertiaryDomain: ``,
         secondaryDomain: `github`,
         topDomain: `com`,

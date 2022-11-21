@@ -28,7 +28,7 @@ const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, undefined, 
 const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, undefined, `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
 const myGithubPagesLink = anchorTagFactory(`Github Pages`, undefined, `https://pages.github.com/`, undefined, undefined, undefined, undefined);
 const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, undefined, `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
-
+console.log(myWeatherShoesLink);
 
 // Content
 const myOpening = [

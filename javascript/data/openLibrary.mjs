@@ -16,7 +16,7 @@ import { anchorTagFactory } from '../factories/anchorTag.mjs';
 // OL API URL
 let apiUrl = {
     base: {
-        protocol: undefined,
+        protocol: `https`,
         tertiaryDomain: ``,
         secondaryDomain: `openlibrary`,
         topDomain: `org`,
