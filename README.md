@@ -1,7 +1,6 @@
-![Image of Jan Michael](https://github.com/jmwii1981/vita/blob/main/images/jan-michael-186x186-current.png?raw=true)
-
-
 # Vita
+
+![Image of Jan Michael](https://github.com/jmwii1981/vita/blob/main/images/jan-michael-186x186-current.png?raw=true)
 
 ## Why?
 
