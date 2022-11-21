@@ -2,7 +2,7 @@
 
 ## Why?
 
-From a purpose-driven standpoint, [_Vita_](https://janmichael.io) is a landing page for my personal curriculum vita. I initially created _Vita_ to link out to different social media channels because (1) it's great for SEO to link in both directions (try Googling 'Jan Michael Wallace', and see if this site is a top hit), and (2) I thought I'd let those channels do the heavy lifting in showcasing media feeds that demonstrate my talents.
+From a purpose-driven standpoint, [_Vita_](https://janmichael.io) is a landing page for my personal curriculum vita. I initially created _Vita_ to link out to different social media channels because (1) it's great for SEO to link in both directions ([try Googling 'Jan Michael Wallace'](https://www.google.com/search?q=jan+michael+wallace&rlz=1C5CHFA_enUS817US817&oq=jan+michael+wallace&aqs=chrome.0.69i59j0i22i30j69i60j69i61l2j69i65l3.5263j1j7&sourceid=chrome&ie=UTF-8), and see if this site is a top hit ... or at least close, depending on your algorithm), and (2) I thought I'd let those channels do the heavy lifting in showcasing media feeds that demonstrate my talents.
 
 ## For what reason?
 
