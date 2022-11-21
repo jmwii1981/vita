@@ -19,7 +19,7 @@ Lastly, _Vita_ is always in "flux." I leverage this project as a way of keeping 
 
 ... all to track real-time data about me, including the current music I'm listening to, weather in my area (via what shoes and jacket I might be wearing, etc.), and what I'm currently reading. _Vita_ always tells you how many commits it's taken to build it to date, and I plan to add more features over time, as ideas come to me (there are a few below). If you take a look at the codebase in the [JavaScript directory](https://github.com/jmwii1981/vita/tree/main/javascript), you'll see that all of this has been written in a modularly succinct way with modern JavaScript best practices and syntax.
 
-## Future ideas ...
+## To the Future And Beyond!
  - Geolocation tracking (trying to decide if I really want people to have the ability to follow my coordinates, call me paranoid :-0)
  - Medium API interfacing (once I get some content up .. ¯\/_(ツ)_/¯)
  - Making the landing page look more like a screen with some CSS styling, and having, "Take me to your end user, " type itself out in an animation upon initial load
