@@ -1,5 +1,8 @@
 //** TODO **//
-@use "../../styles" as *;
+@use "../../styles/tokens/tokens_colors_darkmode" as *;
+@use "../../styles/tokens/tokens_colors_lightmode" as *;
+@use "../../styles/tokens/tokens_global" as *;
+@use "../../styles/tokens/tokens_mixins" as *;
 
 //***********************************************************//
 //**              LIGHT / DARK MODE PALLETES               **//
@@ -15,18 +18,18 @@
 
 .layout-bg--light {
 	@media (prefers-color-scheme: light) {
-			@include background-color($light--lightest-background);
+			@include background-color($lightmode--lightest-background);
 	}
 	@media (prefers-color-scheme: dark) {
-			@include background-color($dark--lightest-background);
+			@include background-color($darkmode--lightest-background);
 	}
 }
 .layout-bg--dark {
 	@media (prefers-color-scheme: light) {
-			@include background-color($light--darkest-background);
+			@include background-color($lightmode--darkest-background);
 	}
 	@media (prefers-color-scheme: dark) {
-			@include background-color($dark--darkest-background);
+			@include background-color($darkmode--darkest-background);
 	}
 }
 
@@ -46,10 +49,10 @@ p::selection,
 a::selection,
 span::selection {
 	@media (prefers-color-scheme: light) {
-			@include background-color($light--dark-background, 0.25);
+			@include background-color($lightmode--darkest-background, 0.25);
 	}
 	@media (prefers-color-scheme: dark) {
-			@include background-color($dark--dark-background, 0.25);
+			@include background-color($darkmode--darkest-background, 0.25);
 	}
 }
 
@@ -191,26 +194,26 @@ span::selection {
 	// coloring
 	&--light {
 		@media (prefers-color-scheme: light) {
-				@include color($light--lightest-text);
+				@include color($lightmode--lightest-text);
 		}
 		@media (prefers-color-scheme: dark) {
-				@include color($dark--lightest-text);
+				@include color($darkmode--lightest-text);
 		}
 	}
 	&--dark {
 		@media (prefers-color-scheme: light) {
-				@include color($light--darkest-text);
+				@include color($lightmode--darkest-text);
 		}
 		@media (prefers-color-scheme: dark) {
-				@include color($dark--darkest-text);
+				@include color($darkmode--darkest-text);
 		}
 	}
 	&--decorative {
 		@media (prefers-color-scheme: light) {
-				@include color($light--dark-text);
+				@include color($lightmode--darkest-text);
 		}
 		@media (prefers-color-scheme: dark) {
-				@include color($dark--dark-text);
+				@include color($darkmode--darkest-text);
 		}
 		font-family: "PT Serif Caption";
 		font-style: italic;
@@ -286,10 +289,10 @@ span::selection {
 
 	//animations
 	@media (prefers-color-scheme: light) {
-			@include outline-color($light--light-outline-color);
+			@include outline-color($lightmode--light-outline-color);
 	}
 	@media (prefers-color-scheme: dark) {
-			@include outline-color($dark--light-outline-color);
+			@include outline-color($darkmode--light-outline-color);
 	}
 	outline-offset: 0rem;
 	outline-style: solid;
@@ -307,20 +310,20 @@ span::selection {
 	&--light:focus,
 	&--border-light:focus {
 		@media (prefers-color-scheme: light) {
-				@include outline-color($light--light-outline-color);
+				@include outline-color($lightmode--light-outline-color);
 		}
 		@media (prefers-color-scheme: dark) {
-				@include outline-color($dark--light-outline-color);
+				@include outline-color($darkmode--light-outline-color);
 		}
 	}
 
 	&--dark:focus,
 	&--border-dark:focus {
 		@media (prefers-color-scheme: light) {
-				@include outline-color($light--darkest-outline-color);
+				@include outline-color($lightmode--darkest-outline-color);
 		}
 		@media (prefers-color-scheme: dark) {
-				@include outline-color($dark--darkest-outline-color);
+				@include outline-color($darkmode--darkest-outline-color);
 		}
 	}
 }
@@ -335,7 +338,12 @@ span::selection {
 
 // DOCUMENT CONTAINER
 .html {
-	background-color: #262729;
+	@media (prefers-color-scheme: light) {
+		@include background-color($lightmode--darkest-background);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include background-color($darkmode--darkest-background);
+	}
 	display: flex;
 	height: -webkit-fill-available;
 	font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
@@ -359,6 +367,14 @@ span::selection {
 // BODY CONTAINER
 .body {
 	background: radial-gradient(circle, rgba(48,49,53,0.5) 9%, rgba(38,39,41,0.1) 50%);
+	// @media (prefers-color-scheme: light) {
+	// 	@include background-color($lightmode--lightest-background);
+	// }
+	// @media (prefers-color-scheme: dark) {
+	// 		@include background-color($darkmode--lightest-background);
+	// }
+
+
 	align-items: center;
 	appearance: none;
 	-webkit-appearance: none;
@@ -448,10 +464,10 @@ span::selection {
 
 			&-icon {
 				@media (prefers-color-scheme: light) {
-						@include fill($light--darkest-fill, 1);
+						@include fill($lightmode--darkest-fill, 1);
 				}
 				@media (prefers-color-scheme: dark) {
-						@include fill($light--darkest-fill, 1);
+						@include fill($lightmode--darkest-fill, 1);
 				}
 				display: flex;
 				width: 4rem;
@@ -484,10 +500,10 @@ span::selection {
 		.menu-button {
 			appearance: none;
 			@media (prefers-color-scheme: light) {
-				@include background-color($light--darkest-fill, 0);
+				@include background-color($lightmode--darkest-fill, 0);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include background-color($light--darkest-fill, 0);
+				@include background-color($lightmode--darkest-fill, 0);
 			}
 			border-radius: 0rem;
 			border-width: 0;
@@ -501,20 +517,20 @@ span::selection {
 
 			&-label {
 				@media (prefers-color-scheme: light) {
-					@include color($light--lightest-text, 1);
+					@include color($lightmode--lightest-text, 1);
 				}
 				@media (prefers-color-scheme: dark) {
-					@include color($light--lightest-text, 1);
+					@include color($lightmode--lightest-text, 1);
 				}
 				display: inline-flex;
 				text-transform: lowercase;
 			}
 			&-arrow {
 				@media (prefers-color-scheme: light) {
-					@include background-color($light--lightest-background, 1);
+					@include background-color($lightmode--lightest-background, 1);
 				}
 				@media (prefers-color-scheme: dark) {
-					@include background-color($light--lightest-background, 1);
+					@include background-color($lightmode--lightest-background, 1);
 				}
 				border-radius: 0.2rem;
 				display: inline-flex;
@@ -526,10 +542,10 @@ span::selection {
 				&:before,
 				&:after {
 					@media (prefers-color-scheme: light) {
-						@include background-color($light--lightest-background, 1);
+						@include background-color($lightmode--lightest-background, 1);
 					}
 					@media (prefers-color-scheme: dark) {
-						@include background-color($light--lightest-background, 1);
+						@include background-color($lightmode--lightest-background, 1);
 					}
 					border-radius: 0.2rem;
 					content: '';
@@ -558,11 +574,11 @@ span::selection {
 	backdrop-filter: blur(0.3125rem);
 
 	@media (prefers-color-scheme: light) {
-		@include background-color($light--darkest-background, 0.97);
+		@include background-color($lightmode--darkest-background, 0.97);
 	}
 
 	@media (prefers-color-scheme: dark) {
-		@include background-color($dark--darkest-background, 0.97);
+		@include background-color($darkmode--darkest-background, 0.97);
 	}
 
 	display: flex;
@@ -662,10 +678,10 @@ span::selection {
 		&:after {
 			animation: cursor-blink 0.985s infinite;
 			@media (prefers-color-scheme: light) {
-					@include background-color($light--lightest-background);
+					@include background-color($lightmode--lightest-background);
 			}
 			@media (prefers-color-scheme: dark) {
-					@include background-color($dark--lightest-background);
+					@include background-color($darkmode--lightest-background);
 			}
 			border-radius: 0.15rem;
 			content: '';

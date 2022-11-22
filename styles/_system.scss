@@ -6,12 +6,15 @@
 
 // tokens
 @forward "tokens/_tokens_global";
-@forward "tokens/_tokens_colors_dark";
-@forward "tokens/_tokens_colors_light";
+@forward "tokens/_tokens_colors_darkmode";
+@forward "tokens/_tokens_colors_lightmode";
 @forward "tokens/_tokens_mixins";
 
 // global
 @forward "global/_global";
+
+// pages
+@forward "pages/_landing";
 
 //layouts
 // @use "../layouts/layout";

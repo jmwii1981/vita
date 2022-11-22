@@ -254,8 +254,8 @@ ul {
 }
 @media (prefers-color-scheme: dark) {
   .layout-bg--light {
-    background-color: #B4A18D; /* The Fallback */
-    background-color: #b4a18d;
+    background-color: #EEF2F6; /* The Fallback */
+    background-color: #eef2f6;
   }
 }
 
@@ -267,8 +267,8 @@ ul {
 }
 @media (prefers-color-scheme: dark) {
   .layout-bg--dark {
-    background-color: #1C150B; /* The Fallback */
-    background-color: #1c150b;
+    background-color: #0A1A55; /* The Fallback */
+    background-color: #0a1a55;
   }
 }
 
@@ -283,8 +283,8 @@ h6::selection,
 p::selection,
 a::selection,
 span::selection {
-    background-color: #666773; /* The Fallback */
-    background-color: rgba(102, 103, 115, 0.25);
+    background-color: #303135; /* The Fallback */
+    background-color: rgba(48, 49, 53, 0.25);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -298,8 +298,8 @@ h6::selection,
 p::selection,
 a::selection,
 span::selection {
-    background-color: #422800; /* The Fallback */
-    background-color: rgba(66, 40, 0, 0.25);
+    background-color: #0A1A55; /* The Fallback */
+    background-color: rgba(10, 26, 85, 0.25);
   }
 }
 
@@ -731,8 +731,8 @@ span::selection {
 .p--light,
 .link--light,
 .label--light {
-    color: #B4A18D; /* The Fallback */
-    color: #b4a18d;
+    color: #EEF2F6; /* The Fallback */
+    color: #eef2f6;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -759,8 +759,8 @@ span::selection {
 .p--dark,
 .link--dark,
 .label--dark {
-    color: #1C150B; /* The Fallback */
-    color: #1c150b;
+    color: #0A1A55; /* The Fallback */
+    color: #0a1a55;
   }
 }
 .h1--decorative,
@@ -786,8 +786,8 @@ span::selection {
 .p--decorative,
 .link--decorative,
 .label--decorative {
-    color: #666773; /* The Fallback */
-    color: #666773;
+    color: #303135; /* The Fallback */
+    color: #303135;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -800,8 +800,8 @@ span::selection {
 .p--decorative,
 .link--decorative,
 .label--decorative {
-    color: #422800; /* The Fallback */
-    color: #422800;
+    color: #0A1A55; /* The Fallback */
+    color: #0a1a55;
   }
 }
 .h1--align-center-mbl,
@@ -970,14 +970,14 @@ span::selection {
 }
 @media (prefers-color-scheme: light) {
   .link {
-    outline-color: #8F9296; /* The Fallback */
-    outline-color: #8f9296;
+    outline-color: #EEF2F6; /* The Fallback */
+    outline-color: #eef2f6;
   }
 }
 @media (prefers-color-scheme: dark) {
   .link {
-    outline-color: #CDC2B6; /* The Fallback */
-    outline-color: #cdc2b6;
+    outline-color: #EEF2F6; /* The Fallback */
+    outline-color: #eef2f6;
   }
 }
 .link:focus {
@@ -987,14 +987,14 @@ span::selection {
 }
 @media (prefers-color-scheme: light) {
   .link--light:focus, .link--border-light:focus {
-    outline-color: #8F9296; /* The Fallback */
-    outline-color: #8f9296;
+    outline-color: #EEF2F6; /* The Fallback */
+    outline-color: #eef2f6;
   }
 }
 @media (prefers-color-scheme: dark) {
   .link--light:focus, .link--border-light:focus {
-    outline-color: #CDC2B6; /* The Fallback */
-    outline-color: #cdc2b6;
+    outline-color: #EEF2F6; /* The Fallback */
+    outline-color: #eef2f6;
   }
 }
 @media (prefers-color-scheme: light) {
@@ -1005,8 +1005,8 @@ span::selection {
 }
 @media (prefers-color-scheme: dark) {
   .link--dark:focus, .link--border-dark:focus {
-    outline-color: #1C150B; /* The Fallback */
-    outline-color: #1c150b;
+    outline-color: #0A1A55; /* The Fallback */
+    outline-color: #0a1a55;
   }
 }
 
@@ -1015,7 +1015,6 @@ span::selection {
 }
 
 .html {
-  background-color: #262729;
   display: flex;
   height: -webkit-fill-available;
   font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
@@ -1026,6 +1025,18 @@ span::selection {
   position: relative;
   width: 100%;
   z-index: 0;
+}
+@media (prefers-color-scheme: light) {
+  .html {
+    background-color: #303135; /* The Fallback */
+    background-color: #303135;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .html {
+    background-color: #0A1A55; /* The Fallback */
+    background-color: #0a1a55;
+  }
 }
 @media only screen and (min-width: 640px) {
   .html {
@@ -1271,8 +1282,8 @@ span::selection {
 }
 @media (prefers-color-scheme: dark) {
   .main-menu {
-    background-color: #1C150B; /* The Fallback */
-    background-color: rgba(28, 21, 11, 0.97);
+    background-color: #0A1A55; /* The Fallback */
+    background-color: rgba(10, 26, 85, 0.97);
   }
 }
 .main-menu.visible {
@@ -1367,8 +1378,8 @@ span::selection {
 }
 @media (prefers-color-scheme: dark) {
   .h2-tag-line-cursor:after {
-    background-color: #B4A18D; /* The Fallback */
-    background-color: #b4a18d;
+    background-color: #EEF2F6; /* The Fallback */
+    background-color: #eef2f6;
   }
 }
 
