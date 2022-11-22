@@ -64,23 +64,24 @@ const searchUrlFull = urlAssimilationFactory(searchUrlBase, searchUrl.paths, sea
 // Making the OW results useful ...
 let currentShoes = ``;
 switch(true) {
-    case currentTemp > 105:
-        currentShoes = `flip-flops`;
-        break;
-    case currentTemp >= 105:
-        currentShoes = `barefoot`;
-        break;
-    case currentTemp <= 75:
-        currentShoes = `kicks`;
-        break;
-    case currentTemp <= 65: // 40
-        currentShoes = `boots`;
-        break;
     case currentTemp < 32:
         currentShoes = `winter boots`;
         break;
+    case currentTemp <= 45:
+        currentShoes = `boots`;
+        break;
+    case currentTemp <= 70:
+        currentShoes = `kicks`;
+        break;
+    case currentTemp <= 105:
+        currentShoes = `flip-flops`;
+        break;
+    case currentTemp > 105:
+        currentShoes = `barefoot`;
+        break;
+
     default:
-        currentShoes = `foo`;
+        currentShoes = `kicks`;
         break;
 }
 let currentGear = ``;
@@ -131,7 +132,7 @@ switch(true) {
         currentGear = `baseball cap`;
         break;
     default:
-        currentGear = `bar`;
+        currentGear = `baseball cap`;
         break;
 }
 
