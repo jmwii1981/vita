@@ -1,5 +1,7 @@
 # Vita TODO
+##### (In no particular order).
 
+- [ ] Clean up comments in each file
 - [ ] Switch out light and dark mode color styles
 - [ ] Implement 
     - Having, "Take me to your end user, " type itself out in an animation upon initial load
