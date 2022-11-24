@@ -75,6 +75,10 @@
   font-weight: 900;
   src: local(""), url("../../fonts/heebo-v20-latin-900.woff2") format("woff2"), url("../../fonts/heebo-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+* {
+  box-sizing: border-box;
+}
+
 html {
   line-height: 1.15; /* 1 */
 }
@@ -981,12 +985,13 @@ span::selection {
 }
 
 .html {
+  align-items: flex-start;
   display: flex;
-  height: -webkit-fill-available;
   font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   image-rendering: -webkit-optimize-contrast;
+  justify-content: center;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -1004,13 +1009,11 @@ span::selection {
 }
 
 .body {
-  align-items: center;
-  appearance: none;
-  -webkit-appearance: none;
-  box-sizing: border-box;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  min-height: -webkit-fill-available;
+  justify-content: center;
+  overflow: hidden;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -1022,8 +1025,6 @@ span::selection {
   height: 4rem;
   justify-content: center;
   margin-bottom: 1.5rem;
-  padding-top: 0;
-  padding-bottom: 1rem;
   position: absolute;
   top: calc(100vh - 8rem);
   left: 0;
@@ -1069,7 +1070,7 @@ span::selection {
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
-  margin: 0 auto;
+  margin: 0.25rem 0rem 0.25rem;
   padding: 0;
 }
 @media only screen and (min-width: 640px) {
@@ -1112,7 +1113,7 @@ span::selection {
   height: 4rem;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 1rem;
   position: relative;
   width: 100%;
 }
@@ -1226,6 +1227,7 @@ span::selection {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 1rem;
   width: 100%;
   z-index: 1;
 }
@@ -1258,10 +1260,6 @@ span::selection {
   padding-top: 10rem;
 }
 
-.medium-article .inner {
-  align-items: flex-start;
-  justify-content: flex-start;
-}
 .medium-article--featured-image-container, .medium-article--image-container {
   display: flex;
   margin: 8rem 0;
@@ -1405,7 +1403,7 @@ span::selection {
   gap: 2rem;
   justify-content: space-between;
   margin: 8rem auto 0;
-  padding: 1rem 0 6rem;
+  padding: 1rem 1rem 6rem;
   width: 100%;
 }
 .footer > .inner {
