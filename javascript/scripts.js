@@ -10,6 +10,7 @@ import { githubRepoUrlFull, githubCommitsUrlFull, numberOfCommits } from './data
 import { listOfAuthors, bookLink, bookTitle } from './data/openLibrary.mjs';
 import { searchUrlFull, currentShoes, currentGear } from './data/openWeather.mjs';
 import { spotifyTrackURL, spotifyArtistURL, trackName, trackArtist } from './data/lastFm.mjs';
+import { checkDate } from './data/date.mjs';
 
 // Factories
 import { paragraphTagFactory } from './factories/paragraphTag.mjs';
@@ -28,7 +29,9 @@ const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, undefined, 
 const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, undefined, `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
 const myGithubPagesLink = anchorTagFactory(`Github Pages`, undefined, `https://pages.github.com/`, undefined, undefined, undefined, undefined);
 const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, undefined, `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
-console.log(myWeatherShoesLink);
+const updateStatus = ` Last updated just now.`;
+const lastUpdated = document.createElement('span'); lastUpdated.setAttribute(`id`, `current-date-time`); lastUpdated.append(updateStatus);
+
 
 // Content
 const myOpening = [
@@ -71,9 +74,13 @@ const myVita = [
         myCCLicensureLink,
         `.`
 ];
+const lastUpdate = [
+    lastUpdated,
+];
+
 // Put it all together ..
 let fullSentence = [];
-fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myVita);
+fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myVita, lastUpdate);
 fullSentence = fullSentence.flat();
 
 // Create p tag, flatten array, and append to p tag ...
@@ -83,3 +90,8 @@ fullSentence.forEach(element => mySentence.append(element));
 // Append mySentence to footer-content div in document ...
 const footerContent = document.getElementById(`footer-content`);
 footerContent.append(mySentence);
+
+setInterval(function() {
+    let rightNowTime = checkDate().rightNowTime;
+    lastUpdated.innerText = ` Last updated today at ${rightNowTime}.`;
+}, 5000);

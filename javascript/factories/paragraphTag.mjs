@@ -5,9 +5,9 @@
         • paragraphTagText
             no defaults
         • paragraphTagClasses
-            defaults: [`p`, `p--x-small p--light`, `p--line-height-medium`, `p--align-center-mbl`]
+            defaults: [`p`, `p--x-small p--dark`, `p--line-height-medium`, `p--align-center-mbl`]
 */
-const paragraphTagFactory = function(paragraphTagText, paragraphTagClasses = [`p`, `p--x-small p--light`, `p--line-height-medium`, `p--align-left-mbl`]) {
+const paragraphTagFactory = function(paragraphTagText, paragraphTagClasses = [`p`, `p--x-small p--dark`, `p--line-height-medium`, `p--align-left-mbl`]) {
     const paragraphTag = document.createElement('p');
         paragraphTag.setAttribute(`class`, paragraphTagClasses.join(` `));
         paragraphTag.append(paragraphTagText);

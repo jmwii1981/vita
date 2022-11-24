@@ -3,10 +3,16 @@ const apiFetchFactory = async function(apiUrl) {
         const response = await fetch(apiUrl);
         const apiData = await response.json();
         const apiHeaders = await Object.fromEntries(response.headers.entries());
-        return {
-            apiData,
-            apiHeaders,
-        };
+        if (response.headers.entries()) {
+            return {
+                apiData,
+                apiHeaders,
+            }
+        } else {
+            return {
+                apiData,
+            }
+        }
     } catch (err) {
         console.log(err);
         return;
