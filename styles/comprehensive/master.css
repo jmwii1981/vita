@@ -1292,7 +1292,7 @@ span::selection {
   border-color: rgb(230, 230, 230);
   display: flex;
   height: 0;
-  margin: 8rem 0 4rem;
+  margin: 8rem 0 1rem;
   width: 100%;
 }
 .medium-article .h3 {
@@ -1330,13 +1330,17 @@ span::selection {
 .medium-article .button:hover {
   cursor: pointer;
 }
+.medium-article--title {
+  color: #303135;
+  text-decoration: none;
+}
 .medium-article--interest {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   justify-content: flex-start;
-  margin: auto;
+  margin: 8rem auto 0;
 }
 
 .h2-tag-line {

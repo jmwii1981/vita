@@ -628,7 +628,7 @@ span::selection {
 		border-color: rgb(230, 230, 230, 1);
 		display: flex;
 		height: 0;
-		margin: 8rem 0 4rem;
+		margin: 8rem 0 1rem;
 		width: 100%;
 	}
 	.h3 {
@@ -668,13 +668,17 @@ span::selection {
 			cursor: pointer;
 		}
 	}
+	&--title {
+		color: $stiletto;
+		text-decoration: none;
+	}
 	&--interest {
 		align-items: center; // top or bottom
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;
 		justify-content: flex-start; // left or right
-		margin: auto;
+		margin: 8rem auto 0;
 	}
 }
 

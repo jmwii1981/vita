@@ -157,28 +157,18 @@ if (result) {
     const recentPostMeta =  paragraphTagFactory(``, metaPTagClasses); recentPostMeta.append(`Published on `); recentPostMeta.append(mediumMetaLink); recentPostMeta.append(` by `); recentPostMeta.append(recentPostAuthorLink); recentPostMeta.append(` on `); recentPostMeta.append(recentPostDate);
     // Create an HR for later use ...
     const recentPostSeparator = document.createElement("HR"); recentPostSeparator.setAttribute(`class`, `hr medium-article--hr`);
-
     // Make an array of the HTML objects and prepare them to be added to doc (section container)
     let mediumPostContent = new Array();
-
-    if (recentPostCategories) {
-        recentPostCategories.forEach((category, index) => {
-            console.log(category);
-        });
-    }
-    
-    const mediumPostTitleLink = anchorTagFactory(recentPostTitle, undefined, recentPostUrl, undefined, undefined, undefined, undefined);
+    // Medium article title content, title link, and title h3 tag   
+    const mediumPostTitleLink = anchorTagFactory(recentPostTitle, [`h3`, `h3--weight-900`, `h3--x-large`, `h3--line-height-medium`, `medium-article--title`], recentPostUrl, undefined, undefined, undefined, undefined);
     const mediumPostHeadlineTag = document.createElement('h2');
-        mediumPostHeadlineTag.setAttribute('class', 'your-mom');
-    let mediumPostHeadline = mediumPostHeadlineTag.append(mediumPostTitleLink);
-    console.log(mediumPostHeadline);
-    if (recentPostMeta) {
-        mediumPostContent.push(recentPostMeta);
+          mediumPostHeadlineTag.setAttribute('class', 'h3 h3--weight-900 h3--x-large h3--line-height-medium medium-article--title');
+          mediumPostHeadlineTag.append(mediumPostTitleLink);
+    // Push title to array object
+    if (mediumPostHeadlineTag) {
+        mediumPostContent.push(mediumPostHeadlineTag);
     }
-    if (mediumPostHeadline) {
-        mediumPostContent.push(mediumPostHeadline);
-    }
-
+    // Push article content to array object (in order)
     recentPostEls.forEach((node, index) => {  
         const nodeName = node.nodeName;
         const innerTextNode = '#text';
@@ -227,13 +217,19 @@ if (result) {
                 mediumPostContent.push(node);
             }
         }
-        if (index == (recentPostEls.length - 1)) {
-            mediumPostContent.push(recentPostSeparator);
-            mediumPostContent.push(recentPostInterest);
-            // mediumPostContent.push(readMoreButton);
-        }
     });
-    console.log(mediumPostContent);
+    mediumPostContent.push(recentPostSeparator);
+    if (recentPostMeta) {
+        mediumPostContent.push(recentPostMeta);
+    }
+    if (recentPostCategories) {
+        recentPostCategories.forEach((category, index) => {
+            console.log(category);
+        });
+    }
+    mediumPostContent.push(recentPostInterest);
+
+
 
     // Create section container and add a few classes
     const mediumContainer = document.createElement('section');
@@ -245,7 +241,7 @@ if (result) {
     mediumContainer.appendChild(mediumContainerInner);
     // Append from mediumPostContent Array (reformatted post content) to newly created section container in order
     mediumPostContent.forEach((node) => {
-        console.log(node);
+        // console.log(node);
         mediumContainerInner.appendChild(node);
     });
     // Grab existing main container from document and store it for later use ...
