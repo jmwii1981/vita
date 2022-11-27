@@ -1309,7 +1309,7 @@ span::selection {
 }
 .medium-article .p--meta {
   color: rgb(117, 117, 117);
-  margin: 0 0 8rem;
+  margin: 0 0 2rem;
 }
 .medium-article .p--meta > a {
   color: rgb(117, 117, 117);
@@ -1334,7 +1334,7 @@ span::selection {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   justify-content: flex-start;
   margin: auto;
 }

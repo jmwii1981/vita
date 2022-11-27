@@ -34,7 +34,7 @@ const addAttribsToChildrenFactory = function(givenEl) {
                     for (const grandchild of grandchildren) {
                         newChild = anchorTagFactory(``, [`link`, `link--medium`, `link--dark`,`link--weight-500`], child.href, undefined, undefined, undefined, undefined);
                         newChild.append(grandchild);
-                        console.log(newChild);
+                        // console.log(newChild);
                     }
                 } else {
                     newChild = anchorTagFactory(child.text, [`link`, `link--medium`, `link--dark`,`link--weight-500`], child.href, undefined, undefined, undefined, undefined);
@@ -120,10 +120,16 @@ const rssToJsonUrlFull = urlAssimilationFactory(rssToJsonUrlBase, rssToJsonUrl.p
 let result = await apiFetchFactory(rssToJsonUrlFull);
 result = result.apiData;
 if (result) {
-    // Grab most recent post
+    // Grab most recent post object
     const recentPost = result.items[0];
     // Grab post permalink
     const recentPostUrl = recentPost.link;
+    // Grab post title
+    const recentPostTitle = recentPost.title;
+    // Grab publishing date
+    const recentPostPubDate = recentPost.pubDate;
+    // Grab categories
+    const recentPostCategories = recentPost.categories;
     // Grab post content 'string'
     const recentPostContent = recentPost.content;
     // Parse content string
@@ -133,13 +139,13 @@ if (result) {
     // Scrape only the HTML elements inside of the <body></body> tags
     const recentPostEls = recentPostContentDoc.body.childNodes;
     // Adjust any paragraph element classes for styling
-    const paragraphTagClasses = [`p`, `p--medium p--dark`, `p--line-height-large`, `p--align-left-mbl`];
+    const paragraphTagClasses = [`p`, `p--medium p--dark`, `p--line-height-medium`, `p--align-left-mbl`];
     // Generate a 'read more' HTML anchor object with permalink URL
     const readMoreButton = anchorTagFactory(`Discover more`, [`button`], blogUrlFull, undefined, undefined, undefined, undefined);
     // Generate follow-up article footer text
-    const recentPostInterest =  paragraphTagFactory(``, [`h3`, `h3--weight-600`, `h3--large`, `medium-article--interest`]); recentPostInterest.append(`Enjoy this article?`); recentPostInterest.append(readMoreButton);
+    const recentPostInterest =  paragraphTagFactory(``, [`h3`, `h3--weight-600`, `h3--large`, `h3--line-height-medium`, `medium-article--interest`]); recentPostInterest.append(`Enjoy this article?`); recentPostInterest.append(readMoreButton);
     // Grab post publish date and reformat post publish date
-    const convertedRecentPostDate = checkDate(recentPost.pubDate).fullDateStrMoFirst;
+    const convertedRecentPostDate = checkDate(recentPostPubDate).fullDateStrMoFirst;
     // Append formatted post publish date to a new paragraph object
     const recentPostDate = convertedRecentPostDate;
     // Grab post author and append to a new paragraph object
@@ -154,6 +160,25 @@ if (result) {
 
     // Make an array of the HTML objects and prepare them to be added to doc (section container)
     let mediumPostContent = new Array();
+
+    if (recentPostCategories) {
+        recentPostCategories.forEach((category, index) => {
+            console.log(category);
+        });
+    }
+    
+    const mediumPostTitleLink = anchorTagFactory(recentPostTitle, undefined, recentPostUrl, undefined, undefined, undefined, undefined);
+    const mediumPostHeadlineTag = document.createElement('h2');
+        mediumPostHeadlineTag.setAttribute('class', 'your-mom');
+    let mediumPostHeadline = mediumPostHeadlineTag.append(mediumPostTitleLink);
+    console.log(mediumPostHeadline);
+    if (recentPostMeta) {
+        mediumPostContent.push(recentPostMeta);
+    }
+    if (mediumPostHeadline) {
+        mediumPostContent.push(mediumPostHeadline);
+    }
+
     recentPostEls.forEach((node, index) => {  
         const nodeName = node.nodeName;
         const innerTextNode = '#text';
@@ -177,10 +202,10 @@ if (result) {
                     addAttribsToChildrenFactory(node);
                     // Also make sure parent nodes have correct attribs
                     if (nodeName == title3Node) {
-                        node.setAttribute(`class`, `h3 h3--weight-600 h3--large`);
+                        node.setAttribute(`class`, `h3 h3--weight-600 h3--large h3--line-height-large`);
                     }
                     if (nodeName == title4Node) {
-                        node.setAttribute(`class`, `h4 h4--weight-800 h4--medium`);
+                        node.setAttribute(`class`, `h4 h4--weight-800 h4--medium h4--line-height-medium`);
                     }
                     if (nodeName == paragraphNode) {
                         node.setAttribute(`class`, paragraphTagClasses.join(` `));
@@ -194,15 +219,9 @@ if (result) {
                     node.setAttribute(`class`, `medium-article--image-container`);
                     addAttribsToChildrenFactory(node);
                 }
-                if (index == 2 || index == 3) {
-                    mediumPostContent.push(recentPostMeta);
-                }
                 if (index == 0 || index == 1) {
                     if (nodeName == figureNode) {
                         node.setAttribute(`class`, `medium-article--featured-image-container`);
-                    }
-                    if (nodeName == title3Node) {
-                        node.setAttribute(`class`, `h3 h3--weight-600 h3--xx-large`);
                     }
                 }
                 mediumPostContent.push(node);
@@ -226,8 +245,8 @@ if (result) {
     mediumContainer.appendChild(mediumContainerInner);
     // Append from mediumPostContent Array (reformatted post content) to newly created section container in order
     mediumPostContent.forEach((node) => {
+        console.log(node);
         mediumContainerInner.appendChild(node);
-        // console.log(node);
     });
     // Grab existing main container from document and store it for later use ...
     const mainContainer = document.getElementById('main');

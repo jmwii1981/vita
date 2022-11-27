@@ -645,7 +645,7 @@ span::selection {
 	}
 	.p--meta {
 		color: rgba(117, 117, 117, 1);
-		margin: 0 0 8rem;
+		margin: 0 0 2rem;
 
 		& > a {
 			color: rgba(117, 117, 117, 1);
@@ -672,7 +672,7 @@ span::selection {
 		align-items: center; // top or bottom
 		display: flex;
 		flex-direction: column;
-		gap: 4rem;
+		gap: 3rem;
 		justify-content: flex-start; // left or right
 		margin: auto;
 	}
