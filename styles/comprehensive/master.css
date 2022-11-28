@@ -1022,9 +1022,8 @@ span::selection {
 .header {
   align-items: center;
   display: flex;
-  height: 4rem;
+  height: 5rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
   position: absolute;
   top: calc(100vh - 8rem);
   left: 0;
@@ -1033,25 +1032,23 @@ span::selection {
   z-index: 9999999;
 }
 .header-logo {
+  align-self: flex-bottom;
   display: flex;
   flex-direction: column;
-  height: 2.8rem;
+  height: 4.25rem;
   margin: 0;
-  margin-bottom: 0.3rem;
   pointer-events: all;
-  width: 3rem;
+  width: 4.25rem;
 }
 .header-logo:hover {
   cursor: pointer;
 }
 .header-logo-link {
-  align-items: flex-start;
   display: flex;
-  height: 100%;
+  height: 4.25rem;
   flex-direction: column;
-  gap: 0.25rem;
-  justify-content: space-between;
-  width: 100%;
+  padding: 0.55rem;
+  width: 4.25rem;
 }
 .header-logo-link-mark {
   align-items: flex-end;
@@ -1065,6 +1062,7 @@ span::selection {
   width: 100%;
 }
 .header-list {
+  align-self: flex-end;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1087,6 +1085,7 @@ span::selection {
 }
 .header-list-item-icon {
   display: flex;
+  height: 4rem;
   width: 4rem;
 }
 @media (prefers-color-scheme: light) {
@@ -1103,14 +1102,14 @@ span::selection {
 }
 .header-list-item-link {
   display: flex;
-  decoration: none;
+  text-decoration: none;
   height: 4rem;
   width: 4rem;
 }
 .header .navbar {
   align-items: flex-end;
   display: flex;
-  height: 4rem;
+  height: 5rem;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 1rem;
@@ -1326,13 +1325,39 @@ span::selection {
   line-height: 150%;
   padding: 1.25rem 4rem;
   text-decoration: none;
+  outline-color: #303135;
+  outline-offset: 0rem;
+  outline-style: solid;
+  outline-width: 0rem;
+  transition-duration: 0.3s, 0.3s;
+  transition-property: outline-color, outline-offset;
+  transition-timing-function: ease-out, ease-out;
 }
 .medium-article .button:hover {
   cursor: pointer;
 }
+.medium-article .button:focus {
+  border-radius: 5rem;
+  outline-offset: 0.2rem;
+  outline-width: 0.3rem;
+}
 .medium-article--title {
   color: #303135;
   text-decoration: none;
+}
+.medium-article--title--link {
+  outline-color: #303135;
+  outline-offset: 0rem;
+  outline-style: solid;
+  outline-width: 0rem;
+  transition-duration: 0.3s, 0.3s;
+  transition-property: outline-color, outline-offset;
+  transition-timing-function: ease-out, ease-out;
+}
+.medium-article--title--link:focus {
+  border-radius: 0.2rem;
+  outline-offset: 0.2rem;
+  outline-width: 0.3rem;
 }
 .medium-article--interest {
   align-items: center;

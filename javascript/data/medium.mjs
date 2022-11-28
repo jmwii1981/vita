@@ -160,7 +160,7 @@ if (result) {
     // Make an array of the HTML objects and prepare them to be added to doc (section container)
     let mediumPostContent = new Array();
     // Medium article title content, title link, and title h3 tag   
-    const mediumPostTitleLink = anchorTagFactory(recentPostTitle, [`h3`, `h3--weight-900`, `h3--x-large`, `h3--line-height-medium`, `medium-article--title`], recentPostUrl, undefined, undefined, undefined, undefined);
+    const mediumPostTitleLink = anchorTagFactory(recentPostTitle, [`h3`, `h3--weight-900`, `h3--x-large`, `h3--line-height-medium`, `medium-article--title`, `medium-article--title--link`], recentPostUrl, undefined, undefined, undefined, undefined);
     const mediumPostHeadlineTag = document.createElement('h2');
           mediumPostHeadlineTag.setAttribute('class', 'h3 h3--weight-900 h3--x-large h3--line-height-medium medium-article--title');
           mediumPostHeadlineTag.append(mediumPostTitleLink);
