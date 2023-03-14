@@ -733,7 +733,6 @@ span::selection {
 		position: relative;
 
 		&:after {
-			animation: cursor-blink 0.985s infinite;
 			@media (prefers-color-scheme: light) {
 					@include background-color($lightmode--lightest-background);
 			}
@@ -743,12 +742,21 @@ span::selection {
 			border-radius: 0.15rem;
 			content: '';
 			display: inline-block;
-			height: 100%;
+			height: 110%;
 			pointer-events: none;
 			position: absolute;
-				top: -0.5rem;
+				top: 1.5rem;
 				right: 0rem;
 			width: 0.1rem;
+		}
+		&.blink {
+			animation: cursor-blink 0.985s infinite;
+		}
+	}
+
+	&::selection {
+		&-cursor {
+			opacity: 0;
 		}
 	}
 }

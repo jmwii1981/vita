@@ -15,6 +15,59 @@ import { checkDate } from './data/date.mjs';
 // Factories
 import { paragraphTagFactory } from './factories/paragraphTag.mjs';
 import { anchorTagFactory } from './factories/anchorTag.mjs';
+import { sentenceGrabberFactory } from './factories/sentenceGrabber.mjs';
+import { sentenceDissectorFactory } from './factories/sentenceDissector.mjs';
+
+
+// Type out big title at top of page with audio ...
+const bigTitleElementSelector = `big-title`;
+const bigTitle = sentenceGrabberFactory(bigTitleElementSelector);
+const bigTitleList = sentenceDissectorFactory(bigTitle);
+
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function typeOutBigTitle (bigTitleElement, bigTitleContent) {
+    const bigTitleContentSize = bigTitleContent.length;
+    bigTitleContent = bigTitleContent.entries();
+    const cursor = document.getElementById(`cursor`);
+    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+    let waitTime = randomIntFromInterval(25, 250);
+    
+    
+    const keyPressSound1 = new Audio('./audio/key_press1.wav');
+    keyPressSound1.loop = false;
+    
+
+    cursor.classList.add('blink');
+    const loop = async () => {
+        cursor.classList.remove('blink');
+
+        for (let [key, value] of bigTitleContent) {
+            value = document.createTextNode(value);
+
+            if (key < bigTitleContentSize - 1) {
+                // play random audio sound
+                var playPromise = keyPressSound1.play();
+                document.getElementById(`big-title`).insertBefore(value, cursor);
+                // hold up, wait a second
+                waitTime = randomIntFromInterval(75, 100);
+                await wait(waitTime);
+            }
+            if (key == bigTitleContentSize - 1) {
+                // play loudest audio sound
+                document.getElementById(`big-title`).insertBefore(value, cursor);
+            }
+        }
+        cursor.classList.add('blink');
+    }
+    loop();
+}
+typeOutBigTitle(bigTitleElementSelector, bigTitleList);
+
+
+
 
 // Create Objects for later use ...
 const googleMapsLink = anchorTagFactory(`Louisville, KY`, undefined, `//www.google.com/maps/place/Louisville,+KY/@38.1884721,-85.9569664,10z/data=!3m1!4b1!4m6!3m5!1s0x88690b1ab35bd511:0xd4d3b4282071fd32!8m2!3d38.2526647!4d-85.7584557!16zL20vMGZfXzE`, undefined, undefined, undefined, undefined);
