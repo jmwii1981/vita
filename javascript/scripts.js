@@ -82,7 +82,7 @@ const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, undefined, 
 const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, undefined, `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
 const myGithubPagesLink = anchorTagFactory(`Github Pages`, undefined, `https://pages.github.com/`, undefined, undefined, undefined, undefined);
 const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, undefined, `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
-const updateStatus = ` Last updated just now.`;
+const updateStatus = `Data points last updated just now.`;
 const lastUpdated = document.createElement('span'); lastUpdated.setAttribute(`id`, `current-date-time`); lastUpdated.append(updateStatus);
 
 
@@ -141,18 +141,34 @@ fullSentence = fullSentence.flat();
 let mySentence = paragraphTagFactory(``);
 fullSentence.forEach(element => mySentence.append(element));
 
+// Put another together ...
 fullSentence = [];
 fullSentence.push(lastUpdate);
 fullSentence = fullSentence.flat();
-let myLastUpdate = paragraphTagFactory(``,[`p`, `p--small p--dark`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
+let myLastUpdate = paragraphTagFactory(``,[`p`, `p--medium p--dark`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
 fullSentence.forEach(element => myLastUpdate.append(element));
 
-// Append mySentence to footer-content div in document ...
+// Append mySentence to datapoints-content div in document ...
 const dataPointsContent = document.getElementById(`datapoints-content`);
 dataPointsContent.append(mySentence);
 dataPointsContent.append(myLastUpdate);
 
+
+// Put yet another together ...
+fullSentence = [];
+fullSentence.push(myVita);
+fullSentence = fullSentence.flat();
+
+// Create p tag, flatten array, and append to p tag ...
+let myFooterSentence = paragraphTagFactory(``,[`p`, `p--x-small p--light`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
+fullSentence.forEach(element => myFooterSentence.append(element));
+
+//Append footerSentence to footer-content div in document ...
+const footerContent = document.getElementById(`footer-content`);
+footerContent.append(myFooterSentence);
+footerContent.append(myLastUpdate);
+
 setInterval(function() {
     let rightNowTime = checkDate().rightNowTime;
-    lastUpdated.innerText = ` Last updated today at ${rightNowTime}.`;
+    lastUpdated.innerText = `Data points last updated today at ${rightNowTime}.`;
 }, 1000);
