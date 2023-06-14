@@ -133,18 +133,26 @@ const lastUpdate = [
 
 // Put it all together ..
 let fullSentence = [];
-fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myVita, lastUpdate);
+// fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic, myVita, lastUpdate);
+fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic);
 fullSentence = fullSentence.flat();
 
 // Create p tag, flatten array, and append to p tag ...
 let mySentence = paragraphTagFactory(``);
 fullSentence.forEach(element => mySentence.append(element));
 
+fullSentence = [];
+fullSentence.push(lastUpdate);
+fullSentence = fullSentence.flat();
+let myLastUpdate = paragraphTagFactory(``,[`p`, `p--small p--dark`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
+fullSentence.forEach(element => myLastUpdate.append(element));
+
 // Append mySentence to footer-content div in document ...
 const dataPointsContent = document.getElementById(`datapoints-content`);
 dataPointsContent.append(mySentence);
+dataPointsContent.append(myLastUpdate);
 
 setInterval(function() {
     let rightNowTime = checkDate().rightNowTime;
     lastUpdated.innerText = ` Last updated today at ${rightNowTime}.`;
-}, 5000);
+}, 1000);

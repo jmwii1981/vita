@@ -17,7 +17,7 @@
         • anchorTagProperty
             defaults: `dct:title`
 */
-const anchorTagFactory = function(anchorTagText, anchorTagClasses = [`link`, `link--x-small`, `link--dark`,`link--weight-500`], anchorTagHref, anchorTagTarget = `_blank`, anchorTagReferrerPolicy=`no-referrer`, anchorTagRelationship=`external`, anchorTagProperty=`dct:title`) {
+const anchorTagFactory = function(anchorTagText, anchorTagClasses = [`link`, `link--large`, `link--dark`,`link--weight-500`], anchorTagHref, anchorTagTarget = `_blank`, anchorTagReferrerPolicy=`no-referrer`, anchorTagRelationship=`external`, anchorTagProperty=`dct:title`) {
     const anchorTag = document.createElement('a');
         anchorTag.setAttribute(`class`, anchorTagClasses.join(` `));
         anchorTag.setAttribute(`href`, `${anchorTagHref}`);
