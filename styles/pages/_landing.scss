@@ -572,7 +572,6 @@ span::selection {
 	&.intro {
 		background: radial-gradient(circle, rgba(48,49,53,0.5) 9%, rgba(38,39,41,0.1) 50%);
 		// background-color: red;
-		min-height: 100vh;
 		// @media (prefers-color-scheme: light) {
 		// 	@include background-color($lightmode--darkest-background, 0.97);
 		// }
@@ -588,6 +587,15 @@ span::selection {
 		}
 		
 	}
+
+	&.intro,
+	&.about,
+	&.highlights,
+	&.datapoints,
+	&.hello {
+		min-height: 100vh;
+	}
+
 	&.medium-article {
 		padding-top: 10rem;
 	}

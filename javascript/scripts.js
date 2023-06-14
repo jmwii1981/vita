@@ -48,8 +48,8 @@ function typeOutBigTitle (bigTitleElement, bigTitleContent) {
             value = document.createTextNode(value);
 
             if (key < bigTitleContentSize - 1) {
-                // play random audio sound
-                var playPromise = keyPressSound1.play();
+                // // play random audio sound
+                // var playPromise = keyPressSound1.play();
                 document.getElementById(`big-title`).insertBefore(value, cursor);
                 // hold up, wait a second
                 waitTime = randomIntFromInterval(75, 100);
@@ -141,8 +141,8 @@ let mySentence = paragraphTagFactory(``);
 fullSentence.forEach(element => mySentence.append(element));
 
 // Append mySentence to footer-content div in document ...
-const footerContent = document.getElementById(`footer-content`);
-footerContent.append(mySentence);
+const dataPointsContent = document.getElementById(`datapoints-content`);
+dataPointsContent.append(mySentence);
 
 setInterval(function() {
     let rightNowTime = checkDate().rightNowTime;
