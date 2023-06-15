@@ -166,9 +166,38 @@ fullSentence.forEach(element => myFooterSentence.append(element));
 //Append footerSentence to footer-content div in document ...
 const footerContent = document.getElementById(`footer-content`);
 footerContent.append(myFooterSentence);
-footerContent.append(myLastUpdate);
 
 setInterval(function() {
     let rightNowTime = checkDate().rightNowTime;
     lastUpdated.innerText = `Data points last updated today at ${rightNowTime}.`;
 }, 1000);
+
+
+
+
+/* SAND BOX */
+
+// title-transition
+// content-transition
+
+let titleElementsArray = document.querySelectorAll(".title-transition");
+titleElementsArray = Array.from(titleElementsArray);
+let contentElementsArray = document.querySelectorAll("[class^=content-transition]");
+contentElementsArray = Array.from(contentElementsArray);
+const elementsArray = titleElementsArray.concat(contentElementsArray);
+
+console.log(elementsArray);
+
+window.addEventListener('scroll', fadeIn ); 
+function fadeIn() {
+    for (var i = 0; i < elementsArray.length; i++) {
+        var elem = elementsArray[i]
+        var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+        if (distInView < 0) {
+            elem.classList.add("inView");
+        } else {
+            elem.classList.remove("inView");
+        }
+    }
+}
+fadeIn();

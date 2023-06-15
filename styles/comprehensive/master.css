@@ -1211,9 +1211,17 @@ span::selection {
     background-color: #121227;
   }
 }
+.section.about {
+  background-image: url("../../images/dark-flowers.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .section.about .h2 {
   margin: 0 auto 40px;
   text-align: center;
+  text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
 }
 @media (prefers-color-scheme: light) {
   .section.about .h2--light {
@@ -1283,6 +1291,9 @@ span::selection {
   height: 4rem;
   width: 4rem;
 }
+.section.highlights {
+  background-color: #F1E5E1;
+}
 .section.highlights .h2 {
   margin: 0 auto 40px;
   text-align: center;
@@ -1348,6 +1359,25 @@ span::selection {
   text-align: center;
   width: calc(33% - 16px);
 }
+@media (prefers-color-scheme: light) {
+  .section.samples {
+    background-color: #121227; /* The Fallback */
+    background-color: #121227;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .section.samples {
+    background-color: #121227; /* The Fallback */
+    background-color: #121227;
+  }
+}
+.section.datapoints {
+  background-image: url("../../images/light-flowers.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .section.datapoints .h2 {
   margin: 0 0 40px;
 }
@@ -1362,6 +1392,9 @@ span::selection {
     color: #121227; /* The Fallback */
     color: #121227;
   }
+}
+.section.datapoints .p:nth-child(2) {
+  margin: 24px 0 0;
 }
 .section.datapoints .p {
   margin: 0;
@@ -1432,15 +1465,7 @@ span::selection {
   max-width: 100%;
   width: 450px;
 }
-.section.about .flowers-background, .section.datapoints .flowers-background {
-  filter: blur(2px);
-  object-fit: fill;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.section.intro, .section.about, .section.highlights, .section.datapoints, .section.hello {
+.section.intro, .section.about, .section.highlights, .section.samples, .section.datapoints, .section.hello {
   min-height: 100vh;
 }
 .section.medium-article {
@@ -1556,6 +1581,80 @@ span::selection {
   margin: 8rem auto 0;
 }
 
+.title-transition {
+  transform: translateY(50px);
+  transition-duration: 0.6s;
+  transition-delay: 0s;
+  opacity: 0;
+}
+.title-transition.inView {
+  transform: translateY(0px);
+  transition-delay: 0.4s;
+  opacity: 1;
+}
+
+.content-transition1,
+.content-transition2,
+.content-transition3,
+.content-transition4,
+.content-transition5,
+.content-transition6,
+.content-transition7 {
+  transform: translateY(100px);
+  transition-duration: 0.75s;
+  transition-delay: 0s;
+  opacity: 0;
+}
+.content-transition1.inView,
+.content-transition2.inView,
+.content-transition3.inView,
+.content-transition4.inView,
+.content-transition5.inView,
+.content-transition6.inView,
+.content-transition7.inView {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.content-transition1.inView {
+  transition-delay: 0.6s;
+  transition-duration: 0.75s;
+}
+
+.content-transition2.inView {
+  transition-delay: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.content-transition3.inView {
+  transition-delay: 1s;
+  transition-duration: 0.85s;
+}
+
+.content-transition4.inView {
+  transition-delay: 1.2s;
+  transition-duration: 0.9s;
+}
+
+.content-transition5.inView {
+  transition-delay: 1.4s;
+  transition-duration: 0.95s;
+}
+
+.content-transition6.inView {
+  transition-delay: 1.6s;
+  transition-duration: 1s;
+}
+
+.content-transition7.inView {
+  transition-delay: 1.8s;
+  transition-duration: 1.05s;
+}
+
+.h2-tag-line {
+  text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
+}
+
 .h2-tag-line {
   margin: auto auto auto 0rem;
   padding-bottom: 2rem;
@@ -1627,7 +1726,18 @@ span::selection {
   margin: 0 auto;
   padding: 9rem 1rem 6rem;
   width: 100%;
-  background-color: #121227;
+}
+@media (prefers-color-scheme: light) {
+  .footer {
+    background-color: #121227; /* The Fallback */
+    background-color: #121227;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: #121227; /* The Fallback */
+    background-color: #121227;
+  }
 }
 .footer > .inner {
   max-width: 91rem;

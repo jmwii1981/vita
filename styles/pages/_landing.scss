@@ -545,15 +545,21 @@ span::selection {
 		@media (prefers-color-scheme: dark) {
 			// @include background-color($darkmode--darkest-background);
 			@include background-color(#121227);
-			
 		}
 		
 	}
 
 	&.about {
+		background-image: url('../../images/dark-flowers.webp');
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+
 		.h2 {
 			margin: 0 auto 40px;
 			text-align: center;
+			text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
 		}
 		.h2--light {
 			@media (prefers-color-scheme: light) {
@@ -617,6 +623,8 @@ span::selection {
 	}
 
 	&.highlights {
+		background-color: #F1E5E1;
+
 		.h2 {
 			margin: 0 auto 40px;
 			text-align: center;
@@ -679,7 +687,24 @@ span::selection {
 		}
 	}
 
+	&.samples {
+		@media (prefers-color-scheme: light) {
+			// @include background-color($lightmode--darkest-background);
+			@include background-color(#121227);
+		}
+		@media (prefers-color-scheme: dark) {
+			// @include background-color($darkmode--darkest-background);
+			@include background-color(#121227);
+		}
+	}
+
 	&.datapoints {
+		background-image: url('../../images/light-flowers.webp');
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+
 		.h2 {
 			margin: 0 0 40px;
 		}
@@ -690,6 +715,9 @@ span::selection {
 			@media (prefers-color-scheme: dark) {
 				@include color(#121227, 1);
 			}
+		}
+		.p:nth-child(2) {
+			margin: 24px 0 0;
 		}
 		.p {
 			margin: 0;
@@ -707,7 +735,6 @@ span::selection {
 	}
 
 	&.hello {
-
 		background-color: #FAFAFA;
 
 		.h2--dark {
@@ -758,21 +785,10 @@ span::selection {
 		}
 	}
 
-	&.about,
-	&.datapoints {
-		.flowers-background {
-			filter: blur(2px);
-			object-fit: fill;
-			position: absolute;
-				top: 50%;
-				left: 50%;
-  			transform: translate(-50%, -50%);
-		}
-	}
-
 	&.intro,
 	&.about,
 	&.highlights,
+	&.samples,
 	&.datapoints,
 	&.hello {
 		min-height: 100vh;
@@ -909,6 +925,72 @@ span::selection {
 	}
 }
 
+// FADE IN ANIMATIONS
+.title-transition {
+	transform: translateY(50px);
+	transition-duration: 0.6s;
+	transition-delay: 0s;
+    opacity: 0;
+
+	&.inView {
+		transform: translateY(0px);
+		transition-delay: 0.4s;
+		opacity: 1;
+	}
+}
+.content-transition1,
+.content-transition2,
+.content-transition3,
+.content-transition4,
+.content-transition5,
+.content-transition6,
+.content-transition7 {
+	transform: translateY(100px);
+	transition-duration: 0.75s;
+	transition-delay: 0s;
+    opacity: 0;
+
+	&.inView {
+		transform: translateY(0px);
+		opacity: 1; 
+	}
+}
+
+.content-transition1.inView {
+	transition-delay: 0.6s;
+	transition-duration: 0.75s;
+}
+.content-transition2.inView {
+	transition-delay: 0.8s;
+	transition-duration: 0.8s;
+}
+.content-transition3.inView {
+	transition-delay: 1.0s;
+	transition-duration: 0.85s;
+}
+.content-transition4.inView {
+	transition-delay: 1.2s;
+	transition-duration: 0.9s;
+}
+.content-transition5.inView {
+	transition-delay: 1.4s;
+	transition-duration: 0.95s;
+}
+.content-transition6.inView {
+	transition-delay: 1.6s;
+	transition-duration: 1.0s;
+}
+.content-transition7.inView {
+	transition-delay: 1.8s;
+	transition-duration: 1.05s;
+}
+
+
+// H2 - GLOW STYLING
+.h2-tag-line {
+	text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
+}
+
 // H2 - POSITIONING
 .h2-tag-line {
 	margin: auto auto auto 0rem;
@@ -972,8 +1054,14 @@ span::selection {
 	padding: 9rem 1rem 6rem;
 	width: 100%;
 
-
-	background-color: #121227;
+	@media (prefers-color-scheme: light) {
+		// @include background-color($lightmode--darkest-background);
+		@include background-color(#121227);
+	}
+	@media (prefers-color-scheme: dark) {
+		// @include background-color($darkmode--darkest-background);
+		@include background-color(#121227);
+	}
 
 	& > .inner {
 		max-width: 91rem;
