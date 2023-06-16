@@ -1310,9 +1310,6 @@ span::selection {
     color: #121227;
   }
 }
-.section.highlights .h3--light {
-  margin: 0 auto;
-}
 @media (prefers-color-scheme: light) {
   .section.highlights .h3--light {
     color: #121227; /* The Fallback */
@@ -1359,6 +1356,9 @@ span::selection {
   text-align: center;
   width: calc(33% - 16px);
 }
+.section.samples .h2 {
+  margin: 0 0 40px;
+}
 @media (prefers-color-scheme: light) {
   .section.samples {
     background-color: #121227; /* The Fallback */
@@ -1370,6 +1370,28 @@ span::selection {
     background-color: #121227; /* The Fallback */
     background-color: #121227;
   }
+}
+.section.samples .grid-wrapper {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 24px;
+  justify-content: start;
+  padding: 0;
+  width: 100%;
+}
+.section.samples .grid-block {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  width: calc(50% - 16px);
+}
+.section.samples .grid-block > img {
+  border-radius: 8px;
+  height: auto;
+  width: 100%;
 }
 .section.datapoints {
   background-image: url("../../images/light-flowers.webp");
@@ -1599,7 +1621,8 @@ span::selection {
 .content-transition4,
 .content-transition5,
 .content-transition6,
-.content-transition7 {
+.content-transition7,
+.content-transition8 {
   transform: translateY(100px);
   transition-duration: 0.75s;
   transition-delay: 0s;
@@ -1611,7 +1634,8 @@ span::selection {
 .content-transition4.inView,
 .content-transition5.inView,
 .content-transition6.inView,
-.content-transition7.inView {
+.content-transition7.inView,
+.content-transition8.inView {
   transform: translateY(0px);
   opacity: 1;
 }
@@ -1649,6 +1673,11 @@ span::selection {
 .content-transition7.inView {
   transition-delay: 1.8s;
   transition-duration: 1.05s;
+}
+
+.content-transition8.inView {
+  transition-delay: 2s;
+  transition-duration: 1.1s;
 }
 
 .h2-tag-line {

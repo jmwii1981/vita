@@ -145,7 +145,7 @@ fullSentence.forEach(element => mySentence.append(element));
 fullSentence = [];
 fullSentence.push(lastUpdate);
 fullSentence = fullSentence.flat();
-let myLastUpdate = paragraphTagFactory(``,[`p`, `p--medium p--dark`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
+let myLastUpdate = paragraphTagFactory(``,[`content-transition2`, `p`, `p--medium p--dark`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
 fullSentence.forEach(element => myLastUpdate.append(element));
 
 // Append mySentence to datapoints-content div in document ...
