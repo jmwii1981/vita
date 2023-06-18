@@ -556,9 +556,13 @@ span::selection {
 	&.about {
 		background-image: url('../../images/dark-flowers.webp');
 		background-size: cover;
-		background-attachment: fixed;
+		background-attachment: scroll;
 		background-position: center;
 		background-repeat: no-repeat;
+
+		@media only screen and (min-width: 640px) {
+			background-attachment: fixed;
+		}
 
 		.h2 {
 			margin: 0 auto 40px;
@@ -771,9 +775,13 @@ span::selection {
 	&.datapoints {
 		background-image: url('../../images/light-flowers.webp');
 		background-size: cover;
-		background-attachment: fixed;
+		background-attachment: scroll;
 		background-position: center;
 		background-repeat: no-repeat;
+
+		@media only screen and (min-width: 640px) {
+			background-attachment: fixed;
+		}
 
 		.h2 {
 			margin: 0 0 40px;
