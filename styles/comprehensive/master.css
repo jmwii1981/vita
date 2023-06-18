@@ -1182,10 +1182,15 @@ span::selection {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: 0 1rem;
+  padding: 10rem 1rem;
   position: relative;
   width: 100%;
   z-index: 1;
+}
+@media only screen and (min-width: 640px) {
+  .section {
+    padding: 0 1rem;
+  }
 }
 .section > .inner {
   align-items: flex-start;
@@ -1342,11 +1347,18 @@ span::selection {
 .section.highlights .grid-wrapper {
   align-items: center;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 24px 24px;
   justify-content: center;
   padding: 0;
   width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .section.highlights .grid-wrapper {
+    flex-direction: row;
+    gap: 24px 0px;
+  }
 }
 .section.highlights .grid-block {
   align-items: center;
@@ -1354,7 +1366,11 @@ span::selection {
   flex-direction: column;
   justify-content: start;
   text-align: center;
-  width: calc(33% - 16px);
+}
+@media only screen and (min-width: 640px) {
+  .section.highlights .grid-block {
+    width: calc(33% - 16px);
+  }
 }
 .section.samples .h2 {
   margin: 0 0 40px;
@@ -1371,14 +1387,30 @@ span::selection {
     background-color: #121227;
   }
 }
+.section.samples > .inner {
+  align-items: center;
+}
+@media only screen and (min-width: 640px) {
+  .section.samples > .inner {
+    align-items: flex-start;
+  }
+}
 .section.samples .grid-wrapper {
   align-items: start;
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px 24px;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  gap: 24px 0;
   justify-content: start;
   padding: 0;
   width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .section.samples .grid-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px 24px;
+  }
 }
 .section.samples .grid-block {
   align-items: center;
@@ -1386,7 +1418,12 @@ span::selection {
   flex-direction: column;
   justify-content: start;
   text-align: center;
-  width: calc(50% - 16px);
+  width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .section.samples .grid-block {
+    width: calc(50% - 16px);
+  }
 }
 .section.samples .grid-block > img {
   border-radius: 8px;
@@ -1467,25 +1504,70 @@ span::selection {
 .section.hello .h2 {
   margin: 0 0 40px;
 }
+.section.hello .p {
+  text-align: center;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .p {
+    text-align: left;
+  }
+}
 .section.hello .p:nth-child(2) {
   margin: 0;
 }
 .section.hello .inner-wrapper {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 64px;
+  justify-content: center;
+  width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .inner-wrapper {
+    flex-direction: row;
+  }
 }
 .section.hello .content-wrapper {
-  align-items: start;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .content-wrapper {
+    align-items: start;
+  }
 }
 .section.hello .avatar {
-  border-radius: 18px;
+  align-items: flex-start;
+  border-radius: 100%;
+  display: flex;
+  overflow: hidden;
+  height: 65vw;
+  justify-content: center;
+  width: 65vw;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .avatar {
+    border-radius: 18px;
+    height: auto;
+    max-width: 100%;
+    width: 450px;
+  }
+}
+.section.hello .avatar > img {
   display: block;
-  height: auto;
-  max-width: 100%;
-  width: 450px;
+  height: 218%;
+  object-fit: cover;
+  width: auto;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .avatar > img {
+    height: auto;
+    width: 100%;
+  }
 }
 .section.intro, .section.about, .section.highlights, .section.samples, .section.datapoints, .section.hello {
   min-height: 100vh;
@@ -1681,6 +1763,7 @@ span::selection {
 }
 
 .h2-tag-line {
+  opacity: 0;
   text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
 }
 

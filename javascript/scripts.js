@@ -28,6 +28,11 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+function unhideBigTitle() {
+    const bigTitle = document.getElementById(`big-title`);
+    bigTitle.style.opacity = `1`;
+}
+unhideBigTitle();
 function typeOutBigTitle (bigTitleElement, bigTitleContent) {
     const bigTitleContentSize = bigTitleContent.length;
     bigTitleContent = bigTitleContent.entries();
@@ -45,6 +50,7 @@ function typeOutBigTitle (bigTitleElement, bigTitleContent) {
         cursor.classList.remove('blink');
 
         for (let [key, value] of bigTitleContent) {
+            // type out each letter in bigTitleContent
             value = document.createTextNode(value);
 
             if (key < bigTitleContentSize - 1) {
@@ -65,6 +71,7 @@ function typeOutBigTitle (bigTitleElement, bigTitleContent) {
     loop();
 }
 typeOutBigTitle(bigTitleElementSelector, bigTitleList);
+
 
 
 
