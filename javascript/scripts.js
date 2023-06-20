@@ -76,7 +76,9 @@ typeOutBigTitle(bigTitleElementSelector, bigTitleList);
 
 
 
-// Create Objects for later use ...
+// Create link objects for later use ...
+
+// Data points ...
 const googleMapsLink = anchorTagFactory(`Louisville, KY`, undefined, `//www.google.com/maps/place/Louisville,+KY/@38.1884721,-85.9569664,10z/data=!3m1!4b1!4m6!3m5!1s0x88690b1ab35bd511:0xd4d3b4282071fd32!8m2!3d38.2526647!4d-85.7584557!16zL20vMGZfXzE`, undefined, undefined, undefined, undefined);
 const myLinkedInLink = anchorTagFactory(`Jan Michael`, undefined, `//linkedin.com/in/jmwii1981`, undefined, undefined, undefined, undefined);
 const myWeatherShoesLink =  anchorTagFactory(`${currentShoes}`, undefined, `${searchUrlFull}`, undefined, undefined, undefined, undefined);
@@ -84,16 +86,19 @@ const myWeatherGearLink =  anchorTagFactory(`${currentGear}`, undefined, `${sear
 const myBookLink = anchorTagFactory(`${bookTitle}`, undefined, `${bookLink}`, undefined, undefined, undefined, undefined);
 const myTrackLink = anchorTagFactory(`${trackName}`, undefined, `${spotifyTrackURL}`, undefined, undefined, undefined, undefined);
 const myArtistLink = anchorTagFactory(`${trackArtist}`, undefined, `${spotifyArtistURL}`, undefined, undefined, undefined, undefined);
-const myVitaLink = anchorTagFactory(`Vita`, undefined, `//github.com/jmwii1981/vita`, undefined, undefined, undefined, undefined);
-const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, undefined, `//creativecommons.org/`, undefined, undefined, undefined, undefined);
-const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, undefined, `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
-const myGithubPagesLink = anchorTagFactory(`Github Pages`, undefined, `https://pages.github.com/`, undefined, undefined, undefined, undefined);
-const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, undefined, `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
+
+// Last update links ...
 const updateStatus = `Data points last updated just now.`;
 const lastUpdated = document.createElement('span'); lastUpdated.setAttribute(`id`, `current-date-time`); lastUpdated.append(updateStatus);
 
+// Footer links ...
+const myVitaLink = anchorTagFactory(`Vita`, [`link`, `link--small`, `link--light`,`link--weight-500`], `//github.com/jmwii1981/vita`, undefined, undefined, undefined, undefined);
+const myCCLIcenseLink = anchorTagFactory(`Creative Commons license`, [`link`, `link--small`, `link--light`,`link--weight-500`], `//creativecommons.org/`, undefined, undefined, undefined, undefined);
+const myCCLicensureLink = anchorTagFactory(`CC BY-NC 4.0`, [`link`, `link--small`, `link--light`,`link--weight-500`], `//creativecommons.org/licenses/by-nc/4.0/`, undefined, undefined, undefined, undefined);
+const myGithubPagesLink = anchorTagFactory(`Github Pages`, [`link`, `link--small`, `link--light`,`link--weight-500`], `https://pages.github.com/`, undefined, undefined, undefined, undefined);
+const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, [`link`, `link--small`, `link--light`,`link--weight-500`], `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
 
-// Content
+// Content structured
 const myOpening = [
     myLinkedInLink,
 ];

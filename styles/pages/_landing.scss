@@ -362,25 +362,66 @@ span::selection {
 // HEADER CONTAINER
 .header {
 	align-items: center;
+	background-color: #151524;
 	display: flex;
-	height: 5rem;
+	height: 7rem;
 	justify-content: center;
-	position: absolute;
-		top: calc(100vh - 8rem);
+	opacity: 0.5;
+	position: fixed;
+		top: calc(100vh - 7rem);
 		left: 0;
 		right: 0;
 	width: 100%;
 	z-index: 9999999;
+}
 
-	// HEADER LOGO
+// NAVIGATION BAR
+.navbar {
+	align-items: flex-end;
+	display: flex;
+	height: 4.25rem;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 100%;
+
+	@media only screen and (min-width: 640px) {
+		max-width: 91rem;
+	}
+}
+
+
+// HEADER AND FOOTER LOGO
+.header {
+	&-logo {
+		height: 4.25rem;
+		width: 4.25rem;
+	}
+}
+
+.footer {
+	&-logo {
+		// background: pink;
+		height: 6rem;
+		width: 9.5rem;
+	}
+
+	&-text-link {
+		letter-spacing: 0.125rem;
+	}
+}
+
+.header,
+.footer {
+
+	// HEADER & Footer LOGO
 	&-logo {
 		align-self: flex-bottom;
 		display: flex;
 		flex-direction: column;
-		height: 4.25rem;
 		margin: 0;
 		pointer-events: all;
-		width: 4.25rem;
 	
 		&:hover {
 			cursor: pointer;
@@ -406,91 +447,6 @@ span::selection {
 				pointer-events: none;
 				position: relative;
 				width: 100%;
-			}
-		}
-	}
-
-	// NAVBAR
-	.navbar {
-		align-items: flex-end;
-		display: flex;
-		height: 5rem;
-		justify-content: space-between;
-		margin: 0 auto;
-		padding: 0 1rem;
-		position: relative;
-		width: 100%;
-
-		@media only screen and (min-width: 640px) {
-			max-width: 91rem;
-		}
-
-		.menu-button {
-			appearance: none;
-			@media (prefers-color-scheme: light) {
-				@include background-color($lightmode--darkest-fill, 0);
-			}
-			@media (prefers-color-scheme: dark) {
-				@include background-color($lightmode--darkest-fill, 0);
-			}
-			border-radius: 0rem;
-			border-width: 0;
-			cursor: pointer;
-			display: flex;
-			gap: 0.5rem;
-			height: auto;
-			justify-content: center;
-			padding: 0.25rem 2rem 0;
-			width: auto;
-
-			&-label {
-				@media (prefers-color-scheme: light) {
-					@include color($lightmode--lightest-text, 1);
-				}
-				@media (prefers-color-scheme: dark) {
-					@include color($lightmode--lightest-text, 1);
-				}
-				display: inline-flex;
-				text-transform: lowercase;
-			}
-			&-arrow {
-				@media (prefers-color-scheme: light) {
-					@include background-color($lightmode--lightest-background, 1);
-				}
-				@media (prefers-color-scheme: dark) {
-					@include background-color($lightmode--lightest-background, 1);
-				}
-				border-radius: 0.2rem;
-				display: inline-flex;
-				height: 0.1rem;
-				margin: auto 0;
-				position: relative;
-				width: 2rem;
-
-				&:before,
-				&:after {
-					@media (prefers-color-scheme: light) {
-						@include background-color($lightmode--lightest-background, 1);
-					}
-					@media (prefers-color-scheme: dark) {
-						@include background-color($lightmode--lightest-background, 1);
-					}
-					border-radius: 0.2rem;
-					content: '';
-					display: block;
-					height: 0.1rem;
-					position: absolute;
-						right: -0.05rem;
-					width: 0.5rem;
-				}
-				&:before {
-					bottom: 0.15rem;
-					transform: rotate(45deg);
-				}
-				&:after {
-					top: 0.15rem;
-					transform: rotate(-45deg);
-				}
 			}
 		}
 	}
@@ -544,11 +500,11 @@ span::selection {
 		// }
 		@media (prefers-color-scheme: light) {
 			// @include background-color($lightmode--darkest-background);
-			@include background-color(#121227);
+			@include background-color(#151524);
 		}
 		@media (prefers-color-scheme: dark) {
 			// @include background-color($darkmode--darkest-background);
-			@include background-color(#121227);
+			@include background-color(#151524);
 		}
 		
 	}
@@ -590,43 +546,8 @@ span::selection {
 				@include color(#ECE8E8, 0.65);
 			}
 		}
-
-		// SOCIAL LIST
-		.about-list {
-			align-self: center;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 0.5rem;
-			justify-content: space-between;
-			list-style: none;
+		.social-list {
 			margin: 40px auto 0;
-			padding: 0;
-
-			&-item {
-				display: flex;
-				height: 4rem;
-				width: 4rem;
-
-				&-icon {
-					@media (prefers-color-scheme: light) {
-							@include fill($lightmode--darkest-fill, 1);
-					}
-					@media (prefers-color-scheme: dark) {
-							@include fill($lightmode--darkest-fill, 1);
-					}
-					display: flex;
-					height: 4rem;
-					width: 4rem;
-				}
-
-				&-link {
-					display: flex;
-					text-decoration: none;
-					height: 4rem;
-					width: 4rem;
-				}
-			}
 		}
 	}
 
@@ -639,18 +560,18 @@ span::selection {
 		}
 		.h2--light {
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 		}
 		.h3--light {
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 0.6);
+				@include color(#151524, 0.6);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 0.6);
+				@include color(#151524, 0.6);
 			}
 		}
 		.p--light {
@@ -659,10 +580,10 @@ span::selection {
 			font-size: 24px;
 
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 		}
 
@@ -711,11 +632,11 @@ span::selection {
 
 		@media (prefers-color-scheme: light) {
 			// @include background-color($lightmode--darkest-background);
-			@include background-color(#121227);
+			@include background-color(#151524);
 		}
 		@media (prefers-color-scheme: dark) {
 			// @include background-color($darkmode--darkest-background);
-			@include background-color(#121227);
+			@include background-color(#151524);
 		}
 
 		& > .inner {
@@ -788,10 +709,10 @@ span::selection {
 		}
 		.h2--dark {
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 		}
 		.p:nth-child(2) {
@@ -804,10 +725,10 @@ span::selection {
 		.p--dark {
 
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 0.65);
+				@include color(#151524, 0.65);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 0.65);
+				@include color(#151524, 0.65);
 			}
 		}
 	}
@@ -819,19 +740,19 @@ span::selection {
 			margin: 0 0 16px;
 
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 1);
+				@include color(#151524, 1);
 			}
 		}
 		.p--dark {
 
 			@media (prefers-color-scheme: light) {
-				@include color(#121227, 0.65);
+				@include color(#151524, 0.65);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#121227, 0.65);
+				@include color(#151524, 0.65);
 			}
 		}
 
@@ -889,7 +810,7 @@ span::selection {
 				border-radius: 18px;
 				height: auto;
 				max-width: 100%;
-				width: 450px;
+				width: 1000px;
 			}
 
 			& > img {
@@ -1046,6 +967,44 @@ span::selection {
 	}
 }
 
+// SOCIAL LIST
+.social-list {
+	align-self: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: space-between;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+
+	&-item {
+		display: flex;
+		height: 4rem;
+		width: 4rem;
+
+		&-icon {
+			@media (prefers-color-scheme: light) {
+					@include fill($lightmode--darkest-fill, 1);
+			}
+			@media (prefers-color-scheme: dark) {
+					@include fill($lightmode--darkest-fill, 1);
+			}
+			display: flex;
+			height: 4rem;
+			width: 4rem;
+		}
+
+		&-link {
+			display: flex;
+			text-decoration: none;
+			height: 4rem;
+			width: 4rem;
+		}
+	}
+}
+
 // FADE IN ANIMATIONS
 .title-transition {
 	transform: translateY(50px);
@@ -1114,7 +1073,7 @@ span::selection {
 // H2 - GLOW STYLING
 .h2-tag-line {
 	opacity: 0;
-	text-shadow: 0 0 1px rgba(250, 250, 250, 0.1), 0 0 2px rgba(250, 250, 250, 0.1), 0 0 3px rgba(250, 250, 250, 0.1), 0 0 4px rgba(250, 250, 250, 0.1), 0 0 5px rgba(250, 250, 250, 0.1);
+	text-shadow: 0 0 2px rgba(250, 250, 250, 0.2), 0 0 3px rgba(250, 250, 250, 0.2), 0 0 4px rgba(250, 250, 250, 0.2), 0 0 5px rgba(250, 250, 250, 0.2), 0 0 6px rgba(250, 250, 250, 0.2);
 }
 
 // H2 - POSITIONING
@@ -1182,16 +1141,30 @@ span::selection {
 
 	@media (prefers-color-scheme: light) {
 		// @include background-color($lightmode--darkest-background);
-		@include background-color(#121227);
+		@include background-color(#151524);
 	}
 	@media (prefers-color-scheme: dark) {
 		// @include background-color($darkmode--darkest-background);
-		@include background-color(#121227);
+		@include background-color(#151524);
 	}
 
 	& > .inner {
+		align-items: flex-start;
+		display: flex;
+		justify-content: space-between;
 		max-width: 91rem;
 		width: 100%;
+	}
+
+	&-inner-column {
+		// background: pink;
+		display: flex;
+		flex-direction: column;
+		gap: 36px 0;
+
+		&:nth-child(1) {
+			max-width: 450px;
+		}
 	}
 
 	&-content {
