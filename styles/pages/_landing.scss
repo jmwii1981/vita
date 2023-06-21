@@ -397,6 +397,19 @@ span::selection {
 }
 
 
+// READING PROGRESS BAR
+
+#progress-bar {
+	--scrollAmount: 0%;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+	width: var(--scrollAmount);
+	height: 3px;
+	position: absolute;
+		bottom: -3px;
+		left: 0;
+  }
+
+
 // HEADER AND FOOTER LOGO
 .header {
 	&-logo {

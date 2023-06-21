@@ -187,7 +187,24 @@ setInterval(function() {
 
 
 
+
+
+
+
+
+
+
 /* SAND BOX */
+
+
+
+
+
+
+
+
+
+
 
 // FADE-IN ANIMATIONS
 // .title-transition
@@ -223,6 +240,15 @@ function fadeIn() {
 fadeIn();
 
 
+
+
+
+
+
+
+
+
+
 // DETECT SCROLL DIRECTION
 // Initial state
 let scrollPos = 0;
@@ -237,6 +263,16 @@ window.addEventListener('scroll', function(){
     // saves the new position for iteration.
     scrollPos = (document.body.getBoundingClientRect()).top;
 });
+
+
+
+
+
+
+
+
+
+
 
 // NAVIGATION BAR BEHAVIORS
 // STICKY NAV AFTER SCROLL
@@ -338,3 +374,26 @@ function stickToTop() {
     }
 }
 stickToTop();
+
+
+
+
+
+
+
+
+
+// READING PROGRESS BAR
+let processScroll = () => {
+    let docElem = document.documentElement;
+    let docBody = document.body;
+    let scrollTop = docElem['scrollTop'] || docBody['scrollTop'];
+    let scrollBottom = (docElem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
+    let scrollPercent = scrollTop / scrollBottom * 100 + '%';
+    
+    console.log(scrollTop + ' / ' + scrollBottom + ' / ' + scrollPercent);
+    
+      document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
+  }
+  processScroll();
+  document.addEventListener('scroll', processScroll);
