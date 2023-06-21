@@ -189,16 +189,24 @@ setInterval(function() {
 
 /* SAND BOX */
 
-// title-transition
-// content-transition
+// FADE-IN ANIMATIONS
+// .title-transition
+// .content-transition
 
 let titleElementsArray = document.querySelectorAll(".title-transition");
 titleElementsArray = Array.from(titleElementsArray);
+
 let contentElementsArray = document.querySelectorAll("[class^=content-transition]");
 contentElementsArray = Array.from(contentElementsArray);
-const elementsArray = titleElementsArray.concat(contentElementsArray);
 
-console.log(elementsArray);
+const footerLogoElementArray = document.querySelectorAll("#footer-logo");
+let sectionElementsArray = Array.from(footerLogoElementArray);
+
+let elementsArray = titleElementsArray.concat(contentElementsArray);
+elementsArray = Array.from(elementsArray);
+elementsArray = elementsArray.concat(sectionElementsArray);
+
+// console.log(elementsArray);
 
 window.addEventListener('scroll', fadeIn ); 
 function fadeIn() {
@@ -213,3 +221,120 @@ function fadeIn() {
     }
 }
 fadeIn();
+
+
+// DETECT SCROLL DIRECTION
+// Initial state
+let scrollPos = 0;
+// adding scroll event
+window.addEventListener('scroll', function(){
+    // detects new state and compares it with the new one
+    if ((document.body.getBoundingClientRect()).top > scrollPos) {
+        document.getElementById(`navbar`).setAttribute('data-scroll-direction', 'scrollingUp');
+    } else {
+        document.getElementById(`navbar`).setAttribute('data-scroll-direction', 'scrollingDown');
+    }
+    // saves the new position for iteration.
+    scrollPos = (document.body.getBoundingClientRect()).top;
+});
+
+// NAVIGATION BAR BEHAVIORS
+// STICKY NAV AFTER SCROLL
+let heroElement = document.getElementById(`hero`);
+let heroElementHeight = heroElement.offsetHeight;
+
+let navBarElement = document.getElementById(`navbar`);
+let navBarElementTopPosition = navBarElement.offsetTop;
+let navBarElementHeight = navBarElement.offsetHeight;
+let navBarElementHeightFraction = navBarElementHeight * 0.01;
+let navBarElementStoppingPoint = heroElementHeight - navBarElementHeight;
+
+let footerLogoElement = document.getElementById(`footer-logo`);
+let footerLogoElementHeight = footerLogoElement.offsetHeight;
+let footerLogoElementTopPosition = footerLogoElement.offsetTop;
+let footerLogoElementBottomPosition = footerLogoElementTopPosition + footerLogoElementHeight;
+
+let windowTopPosition = window.scrollY;
+let windowHeight = window.innerHeight;
+let windowBottomPosition = windowTopPosition + windowHeight ;
+
+// want to get the position of the top of the navbar within 0 to 70 while scrolling over footer logo
+let x = windowTopPosition - windowBottomPosition + windowHeight;
+
+window.addEventListener('scroll', stickToTop);
+function stickToTop() {
+    heroElement = document.getElementById(`hero`);
+    heroElementHeight = heroElement.offsetHeight;
+    navBarElement = document.getElementById(`navbar`);
+    navBarElementTopPosition = navBarElement.offsetTop;
+    navBarElementHeight = navBarElement.offsetHeight;
+    navBarElementHeightFraction = navBarElementHeight * 0.01;
+    navBarElementStoppingPoint = heroElementHeight - navBarElementHeight;
+    footerLogoElement = document.getElementById(`footer-logo`);
+    footerLogoElementHeight = footerLogoElement.offsetHeight;
+    footerLogoElementTopPosition = footerLogoElement.offsetTop;
+    footerLogoElementBottomPosition = footerLogoElementTopPosition + footerLogoElementHeight;
+    windowTopPosition = window.scrollY;
+    windowHeight = window.innerHeight;
+    windowBottomPosition = windowTopPosition + windowHeight ;
+
+    // IF NOT STICKY
+    if (navBarElement.classList.contains("sticky") == false) {
+        // MAKE STICKY
+        if ( navBarElementTopPosition < windowTopPosition ) {
+            // sticky position
+            navBarElement.classList.add("sticky");
+            // lives at top of screen
+            navBarElement.style.top = "0px";
+        }
+    }
+
+    // IF STICKY
+    if (navBarElement.classList.contains("sticky") == true) {
+        // MAKE NOT STICKY
+        if (navBarElementStoppingPoint >= windowTopPosition) {
+            // default position
+            navBarElement.classList.remove("sticky");
+            // lives at bottom of hero
+            navBarElement.style.top = "calc(100vh - 7rem)";
+        } else {
+        // IF STILL STICKY ... MAKE SOME CHANGES WHILE ...
+            // ... IF SCROLLING DOWN
+            if (navBarElement.getAttribute('data-scroll-direction') == 'scrollingDown') {
+                if (windowBottomPosition >= footerLogoElementTopPosition && windowBottomPosition < footerLogoElementBottomPosition) {
+                    let reducingValue = windowBottomPosition - footerLogoElementBottomPosition;
+                    let x = ((reducingValue + footerLogoElementHeight) * -1) - 1;
+                    x = x / footerLogoElementHeight;
+                    x = x * 100 * navBarElementHeightFraction;
+                    x = Math.floor(x);
+                    navBarElement.style.top = `${x}px`;
+                    // console.log(`going down ${x}`); // this value falls between 0 and 100 which can be used as a percentage later
+                }
+                if (windowBottomPosition >= footerLogoElementTopPosition && windowBottomPosition > footerLogoElementBottomPosition) {
+                    // console.log("Hot tamale!");
+                    // console.log(`${-navBarElementHeight}px`);
+                    navBarElement.style.top = `${-navBarElementHeight}px`;
+                }
+            }
+
+            // ... IF SCROLLING UP
+            if (navBarElement.getAttribute('data-scroll-direction') == 'scrollingUp') {
+                if (windowBottomPosition >= footerLogoElementTopPosition && windowBottomPosition < footerLogoElementBottomPosition) {
+                    let increasingValue = windowBottomPosition - footerLogoElementBottomPosition;
+                    let x = footerLogoElementHeight + increasingValue;
+                    x = x / footerLogoElementHeight;
+                    x = x * 100 * navBarElementHeightFraction;
+                    x = Math.floor(x) * -1;
+                    navBarElement.style.top = `${x}px`;
+                    // console.log(`going up ${x}`); // this value falls between 0 and 100 which can be used as a percentage later
+                }
+                if (windowBottomPosition <= footerLogoElementTopPosition && windowBottomPosition < footerLogoElementTopPosition) {
+                    // console.log("Cold tamale!");
+                    navBarElement.style.top = `${footerLogoElementHeight - footerLogoElementHeight}px`;
+                }
+            }
+
+        }
+    }
+}
+stickToTop();

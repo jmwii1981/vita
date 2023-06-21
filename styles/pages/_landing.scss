@@ -359,20 +359,25 @@ span::selection {
 	z-index: 1;
 }
 
-// HEADER CONTAINER
-.header {
+// HEADER CONTAINER (#navbar.header)
+#navbar {
 	align-items: center;
 	background-color: #151524;
 	display: flex;
 	height: 7rem;
 	justify-content: center;
-	opacity: 0.5;
-	position: fixed;
+	position: absolute;
 		top: calc(100vh - 7rem);
 		left: 0;
 		right: 0;
 	width: 100%;
 	z-index: 9999999;
+}
+
+#navbar.sticky {
+	position: fixed;
+		left: 0;
+		right: 0;
 }
 
 // NAVIGATION BAR
