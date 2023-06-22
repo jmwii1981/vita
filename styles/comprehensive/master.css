@@ -1134,11 +1134,6 @@ span::selection {
   width: 100%;
   z-index: 1;
 }
-@media only screen and (min-width: 640px) {
-  .section {
-    padding: 0 1rem;
-  }
-}
 .section .flowers-background {
   height: 110%;
   object-fit: cover;
@@ -1797,7 +1792,7 @@ span::selection {
   gap: 2rem;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 9rem 1rem 6rem;
+  padding: 6rem 1rem 13rem;
   width: 100%;
 }
 @media (prefers-color-scheme: light) {

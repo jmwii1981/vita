@@ -172,7 +172,7 @@ fullSentence.push(myVita);
 fullSentence = fullSentence.flat();
 
 // Create p tag, flatten array, and append to p tag ...
-let myFooterSentence = paragraphTagFactory(``,[`p`, `p--x-small p--light`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
+let myFooterSentence = paragraphTagFactory(``,[`content-transition2`, `p`, `p--x-small p--light`, `p--weight-400` , `p--line-height-small`, `p--align-left-mbl`]);
 fullSentence.forEach(element => myFooterSentence.append(element));
 
 //Append footerSentence to footer-content div in document ...
