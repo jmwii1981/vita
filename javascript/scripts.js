@@ -403,6 +403,16 @@ processScroll();
 document.addEventListener('scroll', processScroll);
 
 const aboutFlowers = document.getElementById('about-flowers');
-new simpleParallax(aboutFlowers);
+new simpleParallax(aboutFlowers, {
+    delay: 0,
+    orientation: 'down',
+    scale: 2,
+    transition: 'ease-in-out'
+});
 const datapointsFlowers = document.getElementById('datapoints-flowers');
-new simpleParallax(datapointsFlowers);
+new simpleParallax(datapointsFlowers, {
+    delay: 0,
+    orientation: 'down',
+    scale: 2,
+    transition: 'ease-in-out'
+});
