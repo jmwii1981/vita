@@ -423,7 +423,18 @@ span::selection {
 	&-logo {
 		// background: pink;
 		height: 6rem;
+		opacity: 0;
+		transform: scale(0.1);
 		width: 9.5rem;
+	
+		&.inView {
+			opacity: 1;
+			transform: scale(1);
+			transition-property: opacity, transform;
+			transition-delay: 0s, 0s;
+			transition-duration: 0.6s, 0.3s;
+			transition-timing-function: ease-in-out;
+		}
 	}
 
 	&-text-link {
@@ -1161,7 +1172,7 @@ span::selection {
 	gap: 2rem;
 	justify-content: space-between;
 	margin: 0 auto;
-	padding: 6rem 1rem 13rem;
+	padding: 6rem 1rem 9rem;
 	width: 100%;
 
 	@media (prefers-color-scheme: light) {

@@ -239,7 +239,7 @@ function fadeIn() {
         if (distInView < 0) {
             elem.classList.add("inView");
         } else {
-            elem.classList.remove("inView");
+            // elem.classList.remove("inView");
         }
     }
 }
