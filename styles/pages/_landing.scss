@@ -362,7 +362,7 @@ span::selection {
 // HEADER CONTAINER (#navbar.header)
 #navbar {
 	align-items: center;
-	background-color: #151524;
+	background: linear-gradient(to bottom, rgba(21,21,36,0) 0%,rgba(21,21,36,1) 100%);
 	display: flex;
 	height: 7rem;
 	justify-content: center;
@@ -375,6 +375,8 @@ span::selection {
 }
 
 #navbar.sticky {
+	backdrop-filter: blur(10px);
+	background: linear-gradient(to bottom, rgba(21,21,36,0.95) 0%,rgba(21,21,36,0.95) 100%);
 	position: fixed;
 		left: 0;
 		right: 0;
@@ -397,8 +399,7 @@ span::selection {
 }
 
 
-// READING PROGRESS BAR
-
+// PROGRESS BAR
 #progress-bar {
 	--scrollAmount: 0%;
 	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -495,6 +496,26 @@ span::selection {
 	@media only screen and (min-width: 640px) {
 		padding: 0 1rem;
 	}
+	
+	.flowers-background {
+		height: 110%;
+		object-fit: cover;
+		position: absolute;
+			top: -5%;
+			left: -5%;
+		width: 110%;
+		will-change: transform, filter;
+		z-index: -1;
+	}
+
+	.flowers-background-overlay {
+		height: 110%;
+		position: absolute;
+			top: -5%;
+			left: -5%;
+		width: 110%;
+		z-index: 0;
+	}
 
 	& > .inner {
 		align-items: flex-start;
@@ -528,16 +549,9 @@ span::selection {
 	}
 
 	&.about {
-		background-image: url('../../images/dark-flowers.webp');
-		background-size: cover;
-		background-attachment: scroll;
-		background-position: center;
-		background-repeat: no-repeat;
-
-		@media only screen and (min-width: 640px) {
-			background-attachment: fixed;
+		.flowers-background-overlay {
+			background-image: radial-gradient(rgba(21,21,36,0) 10%,rgb(36, 28, 21) 100%);
 		}
-
 		.h2 {
 			margin: 0 auto 40px;
 			text-align: center;
@@ -712,16 +726,9 @@ span::selection {
 	}
 
 	&.datapoints {
-		background-image: url('../../images/light-flowers.webp');
-		background-size: cover;
-		background-attachment: scroll;
-		background-position: center;
-		background-repeat: no-repeat;
-
-		@media only screen and (min-width: 640px) {
-			background-attachment: fixed;
+		.flowers-background-overlay {
+			background-image: radial-gradient(rgba(241, 229, 225, 0) 10%,rgba(241, 229, 225, 1) 100%);
 		}
-
 		.h2 {
 			margin: 0 0 40px;
 		}

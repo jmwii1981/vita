@@ -206,7 +206,7 @@ setInterval(function() {
 
 
 
-// FADE-IN ANIMATIONS
+// "IN VIEW" ANIMATION CUE
 // .title-transition
 // .content-transition
 
@@ -216,12 +216,18 @@ titleElementsArray = Array.from(titleElementsArray);
 let contentElementsArray = document.querySelectorAll("[class^=content-transition]");
 contentElementsArray = Array.from(contentElementsArray);
 
-const footerLogoElementArray = document.querySelectorAll("#footer-logo");
-let sectionElementsArray = Array.from(footerLogoElementArray);
+let backgroundElementsArray = document.querySelectorAll(".flowers-background");
+backgroundElementsArray = Array.from(backgroundElementsArray);
+
+let footerLogoElementArray = document.querySelectorAll("#footer-logo");
+footerLogoElementArray = Array.from(footerLogoElementArray);
 
 let elementsArray = titleElementsArray.concat(contentElementsArray);
 elementsArray = Array.from(elementsArray);
-elementsArray = elementsArray.concat(sectionElementsArray);
+elementsArray = elementsArray.concat(backgroundElementsArray);
+elementsArray = Array.from(elementsArray);
+elementsArray = elementsArray.concat(footerLogoElementArray);
+elementsArray = Array.from(elementsArray);
 
 // console.log(elementsArray);
 
@@ -384,16 +390,19 @@ stickToTop();
 
 
 // READING PROGRESS BAR
-let processScroll = () => {
+function processScroll() {
     let docElem = document.documentElement;
     let docBody = document.body;
     let scrollTop = docElem['scrollTop'] || docBody['scrollTop'];
     let scrollBottom = (docElem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight;
     let scrollPercent = scrollTop / scrollBottom * 100 + '%';
     
-    console.log(scrollTop + ' / ' + scrollBottom + ' / ' + scrollPercent);
-    
-      document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
-  }
-  processScroll();
-  document.addEventListener('scroll', processScroll);
+    document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
+}
+processScroll();
+document.addEventListener('scroll', processScroll);
+
+const aboutFlowers = document.getElementById('about-flowers');
+new simpleParallax(aboutFlowers);
+const datapointsFlowers = document.getElementById('datapoints-flowers');
+new simpleParallax(datapointsFlowers);
