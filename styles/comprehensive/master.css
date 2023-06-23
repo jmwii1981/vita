@@ -1196,7 +1196,7 @@ span.no-word-orphans {
   }
 }
 .section.about .flowers-background-overlay {
-  background-image: radial-gradient(rgba(21, 21, 36, 0) 10%, rgb(36, 28, 21) 100%);
+  background-image: radial-gradient(rgba(21, 21, 36, 0) 0%, rgba(36, 28, 21, 0.5) 100%);
 }
 .section.about .h2 {
   background-color: white;
@@ -1470,12 +1470,9 @@ span.no-word-orphans {
   height: auto;
   width: 100%;
 }
-.section.datapoints .flowers-background-overlay {
-  background-image: radial-gradient(rgba(241, 229, 225, 0) 10%, rgb(241, 229, 225) 100%);
-}
 .section.datapoints .h2 {
   background-color: white;
-  background: -webkit-linear-gradient(60deg, rgba(55, 67, 77, 0.85) 0%, rgba(42, 62, 113, 0.9) 100%);
+  background: -webkit-linear-gradient(60deg, rgb(81, 89, 164) 0%, rgba(32, 72, 174, 0.9) 100%);
   background-size: 150%;
   filter: blur(0.5px);
   -webkit-background-clip: text;
@@ -1486,7 +1483,7 @@ span.no-word-orphans {
   margin: 0 0 40px;
 }
 .section.datapoints .link {
-  color: #5b6f80;
+  color: #5159A4;
 }
 .section.datapoints .p:nth-child(2) {
   margin: 24px 0 0;

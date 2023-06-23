@@ -406,13 +406,13 @@ const aboutFlowers = document.getElementById('about-flowers');
 new simpleParallax(aboutFlowers, {
     delay: 0,
     orientation: 'down',
-    scale: 1.6,
-    transition: 'ease-in-out'
+    scale: 1.2,
+    transition: 'ease'
 });
 const datapointsFlowers = document.getElementById('datapoints-flowers');
 new simpleParallax(datapointsFlowers, {
     delay: 0,
-    orientation: 'down',
-    scale: 1.6,
-    transition: 'ease-in-out'
+    orientation: 'up',
+    scale: 1.2,
+    transition: 'ease'
 });
