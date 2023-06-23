@@ -901,33 +901,48 @@ span.no-word-orphans {
 	}
 
 	&.hello {
-		background-color: #FAFAFA;
+		background: radial-gradient(ellipse at top, rgba(250, 250, 250, 1),rgba(250, 250, 250, 0)),
+		radial-gradient(ellipse at bottom, rgba(222, 228, 233, 1),rgba(222, 228, 233, 0));
+		background-size: 400% 400%;
+		animation: gradient1 3s ease-in-out infinite;
+		
+		@keyframes gradient1 {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 
 		.h2--dark {
 			margin: 0 0 16px;
 
 			@media (prefers-color-scheme: light) {
-				@include color(#7da1b9, 1);
+				@include color(#468878, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#7da1b9, 1);
+				@include color(#468878, 1);
 			}
 		}
 		.p--dark {
 
 			@media (prefers-color-scheme: light) {
-				@include color(#2E6082, 0.65);
+				@include color(#3C7473, 0.65);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#2E6082, 0.65);
+				@include color(#3C7473, 0.65);
 			}
 		}
 		.link--dark {
 			@media (prefers-color-scheme: light) {
-				@include color(#2E6082, 1);
+				@include color(#468878, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#2E6082, 1);
+				@include color(#468878, 1);
 			}
 		}
 

@@ -1508,45 +1508,58 @@ span.no-word-orphans {
   }
 }
 .section.hello {
-  background-color: #FAFAFA;
+  background: radial-gradient(ellipse at top, rgb(250, 250, 250), rgba(250, 250, 250, 0)), radial-gradient(ellipse at bottom, rgb(222, 228, 233), rgba(222, 228, 233, 0));
+  background-size: 400% 400%;
+  animation: gradient1 3s ease-in-out infinite;
+}
+@keyframes gradient1 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .section.hello .h2--dark {
   margin: 0 0 16px;
 }
 @media (prefers-color-scheme: light) {
   .section.hello .h2--dark {
-    color: #7da1b9; /* The Fallback */
-    color: #7da1b9;
+    color: #468878; /* The Fallback */
+    color: #468878;
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.hello .h2--dark {
-    color: #7da1b9; /* The Fallback */
-    color: #7da1b9;
+    color: #468878; /* The Fallback */
+    color: #468878;
   }
 }
 @media (prefers-color-scheme: light) {
   .section.hello .p--dark {
-    color: #2E6082; /* The Fallback */
-    color: rgba(46, 96, 130, 0.65);
+    color: #3C7473; /* The Fallback */
+    color: rgba(60, 116, 115, 0.65);
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.hello .p--dark {
-    color: #2E6082; /* The Fallback */
-    color: rgba(46, 96, 130, 0.65);
+    color: #3C7473; /* The Fallback */
+    color: rgba(60, 116, 115, 0.65);
   }
 }
 @media (prefers-color-scheme: light) {
   .section.hello .link--dark {
-    color: #2E6082; /* The Fallback */
-    color: #2e6082;
+    color: #468878; /* The Fallback */
+    color: #468878;
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.hello .link--dark {
-    color: #2E6082; /* The Fallback */
-    color: #2e6082;
+    color: #468878; /* The Fallback */
+    color: #468878;
   }
 }
 .section.hello .h2 {
