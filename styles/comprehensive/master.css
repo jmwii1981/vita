@@ -1528,26 +1528,26 @@ span.no-word-orphans {
 }
 @media (prefers-color-scheme: light) {
   .section.hello .h2--dark {
-    color: #468878; /* The Fallback */
-    color: #468878;
+    color: #3F774F; /* The Fallback */
+    color: #3f774f;
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.hello .h2--dark {
-    color: #468878; /* The Fallback */
-    color: #468878;
+    color: #3F774F; /* The Fallback */
+    color: #3f774f;
   }
 }
 @media (prefers-color-scheme: light) {
   .section.hello .p--dark {
-    color: #3C7473; /* The Fallback */
-    color: rgba(60, 116, 115, 0.65);
+    color: #3F774F; /* The Fallback */
+    color: rgba(63, 119, 79, 0.65);
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.hello .p--dark {
-    color: #3C7473; /* The Fallback */
-    color: rgba(60, 116, 115, 0.65);
+    color: #3F774F; /* The Fallback */
+    color: rgba(63, 119, 79, 0.65);
   }
 }
 @media (prefers-color-scheme: light) {
@@ -1975,14 +1975,14 @@ span.no-word-orphans {
 }
 @media (prefers-color-scheme: light) {
   .footer {
-    background-color: #151524; /* The Fallback */
-    background-color: #151524;
+    background: radial-gradient(ellipse at top, rgba(32, 7, 43, 0.9), rgba(14, 33, 73, 0.75)), radial-gradient(circle at right, rgb(132, 24, 74), rgba(76, 62, 89, 0.25)), radial-gradient(circle at left, rgba(76, 62, 89, 0.25), rgba(30, 49, 109, 0.75)), radial-gradient(circle at bottom, rgb(81, 203, 114), rgb(22, 143, 173));
   }
 }
 @media (prefers-color-scheme: dark) {
   .footer {
-    background-color: #151524; /* The Fallback */
-    background-color: #151524;
+    background-color: #1C1C26; /* The Fallback */
+    background-color: #1c1c26;
+    background: radial-gradient(ellipse at top, #1C1C26, #0E2149), radial-gradient(ellipse at top, #1C1C26, #0E2149);
   }
 }
 .footer > .inner {

@@ -922,19 +922,19 @@ span.no-word-orphans {
 			margin: 0 0 16px;
 
 			@media (prefers-color-scheme: light) {
-				@include color(#468878, 1);
+				@include color(#3F774F, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#468878, 1);
+				@include color(#3F774F, 1);
 			}
 		}
 		.p--dark {
 
 			@media (prefers-color-scheme: light) {
-				@include color(#3C7473, 0.65);
+				@include color(#3F774F, 0.65);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#3C7473, 0.65);
+				@include color(#3F774F, 0.65);
 			}
 		}
 		.link--dark {
@@ -1363,11 +1363,17 @@ span.no-word-orphans {
 
 	@media (prefers-color-scheme: light) {
 		// @include background-color($lightmode--darkest-background);
-		@include background-color(#151524);
+		// @include background-color(#1C1C26);
+		background: radial-gradient(ellipse at top, rgba(32, 7, 43, 0.9), rgba(14, 33, 73, 0.75)),
+		radial-gradient(circle at right, rgba(132, 24, 74, 1), rgba(76, 62, 89, 0.25)),
+		radial-gradient(circle at left, rgba(76, 62, 89, 0.25), rgba(30, 49, 109, 0.75)),
+		radial-gradient(circle at bottom, rgba(81, 203, 114, 1), rgba(22, 143, 173, 1));
 	}
 	@media (prefers-color-scheme: dark) {
 		// @include background-color($darkmode--darkest-background);
-		@include background-color(#151524);
+		@include background-color(#1C1C26);
+		background: radial-gradient(ellipse at top, #1C1C26, #0E2149),
+		radial-gradient(ellipse at top, #1C1C26, #0E2149);
 	}
 
 
