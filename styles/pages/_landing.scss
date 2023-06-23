@@ -1292,6 +1292,7 @@ span.no-word-orphans {
 // H2 - GLOW STYLING
 .h2-tag-line {
 	opacity: 0;
+	filter: blur(0.35px);
 	text-shadow: 0 0 2px rgba(255, 220, 250, 0.1),
 	0 0 3px rgba(255, 220, 250, 0.25),
 	0 0 4px rgba(255, 220, 250, 0.25),
