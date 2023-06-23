@@ -984,6 +984,10 @@ span::selection {
   outline-offset: 0.5rem;
 }
 
+span.no-word-orphans {
+  white-space: nowrap;
+}
+
 .html {
   align-items: flex-start;
   display: flex;
@@ -1139,10 +1143,15 @@ span::selection {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: 10rem 1rem;
+  padding: 10rem 5rem;
   position: relative;
   width: 100%;
   z-index: 1;
+}
+@media only screen and (min-width: 640px) {
+  .section {
+    padding: 10rem 1rem;
+  }
 }
 .section .flowers-background {
   height: 110%;
@@ -1233,6 +1242,9 @@ span::selection {
   margin: 0 auto 40px;
   text-align: center;
 }
+.section.highlights .h3 {
+  margin: 0 auto 0.8rem;
+}
 @media (prefers-color-scheme: light) {
   .section.highlights .h2--light {
     color: #151524; /* The Fallback */
@@ -1287,7 +1299,7 @@ span::selection {
 @media only screen and (min-width: 640px) {
   .section.highlights .grid-wrapper {
     flex-direction: row;
-    gap: 24px 0px;
+    gap: 48px 0px;
   }
 }
 .section.highlights .grid-block {
@@ -1298,6 +1310,11 @@ span::selection {
   text-align: center;
 }
 @media only screen and (min-width: 640px) {
+  .section.highlights .grid-block {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 820px) {
   .section.highlights .grid-block {
     width: calc(33% - 16px);
   }
@@ -1468,12 +1485,14 @@ span::selection {
 }
 .section.hello .avatar {
   align-items: flex-start;
+  background-image: linear-gradient(to bottom, #84fab0 0%, #8fd3f4 100%);
   border-radius: 100%;
   display: flex;
   overflow: hidden;
-  height: 65vw;
+  height: calc(65vw + 24px);
   justify-content: center;
-  width: 65vw;
+  position: relative;
+  width: calc(65vw + 24px);
 }
 @media only screen and (min-width: 640px) {
   .section.hello .avatar {
@@ -1483,14 +1502,37 @@ span::selection {
     width: 1000px;
   }
 }
-.section.hello .avatar > img {
+.section.hello .avatar > .avatar-inner {
+  align-items: flex-start;
+  border-radius: 100%;
+  display: flex;
+  overflow: hidden;
+  height: 65vw;
+  justify-content: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 65vw;
+}
+@media only screen and (min-width: 640px) {
+  .section.hello .avatar > .avatar-inner {
+    border-radius: 18px;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 1000px;
+  }
+}
+.section.hello .avatar > .avatar-inner > img {
   display: block;
   height: 218%;
   object-fit: cover;
   width: auto;
 }
 @media only screen and (min-width: 640px) {
-  .section.hello .avatar > img {
+  .section.hello .avatar > .avatar-inner > img {
     height: auto;
     width: 100%;
   }
@@ -1653,8 +1695,9 @@ span::selection {
 
 .title-transition {
   transform: translateY(50px);
-  transition-duration: 0.6s;
-  transition-delay: 0s;
+  transition-property: transform, opacity;
+  transition-duration: 0.6s, 0.6s;
+  transition-delay: 0s, 0s;
   opacity: 0;
 }
 .title-transition.inView {
@@ -1672,8 +1715,9 @@ span::selection {
 .content-transition7,
 .content-transition8 {
   transform: translateY(100px);
-  transition-duration: 0.75s;
-  transition-delay: 0s;
+  transition-property: transform, opacity;
+  transition-duration: 0.6s, 0.6s;
+  transition-delay: 0s, 0s;
   opacity: 0;
 }
 .content-transition1.inView,
@@ -1689,42 +1733,42 @@ span::selection {
 }
 
 .content-transition1.inView {
-  transition-delay: 0.6s;
+  transition-delay: 0.6s, 0.6s;
   transition-duration: 0.75s;
 }
 
 .content-transition2.inView {
-  transition-delay: 0.8s;
+  transition-delay: 0.8s, 0.8s;
   transition-duration: 0.8s;
 }
 
 .content-transition3.inView {
-  transition-delay: 1s;
+  transition-delay: 1s, 1s;
   transition-duration: 0.85s;
 }
 
 .content-transition4.inView {
-  transition-delay: 1.2s;
+  transition-delay: 1.2s, 1.2s;
   transition-duration: 0.9s;
 }
 
 .content-transition5.inView {
-  transition-delay: 1.4s;
+  transition-delay: 1.4s, 1.4s;
   transition-duration: 0.95s;
 }
 
 .content-transition6.inView {
-  transition-delay: 1.6s;
+  transition-delay: 1.6s, 1.6s;
   transition-duration: 1s;
 }
 
 .content-transition7.inView {
-  transition-delay: 1.8s;
+  transition-delay: 1.8s, 1.8s;
   transition-duration: 1.05s;
 }
 
 .content-transition8.inView {
-  transition-delay: 2s;
+  transition-delay: 2s, 2s;
   transition-duration: 1.1s;
 }
 
@@ -1802,8 +1846,13 @@ span::selection {
   gap: 2rem;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 6rem 1rem 9rem;
+  padding: 6rem 5rem 16rem;
   width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .footer {
+    padding: 6rem 1rem 9rem;
+  }
 }
 @media (prefers-color-scheme: light) {
   .footer {
@@ -1820,17 +1869,67 @@ span::selection {
 .footer > .inner {
   align-items: flex-start;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   max-width: 91rem;
   width: 100%;
 }
+@media only screen and (min-width: 640px) {
+  .footer > .inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 .footer-inner-column {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 36px 0;
+  justify-content: center;
+  width: 100%;
 }
-.footer-inner-column:nth-child(1) {
-  max-width: 450px;
+@media only screen and (min-width: 640px) {
+  .footer-inner-column {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 36px 0;
+    width: 50%;
+  }
+}
+.footer-inner-column .social-list {
+  justify-content: center;
+  margin: 72px auto 0;
+}
+@media only screen and (min-width: 640px) {
+  .footer-inner-column .social-list {
+    align-self: flex-end;
+    flex-wrap: nowrap;
+    margin: 0 0 auto 0;
+  }
+}
+.footer-logo {
+  align-items: center;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+@media only screen and (min-width: 640px) {
+  .footer-logo {
+    align-items: flex-start;
+    margin: 0;
+    text-align: left;
+  }
+}
+.footer .p {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .footer .p {
+    text-align: left;
+  }
+}
+.footer .p:nth-child(3) {
+  margin-top: 16px;
 }
 .footer-content {
   display: flex;
@@ -1843,9 +1942,12 @@ span::selection {
     max-width: 91rem;
   }
 }
-.footer-content .p {
-  margin: 0;
-  width: 100%;
+@media only screen and (min-width: 640px) {
+  .footer-content {
+    margin: 0;
+    max-width: 91rem;
+    text-align: left;
+  }
 }
 
 /*# sourceMappingURL=master.css.map */
