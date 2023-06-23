@@ -1236,7 +1236,83 @@ span.no-word-orphans {
   margin: 40px auto 0;
 }
 .section.highlights {
-  background-color: #F1E5E1;
+  background: linear-gradient(-45deg, rgb(255, 222, 229), rgb(214, 234, 245));
+  background-size: 400% 400%;
+  animation: gradient1 3s ease-in-out infinite;
+}
+@keyframes gradient1 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.section.highlights .overlay1 {
+  background: linear-gradient(-90deg, rgba(224, 224, 240, 0.2), rgba(0, 0, 0, 0.2), rgba(255, 230, 230, 0.2), rgba(255, 230, 230, 0.2));
+  background-size: 400% 400%;
+  animation: gradient2 5s ease-in infinite;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@keyframes gradient2 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+.section.highlights .overlay2 {
+  background: linear-gradient(0deg, rgba(224, 224, 240, 0.2), rgba(245, 251, 124, 0.2), rgba(255, 230, 230, 0.2), rgba(255, 230, 230, 0.2));
+  background-size: 400% 400%;
+  animation: gradient3 7s ease-in infinite;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@keyframes gradient3 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+.section.highlights .overlay3 {
+  background: linear-gradient(120deg, rgba(181, 158, 203, 0.2), rgba(241, 226, 234, 0.2), rgba(209, 178, 252, 0.2));
+  background-size: 400% 400%;
+  animation: gradient4 9s ease-in infinite;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@keyframes gradient4 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 75% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .section.highlights .h2 {
   margin: 0 auto 40px;
@@ -1247,26 +1323,26 @@ span.no-word-orphans {
 }
 @media (prefers-color-scheme: light) {
   .section.highlights .h2--light {
-    color: #151524; /* The Fallback */
-    color: #151524;
+    color: #1A1A7B; /* The Fallback */
+    color: #1a1a7b;
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.highlights .h2--light {
-    color: #151524; /* The Fallback */
-    color: #151524;
+    color: #1A1A7B; /* The Fallback */
+    color: #1a1a7b;
   }
 }
 @media (prefers-color-scheme: light) {
   .section.highlights .h3--light {
-    color: #151524; /* The Fallback */
-    color: rgba(21, 21, 36, 0.6);
+    color: #1A1A7B; /* The Fallback */
+    color: rgba(26, 26, 123, 0.6);
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.highlights .h3--light {
-    color: #151524; /* The Fallback */
-    color: rgba(21, 21, 36, 0.6);
+    color: #1A1A7B; /* The Fallback */
+    color: rgba(26, 26, 123, 0.6);
   }
 }
 .section.highlights .p--light {
@@ -1276,14 +1352,14 @@ span.no-word-orphans {
 }
 @media (prefers-color-scheme: light) {
   .section.highlights .p--light {
-    color: #151524; /* The Fallback */
-    color: #151524;
+    color: #1A1A7B; /* The Fallback */
+    color: #1a1a7b;
   }
 }
 @media (prefers-color-scheme: dark) {
   .section.highlights .p--light {
-    color: #151524; /* The Fallback */
-    color: #151524;
+    color: #1A1A7B; /* The Fallback */
+    color: #1a1a7b;
   }
 }
 .section.highlights .grid-wrapper {

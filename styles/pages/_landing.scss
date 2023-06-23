@@ -599,11 +599,88 @@ span.no-word-orphans {
 	}
 
 	&.highlights {
-		background-color: #F1E5E1;
+		background: linear-gradient(-45deg, rgba(255, 222, 229, 1), rgba(214, 234, 245, 1));
+		background-size: 400% 400%;
+		animation: gradient1 3s ease-in-out infinite;
+		
+		@keyframes gradient1 {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+		
+		.overlay1 {
+			background: linear-gradient(-90deg, rgba(224, 224, 240, 0.2),rgba(0, 0, 0, 0.2), rgba(255, 230, 230, 0.2), rgba(255, 230, 230, 0.2));
+			background-size: 400% 400%;
+			animation: gradient2 5s ease-in infinite;
+			height: 100%;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+		}
+		@keyframes gradient2 {
+			0% {
+				background-position: 50% 0%;
+			}
+			50% {
+				background-position: 50% 100%;
+			}
+			100% {
+				background-position: 50% 0%;
+			}
+		}
+		.overlay2 {
+			background: linear-gradient(0deg, rgba(224, 224, 240, 0.2),rgba(245, 251, 124, 0.2), rgba(255, 230, 230, 0.2), rgba(255, 230, 230, 0.2));
+			background-size: 400% 400%;
+			animation: gradient3 7s ease-in infinite;
+			height: 100%;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+		}
+		@keyframes gradient3 {
+			0% {
+				background-position: 50% 0%;
+			}
+			50% {
+				background-position: 50% 100%;
+			}
+			100% {
+				background-position: 50% 0%;
+			}
+		}
+		.overlay3 {
+			background: linear-gradient(120deg, rgba(181, 158, 203, 0.2),rgba(241, 226, 234, 0.2), rgba(209, 178, 252, 0.2));
+			background-size: 400% 400%;
+			animation: gradient4 9s ease-in infinite;
+			height: 100%;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+		}
+		@keyframes gradient4 {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 75% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 
 		.h2 {
 			margin: 0 auto 40px;
-			
 			text-align: center;
 		}
 		.h3 {
@@ -611,18 +688,18 @@ span.no-word-orphans {
 		}
 		.h2--light {
 			@media (prefers-color-scheme: light) {
-				@include color(#151524, 1);
+				@include color(#1A1A7B, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#151524, 1);
+				@include color(#1A1A7B, 1);
 			}
 		}
 		.h3--light {
 			@media (prefers-color-scheme: light) {
-				@include color(#151524, 0.6);
+				@include color(#1A1A7B, 0.6);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#151524, 0.6);
+				@include color(#1A1A7B, 0.6);
 			}
 		}
 		.p--light {
@@ -631,10 +708,10 @@ span.no-word-orphans {
 			font-size: 24px;
 
 			@media (prefers-color-scheme: light) {
-				@include color(#151524, 1);
+				@include color(#1A1A7B, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#151524, 1);
+				@include color(#1A1A7B, 1);
 			}
 		}
 
