@@ -1159,9 +1159,10 @@ span.no-word-orphans {
 
 	&-cursor {
 		display: inline-block;
-		height: 8.75rem;
+		height: 0rem;
 		padding-right: 0.75rem;
 		position: relative;
+		width: 0rem;
 
 		&:after {
 			@media (prefers-color-scheme: light) {
@@ -1173,10 +1174,10 @@ span.no-word-orphans {
 			border-radius: 0.15rem;
 			content: '';
 			display: inline-block;
-			height: 110%;
+			height: 9rem;
 			pointer-events: none;
 			position: absolute;
-				top: 1.5rem;
+				top: -7.5rem;
 				right: 0rem;
 			width: 0.1rem;
 		}
