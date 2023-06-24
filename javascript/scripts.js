@@ -27,7 +27,6 @@ const bigTitleList = sentenceDissectorFactory(bigTitle);
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
 function unhideBigTitle() {
     const bigTitle = document.getElementById(`big-title`);
     bigTitle.style.opacity = `1`;
@@ -73,9 +72,6 @@ function typeOutBigTitle (bigTitleElement, bigTitleContent) {
 typeOutBigTitle(bigTitleElementSelector, bigTitleList);
 
 
-
-
-
 // Create link objects for later use ...
 
 // Data points ...
@@ -84,12 +80,14 @@ const myLinkedInLink = anchorTagFactory(`Jan Michael`, undefined, `//linkedin.co
 const myWeatherShoesLink =  anchorTagFactory(`${currentShoes}`, undefined, `${searchUrlFull}`, undefined, undefined, undefined, undefined);
 const myWeatherGearLink =  anchorTagFactory(`${currentGear}`, undefined, `${searchUrlFull}`, undefined, undefined, undefined, undefined);
 const myBookLink = anchorTagFactory(`${bookTitle}`, undefined, `${bookLink}`, undefined, undefined, undefined, undefined);
-const myTrackLink = anchorTagFactory(`${trackName}`, undefined, `${spotifyTrackURL}`, undefined, undefined, undefined, undefined);
-const myArtistLink = anchorTagFactory(`${trackArtist}`, undefined, `${spotifyArtistURL}`, undefined, undefined, undefined, undefined);
+let myTrackLink = anchorTagFactory(`${trackName}`, undefined, `${spotifyTrackURL}`, undefined, undefined, undefined, undefined);
+let myArtistLink = anchorTagFactory(`${trackArtist}`, undefined, `${spotifyArtistURL}`, undefined, undefined, undefined, undefined);
 
 // Last update links ...
 const updateStatus = `Data points last updated just now.`;
-const lastUpdated = document.createElement('span'); lastUpdated.setAttribute(`id`, `current-date-time`); lastUpdated.append(updateStatus);
+const lastUpdated = document.createElement('span');
+lastUpdated.setAttribute(`id`, `current-date-time`);
+lastUpdated.append(updateStatus);
 
 // Footer links ...
 const myVitaLink = anchorTagFactory(`Vita`, [`link`, `link--small`, `link--light`,`link--weight-500`], `//github.com/jmwii1981/vita`, undefined, undefined, undefined, undefined);
@@ -99,35 +97,35 @@ const myGithubPagesLink = anchorTagFactory(`Github Pages`, [`link`, `link--small
 const myGithubCommitsLink = anchorTagFactory(`${numberOfCommits} commits`, [`link`, `link--small`, `link--light`,`link--weight-500`], `${githubCommitsUrlFull}`, undefined, undefined, undefined, undefined);
 
 // Content structured
-const myOpening = [
+let myOpening = [
     myLinkedInLink,
 ];
-const myLocation = [
+let myLocation = [
     ` was last seen in `,
     googleMapsLink,
     `, `,
 ];
-const myWeather = [
+let myWeather = [
     ` sporting his `,
     myWeatherShoesLink,
     ` and `,
     myWeatherGearLink,
     `, `,
 ];
-const myReading = [
+let myReading = [
     ` reading `,
     myBookLink,
     ` by `,
     listOfAuthors,
 ];
-const myMusic = [
+let myMusic = [
     `, and vibing to `,
     myTrackLink,
     ` by `,
     myArtistLink,
     `. `,
 ];
-const myVita = [
+let myVita = [
         myVitaLink,
         ` is built with `,
         myGithubCommitsLink,
@@ -139,7 +137,7 @@ const myVita = [
         myCCLicensureLink,
         `.`
 ];
-const lastUpdate = [
+let lastUpdate = [
     lastUpdated,
 ];
 
@@ -181,7 +179,12 @@ footerContent.append(myFooterSentence);
 
 setInterval(function() {
     let rightNowTime = checkDate().rightNowTime;
+
+    // mySentence = fullSentence.push(myOpening, myLocation, myWeather, myReading, myMusic);
+    // mySentence.innerText(mySentence);
     lastUpdated.innerText = `Data points last updated today at ${rightNowTime}.`;
+
+    
 }, 1000);
 
 
