@@ -1041,6 +1041,7 @@ span.no-word-orphans {
   backdrop-filter: blur(10px);
   background: linear-gradient(to bottom, rgba(21, 21, 36, 0.95) 0%, rgba(21, 21, 36, 0.95) 100%);
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
 }
@@ -1061,13 +1062,22 @@ span.no-word-orphans {
   }
 }
 
+.progress-bar-container {
+  background-color: rgba(32, 42, 171, 0.1);
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
 #progress-bar {
   --scrollAmount: 0%;
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   width: var(--scrollAmount);
-  height: 3px;
+  height: 2px;
   position: absolute;
-  bottom: -3px;
+  bottom: 1px;
   left: 0;
 }
 
@@ -1135,6 +1145,40 @@ span.no-word-orphans {
   width: 100%;
 }
 
+.star {
+  background-color: #f0f0f0;
+  width: 1px;
+  height: 1px;
+  position: fixed;
+  border: #f0f0f0 0px solid;
+  border-radius: 100%;
+  opacity: 0;
+  box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.5);
+  animation-name: star-glow;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes star-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 0.5;
+  }
+  35% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
 .main {
   align-items: center;
   display: flex;
