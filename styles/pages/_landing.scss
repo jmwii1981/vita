@@ -1055,7 +1055,6 @@ span.no-word-orphans {
 			border-radius: 100%;
 			display: flex;
 			filter: grayscale(10);
-			opacity: 0;
 			overflow: hidden;
 			height: calc(65vw + 24px);
 			justify-content: center;
@@ -1068,7 +1067,6 @@ span.no-word-orphans {
 
 			&.inView {
 				filter: grayscale(0);
-				opacity: 1;
 			}
 
 			@media only screen and (min-width: 640px) {
@@ -1080,7 +1078,7 @@ span.no-word-orphans {
 
 			& > .avatar-inner {
 				align-items: flex-start;
-				background-color: rgb(51, 148, 227);
+				background-color: rgba(21, 21, 36, 1);
 				border-radius: 100%;
 				display: flex;
 				overflow: hidden;
@@ -1089,6 +1087,10 @@ span.no-word-orphans {
 				position: absolute;
 					top: 12px;
 					left: 12px;
+				transition-property: background-color;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-in;
+				transition-delay: 0s;
 				width: 65vw;	
 
 				@media only screen and (min-width: 640px) {
@@ -1105,6 +1107,11 @@ span.no-word-orphans {
 					display: block;
 					height: 218%;
 					object-fit: cover;
+					opacity: 0;
+					transition-property: opacity;
+					transition-duration: 6s;
+					transition-timing-function: ease-out;
+					transition-delay: 0.3s;
 					width: auto;
 	
 					@media only screen and (min-width: 640px) {
@@ -1112,6 +1119,14 @@ span.no-word-orphans {
 						width: 100%;
 					}
 				}
+			}
+
+			&.inView > .avatar-inner {
+				background-color: rgba(51, 148, 227, 1);
+			}
+
+			&.inView > .avatar-inner > img {
+				opacity: 1;
 			}
 		}
 	}
