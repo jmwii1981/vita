@@ -564,8 +564,11 @@ span.no-word-orphans {
 	}
 
 	&.about {
+		.flowers-background {
+			filter: saturate(200%);
+		}
 		.flowers-background-overlay {
-			background-image: radial-gradient(rgba(21,21,36,0) 0%,rgba(36, 28, 21, 0.5) 100%);
+			background-image: radial-gradient(rgba(21,21,36,0.75) 0%,rgba(21, 21, 36, 1) 90%);
 		}
 		.h2 {
 			background-color: white;
@@ -604,10 +607,10 @@ span.no-word-orphans {
 	}
 
 	&.highlights {
-		background: radial-gradient(ellipse at top, rgba(255, 222, 229, 1),rgba(255, 222, 229, 0)),
-		radial-gradient(ellipse at bottom, rgba(214, 234, 245, 1),rgba(214, 234, 245, 0));
+		background: radial-gradient(ellipse at top, rgba(255, 222, 229, 0.9),rgba(255, 222, 229, 0)),
+		radial-gradient(ellipse at bottom, rgba(107, 46, 140, 0.9),rgba(141, 199, 230, 0.9));
 		background-size: 400% 400%;
-		animation: gradient1 3s ease-in-out infinite;
+		animation: gradient1 12s ease-in-out infinite;
 		
 		@keyframes gradient1 {
 			0% {
@@ -622,11 +625,11 @@ span.no-word-orphans {
 		}
 		
 		.overlay1 {
-			background: radial-gradient(ellipse at top, rgba(224, 224, 240, 0.2),rgba(224, 224, 240, 0)),
-			radial-gradient(ellipse at bottom, rgba(6, 105, 49, 0.2),rgba(0, 0, 0, 0)),
-			radial-gradient(ellipse at left, rgba(78, 9, 135, 0.2),rgba(255, 230, 230, 0)),
-			radial-gradient(ellipse at right, rgba(14, 14, 240, 0.2),rgba(224, 224, 240, 0)),
-			radial-gradient(ellipse at farthest-corner, rgba(8, 186, 218, 0.2),rgba(255, 230, 230, 0));
+			background: radial-gradient(ellipse at top, rgba(224, 224, 240, 0.5),rgba(224, 224, 240, 0)),
+			radial-gradient(ellipse at bottom, rgba(6, 105, 49, 0.5),rgba(0, 0, 0, 0)),
+			radial-gradient(ellipse at left, rgba(78, 9, 135, 0.5),rgba(255, 230, 230, 0)),
+			radial-gradient(ellipse at right, rgba(14, 14, 240, 0.5),rgba(224, 224, 240, 0)),
+			radial-gradient(ellipse at farthest-corner, rgba(8, 186, 218, 0.5),rgba(255, 230, 230, 0));
 			background-size: 400% 400%;
 			animation: gradient2 5s ease-in infinite;
 			height: 100%;
@@ -834,9 +837,11 @@ span.no-word-orphans {
 			// border-style: solid; 
 
 			align-items:center;
+			border-radius: 8px;
 			display: flex;
 			flex-direction: column;
 			justify-content: start;
+			overflow: hidden;
 			text-align: center;
 			width: 100%;
 
@@ -845,7 +850,6 @@ span.no-word-orphans {
 			}
 
 			& > img {
-				border-radius: 8px;
 				height: auto;
 				width: 100%;
 			}
@@ -1325,7 +1329,7 @@ span.no-word-orphans {
 					background-color: #ffffff;
 			}
 			border-color: #ffdcfa;
-			border-width: 1px;
+			border-width: 0.5px;
 			border-style: solid;
 			border-radius: 0.15rem;
 			content: '';
@@ -1334,8 +1338,8 @@ span.no-word-orphans {
 			pointer-events: none;
 			position: absolute;
 				top: -7.5rem;
-				right: -5.5rem;
-			width: 5rem;
+				right: -0.25rem;
+			width: 0.05rem;
 		}
 		&.blink {
 			animation: cursor-blink 0.975s infinite;
@@ -1352,11 +1356,11 @@ span.no-word-orphans {
 // H2 - ANIMATIONS
 @keyframes cursor-blink {
 	0% {
-		opacity: 0.01;
+		opacity: 0;
 		filter: blur(0px);
 	}
 	20% {
-		opacity: 0.01;
+		opacity: 0.001;
 	}
 	35% {
 		opacity: 0.85;
@@ -1366,7 +1370,7 @@ span.no-word-orphans {
 		filter: blur(0.5px);
 	}
 	60% {
-		opacity: 0.01;
+		opacity: 0;
 	}
 	100% {
 		opacity: 0.01;

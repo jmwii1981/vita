@@ -86,7 +86,20 @@
 				</div>
 			</section>
 			<section class="section about">
-				<img id="about-flowers" class="flowers-background" src="/images/dark-flowers.webp">
+				<script>
+					let vid = document.getElementById("about-flowers");
+					
+					function getPlaySpeed() { 
+					  alert(vid.playbackRate);
+					} 
+					
+					function setPlaySpeed() { 
+					  vid.playbackRate = 0.5;
+					} 
+				</script>
+				<video id="about-flowers" class="flowers-background" autoplay muted loop>
+					<source src="/video/vita-bees.mov" type="video/mp4">
+				</video>
 				<div class="flowers-background-overlay"></div>
 				<div class="inner">
 					<h2 class="title-transition h2 h2--light h2--xxx-large h2--lower h2--weight-500 h2--line-height-x-small">About Me</h2>
@@ -197,13 +210,16 @@
 					<h2 class="title-transition h2 h2--light h2--xxx-large h2--lower h2--weight-500 h2--line-height-x-small">Samples</h2>
 					<ul class="grid-wrapper">
 						<li class="content-transition1 grid-block">
-							<img src="/images/marketing-site-sample.webp">
+							<img src="/images/vega-design-system.webp">
 						</li>
 						<li class="content-transition2 grid-block">
-							<img src="/images/admin-app-sample.webp">
+							<img src="/images/figma-intro.webp">
 						</li>
-						<li class="content-transition2 grid-block">
-							<img src="/images/vega-sample.webp">
+						<li class="content-transition3 grid-block">
+							<img src="/images/vision.webp">
+						</li>
+						<li class="content-transition4 grid-block">
+							<img src="/images/color-exploration.webp">
 						</li>
 					</ul>
 			</section>
