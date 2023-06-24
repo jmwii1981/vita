@@ -219,12 +219,17 @@ contentElementsArray = Array.from(contentElementsArray);
 let backgroundElementsArray = document.querySelectorAll(".flowers-background");
 backgroundElementsArray = Array.from(backgroundElementsArray);
 
+let avatarElementArray = document.querySelectorAll("#avatar");
+avatarElementArray = Array.from(avatarElementArray);
+
 let footerLogoElementArray = document.querySelectorAll("#footer-logo");
 footerLogoElementArray = Array.from(footerLogoElementArray);
 
 let elementsArray = titleElementsArray.concat(contentElementsArray);
 elementsArray = Array.from(elementsArray);
 elementsArray = elementsArray.concat(backgroundElementsArray);
+elementsArray = Array.from(elementsArray);
+elementsArray = elementsArray.concat(avatarElementArray);
 elementsArray = Array.from(elementsArray);
 elementsArray = elementsArray.concat(footerLogoElementArray);
 elementsArray = Array.from(elementsArray);

@@ -699,24 +699,32 @@ span.no-word-orphans {
 
 		.h2 {
 			background-color: white;
-			background: -webkit-linear-gradient(-60deg, #2b2b77 0%, #050f46 100%);
-			background-size: 100%;
+			background: -webkit-linear-gradient(80deg, rgba(42, 62, 113, 1) 0%, rgba(4, 25, 80, 0.9) 100%);
+			background-size: 150%;
+			filter: blur(0.5px);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
-			opacity: 0.8;
 			margin: 0 auto 40px;
 			text-align: center;
-			text-shadow: 0 0 2px rgba(24, 26, 165, 0.1), 0 0 3px rgba(210, 71, 71, 0.1), 0 0 4px rgba(105, 171, 238, 0.1), 0 0 5px rgba(42, 40, 46, 0.1), 0 0 6px rgba(25, 15, 39, 0.1);
+			text-shadow: 0 0 1px rgba(250, 250, 250, 0.01), 0 0 2px rgba(250, 250, 250, 0.01), 0 0 3px rgba(250, 250, 250, 0.01), 0 0 4px rgba(250, 250, 250, 0.01), 0 0 5px rgba(250, 250, 250, 0.01);
 		}
+
+		.link {
+			color: #2d3262;
+		}
+
+
+
+
 		.h3 {
 			margin: 0 auto 0.8rem;
 		}
 		.h2--light {
 			@media (prefers-color-scheme: light) {
-				@include color(#1A1A7B, 1);
+				// @include color(#1A1A7B, 1);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#1A1A7B, 1);
+				// @include color(#1A1A7B, 1);
 			}
 		}
 		.h3--light {
@@ -858,12 +866,60 @@ span.no-word-orphans {
 	}
 
 	&.datapoints {
-		.flowers-background-overlay {
-			// background-image: radial-gradient(rgba(241, 229, 225, 0) 0%,rgba(241, 229, 225, 0.5) 100%);
+		.flowers-background {
+			filter: blur(1px);
+			animation: focus 60s ease-in-out infinite;
 		}
+
+		@keyframes focus {
+			0% {
+				filter: blur(1px);
+				transform: scale(1);
+			}
+			15% {
+				filter: blur(20px);
+			}
+			50% {
+				filter: blur(2px);
+				transform: scale(1.1);
+			}
+			65% {
+				filter: blur(5px);
+			}
+			80% {
+				filter: blur(20px);
+			}
+			100% {
+				filter: blur(1px);
+				transform: scale(1);
+			}
+		}
+
+		.flowers-background-overlay {
+			background-image: radial-gradient(rgba(79, 194, 233, 0.5) 0%,rgba(241, 229, 225, 0.75) 50%),
+			radial-gradient(rgba(250, 120, 213, 0.75) 0%,rgba(239, 224, 219, 0.5) 50%);
+			background-size: 400% 400%;
+			animation: gradient6 20s ease-in-out infinite;
+		}
+
+		@keyframes gradient6 {
+			0% {
+				background-size: 400% 400%;
+				background-position: 50% 0%;
+			}
+			50% {
+				background-position: 100% 50%;
+				background-size: 200% 200%;
+			}
+			100% {
+				background-position: 50% 0%;
+				background-size: 400% 400%;
+			}
+		}
+
 		.h2 {
 			background-color: white;
-			background: -webkit-linear-gradient(60deg, rgba(81, 89, 164, 1) 0%, rgba(32, 72, 174, 0.9) 100%);
+			background: -webkit-linear-gradient(80deg, rgba(42, 62, 113, 1) 0%, rgba(4, 25, 80, 0.9) 100%);
 			background-size: 150%;
 			filter: blur(0.5px);
 			-webkit-background-clip: text;
@@ -877,7 +933,7 @@ span.no-word-orphans {
 		}
 
 		.link {
-			color: #5159A4;
+			color: #2d3262;
 		}
 		.h2--dark {
 			// @media (prefers-color-scheme: light) {
@@ -897,10 +953,10 @@ span.no-word-orphans {
 		.p--dark {
 
 			@media (prefers-color-scheme: light) {
-				@include color(#2a3e71, 0.65);
+				@include color(#2a3e71, 0.6);
 			}
 			@media (prefers-color-scheme: dark) {
-				@include color(#2a3e71, 0.65);
+				@include color(#2a3e71, 0.6);
 			}
 		}
 	}
@@ -998,11 +1054,22 @@ span.no-word-orphans {
 			background-image: linear-gradient(to bottom, #84fab0 0%, #8fd3f4 100%);
 			border-radius: 100%;
 			display: flex;
+			filter: grayscale(10);
+			opacity: 0;
 			overflow: hidden;
 			height: calc(65vw + 24px);
 			justify-content: center;
 			position: relative;
+			transition-property: filter;
+			transition-duration: 6s;
+			transition-timing-function: ease-out;
+			transition-delay: 0.3s;
 			width: calc(65vw + 24px);
+
+			&.inView {
+				filter: grayscale(0);
+				opacity: 1;
+			}
 
 			@media only screen and (min-width: 640px) {
 				border-radius: 18px;
@@ -1013,6 +1080,7 @@ span.no-word-orphans {
 
 			& > .avatar-inner {
 				align-items: flex-start;
+				background-color: rgb(51, 148, 227);
 				border-radius: 100%;
 				display: flex;
 				overflow: hidden;

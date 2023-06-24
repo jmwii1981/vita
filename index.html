@@ -88,14 +88,9 @@
 			<section class="section about">
 				<script>
 					let vid = document.getElementById("about-flowers");
-					
-					function getPlaySpeed() { 
-					  alert(vid.playbackRate);
-					} 
-					
-					function setPlaySpeed() { 
-					  vid.playbackRate = 0.5;
-					} 
+					vid.playbackRate = 0.5;
+					vid.muted = true;
+					vid.play();
 				</script>
 				<video id="about-flowers" class="flowers-background" autoplay muted loop>
 					<source src="/video/vita-bees.mov" type="video/mp4">
@@ -235,7 +230,7 @@
 			<section class="section hello">
 				<div class="inner">
 					<div class="inner-wrapper">
-						<div class="avatar">
+						<div id="avatar" class="avatar">
 							<div class="avatar-inner">
 								<img src="images/jan-michael-560x744-old.webp">
 							</div>
