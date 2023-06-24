@@ -1071,6 +1071,14 @@ span.no-word-orphans {
   left: 0;
 }
 
+.header {
+  padding-left: 4rem;
+}
+@media only screen and (min-width: 640px) {
+  .header {
+    padding-left: 0;
+  }
+}
 .header-logo {
   height: 4.25rem;
   width: 4.25rem;
@@ -1451,11 +1459,15 @@ span.no-word-orphans {
   align-items: center;
   border-radius: 8px;
   display: flex;
+  filter: grayscale(90%);
   flex-direction: column;
   justify-content: start;
   overflow: hidden;
   text-align: center;
   width: 100%;
+}
+.section.samples .grid-block:hover {
+  filter: grayscale(0%);
 }
 @media only screen and (min-width: 640px) {
   .section.samples .grid-block {

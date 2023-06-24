@@ -417,6 +417,11 @@ span.no-word-orphans {
 
 // HEADER AND FOOTER LOGO
 .header {
+	padding-left: 4rem;
+
+	@media only screen and (min-width: 640px){
+		padding-left: 0;
+	}
 	&-logo {
 		height: 4.25rem;
 		width: 4.25rem;
@@ -847,11 +852,16 @@ span.no-word-orphans {
 			align-items:center;
 			border-radius: 8px;
 			display: flex;
+			filter: grayscale(90%);
 			flex-direction: column;
 			justify-content: start;
 			overflow: hidden;
 			text-align: center;
 			width: 100%;
+
+			&:hover {
+				filter: grayscale(0%);
+			}
 
 			@media only screen and (min-width: 640px) {
 				width: calc(50% - 16px);
