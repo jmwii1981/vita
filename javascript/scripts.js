@@ -366,7 +366,6 @@ function stickToTop() {
                     x = x / footerLogoElementHeight;
                     x = x * 100 * navBarElementHeightFraction;
                     x = Math.floor(x);
-                    // navBarElement.style.top = `${x}px`;
                     navBarElement.style.transform = `translateY(${x}px)`;
                 }
                 if (windowBottomPosition >= footerLogoElementTopPosition && windowBottomPosition > footerLogoElementBottomPosition) {
@@ -377,24 +376,26 @@ function stickToTop() {
 
             // ... IF SCROLLING UP
             if (navBarElement.getAttribute('data-scroll-direction') == 'scrollingUp') {
+                // IF BOTTOM OF WINDOW LOCATION IS FURTHER UP THE PAE THAN THE FOOTER LOGO'S TOP AND BOTTOM
                 if (windowBottomPosition >= footerLogoElementTopPosition && windowBottomPosition < footerLogoElementBottomPosition) {
                     let increasingValue = windowBottomPosition - footerLogoElementBottomPosition;
                     let x = footerLogoElementHeight + increasingValue;
                     x = x / footerLogoElementHeight;
                     x = x * 100 * navBarElementHeightFraction;
                     x = Math.floor(x) * -1;
+                    // INCREMENTALLY INCREASE THE TOP CSS VALUE
                     navBarElement.style.top = `${x}px`;
-                    // navBarElement.style.top = `${x}px`;
+                    // INCREMENTALLY INCREASE THE TRANSLATEY CSS VALUE
                     navBarElement.style.transform = `translateY(${x}px)`;
-                    // console.log(`going up ${x}`); // this value falls between 0 and 100 which can be used as a percentage later
                 }
-                if (windowBottomPosition <= footerLogoElementTopPosition && windowBottomPosition < footerLogoElementTopPosition) {
-                    // console.log("Cold tamale!");
-                    // navBarElement.style.top = `${footerLogoElementHeight - footerLogoElementHeight}px`;
+                // IF BOTTOM OF WINDOW LOCATION IS WITHIN THE LOGO DIMENSIONS ...
+                if (windowBottomPosition <= footerLogoElementTopPosition && windowBottomPosition <= footerLogoElementTopPosition) {
+                    // RESET TRANSLATEY CSS VALUE
                     navBarElement.style.transform = `translateY(${footerLogoElementHeight - footerLogoElementHeight}px)`;
+                    // RESET TOP CSS VALUE
+                    navBarElement.style.top = `0px`;
                 }
             }
-
         }
     }
 }
@@ -446,34 +447,33 @@ new simpleParallax(datapointsFlowers, {
 
 
 // FOOTER STARS
-function generateRandomPercent(min = 0, max = 100) {
-    const randomInteger = Math.floor(Math.random() * (max + 1));
-    return `${randomInteger}%`;
-  }
-  function generateRadomDelay(interval = 12) {
-    const randomInteger = Math.random() * (interval + 1);
-    return `${randomInteger}s`;
-  }
-  
-  function createStar() {
-    const star = document.createElement("div");
-    star.classList.add("star");
-    star.style.top = generateRandomPercent();
-    star.style.left = generateRandomPercent();
-    star.style.animationDelay = generateRadomDelay();
-    return star;
-  }
-  
-  function renderStars(amount = 20) {
-    const container = document.getElementById("footer-stars");
-    const placeholdersArray = Array(amount).fill("star_placeholder");
-    const starsArray = placeholdersArray.map((starPlacholder, index) =>
-      createStar()
-    );
-    container.prepend(...starsArray);
-  }
-  
-  renderStars();
+// function generateRandomPercent(min = 0, max = 100) {
+//     const randomInteger = Math.floor(Math.random() * (max + 1));
+//     return `${randomInteger}%`;
+// }
+// function generateRadomDelay(interval = 1) {
+//     const randomInteger = Math.random() * (interval + 1);
+//     return `${randomInteger}s`;
+// }
+
+// function createStar() {
+// const star = document.createElement(`div`);
+//         star.classList.add(`star`);
+//         star.style.top = generateRandomPercent();
+//         star.style.left = generateRandomPercent();
+//         star.style.animationDelay = generateRadomDelay();
+//     return star;
+// }
+
+// function renderStars(amount = 30) {
+//     const container = document.getElementById("footer-stars");
+//     const placeholdersArray = Array(amount).fill("star_placeholder");
+//     const starsArray = placeholdersArray.map((starPlacholder, index) => createStar());
+//     container.prepend(...starsArray);
+// }
+
+// renderStars();
+
 
 
 
