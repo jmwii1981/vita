@@ -328,12 +328,12 @@ function stickToTop() {
     windowHeight = window.innerHeight;
     windowBottomPosition = windowTopPosition + windowHeight ;
 
-    console.log(`footerLogoElementHeight = ${footerLogoElementHeight}`);
-    console.log(`footerLogoElementTopPosition = ${footerLogoElementTopPosition}`);
-    console.log(`--------------`);
-    console.log(`windowTopPosition = ${windowTopPosition}`);
-    console.log(`windowHeight = ${windowHeight}`);
-    console.log(`windowBottomPosition = ${windowBottomPosition}`);
+    // console.log(`footerLogoElementHeight = ${footerLogoElementHeight}`);
+    // console.log(`footerLogoElementTopPosition = ${footerLogoElementTopPosition}`);
+    // console.log(`--------------`);
+    // console.log(`windowTopPosition = ${windowTopPosition}`);
+    // console.log(`windowHeight = ${windowHeight}`);
+    // console.log(`windowBottomPosition = ${windowBottomPosition}`);
 
     // IF NOT STICKY
     if (navBarElement.classList.contains("sticky") == false) {
@@ -450,7 +450,7 @@ function generateRandomPercent(min = 0, max = 100) {
     const randomInteger = Math.floor(Math.random() * (max + 1));
     return `${randomInteger}%`;
   }
-  function generateRadomDelay(interval = 3) {
+  function generateRadomDelay(interval = 12) {
     const randomInteger = Math.random() * (interval + 1);
     return `${randomInteger}s`;
   }
@@ -464,7 +464,7 @@ function generateRandomPercent(min = 0, max = 100) {
     return star;
   }
   
-  function renderStars(amount = 38) {
+  function renderStars(amount = 20) {
     const container = document.getElementById("footer-stars");
     const placeholdersArray = Array(amount).fill("star_placeholder");
     const starsArray = placeholdersArray.map((starPlacholder, index) =>
@@ -474,3 +474,92 @@ function generateRandomPercent(min = 0, max = 100) {
   }
   
   renderStars();
+
+
+
+
+
+
+
+
+
+
+// APPLE TV EFFECT
+const cards = document.querySelectorAll(`.wobble`);
+const card = document.querySelector(`.wobble`);
+
+cards.forEach(function(item) {
+    const shineLayer = document.createElement(`div`);
+        shineLayer.classList.add(`shineLayer`);
+        item.append(shineLayer);
+
+        item.addEventListener('mousemove', cardOnMouseMove);
+        item.addEventListener('mouseenter', cardOnMouseEnter);
+        item.addEventListener('mouseleave', cardOnMouseLeave);
+});
+
+function cardOnMouseMove(event) {
+    const card = this;
+    const cardImage = card.getElementsByTagName(`img`)[0];
+
+    const mouseCoord = {
+        x: event.offsetX,
+        y: event.offsetY
+    };
+        mouseCoord.x = mouseCoord.x < 0 ? 0 : mouseCoord.x;
+        mouseCoord.x = mouseCoord.x > card.offsetWidth ? card.offsetWidth : mouseCoord.x;
+        mouseCoord.y = mouseCoord.y < 0 ? 0 : mouseCoord.y;
+        mouseCoord.y = mouseCoord.y > card.offsetHeight ? card.offsetHeight : mouseCoord.y;
+        
+    
+    let transformCard = `scale3d(1.05, 1.05, 1.05) perspective(700px)`;
+        transformCard += ``;
+        transformCard += `rotateX(${((mouseCoord.y / card.offsetHeight) * 18 ) - 9}deg)`;
+        transformCard += ``;
+        transformCard += `rotateY(${(((mouseCoord.x / card.offsetWidth) * 26) - 13) * -1}deg)`;
+        transformCard += ``;
+        transformCard += `translateX(${(((mouseCoord.x / card.offsetWidth) * 6) - 3)}px)`;
+        transformCard += ``;
+        transformCard += `translateY(${(((mouseCoord.y / card.offsetHeight) * 10 ) - 5)}px)`;
+
+        card.style.transform = transformCard;
+
+    
+    let transformCardImage = `rotateX(${((((mouseCoord.y / card.offsetHeight) * 10) - 5) * -1)}deg)`;
+        transformCardImage += ``;
+        transformCardImage += `rotateY(${((((mouseCoord.x / card.offsetWidth) * 26) - 13) * -1)}deg)`;
+
+        cardImage.style.transform = transformCardImage;
+
+    const shineLayer = card.getElementsByClassName(`shineLayer`)[0];
+
+    let backgroundShineLayerOpacity = ((mouseCoord.y / card.offsetHeight) * 0.3) + 0.1;
+    let backgroundShineLayerDegree = (Math.atan2(mouseCoord.y - (card.offsetHeight/2), mouseCoord.x - (card.offsetWidth/2)) * 180/Math.PI) - 90;
+        backgroundShineLayerDegree = backgroundShineLayerDegree < 0 ? backgroundShineLayerDegree += 360 : backgroundShineLayerDegree
+
+    let backgroundShineLayer = `linear-gradient(${backgroundShineLayerDegree}deg, rgba(255, 255, 255, ${backgroundShineLayerOpacity}) 0%, rgba(255, 255, 255, 0) 80%)`;
+        
+        shineLayer.style.background = backgroundShineLayer;
+};
+
+function cardOnMouseEnter() {
+    cards.forEach(function(item) {
+        item.classList.add(`blur`);
+    });
+    this.classList.remove(`blur`);
+    this.classList.add(`highlight`);
+}
+
+function cardOnMouseLeave() {
+    const card = this;
+    const cardImage = card.getElementsByTagName(`img`)[0];
+    const shineLayer = card.getElementsByClassName(`shineLayer`)[0];
+    // Resets
+        card.classList.remove(`highlight`);
+        card.style.transform = `scale3d(1, 1, 1)`;
+        cardImage.style.transform = ``;
+        shineLayer.style.background = `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 80%)`;
+        cards.forEach(function(item) {
+            item.classList.remove(`blur`);
+        });
+}

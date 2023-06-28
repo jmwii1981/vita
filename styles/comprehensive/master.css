@@ -1153,9 +1153,9 @@ span.no-word-orphans {
   border: #f0f0f0 0px solid;
   border-radius: 100%;
   opacity: 0;
-  box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 4px 3px rgba(255, 255, 255, 0.5);
   animation-name: star-glow;
-  animation-duration: 12s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -1501,17 +1501,12 @@ span.no-word-orphans {
 }
 .section.samples .grid-block {
   align-items: center;
-  border-radius: 8px;
   display: flex;
-  filter: grayscale(90%);
   flex-direction: column;
   justify-content: start;
   overflow: hidden;
   text-align: center;
   width: 100%;
-}
-.section.samples .grid-block:hover {
-  filter: grayscale(0%);
 }
 @media only screen and (min-width: 640px) {
   .section.samples .grid-block {
@@ -1520,7 +1515,60 @@ span.no-word-orphans {
 }
 .section.samples .grid-block > img {
   height: auto;
+  object-fit: cover;
   width: 100%;
+}
+.section.samples .grid-block.wobble {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transform: scale3d(1, 1, 1);
+  transition: all 0.2s ease-out;
+}
+.section.samples .grid-block.wobble:hover {
+  cursor: pointer;
+}
+.section.samples .grid-block.wobble > img {
+  border-radius: 8px;
+  -webkit-filter: grayscale(25%);
+  -moz-filter: grayscale(25%);
+  -ms-filter: grayscale(25%);
+  -o-filter: grayscale(25%);
+  filter: grayscale(25%);
+  height: 108%;
+  margin-top: -4%;
+  margin-right: -4%;
+  margin-bottom: -4%;
+  margin-left: -4%;
+  object-fit: cover;
+  transition: all 0.2s ease-out, transform 0.2s ease-out;
+  width: 108%;
+  z-index: -1;
+}
+.section.samples .grid-block.wobble.blur {
+  z-index: -1;
+}
+.section.samples .grid-block.wobble.highlight {
+  -webkit-box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px -1px 6px 1px rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+.section.samples .grid-block.wobble.highlight > img {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  z-index: 2;
+}
+.section.samples .grid-block.wobble > .shineLayer {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 80%);
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+  z-index: 3;
 }
 .section.datapoints .flowers-background {
   filter: blur(1px);
