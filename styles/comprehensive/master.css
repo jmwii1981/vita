@@ -927,6 +927,11 @@ span::selection {
   padding: 0;
 }
 
+.p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .link {
   position: relative;
   text-decoration: none;
@@ -1277,7 +1282,8 @@ span.no-word-orphans {
   }
 }
 .section.about .p {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 650px;
   text-align: center;
 }
@@ -1506,6 +1512,7 @@ span.no-word-orphans {
   flex-direction: column;
   justify-content: start;
   overflow: hidden;
+  position: relative;
   text-align: center;
   width: 100%;
 }
@@ -1519,15 +1526,23 @@ span.no-word-orphans {
   object-fit: cover;
   width: 100%;
 }
+.section.samples .grid-block-sample-link {
+  display: block;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  z-index: 5;
+}
 .section.samples .grid-block.wobble {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   transform: scale3d(1, 1, 1);
   transition: all 0.2s ease-out;
-}
-.section.samples .grid-block.wobble:hover {
-  cursor: pointer;
 }
 .section.samples .grid-block.wobble > img {
   border-radius: 8px;

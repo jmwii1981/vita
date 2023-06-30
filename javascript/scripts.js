@@ -389,7 +389,7 @@ function stickToTop() {
                     navBarElement.style.transform = `translateY(${x}px)`;
                 }
                 // IF BOTTOM OF WINDOW LOCATION IS WITHIN THE LOGO DIMENSIONS ...
-                if (windowBottomPosition <= footerLogoElementTopPosition && windowBottomPosition <= footerLogoElementTopPosition) {
+                if (windowBottomPosition < footerLogoElementTopPosition && windowBottomPosition < footerLogoElementTopPosition) {
                     // RESET TRANSLATEY CSS VALUE
                     navBarElement.style.transform = `translateY(${footerLogoElementHeight - footerLogoElementHeight}px)`;
                     // RESET TOP CSS VALUE
