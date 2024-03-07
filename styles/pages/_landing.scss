@@ -621,6 +621,19 @@ span.no-word-orphans {
 			@include background-color(#151524);
 		}
 		
+		&:after {
+			background-image: url('../../images/pixel-mesh.png');
+			content: '';
+			display: flex;
+			filter: brightness(0.5);
+			height: 100%;
+			opacity: 0.2;
+			pointer-events: none;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+		}
 	}
 
 	&.about {
@@ -1508,11 +1521,11 @@ span.no-word-orphans {
 .h2-tag-line {
 	opacity: 0;
 	filter: blur(0.35px);
-	text-shadow: 0 0 2px rgba(255, 220, 250, 0.1),
-	0 0 3px rgba(255, 220, 250, 0.25),
-	0 0 4px rgba(255, 220, 250, 0.25),
-	0 0 5px rgba(255, 220, 250, 0.25),
-	0 0 6px rgba(255, 220, 250, 0.25);
+	text-shadow: 0 0 2px rgba(255, 220, 250, 0.125),
+	0 0 3px rgba(255, 220, 250, 0.125),
+	0 0 4px rgba(255, 220, 250, 0.125),
+	0 0 5px rgba(255, 220, 250, 0.125),
+	0 0 6px rgba(255, 220, 250, 0.125);
 }
 
 // H2 - POSITIONING
@@ -1533,13 +1546,15 @@ span.no-word-orphans {
 		&:after {
 			@media (prefers-color-scheme: light) {
 					@include background-color($lightmode--lightest-background);
-					background-color: #ffffff;
+					// background-color: #ffffff;
+					background-color: #6265ff;
 			}
 			@media (prefers-color-scheme: dark) {
 					@include background-color($darkmode--lightest-background);
-					background-color: #ffffff;
+					// background-color: #ffffff;
+					background-color: #6265ff;
 			}
-			border-color: #ffdcfa;
+			border-color: #6265ff;
 			border-width: 0.5px;
 			border-style: solid;
 			border-radius: 0.15rem;
@@ -1550,7 +1565,7 @@ span.no-word-orphans {
 			position: absolute;
 				top: -7.5rem;
 				right: -0.25rem;
-			width: 0.05rem;
+			width: 0.15rem;
 		}
 		&.blink {
 			animation: cursor-blink 0.975s infinite;
@@ -1578,7 +1593,7 @@ span.no-word-orphans {
 	}
 	55% {
 		opacity: 1;
-		filter: blur(0.5px);
+		filter: blur(0.05px);
 	}
 	60% {
 		opacity: 0;
