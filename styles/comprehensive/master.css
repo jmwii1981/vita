@@ -392,7 +392,13 @@ a:focus {
   flex-direction: column;
   margin: 0 auto;
   padding: 16rem 5rem 12rem;
+  gap: 1rem;
   width: 100%;
+}
+.footer .a, .footer .p {
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1;
 }
 .nav-container {
   display: flex;
@@ -498,44 +504,21 @@ a:focus {
   left: 0;
 }
 
-.social-list {
+.social-links-container {
   align-self: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: space-between;
-  list-style: none;
   margin: 0 auto;
   padding: 0;
 }
-.social-list-item {
-  display: flex;
-  height: 4rem;
-  width: 4rem;
-}
-.social-list-item-icon {
-  display: flex;
-  height: 4rem;
-  width: 4rem;
-}
-@media (prefers-color-scheme: light) {
-  .social-list-item-icon {
-    fill: #EEF2F6; /* The Fallback */
-    fill: #eef2f6;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .social-list-item-icon {
-    fill: #EEF2F6; /* The Fallback */
-    fill: #eef2f6;
-  }
-}
-.social-list-item-link {
-  display: flex;
-  text-decoration: none;
-  height: 4rem;
-  width: 4rem;
+
+.social-icon,
+.social-icon img {
+  height: 2.75rem;
+  width: 2.75rem;
 }
 
 .arrow-link {
