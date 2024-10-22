@@ -161,7 +161,10 @@ a {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	position: relative;
+	margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 56px;
+    position: relative;
 	width: 100%;
 	z-index: 1;
 }
@@ -211,14 +214,30 @@ a {
     padding: 0rem;
   }
   
-  .tab {
+  .tab-container {
     list-style: none;
     margin: 0;
-    padding: 1rem;
+    padding: .5rem 2rem;
+    position: relative;
   }
 
-// GLOBAL LOGO
+  .tab {
+    font-weight: 500;
+  }
 
+ // TAB DECORATIONS
+ .padlock {}
+ 
+ .sparkle {
+    position: absolute;
+        top: 0.25rem;
+        right: 1.4rem;
+    path {
+        fill:#2B849D;
+    }
+ }
+
+  // GLOBAL LOGO
 .logo-container {
     display: flex;
     position: relative;
