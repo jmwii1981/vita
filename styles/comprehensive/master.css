@@ -409,6 +409,17 @@ a:focus {
   display: flex;
   margin: 4rem 0 0;
   padding: 0 0 1rem;
+  position: relative;
+}
+.nav-container:after {
+  background-color: #2B849D;
+  border-radius: 5px;
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: calc(1rem + 3px);
+  left: 17.25rem;
+  width: 8.45rem;
 }
 
 .nav {
