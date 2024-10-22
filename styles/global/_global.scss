@@ -181,10 +181,14 @@ a {
 	width: 100%;
 
     .a,.p {
+        color: #2B849D;
         margin: 0 auto;
         padding: 0;
         line-height: 1;
         text-align: center;
+    }
+    .a {
+        font-weight: 500;
     }
 
 	@media only screen and (min-width: 640px) {
@@ -317,7 +321,7 @@ a {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	justify-content: space-between;
-	margin: 0 auto;
+	margin: -0.5rem auto;
 	padding: 0;
 }
 .social-icon,

@@ -396,10 +396,14 @@ a:focus {
   width: 100%;
 }
 .footer .a, .footer .p {
+  color: #2B849D;
   margin: 0 auto;
   padding: 0;
   line-height: 1;
   text-align: center;
+}
+.footer .a {
+  font-weight: 500;
 }
 .nav-container {
   display: flex;
@@ -512,7 +516,7 @@ a:focus {
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: -0.5rem auto;
   padding: 0;
 }
 
