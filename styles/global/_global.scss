@@ -1,0 +1,360 @@
+//** TODO **//
+@use "../../styles/tokens/tokens_colors_darkmode" as *;
+@use "../../styles/tokens/tokens_colors_lightmode" as *;
+@use "../../styles/tokens/tokens_global" as *;
+@use "../../styles/tokens/tokens_mixins" as *;
+
+//***********************************************************//
+//**                  GLOBAL TYPOGRAPHY                    **//
+//***********************************************************//
+
+// selection color(s)
+img::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+a::selection,
+span::selection {
+	@media (prefers-color-scheme: light) {
+			@include background-color(#2B849D, 0.25);
+	}
+	@media (prefers-color-scheme: dark) {
+			@include background-color($darkmode--darkest-background, 0.25);
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: #343339;
+}
+
+a {
+    color: #2B849D;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+	outline-offset: 0rem;
+	outline-style: solid;
+	outline-width: 0rem;
+	transition-duration: 0.3s, 0.3s;
+	transition-property: outline-color, outline-offset;
+	transition-timing-function: ease-out, ease-out;
+
+	&:focus {
+		border-radius: 0.2rem;
+		outline-offset: 0.2rem;
+		outline-width: 0.3rem;
+	}
+
+	&--light:focus,
+	&--border-light:focus {
+		@media (prefers-color-scheme: light) {
+				// @include outline-color($lightmode--light-outline-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				// @include outline-color($darkmode--light-outline-color);
+		}
+	}
+
+	&--dark:focus,
+	&--border-dark:focus {
+		@media (prefers-color-scheme: light) {
+				// @include outline-color($lightmode--darkest-outline-color);
+		}
+		@media (prefers-color-scheme: dark) {
+				// @include outline-color($darkmode--darkest-outline-color);
+		}
+	}
+}
+
+//***********************************************************//
+//**                CONTEXTUAL TYPOGRAPHY                  **//
+//***********************************************************//
+
+.header {
+    .h1 {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.15;
+        margin: 2rem auto 0;
+    }
+    .h2 {
+       font-size: 18px;
+       font-weight: 400;
+       line-height: 1.5;
+       margin: 0 auto;
+    }
+    .p {
+        color: #666666;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0 auto;
+
+        .decorative {
+            font-weight: 200;
+        }
+    }
+    .a {
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+//***********************************************************//
+//**                     GLOBAL LAYOUT                     **//
+//***********************************************************//
+
+// DOCUMENT CONTAINER
+.html {
+	align-items: flex-start;
+    display: flex;
+	font-family: "Heebo", "Helvetica neue", Helvetica, Verdana, Sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	image-rendering: -webkit-optimize-contrast;
+	justify-content: center;
+	overflow-x: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+
+	@media only screen and (min-width: 640px) {
+		// font-size: 62.5%;
+	}
+}
+
+// BODY CONTAINER
+.body {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+// HEADER CONTAINER
+.header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 4rem;
+    position: relative;
+    width: 100%;
+}
+
+// MAIN CONTENT WRAPPER
+.main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+// FOOTER CONTAINER
+.footer {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: space-between;
+	margin: 0 auto;
+	// overflow: hidden;
+	padding: 6rem 5rem 12rem;
+	// position: relative;
+	width: 100%;
+
+	@media only screen and (min-width: 640px) {
+
+	}
+
+	@media (prefers-color-scheme: light) {
+	}
+	@media (prefers-color-scheme: dark) {
+	}
+}
+
+//***********************************************************//
+//**               GLOBAL DESIGN ELEMENTS                  **//
+//***********************************************************//
+
+// NAVIGATION TABS
+.nav-container {
+    display: flex;
+    margin: 4rem 0 0;
+    padding: 0 0 1rem;
+}
+
+.nav {
+    border-color: #D3D3D3;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0rem;
+  }
+  
+  .tab {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+  }
+
+// GLOBAL LOGO
+
+.logo-container {
+    display: flex;
+    position: relative;
+}
+
+.half-oval {
+    content: "";
+    background-color: #F8FAFD;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 12rem;
+    position: absolute;
+        top: 0rem; /* Position the square inside the parent */
+        left: -25%;
+        right: -25%;
+    width: 150%; /* Adjust the size as needed */
+    z-index: 0;
+  }
+
+.logo {
+    display: flex;
+    margin: 0;
+    position: relative;
+    pointer-events: all;
+
+    &.large {
+        height: 9.5rem;
+        width: 9.5rem;
+    }
+    &.small {
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline-offset: 0.5rem;
+    }
+}
+
+// PROGRESS BAR
+.progress-bar-container {
+	background-color: rgba(32, 42, 171, 0.1);
+	height: 3px;
+	width: 100%;
+	position: absolute;
+		bottom: -3px;
+		left: 0;
+}
+#progress-bar {
+	--scrollAmount: 0%;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+	width: var(--scrollAmount);
+	height: 2px;
+	position: absolute;
+		bottom: 1px;
+		left: 0;
+}
+
+// SOCIAL LIST
+.social-list {
+	align-self: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: space-between;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+
+	&-item {
+		display: flex;
+		height: 4rem;
+		width: 4rem;
+
+		&-icon {
+			@media (prefers-color-scheme: light) {
+					@include fill($lightmode--darkest-fill, 1);
+			}
+			@media (prefers-color-scheme: dark) {
+					@include fill($lightmode--darkest-fill, 1);
+			}
+			display: flex;
+			height: 4rem;
+			width: 4rem;
+		}
+
+		&-link {
+			display: flex;
+			text-decoration: none;
+			height: 4rem;
+			width: 4rem;
+		}
+	}
+}
+
+
+//***********************************************************//
+//**                      MEDIA QUERIES                    **//
+//***********************************************************//
+
+// EXAMPLE OF HOW TO SEPARATE STYLES OUT INTO MEDIA QUERIES
+//		@import url("/inc/Styles/full.css") (min-width: 940px);
+
+// EXAMPLE OF ACCESSIBLE MEDIA QUERY
+// 		@media (prefers-reduced-motion: reduce) {
+//			.Toggle__display {
+//			transition-duration: 0ms;
+//			}
+//		}
+
+
+// MOBILE - PORTRAIT //
+@media only screen and (pointer: coarse) and (orientation: portrait) and (min-device-width: 0px) {
+	// Silence is golden.
+}
+
+// MOBILE - LANDSCAPE //
+@media only screen and (pointer: coarse) and (orientation: landscape) and (min-device-width: 0px) {
+	// Silence is golden.
+}
+
+
+// HOVER CAPABILITIES ONLY ** ** //
+@media only screen and (hover: hover) {
+	// Silence is golden.
+}
+
+// PREFERS REDUCED MOTION (EXAMPLES)
+//   (ENTER CODE HERE)
+// }
+
+// @media (prefers-reduced-motion) {
+//   .animation {
+//     animation-name: dissolve;
+//   }
+// }
