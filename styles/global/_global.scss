@@ -174,11 +174,8 @@ a {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-	justify-content: space-between;
 	margin: 0 auto;
-	// overflow: hidden;
-	padding: 6rem 5rem 12rem;
+	padding: 16rem 5rem 12rem;
 	// position: relative;
 	width: 100%;
 
@@ -226,9 +223,15 @@ a {
   }
 
  // TAB DECORATIONS
- .padlock {}
+ .padlock {
+    pointer-events: none;
+    position: absolute;
+        top: 0.67rem;
+        left: 1.1rem;
+ }
  
  .sparkle {
+    pointer-events: none;
     position: absolute;
         top: 0.25rem;
         right: 1.4rem;
@@ -251,9 +254,9 @@ a {
     height: 12rem;
     position: absolute;
         top: 0rem; /* Position the square inside the parent */
-        left: -25%;
-        right: -25%;
-    width: 150%; /* Adjust the size as needed */
+        left: -12.5%;
+        right: -12.5%;
+    width: 125%; /* Adjust the size as needed */
     z-index: 0;
   }
 
@@ -290,7 +293,7 @@ a {
 }
 #progress-bar {
 	--scrollAmount: 0%;
-	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+	background-image: linear-gradient(120deg, #2B849D 0%, #2B849D 100%);
 	width: var(--scrollAmount);
 	height: 2px;
 	position: absolute;
@@ -336,6 +339,36 @@ a {
 	}
 }
 
+// ARROW LINKS
+.arrow-link {
+    font-weight: 500;
+    position: relative;
+
+    &:before {
+        content:'';
+        background-color: #fff;
+        border-radius: 100%;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.15);
+        height: 4rem;
+        position: absolute;
+            top: -1.45rem;
+            left: calc(100% + 1rem);
+        width: 4rem;
+        z-index: 0;
+    }
+    &:after {
+        background-image: url('/icons/svg/arrow.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        content: '';
+        height: 1.7rem;
+        position: absolute;
+            top: -0.4rem;
+            left: calc(100% + 2.1rem);
+        width: 1.7rem;
+        z-index: 100;
+    }
+}
 
 //***********************************************************//
 //**                      MEDIA QUERIES                    **//
